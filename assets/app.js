@@ -625,20 +625,72 @@ function positionChartTooltip(container, tooltip, e) {
 // 類似軌跡検索 (similarity)
 // =========================================================================
 
-// 各 milestone を [0,1] の x 軸, 各順位を [0,1] の y 軸に正規化した点列を返す。
-// rank_history が null の milestone はスキップ (点を打たない)。
-function buildTrajectory(trainee, season) {
-  if (!season || !Array.isArray(season.ranking_milestones)) return null;
+// シーズン内のアンカー milestone (p1 + 順位発表式) を出現順に返す。
+// 時系列アライメントの基準点として使う。
+function seasonAnchors(season) {
+  if (!season || !Array.isArray(season.ranking_milestones)) return [];
+  return season.ranking_milestones
+    .filter(m => m.key === 'p1' || m.ceremony === true)
+    .map(m => m.key);
+}
+
+// 基準シーズンの warping: アンカーを [0,1] に等間隔配置し、
+// アンカー間の中間 milestone (p-eval) はその区間内のインデックス比で配置する。
+// 戻り値: { [milestoneKey]: canonicalX } 辞書。
+function buildBaseWarping(season) {
+  const anchors = seasonAnchors(season);
+  if (anchors.length < 2) return null;
+  const positions = {};
+  anchors.forEach((k, ai) => { positions[k] = ai / (anchors.length - 1); });
+  return fillSegmentsBetweenAnchors(season, anchors, positions);
+}
+
+// 候補シーズンの warping: 基準シーズンと共通のアンカーが基準と同じ canonical x に来るように配置。
+// 共通アンカーから外れる前後 (例: SHINSEKAI に rcF が無い時の基準側 rcF 以降) の milestone は未割当 → 比較対象外。
+function buildCandidateWarping(candSeason, baseWarping) {
+  if (!candSeason || !Array.isArray(candSeason.ranking_milestones) || !baseWarping) return null;
+  const candAnchorKeys = seasonAnchors(candSeason);
+  const sharedAnchors = candAnchorKeys.filter(k => baseWarping[k] != null);
+  if (sharedAnchors.length < 2) return null;
+  const positions = {};
+  sharedAnchors.forEach(k => { positions[k] = baseWarping[k]; });
+  return fillSegmentsBetweenAnchors(candSeason, sharedAnchors, positions);
+}
+
+// `anchorKeys` 間に挟まれる milestone を、区間内のインデックス比で線形補間配置する内部ヘルパー。
+// アンカーより前 / 後の milestone は未割当のまま (= 比較対象外)。
+function fillSegmentsBetweenAnchors(season, anchorKeys, positions) {
   const milestones = season.ranking_milestones;
-  if (milestones.length < 2) return null;
-  const denomX = milestones.length - 1;
+  const anchorIdx = anchorKeys.map(k => milestones.findIndex(m => m.key === k));
+  if (anchorIdx.some(i => i < 0)) return null;
+  for (let ai = 0; ai < anchorKeys.length - 1; ai++) {
+    const startIdx = anchorIdx[ai];
+    const endIdx = anchorIdx[ai + 1];
+    const startX = positions[anchorKeys[ai]];
+    const endX = positions[anchorKeys[ai + 1]];
+    const segLen = endIdx - startIdx;
+    for (let i = startIdx + 1; i < endIdx; i++) {
+      const localFrac = (i - startIdx) / segLen;
+      positions[milestones[i].key] = startX + (endX - startX) * localFrac;
+    }
+  }
+  return positions;
+}
+
+// warping に基づき、各 milestone を warped x × normalized y の点列に変換する。
+// warping に含まれない milestone (アンカー外側) や rank_history が null の milestone はスキップ。
+function buildAlignedTrajectory(trainee, season, warping) {
+  if (!season || !Array.isArray(season.ranking_milestones) || !warping) return null;
   const denomY = Math.max(1, (season.total_trainees || 101) - 1);
   const points = [];
-  milestones.forEach((m, i) => {
+  season.ranking_milestones.forEach(m => {
+    const x = warping[m.key];
+    if (x == null) return;
     const r = trainee.rank_history && trainee.rank_history[m.key];
     if (r == null) return;
-    points.push({ x: i / denomX, y: (r - 1) / denomY });
+    points.push({ x, y: (r - 1) / denomY });
   });
+  points.sort((a, b) => a.x - b.x);
   return points.length >= 2 ? points : null;
 }
 
@@ -676,38 +728,50 @@ function trajectoryDistance(a, b, opts = {}) {
 }
 
 // 全シーズン (または同一シーズン) の練習生から類似トップ N を返す。
+// 各候補シーズンに対して基準シーズンと共通のアンカー (p1 + 順位発表式) を抽出し、
+// それを使って候補シーズンの milestone を基準の canonical x に warp してから距離を取る。
+// 結果には warp 済み軌跡 (`traj`) を含めるので、後段のチャート描画はそのまま使える。
 function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
-  const { topN = 10, sameSeasonOnly = false, N = 16 } = opts;
+  const { topN = 10, sameSeasonOnly = false } = opts;
   const baseSeason = seasonData[baseSeasonId];
   if (!baseSeason || !baseSeason.trainees) return [];
+  const baseWarping = buildBaseWarping(baseSeason);
+  if (!baseWarping) return [];
   const baseTrainee = baseSeason.trainees.find(t => t.image_id === baseImageId);
   if (!baseTrainee) return [];
-  const baseTraj = buildTrajectory(baseTrainee, baseSeason);
+  const baseTraj = buildAlignedTrajectory(baseTrainee, baseSeason, baseWarping);
   if (!baseTraj) return [];
-  const baseSampled = resampleTrajectory(baseTraj, N);
 
   const results = [];
   Object.entries(seasonData).forEach(([sid, s]) => {
     if (!s || !s.trainees) return;
     if (sameSeasonOnly && sid !== baseSeasonId) return;
+    const candWarping = (sid === baseSeasonId)
+      ? baseWarping
+      : buildCandidateWarping(s, baseWarping);
+    if (!candWarping) return;
+    const sharedAnchorCount = seasonAnchors(s).filter(k => baseWarping[k] != null).length;
+    const N = Math.max(32, sharedAnchorCount * 8);
+    const baseSampled = resampleTrajectory(baseTraj, N);
     s.trainees.forEach(t => {
       if (sid === baseSeasonId && t.image_id === baseImageId) return;
-      const traj = buildTrajectory(t, s);
+      const traj = buildAlignedTrajectory(t, s, candWarping);
       if (!traj) return;
       const sampled = resampleTrajectory(traj, N);
       const d = trajectoryDistance(baseSampled, sampled);
       if (d == null) return;
-      results.push({ trainee: t, seasonId: sid, distance: d });
+      results.push({ trainee: t, seasonId: sid, distance: d, traj });
     });
   });
   results.sort((a, b) => a.distance - b.distance);
   return results.slice(0, topN);
 }
 
-// 共通グリッドに resample した 2 軌跡で最大乖離が出た位置を、基準シーズンの milestone に紐付けて返す。
-function computeWorstMilestone(baseTraj, otherTraj, baseMilestones) {
-  if (!baseTraj || !otherTraj || !baseMilestones || baseMilestones.length < 2) return null;
-  const N = Math.max(16, baseMilestones.length * 4);
+// 共通グリッドに resample した 2 軌跡で最大乖離が出た canonical x を、
+// baseWarping で基準シーズンの最近接 milestone に逆引きして返す。
+function computeWorstMilestone(baseTraj, otherTraj, baseMilestones, baseWarping) {
+  if (!baseTraj || !otherTraj || !baseMilestones || baseMilestones.length < 2 || !baseWarping) return null;
+  const N = Math.max(32, baseMilestones.length * 4);
   const baseS = resampleTrajectory(baseTraj, N);
   const otherS = resampleTrajectory(otherTraj, N);
   let worstIdx = -1, worstDiff = 0;
@@ -718,18 +782,21 @@ function computeWorstMilestone(baseTraj, otherTraj, baseMilestones) {
   }
   if (worstIdx < 0) return null;
   const xn = worstIdx / (N - 1);
-  let closestIdx = 0, minDist = Infinity;
-  baseMilestones.forEach((m, i) => {
-    const mx = baseMilestones.length === 1 ? 0.5 : i / (baseMilestones.length - 1);
+  let closest = null, minDist = Infinity;
+  baseMilestones.forEach(m => {
+    const mx = baseWarping[m.key];
+    if (mx == null) return;
     const dx = Math.abs(mx - xn);
-    if (dx < minDist) { minDist = dx; closestIdx = i; }
+    if (dx < minDist) { minDist = dx; closest = m; }
   });
-  return { milestone: baseMilestones[closestIdx], normalizedDiff: worstDiff };
+  if (!closest) return null;
+  return { milestone: closest, normalizedDiff: worstDiff };
 }
 
 // 類似モーダル用の SVG オーバーレイチャート。基準軌跡 (黒太線) + 選択中の類似軌跡を重ねる。
 // baseEntry / entries はいずれも { trainee, seasonId, traj, rank?, color? } を持つ。
-function buildSimilarityChartSvg(baseEntry, entries, baseMilestones) {
+// X 軸 tick は baseMilestones を baseWarping で warped x 位置に並べる。
+function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping) {
   const W = 600, H = 260;
   const padL = 48, padR = 96, padT = 14, padB = 28;
   const innerW = W - padL - padR;
@@ -786,10 +853,10 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones) {
     <text x="${(padL - 6).toFixed(1)}" y="${(yAt(yMax) - 2).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">${bottomRank}位↓</text>
   `;
 
-  // X軸 tick (基準シーズンの milestone)
-  const Nm = baseMilestones.length;
-  const xTicks = baseMilestones.map((m, i) => {
-    const xn = Nm === 1 ? 0.5 : i / (Nm - 1);
+  // X軸 tick (基準シーズンの milestone, baseWarping で warped x に配置)
+  const xTicks = baseMilestones.map(m => {
+    const xn = baseWarping ? baseWarping[m.key] : null;
+    if (xn == null) return '';
     const x = xAt(xn);
     const cer = !!m.ceremony;
     return `
@@ -859,21 +926,19 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones) {
   </svg>`;
 }
 
-// 類似結果に traj + 表示色を付与。Top 5 を default で `chartOn = true` にする。
+// 類似結果に表示色 / 順位 / 表示 ON/OFF を付与。traj は similarTrainees で warp 済みのものをそのまま使う。
 function decorateSimilarityResults(results, defaultOn = 5) {
   return results.map((r, i) => {
-    const season = seasonData[r.seasonId];
-    const traj = buildTrajectory(r.trainee, season);
     const { color } = chartLineStyle(i);
-    return { ...r, traj, color, rank: i + 1, chartOn: i < defaultOn };
+    return { ...r, color, rank: i + 1, chartOn: i < defaultOn };
   });
 }
 
-function refreshSimilarityChart(root, baseEntry, decorated, baseMilestones) {
+function refreshSimilarityChart(root, baseEntry, decorated, baseMilestones, baseWarping) {
   const active = decorated.filter(r => r.chartOn && r.traj && r.traj.length >= 2);
   const container = root.querySelector('.sim-chart-container');
   if (container) {
-    container.innerHTML = buildSimilarityChartSvg(baseEntry, active, baseMilestones);
+    container.innerHTML = buildSimilarityChartSvg(baseEntry, active, baseMilestones, baseWarping);
   }
   // List 側の dot 表示を同期
   decorated.forEach(r => {
@@ -923,14 +988,14 @@ function clearSimLineHighlight(root) {
   });
 }
 
-function showSimTooltip(root, tooltip, entry, baseEntry, baseMilestones) {
+function showSimTooltip(root, tooltip, entry, baseEntry, baseMilestones, baseWarping) {
   if (!entry || !baseEntry) return;
   const name = escapeHtml(entry.trainee.name_jp || entry.trainee.name_romaji || '?');
   const sCfg = SEASON_CONFIG[entry.seasonId];
   const seasonChip = `<span class="text-[10px] px-1.5 py-0.5 rounded bg-${sCfg.tw}-100 text-${sCfg.tw}-700 font-bold">${escapeHtml(sCfg.short)}</span>`;
   const simPct = Math.max(0, (1 - Math.min(1, entry.distance)) * 100).toFixed(1);
 
-  const worst = computeWorstMilestone(baseEntry.traj, entry.traj, baseMilestones);
+  const worst = computeWorstMilestone(baseEntry.traj, entry.traj, baseMilestones, baseWarping);
   let worstLine = '';
   if (worst) {
     const mShort = escapeHtml(worst.milestone.short || worst.milestone.key);
@@ -987,9 +1052,10 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
 
   const cfg = SEASON_CONFIG[seasonId];
   const baseMilestones = Array.isArray(season.ranking_milestones) ? season.ranking_milestones : [];
+  const baseWarping = buildBaseWarping(season);
   const results = similarTrainees(seasonId, imageId, { topN: 10, sameSeasonOnly: filter === 'same' });
   const decorated = decorateSimilarityResults(results, 5);
-  const baseTraj = buildTrajectory(baseTrainee, season);
+  const baseTraj = baseWarping ? buildAlignedTrajectory(baseTrainee, season, baseWarping) : null;
   const baseEntry = { trainee: baseTrainee, seasonId, traj: baseTraj };
 
   const baseTpl = season.image_url_template || DEFAULT_IMAGE_TEMPLATE[seasonId];
@@ -1064,7 +1130,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
         </div>
         <div class="sim-chart-counter text-[10px] text-gray-400 font-display">${initialActive.length} / ${decorated.length} 名を重ね描画中</div>
       </div>
-      <div class="sim-chart-container relative">${buildSimilarityChartSvg(baseEntry, initialActive, baseMilestones)}</div>
+      <div class="sim-chart-container relative">${buildSimilarityChartSvg(baseEntry, initialActive, baseMilestones, baseWarping)}</div>
       <div class="sim-chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[240px]"></div>
       <p class="text-[10px] text-gray-400 mt-1">
         Y軸=順位 (表示中の軌跡の範囲に自動ズーム、基準シーズン ${escapeHtml(cfg.short)} の総数で換算)。X軸 tick は基準シーズンの milestone。
@@ -1108,7 +1174,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
   `;
 
   // 描画状態を root に保持して、イベントハンドラから参照できるようにする
-  root._simState = { baseEntry, decorated, baseMilestones };
+  root._simState = { baseEntry, decorated, baseMilestones, baseWarping };
 
   bindSimilarityModalEvents(root, seasonId, imageId);
 }
@@ -1166,7 +1232,7 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
       const entry = root._simState.decorated.find(r => r.trainee.image_id === iid);
       if (!entry || !entry.traj || entry.traj.length < 2) return;
       entry.chartOn = !entry.chartOn;
-      refreshSimilarityChart(root, root._simState.baseEntry, root._simState.decorated, root._simState.baseMilestones);
+      refreshSimilarityChart(root, root._simState.baseEntry, root._simState.decorated, root._simState.baseMilestones, root._simState.baseWarping);
     });
   });
 
@@ -1199,7 +1265,7 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
         tooltip.classList.remove('hidden');
       } else {
         const entry = idMap.get(iid);
-        if (entry) showSimTooltip(root, tooltip, entry, state.baseEntry, state.baseMilestones);
+        if (entry) showSimTooltip(root, tooltip, entry, state.baseEntry, state.baseMilestones, state.baseWarping);
       }
     });
     chartContainer.addEventListener('mousemove', (e) => {

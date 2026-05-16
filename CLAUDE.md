@@ -40,11 +40,15 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
      - **サイズ**: `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
      - **エンドポイントラベル**: `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - **deconflictLabels()**: メインチャートからは外したが、類似度オーバーレイチャートのエンドポイントラベル衝突回避で再活用中 (forward/backward pass 実装)。
-     - **類似軌跡検索**: 各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。`buildTrajectory()` で各練習生の `rank_history` を [0,1] × [0,1] (x = milestone index / N-1、y = (rank-1) / (total_trainees-1)) に正規化 → `resampleTrajectory()` で共通 16 点グリッドに線形補間 → `trajectoryDistance()` が重なるグリッド点での平均絶対差を返す。シーズン数/milestone 数が違っても比較可能。「全シーズン / このシーズンのみ」トグル付き。同シーズン結果は「チャートに追加」、別シーズン結果は「シーズンを開く」で再帰的に基準切替。
-       - **オーバーレイチャート** (`buildSimilarityChartSvg`): モーダル上部に基準軌跡 (黒太線 stroke=3.5) + 類似 Top N を CHART_COLORS で重ね描画。座標系は正規化 [0,1]×[0,1] でシーズン差を吸収、サイズ W=600 / H=260、X軸 tick は **基準シーズンの milestone** を表示。Top 11 帯は省略 (シーズン総数差で誤読リスクのため)。
+     - **類似軌跡検索**: 各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。**Landmark-based piecewise-linear warping** で時系列をアライメント:
+       - `seasonAnchors(season)` が `p1` + `ceremony: true` の milestone を抽出 (= 全シーズン共通の semantic landmark)。基準シーズンの `buildBaseWarping()` がアンカーを `[0, 1]` に等間隔配置し、間の p-eval は区間内のインデックス比で warped x を割り振る。
+       - 候補シーズンの `buildCandidateWarping(candSeason, baseWarping)` は基準と共通するアンカーが **基準と同じ canonical x** に来るように配置。共通アンカーから外側 (例: SHINSEKAI が base で完結シーズンの `rcF` 以降) の milestone は未割当 → 比較対象外。
+       - `buildAlignedTrajectory(trainee, season, warping)` が warped x × `(rank-1)/(total-1)` の点列を返し、`resampleTrajectory()` で `N = max(32, 共通アンカー数 * 8)` 点に線形補間 → `trajectoryDistance()` が MAE + overlap penalty を返す。シーズン数/milestone 数が違っても、`rc1` ↔ `rc1` のように **意味の合う milestone 同士で比較**される。
+       - 「全シーズン / このシーズンのみ」トグル付き。同シーズン結果は「チャートに追加」、別シーズン結果は「シーズンを開く」で再帰的に基準切替。
+       - **オーバーレイチャート** (`buildSimilarityChartSvg`): モーダル上部に基準軌跡 (黒太線 stroke=3.5) + 類似 Top N を CHART_COLORS で重ね描画。座標系は canonical [0,1]×[0,1]、サイズ W=600 / H=260、X軸 tick は **基準シーズンの milestone を `baseWarping` 経由の warped x 位置** に配置 (例: Season 1 では `RC1` は中央左寄り x=0.333、`RC2` は中央右寄り x=0.667)。Top 11 帯は省略 (シーズン総数差で誤読リスクのため)。
        - **Y軸自動ズーム**: 描画する全軌跡から `yMin`/`yMax` を取り、上下 8% padding + 最低 0.18 の縦範囲を確保した上で、`yAt(yn) = padT + ((yn - yMin) / yRange) * innerH` でマッピング。軸ラベルは基準シーズンの `total_trainees` で実順位に逆変換し `↑10位` / `48位↓` のように表示。これで全員 Top 30 内のような場合でも縦に広がる (固定 [0,1] だと上半分に詰まる問題への対応)。
-       - **表示 ON/OFF トグル**: 結果リスト各行に ● ドット (`sim-toggle-dot`) を付与、デフォルトで Top 5 が `chartOn=true`。クリックで描画 ON/OFF を切替、`refreshSimilarityChart()` が SVG だけ差し替える (`root._simState = { baseEntry, decorated, baseMilestones }` で状態保持)。
-       - **双方向 hover**: チャート線 hover ⇒ 対応するリスト行に ring、リスト行 hover ⇒ 該当線を強調 (`highlightSimLine` / `clearSimLineHighlight`)。ツールチップは `computeWorstMilestone()` で最大乖離 milestone を逆引きし `最大乖離: ② で 1位 vs 2位` のように両者の実順位を出す。
+       - **表示 ON/OFF トグル**: 結果リスト各行に ● ドット (`sim-toggle-dot`) を付与、デフォルトで Top 5 が `chartOn=true`。クリックで描画 ON/OFF を切替、`refreshSimilarityChart()` が SVG だけ差し替える (`root._simState = { baseEntry, decorated, baseMilestones, baseWarping }` で状態保持)。
+       - **双方向 hover**: チャート線 hover ⇒ 対応するリスト行に ring、リスト行 hover ⇒ 該当線を強調 (`highlightSimLine` / `clearSimLineHighlight`)。ツールチップは `computeWorstMilestone()` が共通グリッド上の最大乖離 x を `baseWarping` で最近接 milestone に逆引きし `最大乖離: ② で 1位 vs 2位` のように両者の実順位を出す。
        - **エンドポイントラベル**: 右端に名前直書き (`deconflictLabels` を再利用 — メインチャートでは現在未使用だがここで活用)。基準は太字、類似は `#順位` プレフィックス付き。
 
 ## データスキーマの注意点
