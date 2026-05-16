@@ -392,16 +392,10 @@ function buildChartSvg(selected, milestones, maxRank) {
     return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;">${polylines}${points}</g>`;
   }).join('');
 
-  // エンドポイント名を deconflict して別グループで描画
-  deconflictLabels(endpointEntries, { top: padT + 6, bottom: padT + innerH - 4 });
+  // エンドポイント名は線終点と完全に同じ y で描画 (重なってもユーザー許諾済み)
   const endpointHtml = endpointEntries.map(e => {
-    const moved = Math.abs(e.finalY - e.idealY) > 3;
     const labelX = e.pointX + 8;
-    const leader = moved
-      ? `<line x1="${e.pointX.toFixed(1)}" y1="${e.pointY.toFixed(1)}" x2="${(labelX - 2).toFixed(1)}" y2="${e.finalY.toFixed(1)}" stroke="${e.color}" stroke-width="1" stroke-dasharray="1 2" opacity="0.55" class="chart-endpoint-leader" data-iid="${escapeHtml(e.iid)}" />`
-      : '';
-    const text = `<text x="${labelX.toFixed(1)}" y="${e.finalY.toFixed(1)}" font-size="10" fill="${e.color}" font-weight="bold" class="chart-endpoint-label" data-iid="${escapeHtml(e.iid)}" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(e.text)}</text>`;
-    return leader + text;
+    return `<text x="${labelX.toFixed(1)}" y="${e.idealY.toFixed(1)}" font-size="10" fill="${e.color}" font-weight="bold" class="chart-endpoint-label" data-iid="${escapeHtml(e.iid)}" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(e.text)}</text>`;
   }).join('');
 
   return `
