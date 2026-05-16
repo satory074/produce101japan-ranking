@@ -297,9 +297,8 @@ function deconflictLabels(labels, opts = {}) {
 }
 
 function buildChartSvg(selected, milestones, maxRank) {
-  // チャート縦幅: 1 順位あたり ~11px を確保 → Top 11 zone でも 11 ラベルが
-  // 自然に重ならない高さ。1100 + padT + padB で約 1170px の縦長レイアウト
-  const W = 880, H = 1170;
+  // チャート縦幅: 1170 の 80% で 936 (縦長すぎを緩和、ラベルは多少 deconflict で動く)
+  const W = 880, H = 936;
   const padL = 48, padR = 96, padT = 20, padB = 48;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
