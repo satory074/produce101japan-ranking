@@ -704,6 +704,225 @@ function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
   return results.slice(0, topN);
 }
 
+// 共通グリッドに resample した 2 軌跡で最大乖離が出た位置を、基準シーズンの milestone に紐付けて返す。
+function computeWorstMilestone(baseTraj, otherTraj, baseMilestones) {
+  if (!baseTraj || !otherTraj || !baseMilestones || baseMilestones.length < 2) return null;
+  const N = Math.max(16, baseMilestones.length * 4);
+  const baseS = resampleTrajectory(baseTraj, N);
+  const otherS = resampleTrajectory(otherTraj, N);
+  let worstIdx = -1, worstDiff = 0;
+  for (let i = 0; i < N; i++) {
+    if (baseS[i] == null || otherS[i] == null) continue;
+    const d = Math.abs(baseS[i] - otherS[i]);
+    if (d > worstDiff) { worstDiff = d; worstIdx = i; }
+  }
+  if (worstIdx < 0) return null;
+  const xn = worstIdx / (N - 1);
+  let closestIdx = 0, minDist = Infinity;
+  baseMilestones.forEach((m, i) => {
+    const mx = baseMilestones.length === 1 ? 0.5 : i / (baseMilestones.length - 1);
+    const dx = Math.abs(mx - xn);
+    if (dx < minDist) { minDist = dx; closestIdx = i; }
+  });
+  return { milestone: baseMilestones[closestIdx], normalizedDiff: worstDiff };
+}
+
+// 類似モーダル用の SVG オーバーレイチャート。基準軌跡 (黒太線) + 選択中の類似軌跡を重ねる。
+// baseEntry / entries はいずれも { trainee, seasonId, traj, rank?, color? } を持つ。
+function buildSimilarityChartSvg(baseEntry, entries, baseMilestones) {
+  const W = 600, H = 260;
+  const padL = 40, padR = 96, padT = 14, padB = 28;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+
+  const xAt = (xn) => padL + xn * innerW;
+  const yAt = (yn) => padT + yn * innerH;
+
+  // 背景帯: 上位 (青) / 下位 (赤) を薄く
+  const bands = `
+    <rect x="${padL}" y="${yAt(0).toFixed(1)}" width="${innerW}" height="${(innerH / 3).toFixed(1)}" fill="#dbeafe" fill-opacity="0.22" />
+    <rect x="${padL}" y="${yAt(2/3).toFixed(1)}" width="${innerW}" height="${(innerH / 3).toFixed(1)}" fill="#fee2e2" fill-opacity="0.14" />
+  `;
+
+  const yEdge = `
+    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(0) + 9).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">↑1位</text>
+    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(1) - 2).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">最下位↓</text>
+  `;
+
+  // X軸 tick (基準シーズンの milestone)
+  const Nm = baseMilestones.length;
+  const xTicks = baseMilestones.map((m, i) => {
+    const xn = Nm === 1 ? 0.5 : i / (Nm - 1);
+    const x = xAt(xn);
+    const cer = !!m.ceremony;
+    return `
+      <line x1="${x.toFixed(1)}" y1="${padT}" x2="${x.toFixed(1)}" y2="${(padT + innerH).toFixed(1)}"
+            stroke="${cer ? '#f9a8d4' : '#e5e7eb'}" stroke-width="${cer ? 1 : 0.7}" ${cer ? '' : 'stroke-dasharray="2 3"'} />
+      <text x="${x.toFixed(1)}" y="${(H - 10).toFixed(1)}" text-anchor="middle" font-size="9"
+            fill="${cer ? '#be185d' : '#9ca3af'}" font-family="Orbitron,sans-serif" font-weight="${cer ? 'bold' : 'normal'}">${escapeHtml(m.short || m.key)}</text>
+    `;
+  }).join('');
+
+  // 線・ポイント
+  const renderLine = (entry, color, strokeWidth, opacity, isBase) => {
+    const traj = entry.traj;
+    if (!traj || traj.length < 2) return '';
+    const iid = escapeHtml(entry.trainee.image_id);
+    const d = traj.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xAt(p.x).toFixed(1)} ${yAt(p.y).toFixed(1)}`).join(' ');
+    const pts = traj.map(p => `<circle cx="${xAt(p.x).toFixed(1)}" cy="${yAt(p.y).toFixed(1)}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />`).join('');
+    return `<g data-iid="${iid}" class="sim-line-group">
+      <path class="sim-line" d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
+            stroke-linecap="round" stroke-linejoin="round" opacity="${opacity}" data-iid="${iid}" />
+      ${pts}
+    </g>`;
+  };
+
+  // 描画順: 類似 → 基準 (基準が最前面)
+  const entryLines = entries.map(e => renderLine(e, e.color, 2, 0.85, false)).join('');
+  const baseLine = renderLine(baseEntry, '#111827', 3.5, 1.0, true);
+
+  // エンドポイントラベル (右端、deconflict 適用)
+  const labelInputs = [];
+  if (baseEntry.traj && baseEntry.traj.length) {
+    const last = baseEntry.traj[baseEntry.traj.length - 1];
+    labelInputs.push({
+      idealY: yAt(last.y), iid: baseEntry.trainee.image_id,
+      text: baseEntry.trainee.name_jp || baseEntry.trainee.name_romaji || '?',
+      color: '#111827', isBase: true,
+    });
+  }
+  entries.forEach(e => {
+    if (!e.traj || !e.traj.length) return;
+    const last = e.traj[e.traj.length - 1];
+    labelInputs.push({
+      idealY: yAt(last.y), iid: e.trainee.image_id,
+      text: e.trainee.name_jp || e.trainee.name_romaji || '?',
+      color: e.color, isBase: false, rank: e.rank,
+    });
+  });
+  const labels = deconflictLabels(labelInputs, { minGap: 12, top: padT + 4, bottom: padT + innerH - 4 });
+  const labelsSvg = labels.map(l => {
+    const fw = l.isBase ? 'bold' : '600';
+    const txt = escapeHtml((l.text || '?').slice(0, 7));
+    const prefix = l.isBase ? '' : `<tspan font-size="8" fill="#9ca3af" font-family="Orbitron,sans-serif">#${l.rank}</tspan> `;
+    return `<text x="${(padL + innerW + 5).toFixed(1)}" y="${l.finalY.toFixed(1)}"
+              font-size="10" fill="${l.color}" font-weight="${fw}"
+              dominant-baseline="middle" data-iid="${escapeHtml(l.iid)}" class="sim-endlabel">${prefix}${txt}</text>`;
+  }).join('');
+
+  return `<svg class="sim-chart-svg block w-full" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans JP,sans-serif">
+    ${bands}
+    ${xTicks}
+    ${yEdge}
+    <rect x="${padL}" y="${padT}" width="${innerW}" height="${innerH}" fill="none" stroke="#d1d5db" stroke-width="1" />
+    ${entryLines}
+    ${baseLine}
+    ${labelsSvg}
+  </svg>`;
+}
+
+// 類似結果に traj + 表示色を付与。Top 5 を default で `chartOn = true` にする。
+function decorateSimilarityResults(results, defaultOn = 5) {
+  return results.map((r, i) => {
+    const season = seasonData[r.seasonId];
+    const traj = buildTrajectory(r.trainee, season);
+    const { color } = chartLineStyle(i);
+    return { ...r, traj, color, rank: i + 1, chartOn: i < defaultOn };
+  });
+}
+
+function refreshSimilarityChart(root, baseEntry, decorated, baseMilestones) {
+  const active = decorated.filter(r => r.chartOn && r.traj && r.traj.length >= 2);
+  const container = root.querySelector('.sim-chart-container');
+  if (container) {
+    container.innerHTML = buildSimilarityChartSvg(baseEntry, active, baseMilestones);
+  }
+  // List 側の dot 表示を同期
+  decorated.forEach(r => {
+    const li = root.querySelector(`.sim-result[data-iid="${CSS.escape(r.trainee.image_id)}"]`);
+    if (!li) return;
+    const dot = li.querySelector('.sim-toggle-dot');
+    if (dot) {
+      if (r.chartOn) {
+        dot.style.background = r.color;
+        dot.style.borderColor = r.color;
+        dot.setAttribute('aria-pressed', 'true');
+        dot.title = 'チャートから外す';
+      } else {
+        dot.style.background = 'transparent';
+        dot.style.borderColor = '#d1d5db';
+        dot.setAttribute('aria-pressed', 'false');
+        dot.title = 'チャートに重ねる';
+      }
+    }
+    li.dataset.chartOn = r.chartOn ? 'true' : 'false';
+  });
+  const counter = root.querySelector('.sim-chart-counter');
+  if (counter) counter.textContent = `${active.length} / ${decorated.length} 名を重ね描画中`;
+}
+
+function highlightSimLine(root, iid) {
+  root.querySelectorAll('.sim-chart-svg [data-iid]').forEach(el => {
+    const isTarget = el.dataset.iid === iid;
+    el.style.opacity = isTarget ? '1' : '0.15';
+    if (el.classList.contains('sim-line')) {
+      el.setAttribute('stroke-width', isTarget ? '4.5' : '2');
+    }
+  });
+  root.querySelectorAll('.sim-result').forEach(li => {
+    li.classList.toggle('ring-2', li.dataset.iid === iid);
+    li.classList.toggle('ring-gray-400', li.dataset.iid === iid);
+  });
+}
+
+function clearSimLineHighlight(root) {
+  root.querySelectorAll('.sim-chart-svg [data-iid]').forEach(el => {
+    el.style.opacity = '';
+    if (el.classList.contains('sim-line')) el.setAttribute('stroke-width', '2');
+  });
+  root.querySelectorAll('.sim-result').forEach(li => {
+    li.classList.remove('ring-2', 'ring-gray-400');
+  });
+}
+
+function showSimTooltip(root, tooltip, entry, baseEntry, baseMilestones) {
+  if (!entry || !baseEntry) return;
+  const name = escapeHtml(entry.trainee.name_jp || entry.trainee.name_romaji || '?');
+  const sCfg = SEASON_CONFIG[entry.seasonId];
+  const seasonChip = `<span class="text-[10px] px-1.5 py-0.5 rounded bg-${sCfg.tw}-100 text-${sCfg.tw}-700 font-bold">${escapeHtml(sCfg.short)}</span>`;
+  const simPct = Math.max(0, (1 - Math.min(1, entry.distance)) * 100).toFixed(1);
+
+  const worst = computeWorstMilestone(baseEntry.traj, entry.traj, baseMilestones);
+  let worstLine = '';
+  if (worst) {
+    const mShort = escapeHtml(worst.milestone.short || worst.milestone.key);
+    const baseR = baseEntry.trainee.rank_history?.[worst.milestone.key];
+    const otherR = entry.trainee.rank_history?.[worst.milestone.key];
+    const ranks = (baseR != null && otherR != null)
+      ? `<span class="font-bold">${baseR}位</span> vs <span class="font-bold">${otherR}位</span>`
+      : `差 ${(worst.normalizedDiff * 100).toFixed(0)}%`;
+    worstLine = `<div class="text-[10px] text-gray-600 mt-1">最大乖離: <span class="font-bold text-pink-700">${mShort}</span> で ${ranks}</div>`;
+  }
+
+  tooltip.innerHTML = `
+    <div class="flex items-center gap-1.5 mb-0.5">${seasonChip}<span class="font-bold text-sm">${name}</span></div>
+    <div class="text-[11px] text-gray-700">類似度 <span class="font-bold">${simPct}%</span> <span class="text-gray-400 ml-1">d=${entry.distance.toFixed(3)}</span></div>
+    ${worstLine}
+  `;
+  tooltip.classList.remove('hidden');
+}
+
+function positionSimTooltip(container, tooltip, e) {
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left + 12;
+  const y = e.clientY - rect.top + 12;
+  const tw = tooltip.offsetWidth || 200;
+  const cw = container.clientWidth;
+  tooltip.style.left = (x + tw > cw ? Math.max(0, cw - tw - 8) : x) + 'px';
+  tooltip.style.top = y + 'px';
+}
+
 function openSimilarityModal(seasonId, imageId) {
   let root = document.getElementById('similar-modal-root');
   if (!root) {
@@ -730,13 +949,18 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
   if (!baseTrainee) return;
 
   const cfg = SEASON_CONFIG[seasonId];
+  const baseMilestones = Array.isArray(season.ranking_milestones) ? season.ranking_milestones : [];
   const results = similarTrainees(seasonId, imageId, { topN: 10, sameSeasonOnly: filter === 'same' });
+  const decorated = decorateSimilarityResults(results, 5);
+  const baseTraj = buildTrajectory(baseTrainee, season);
+  const baseEntry = { trainee: baseTrainee, seasonId, traj: baseTraj };
+
   const baseTpl = season.image_url_template || DEFAULT_IMAGE_TEMPLATE[seasonId];
   const baseImg = buildImageUrl(baseTpl, baseTrainee);
   const baseName = escapeHtml(baseTrainee.name_jp || baseTrainee.name_romaji || '?');
   const baseStage = baseTrainee.stage_name ? ` <span class="text-[10px] opacity-80">(${escapeHtml(baseTrainee.stage_name)})</span>` : '';
 
-  const resultRows = results.map((r, i) => {
+  const resultRows = decorated.map((r) => {
     const rcfg = SEASON_CONFIG[r.seasonId];
     const rseason = seasonData[r.seasonId];
     const rtpl = rseason.image_url_template || DEFAULT_IMAGE_TEMPLATE[r.seasonId];
@@ -757,9 +981,20 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
     const action = sameSeason
       ? `<button class="modal-add-chart shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-iid="${escapeHtml(r.trainee.image_id)}">チャートに追加</button>`
       : `<button class="modal-goto shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-season="${escapeHtml(r.seasonId)}" data-iid="${escapeHtml(r.trainee.image_id)}">${escapeHtml(rcfg.short)} を開く</button>`;
+    const dotStyle = r.chartOn
+      ? `background:${r.color};border-color:${r.color};`
+      : `background:transparent;border-color:#d1d5db;`;
+    const hasTraj = r.traj && r.traj.length >= 2;
+    const toggleDot = hasTraj
+      ? `<button type="button" class="sim-toggle-dot shrink-0 w-3.5 h-3.5 rounded-full border-2 transition-all hover:scale-110"
+                 style="${dotStyle}" aria-pressed="${r.chartOn ? 'true' : 'false'}"
+                 title="${r.chartOn ? 'チャートから外す' : 'チャートに重ねる'}"></button>`
+      : `<span class="shrink-0 w-3.5 h-3.5" title="軌跡データなし"></span>`;
     return `
-      <li class="flex items-center gap-3 px-3 py-2 rounded-lg border border-gray-100 bg-white hover:bg-gray-50 transition-colors">
-        <div class="text-xs text-gray-400 font-display w-6 text-right shrink-0">#${i + 1}</div>
+      <li class="sim-result flex items-center gap-3 px-3 py-2 rounded-lg border border-gray-100 bg-white hover:bg-gray-50 transition-colors"
+          data-iid="${escapeHtml(r.trainee.image_id)}" data-chart-on="${r.chartOn ? 'true' : 'false'}">
+        ${toggleDot}
+        <div class="text-xs text-gray-400 font-display w-6 text-right shrink-0">#${r.rank}</div>
         <div class="relative shrink-0">
           ${imgHtml}
           ${rankBadgeHtml ? `<div class="absolute -bottom-1 -right-1">${rankBadgeHtml}</div>` : ''}
@@ -778,13 +1013,32 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
     `;
   }).join('');
 
-  const emptyMsg = results.length === 0
+  const emptyMsg = decorated.length === 0
     ? `<p class="text-center py-8 text-gray-400 text-sm">類似する練習生が見つかりませんでした</p>`
     : '';
 
+  // チャートセクション: 基準軌跡が無いと描画不可
+  const initialActive = decorated.filter(r => r.chartOn && r.traj && r.traj.length >= 2);
+  const chartHtml = (baseTraj && baseMilestones.length >= 2) ? `
+    <div class="px-4 py-3 border-b border-gray-100 bg-white relative">
+      <div class="flex items-center justify-between mb-1">
+        <div class="text-[11px] text-gray-500">
+          <span class="inline-block w-3 h-[3px] align-middle mr-1 rounded" style="background:#111827"></span><span class="font-bold text-gray-700">${baseName}</span> と Top ${initialActive.length} の軌跡を重ね描画
+        </div>
+        <div class="sim-chart-counter text-[10px] text-gray-400 font-display">${initialActive.length} / ${decorated.length} 名を重ね描画中</div>
+      </div>
+      <div class="sim-chart-container relative">${buildSimilarityChartSvg(baseEntry, initialActive, baseMilestones)}</div>
+      <div class="sim-chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[240px]"></div>
+      <p class="text-[10px] text-gray-400 mt-1">
+        Y軸=順位 (上=1位 / 下=最下位、シーズン総数で正規化)。X軸 tick は基準練習生のシーズン (${escapeHtml(cfg.short)}) の milestone。
+        <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式
+      </p>
+    </div>
+  ` : '';
+
   root.innerHTML = `
     <div class="similar-modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div class="similar-modal-panel relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col">
+      <div class="similar-modal-panel relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-hidden flex flex-col">
         <div class="bg-gradient-to-r ${cfg.accentClass} text-white px-4 py-3 flex items-center justify-between">
           <div class="flex items-center gap-3 min-w-0">
             ${baseImg ? `<img src="${escapeHtml(baseImg)}" alt="" referrerpolicy="no-referrer" class="w-12 h-12 rounded-full object-cover bg-white/20 shrink-0" />` : ''}
@@ -807,6 +1061,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
           </label>
           <span class="text-[10px] text-gray-400 ml-auto">位置の近さで比較 (距離 d=0 が完全一致)</span>
         </div>
+        ${chartHtml}
         <div class="overflow-y-auto flex-1 p-3 bg-gray-50">
           <ul class="space-y-1.5">${resultRows}</ul>
           ${emptyMsg}
@@ -814,6 +1069,9 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
       </div>
     </div>
   `;
+
+  // 描画状態を root に保持して、イベントハンドラから参照できるようにする
+  root._simState = { baseEntry, decorated, baseMilestones };
 
   bindSimilarityModalEvents(root, seasonId, imageId);
 }
@@ -832,7 +1090,8 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
     });
   });
   root.querySelectorAll('.modal-add-chart').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const iid = btn.dataset.iid;
       const panel = document.getElementById(seasonId);
       if (!panel) return;
@@ -847,7 +1106,8 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
     });
   });
   root.querySelectorAll('.modal-goto').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const targetSeason = btn.dataset.season;
       const targetIid = btn.dataset.iid;
       activateTab(targetSeason);
@@ -858,6 +1118,63 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
       renderSimilarityModal(root, targetSeason, targetIid, root.dataset.filter === 'same' ? 'same' : 'all');
     });
   });
+
+  // 行内の ● トグル: チャートに表示/非表示
+  root.querySelectorAll('.sim-toggle-dot').forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const li = dot.closest('.sim-result');
+      if (!li || !root._simState) return;
+      const iid = li.dataset.iid;
+      const entry = root._simState.decorated.find(r => r.trainee.image_id === iid);
+      if (!entry || !entry.traj || entry.traj.length < 2) return;
+      entry.chartOn = !entry.chartOn;
+      refreshSimilarityChart(root, root._simState.baseEntry, root._simState.decorated, root._simState.baseMilestones);
+    });
+  });
+
+  // リスト行 hover ⇄ チャート線
+  const resultList = root.querySelector('ul');
+  if (resultList) {
+    resultList.addEventListener('mouseover', (e) => {
+      const li = e.target.closest('.sim-result');
+      if (!li) return;
+      const iid = li.dataset.iid;
+      if (li.dataset.chartOn === 'true') highlightSimLine(root, iid);
+    });
+    resultList.addEventListener('mouseleave', () => clearSimLineHighlight(root));
+  }
+
+  // チャート内 hover: 線/点/ラベル → 強調 + ツールチップ
+  const chartContainer = root.querySelector('.sim-chart-container');
+  const tooltip = root.querySelector('.sim-chart-tooltip');
+  if (chartContainer && tooltip && root._simState) {
+    const state = root._simState;
+    const idMap = new Map(state.decorated.map(r => [r.trainee.image_id, r]));
+    const baseIid = state.baseEntry.trainee.image_id;
+    chartContainer.addEventListener('mouseover', (e) => {
+      const el = e.target.closest('[data-iid]');
+      if (!el) return;
+      const iid = el.dataset.iid;
+      highlightSimLine(root, iid);
+      if (iid === baseIid) {
+        tooltip.innerHTML = `<div class="font-bold text-sm">${escapeHtml(state.baseEntry.trainee.name_jp || state.baseEntry.trainee.name_romaji || '?')}</div><div class="text-[11px] text-gray-500 mt-0.5">基準軌跡</div>`;
+        tooltip.classList.remove('hidden');
+      } else {
+        const entry = idMap.get(iid);
+        if (entry) showSimTooltip(root, tooltip, entry, state.baseEntry, state.baseMilestones);
+      }
+    });
+    chartContainer.addEventListener('mousemove', (e) => {
+      if (tooltip.classList.contains('hidden')) return;
+      positionSimTooltip(chartContainer, tooltip, e);
+    });
+    chartContainer.addEventListener('mouseleave', () => {
+      clearSimLineHighlight(root);
+      tooltip.classList.add('hidden');
+    });
+  }
+
   if (!root._escBound) {
     const onKey = (e) => {
       if (e.key === 'Escape' && document.getElementById('similar-modal-root')?.firstChild) {
