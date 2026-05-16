@@ -1063,6 +1063,39 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
   const baseName = escapeHtml(baseTrainee.name_jp || baseTrainee.name_romaji || '?');
   const baseStage = baseTrainee.stage_name ? ` <span class="text-[10px] opacity-80">(${escapeHtml(baseTrainee.stage_name)})</span>` : '';
 
+  // 基準練習生の行 (リスト先頭): チャート ⇄ リストの双方向 hover を基準にも効かせるため。
+  // 表示は固定 (トグル不可) で、アクションボタンは出さない。
+  const baseInitials = (baseTrainee.name_romaji || baseTrainee.name_jp || '?').slice(0, 1).toUpperCase();
+  const baseRomaji = escapeHtml(baseTrainee.name_romaji || '');
+  const baseRankBadge = baseTrainee.rank != null
+    ? `<span class="font-display text-[10px] font-black px-1.5 py-0.5 rounded ${rankColorClass(baseTrainee.rank)}">${baseTrainee.rank}</span>`
+    : '';
+  const baseImgHtml = baseImg
+    ? `<img src="${escapeHtml(baseImg)}" alt="" loading="lazy" referrerpolicy="no-referrer" class="w-10 h-10 rounded-full object-cover bg-gray-200 shrink-0"
+            onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600 shrink-0',textContent:'${escapeHtml(baseInitials)}'}))" />`
+    : `<div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600 shrink-0">${escapeHtml(baseInitials)}</div>`;
+  const baseRow = baseTraj && baseTraj.length >= 2 ? `
+    <li class="sim-result flex items-center gap-3 px-3 py-2 rounded-lg border-2 border-gray-900 bg-white"
+        data-iid="${escapeHtml(baseTrainee.image_id)}" data-chart-on="true">
+      <span class="shrink-0 w-3.5 h-3.5 rounded-full" style="background:#111827;border:2px solid #111827;" title="基準軌跡 (常時表示)"></span>
+      <div class="text-xs text-gray-400 font-display w-6 text-right shrink-0">基準</div>
+      <div class="relative shrink-0">
+        ${baseImgHtml}
+        ${baseRankBadge ? `<div class="absolute -bottom-1 -right-1">${baseRankBadge}</div>` : ''}
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-bold truncate">${baseName}${baseStage}</div>
+        <div class="text-[10px] text-gray-500 font-display truncate">${baseRomaji}</div>
+        <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-${cfg.tw}-100 text-${cfg.tw}-700 font-bold">${escapeHtml(cfg.short)}</span>
+          <span class="text-[10px] text-gray-600">類似度 <span class="font-bold text-gray-900">100.0%</span></span>
+          <span class="text-[10px] text-gray-400">d=0.000</span>
+        </div>
+      </div>
+      <span class="shrink-0 text-[10px] px-2 py-0.5 rounded bg-gray-900 text-white font-bold">基準</span>
+    </li>
+  ` : '';
+
   const resultRows = decorated.map((r) => {
     const rcfg = SEASON_CONFIG[r.seasonId];
     const rseason = seasonData[r.seasonId];
@@ -1166,7 +1199,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
         </div>
         ${chartHtml}
         <div class="overflow-y-auto flex-1 p-3 bg-gray-50">
-          <ul class="space-y-1.5">${resultRows}</ul>
+          <ul class="space-y-1.5">${baseRow}${resultRows}</ul>
           ${emptyMsg}
         </div>
       </div>
