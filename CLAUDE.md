@@ -48,9 +48,17 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 任意フィールド。トップレベルの `ranking_milestones` は順序付き配列で、要素は `{ key, label, short, official, ceremony?, episode? }`。各 trainee の `rank_history` は `{ <milestone.key>: number | null }` の辞書 (キー省略 = データなしでダッシュ表示)。
 - 存在すれば「順位推移表」サブタブが自動表示される。無いシーズンは履歴タブ非表示 (後方互換)。
 - 描画順 = 配列順。新 milestone は配列末尾に push する規約 (過去ファイルを汚さない)。
-- key 命名: 週目=`w<n>` (例 `w2`)、順位発表式=`rc<n>` (Final は `rcF`)。
+- key 命名: 中間評価=`p<n>` (例 `p1` 初期評価, `p2` グループバトル, …)、順位発表式=`rc<n>` (Final は `rcF`)。
 - 表のデフォルトソート列は `ranking_milestones` の最後の要素 = 最新 milestone。
 - 既存の `trainee.rank` (最新順位) は最新 milestone の値と一致させる規約 (既存コードが `trainee.rank` を多用するため冗長性を許容)。
+
+**出典: 公式サイトの「ランクグラフ」API** (シリーズごとに URL とポイント数が違う):
+- SEASON 1 (9 points): `https://1st.produce101.jp/profile/data.php?id={image_id}` → `p1 / p2 / p3 / rc1 / p4 / rc2 / p5 / p6 / rcF`
+- SEASON 2 (8 points): `https://2nd.produce101.jp/profile/data2021.php?id={image_id}` → `p1 / p2 / rc1 / p3 / p4 / rc2 / p5 / rcF`
+- THE GIRLS (7 points): `https://3rd.produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / p3 / rc2 / rc3 / rcF`
+- SHINSEKAI (4 points): `https://produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / rc2`
+
+API はプレーンテキストで「1行目に image_id、2行目以降に各ポイントの順位 (圏外は `NULL`)」を返す。各シーズンの `tools/` のスクリプトは作っていないが、`/tmp/fetch_apply_all.py` 系で curl 並列取得 → JSON マージで再現可能。
 
 ## デビュー組の判定
 
@@ -67,6 +75,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 1. `ranking_milestones` 末尾に新エントリ追加 (例: `{ "key": "rc3", "label": "第3回順位発表式", "short": "RC3", "official": true, "ceremony": true, "episode": 11 }`)
 2. 該当 trainees の `rank_history` に `"rc3": <rank>` を追記。圏外なら省略 (ダッシュ表示)
 3. `trainees[].rank` を最新値に同期
+4. 公式サイトの API (`https://produce101.jp/profile/data/?id={image_id}`) を再取得すれば、データポイント数が増えて自動的に最新化される (現状 4 点、最終回後は SEASON 2 と同程度の 8 点になる想定)
 
 最終回後は `ongoing: false` に変更し、`debuted: true` を Top 11 にセット、`votes_final` を最終票数で埋める想定。
 

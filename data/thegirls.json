@@ -6,12 +6,30 @@
   "total_trainees": 99,
   "ranking_milestones": [
     {
+      "key": "p1",
+      "label": "練習生評価",
+      "short": "①",
+      "official": true
+    },
+    {
+      "key": "p2",
+      "label": "グループバトル",
+      "short": "②",
+      "official": true
+    },
+    {
       "key": "rc1",
       "label": "第1回順位発表式",
       "short": "RC1",
       "official": true,
       "ceremony": true,
       "episode": 5
+    },
+    {
+      "key": "p3",
+      "label": "ポジションバトル",
+      "short": "③",
+      "official": true
     },
     {
       "key": "rc2",
@@ -47,7 +65,10 @@
       "name_romaji": "Kasahara Momona",
       "image_id": "022_kasaharamomona",
       "rank_history": {
+        "p1": 4,
+        "p2": 2,
         "rc1": 1,
+        "p3": 3,
         "rc2": 3,
         "rc3": 1,
         "rcF": 1
@@ -62,6 +83,11 @@
       "name_romaji": "Murakami Rinon",
       "image_id": "090_murakamirinon",
       "rank_history": {
+        "p1": 23,
+        "p2": 20,
+        "rc1": 17,
+        "p3": 16,
+        "rc2": 17,
         "rc3": 3,
         "rcF": 2
       },
@@ -75,7 +101,10 @@
       "name_romaji": "Takami Ayane",
       "image_id": "067_takamiayane",
       "rank_history": {
+        "p1": 9,
+        "p2": 10,
         "rc1": 9,
+        "p3": 8,
         "rc2": 6,
         "rc3": 5,
         "rcF": 3
@@ -90,7 +119,10 @@
       "name_romaji": "Sakurai Miu",
       "image_id": "046_sakuraimiu",
       "rank_history": {
+        "p1": 5,
+        "p2": 4,
         "rc1": 4,
+        "p3": 4,
         "rc2": 4,
         "rc3": 2,
         "rcF": 4
@@ -105,8 +137,12 @@
       "name_romaji": "Yamamoto Suzu",
       "image_id": "096_yamamotosuzu",
       "rank_history": {
+        "p1": 1,
+        "p2": 3,
         "rc1": 5,
+        "p3": 5,
         "rc2": 5,
+        "rc3": 14,
         "rcF": 5
       },
       "votes_final": 631708,
@@ -119,7 +155,10 @@
       "name_romaji": "Sasaki Kokona",
       "image_id": "048_sasakikokona",
       "rank_history": {
+        "p1": 6,
+        "p2": 6,
         "rc1": 7,
+        "p3": 10,
         "rc2": 11,
         "rc3": 7,
         "rcF": 6
@@ -134,6 +173,11 @@
       "name_romaji": "Iida Shizuku",
       "image_id": "009_iidashizuku",
       "rank_history": {
+        "p1": 31,
+        "p2": 32,
+        "rc1": 37,
+        "p3": 33,
+        "rc2": 20,
         "rc3": 10,
         "rcF": 7
       },
@@ -147,6 +191,10 @@
       "name_romaji": "Shimizu Keiko",
       "image_id": "054_shimizukeiko",
       "rank_history": {
+        "p1": 18,
+        "p2": 12,
+        "rc1": 12,
+        "p3": 11,
         "rc2": 8,
         "rc3": 11,
         "rcF": 8
@@ -161,7 +209,10 @@
       "name_romaji": "Ishii Ran",
       "image_id": "010_ishiiran",
       "rank_history": {
+        "p1": 7,
+        "p2": 7,
         "rc1": 3,
+        "p3": 1,
         "rc2": 1,
         "rc3": 4,
         "rcF": 9
@@ -176,7 +227,10 @@
       "name_romaji": "Ebihara Tsuzumi",
       "image_id": "014_ebiharatsuzumi",
       "rank_history": {
+        "p1": 3,
+        "p2": 5,
         "rc1": 6,
+        "p3": 9,
         "rc2": 7,
         "rc3": 6,
         "rcF": 10
@@ -191,7 +245,10 @@
       "name_romaji": "Kato Kokoro",
       "image_id": "026_katokokoro",
       "rank_history": {
+        "p1": 2,
+        "p2": 1,
         "rc1": 2,
+        "p3": 2,
         "rc2": 2,
         "rc3": 8,
         "rcF": 11
@@ -205,6 +262,15 @@
       "name_jp": "坂口 梨乃",
       "name_romaji": "Sakaguchi Rino",
       "image_id": "044_sakaguchirino",
+      "rank_history": {
+        "p1": 25,
+        "p2": 17,
+        "rc1": 14,
+        "p3": 17,
+        "rc2": 18,
+        "rc3": 12,
+        "rcF": 12
+      },
       "votes_final": 256286,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -215,9 +281,13 @@
       "name_romaji": "Aita Rin",
       "image_id": "001_aitarin",
       "rank_history": {
+        "p1": 32,
+        "p2": 35,
         "rc1": 11,
+        "p3": 7,
         "rc2": 10,
-        "rc3": 9
+        "rc3": 9,
+        "rcF": 13
       },
       "votes_final": 283766,
       "debuted": false,
@@ -228,6 +298,15 @@
       "name_jp": "加藤 神楽",
       "name_romaji": "Kato Kagura",
       "image_id": "025_katokagura",
+      "rank_history": {
+        "p1": 10,
+        "p2": 16,
+        "rc1": 24,
+        "p3": 37,
+        "rc2": 32,
+        "rc3": 20,
+        "rcF": 14
+      },
       "votes_final": 164123,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -237,6 +316,15 @@
       "name_jp": "田中 優希",
       "name_romaji": "Tanaka Yuuki",
       "image_id": "070_tanakayuuki",
+      "rank_history": {
+        "p1": 21,
+        "p2": 24,
+        "rc1": 26,
+        "p3": 20,
+        "rc2": 19,
+        "rc3": 16,
+        "rcF": 15
+      },
       "votes_final": 210065,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -247,8 +335,13 @@
       "name_romaji": "Kenmotsu Nano",
       "image_id": "039_kenmotsunano",
       "rank_history": {
+        "p1": 14,
+        "p2": 8,
         "rc1": 8,
-        "rc2": 9
+        "p3": 6,
+        "rc2": 9,
+        "rc3": 15,
+        "rcF": 16
       },
       "votes_final": 213005,
       "debuted": false,
@@ -260,7 +353,13 @@
       "name_romaji": "Tanaka Koto",
       "image_id": "068_tanakakoto",
       "rank_history": {
-        "rc1": 10
+        "p1": 13,
+        "p2": 9,
+        "rc1": 10,
+        "p3": 13,
+        "rc2": 16,
+        "rc3": 17,
+        "rcF": 17
       },
       "votes_final": 200105,
       "debuted": false,
@@ -271,6 +370,15 @@
       "name_jp": "北里 理桜",
       "name_romaji": "Kitazato Rio",
       "image_id": "034_kitazatorio",
+      "rank_history": {
+        "p1": 8,
+        "p2": 11,
+        "rc1": 15,
+        "p3": 22,
+        "rc2": 24,
+        "rc3": 18,
+        "rcF": 18
+      },
       "votes_final": 191943,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -280,6 +388,15 @@
       "name_jp": "桜庭 遥花",
       "name_romaji": "Sakuraba Haruka",
       "image_id": "047_sakurabaharuka",
+      "rank_history": {
+        "p1": 34,
+        "p2": 36,
+        "rc1": 42,
+        "p3": 32,
+        "rc2": 33,
+        "rc3": 19,
+        "rcF": 19
+      },
       "votes_final": 175250,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -289,6 +406,15 @@
       "name_jp": "髙畠 百加",
       "name_romaji": "Takabatake Momoka",
       "image_id": "066_takabatakemomoka",
+      "rank_history": {
+        "p1": 36,
+        "p2": 33,
+        "rc1": 32,
+        "p3": 15,
+        "rc2": 13,
+        "rc3": 13,
+        "rcF": 20
+      },
       "votes_final": 219063,
       "debuted": false,
       "eliminated_at": "ep11"
@@ -298,6 +424,14 @@
       "name_jp": "斉藤 芹菜",
       "name_romaji": "Saito Serina",
       "image_id": "043_saitoserina",
+      "rank_history": {
+        "p1": 17,
+        "p2": 21,
+        "rc1": 23,
+        "p3": 23,
+        "rc2": 26,
+        "rc3": 21
+      },
       "votes_final": 575671,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -307,6 +441,14 @@
       "name_jp": "荒牧 深愛",
       "name_romaji": "Aramaki Joa",
       "image_id": "005_aramakijoa",
+      "rank_history": {
+        "p1": 12,
+        "p2": 18,
+        "rc1": 20,
+        "p3": 26,
+        "rc2": 22,
+        "rc3": 22
+      },
       "votes_final": 709975,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -316,6 +458,14 @@
       "name_jp": "阿部 和",
       "name_romaji": "Abe Nagomi",
       "image_id": "004_abenagomi",
+      "rank_history": {
+        "p1": 15,
+        "p2": 14,
+        "rc1": 13,
+        "p3": 14,
+        "rc2": 15,
+        "rc3": 23
+      },
       "votes_final": 1021459,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -325,6 +475,14 @@
       "name_jp": "神尾 彩乃",
       "name_romaji": "Kamio Ayano",
       "image_id": "029_kamioayano",
+      "rank_history": {
+        "p1": 29,
+        "p2": 31,
+        "rc1": 27,
+        "p3": 21,
+        "rc2": 23,
+        "rc3": 24
+      },
       "votes_final": 644575,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -334,6 +492,14 @@
       "name_jp": "安藤 佑唯",
       "name_romaji": "Ando Yui",
       "image_id": "007_andoyui",
+      "rank_history": {
+        "p1": 20,
+        "p2": 25,
+        "rc1": 21,
+        "p3": 18,
+        "rc2": 14,
+        "rc3": 25
+      },
       "votes_final": 1043200,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -343,6 +509,14 @@
       "name_jp": "髙橋 妃那",
       "name_romaji": "Takahashi Hina",
       "image_id": "065_takahashihina",
+      "rank_history": {
+        "p1": 28,
+        "p2": 26,
+        "rc1": 25,
+        "p3": 12,
+        "rc2": 12,
+        "rc3": 26
+      },
       "votes_final": 1164150,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -352,6 +526,14 @@
       "name_jp": "佐々木 つくし",
       "name_romaji": "Sasaki Tsukushi",
       "image_id": "049_sasakitsukushi",
+      "rank_history": {
+        "p1": 22,
+        "p2": 19,
+        "rc1": 18,
+        "p3": 31,
+        "rc2": 28,
+        "rc3": 27
+      },
       "votes_final": 500734,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -361,6 +543,14 @@
       "name_jp": "北爪 さくら",
       "name_romaji": "Kitazume Sakura",
       "image_id": "035_kitazumesakura",
+      "rank_history": {
+        "p1": 11,
+        "p2": 15,
+        "rc1": 22,
+        "p3": 19,
+        "rc2": 21,
+        "rc3": 28
+      },
       "votes_final": 752347,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -370,6 +560,14 @@
       "name_jp": "松下 実夢",
       "name_romaji": "Matsushita Miyu",
       "image_id": "088_matsushitamiyu",
+      "rank_history": {
+        "p1": 59,
+        "p2": 55,
+        "rc1": 31,
+        "p3": 25,
+        "rc2": 27,
+        "rc3": 29
+      },
       "votes_final": 565498,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -379,6 +577,14 @@
       "name_jp": "吉田 花夏",
       "name_romaji": "Yoshida Hana",
       "image_id": "098_yoshidahana",
+      "rank_history": {
+        "p1": 48,
+        "p2": 44,
+        "rc1": 33,
+        "p3": 27,
+        "rc2": 35,
+        "rc3": 30
+      },
       "votes_final": 434070,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -388,6 +594,14 @@
       "name_jp": "八田 芽奈",
       "name_romaji": "Hatta Mena",
       "image_id": "081_hattamena",
+      "rank_history": {
+        "p1": 27,
+        "p2": 22,
+        "rc1": 16,
+        "p3": 24,
+        "rc2": 29,
+        "rc3": 31
+      },
       "votes_final": 490688,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -397,6 +611,14 @@
       "name_jp": "須谷 緩",
       "name_romaji": "Sutani Yurara",
       "image_id": "060_sutaniyurara",
+      "rank_history": {
+        "p1": 38,
+        "p2": 39,
+        "rc1": 43,
+        "p3": 36,
+        "rc2": 34,
+        "rc3": 32
+      },
       "votes_final": 438801,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -406,6 +628,14 @@
       "name_jp": "川畑 蘭華",
       "name_romaji": "Kawabata Ranka",
       "image_id": "031_kawabataranka",
+      "rank_history": {
+        "p1": 41,
+        "p2": 48,
+        "rc1": 47,
+        "p3": 28,
+        "rc2": 25,
+        "rc3": 33
+      },
       "votes_final": 579865,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -415,6 +645,14 @@
       "name_jp": "日髙 葉月",
       "name_romaji": "Hidaka Hazuki",
       "image_id": "084_hidakahazuki",
+      "rank_history": {
+        "p1": 37,
+        "p2": 40,
+        "rc1": 40,
+        "p3": 30,
+        "rc2": 30,
+        "rc3": 34
+      },
       "votes_final": 469162,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -424,6 +662,14 @@
       "name_jp": "中野 心結",
       "name_romaji": "Nakano Kokona",
       "image_id": "075_nakanokokona",
+      "rank_history": {
+        "p1": 16,
+        "p2": 13,
+        "rc1": 19,
+        "p3": 29,
+        "rc2": 31,
+        "rc3": 35
+      },
       "votes_final": 459303,
       "debuted": false,
       "eliminated_at": "ep10"
@@ -433,6 +679,13 @@
       "name_jp": "坂田 琴音",
       "name_romaji": "Sakata Kotone",
       "image_id": "045_sakatakotone",
+      "rank_history": {
+        "p1": 56,
+        "p2": 30,
+        "rc1": 28,
+        "p3": 34,
+        "rc2": 36
+      },
       "votes_final": 382625,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -442,6 +695,13 @@
       "name_jp": "吉田 彩乃",
       "name_romaji": "Yoshida Ayano",
       "image_id": "097_yoshidaayano",
+      "rank_history": {
+        "p1": 53,
+        "p2": 51,
+        "rc1": 45,
+        "p3": 41,
+        "rc2": 37
+      },
       "votes_final": 183579,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -451,6 +711,13 @@
       "name_jp": "小山 麻菜",
       "name_romaji": "Koyama Mana",
       "image_id": "042_koyamamana",
+      "rank_history": {
+        "p1": 44,
+        "p2": 42,
+        "rc1": 49,
+        "p3": 40,
+        "rc2": 38
+      },
       "votes_final": 171105,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -460,6 +727,13 @@
       "name_jp": "内山 凜",
       "name_romaji": "Uchiyama Rin",
       "image_id": "013_uchiyamarin",
+      "rank_history": {
+        "p1": 74,
+        "p2": 73,
+        "rc1": 46,
+        "p3": 35,
+        "rc2": 39
+      },
       "votes_final": 177499,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -469,6 +743,13 @@
       "name_jp": "大坪 楓恋",
       "name_romaji": "Otsubo Karen",
       "image_id": "017_otsubokaren",
+      "rank_history": {
+        "p1": 54,
+        "p2": 49,
+        "rc1": 50,
+        "p3": 38,
+        "rc2": 40
+      },
       "votes_final": 167937,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -478,6 +759,13 @@
       "name_jp": "秋山 愛",
       "name_romaji": "Akiyama Ema",
       "image_id": "003_akiyamaema",
+      "rank_history": {
+        "p1": 35,
+        "p2": 38,
+        "rc1": 35,
+        "p3": 43,
+        "rc2": 41
+      },
       "votes_final": 256294,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -487,6 +775,13 @@
       "name_jp": "髙木 舞優",
       "name_romaji": "Takagi Mayu",
       "image_id": "064_takagimayu",
+      "rank_history": {
+        "p1": 19,
+        "p2": 23,
+        "rc1": 30,
+        "p3": 45,
+        "rc2": 42
+      },
       "votes_final": 361341,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -496,6 +791,13 @@
       "name_jp": "水上 凜巳花",
       "name_romaji": "Mizukami Rimika",
       "image_id": "089_mizukamirimika",
+      "rank_history": {
+        "p1": 26,
+        "p2": 28,
+        "rc1": 34,
+        "p3": 44,
+        "rc2": 43
+      },
       "votes_final": 275667,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -505,6 +807,13 @@
       "name_jp": "安藤 千陽",
       "name_romaji": "Ando Chiharu",
       "image_id": "006_andochiharu",
+      "rank_history": {
+        "p1": 43,
+        "p2": 43,
+        "rc1": 38,
+        "p3": 39,
+        "rc2": 44
+      },
       "votes_final": 236395,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -514,6 +823,13 @@
       "name_jp": "藤本 彩花",
       "name_romaji": "Fujimoto Ayaka",
       "image_id": "085_fujimotoayaka",
+      "rank_history": {
+        "p1": 45,
+        "p2": 54,
+        "rc1": 36,
+        "p3": 42,
+        "rc2": 45
+      },
       "votes_final": 250666,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -523,6 +839,13 @@
       "name_jp": "山崎 美月",
       "name_romaji": "Yamazaki Mitsuki",
       "image_id": "095_yamazakimitsuki",
+      "rank_history": {
+        "p1": 24,
+        "p2": 29,
+        "rc1": 41,
+        "p3": 47,
+        "rc2": 46
+      },
       "votes_final": 227553,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -532,6 +855,13 @@
       "name_jp": "菅野 美優",
       "name_romaji": "Kanno Miyu",
       "image_id": "032_kannomiyu",
+      "rank_history": {
+        "p1": 47,
+        "p2": 52,
+        "rc1": 48,
+        "p3": 46,
+        "rc2": 47
+      },
       "votes_final": 171390,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -541,6 +871,13 @@
       "name_jp": "中森 琴音",
       "name_romaji": "Nakamori Kotone",
       "image_id": "078_nakamorikotone",
+      "rank_history": {
+        "p1": 49,
+        "p2": 34,
+        "rc1": 39,
+        "p3": 49,
+        "rc2": 48
+      },
       "votes_final": 236383,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -550,6 +887,13 @@
       "name_jp": "須藤 紗暮",
       "name_romaji": "Sudo Sakura",
       "image_id": "061_sudosakura",
+      "rank_history": {
+        "p1": 30,
+        "p2": 27,
+        "rc1": 29,
+        "p3": 48,
+        "rc2": 49
+      },
       "votes_final": 380737,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -559,6 +903,13 @@
       "name_jp": "中森 美琴",
       "name_romaji": "Nakamori Mikoto",
       "image_id": "079_nakamorimikoto",
+      "rank_history": {
+        "p1": 52,
+        "p2": 37,
+        "rc1": 44,
+        "p3": 50,
+        "rc2": 50
+      },
       "votes_final": 208178,
       "debuted": false,
       "eliminated_at": "ep8"
@@ -568,6 +919,11 @@
       "name_jp": "山口 愛咲",
       "name_romaji": "Yamaguchi Misaki",
       "image_id": "094_yamaguchimisaki",
+      "rank_history": {
+        "p1": 90,
+        "p2": 84,
+        "rc1": 51
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -577,6 +933,11 @@
       "name_jp": "茂木 詩音",
       "name_romaji": "Mogi Shion",
       "image_id": "091_mogishion",
+      "rank_history": {
+        "p1": 46,
+        "p2": 50,
+        "rc1": 52
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -586,6 +947,11 @@
       "name_jp": "小田 有葉",
       "name_romaji": "Oda Aruha",
       "image_id": "020_odaaruha",
+      "rank_history": {
+        "p1": 33,
+        "p2": 41,
+        "rc1": 53
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -595,6 +961,11 @@
       "name_jp": "渡辺 未優",
       "name_romaji": "Watanabe Miyu",
       "image_id": "100_watanabemiyu",
+      "rank_history": {
+        "p1": 42,
+        "p2": 47,
+        "rc1": 54
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -604,6 +975,11 @@
       "name_jp": "黒川 穂香",
       "name_romaji": "Kurokawa Honoka",
       "image_id": "038_kurokawahonoka",
+      "rank_history": {
+        "p1": 78,
+        "p2": 60,
+        "rc1": 55
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -613,6 +989,11 @@
       "name_jp": "及川 里桜",
       "name_romaji": "Oikawa Rio",
       "image_id": "015_oikawario",
+      "rank_history": {
+        "p1": 39,
+        "p2": 46,
+        "rc1": 56
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -622,6 +1003,11 @@
       "name_jp": "鈴木 玲名",
       "name_romaji": "Suzuki Rena",
       "image_id": "059_suzukirena",
+      "rank_history": {
+        "p1": 40,
+        "p2": 45,
+        "rc1": 57
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -631,6 +1017,11 @@
       "name_jp": "鎌田 萌",
       "name_romaji": "Kamada Moe",
       "image_id": "028_kamadamoe",
+      "rank_history": {
+        "p1": 89,
+        "p2": 72,
+        "rc1": 58
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -640,6 +1031,11 @@
       "name_jp": "栗原 果乃",
       "name_romaji": "Kurihara Kano",
       "image_id": "037_kuriharakano",
+      "rank_history": {
+        "p1": 95,
+        "p2": 93,
+        "rc1": 59
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -649,6 +1045,11 @@
       "name_jp": "坂東 楓夏",
       "name_romaji": "Bando Fuka",
       "image_id": "083_bandofuka",
+      "rank_history": {
+        "p1": 67,
+        "p2": 59,
+        "rc1": 60
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -658,6 +1059,11 @@
       "name_jp": "菊川 亜樹",
       "name_romaji": "Kikukawa Aki",
       "image_id": "033_kikukawaaki",
+      "rank_history": {
+        "p1": 50,
+        "p2": 53,
+        "rc1": 61
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -667,6 +1073,11 @@
       "name_jp": "濵嵜 愛子",
       "name_romaji": "Hamasaki Aiko",
       "image_id": "082_hamasakiaiko",
+      "rank_history": {
+        "p1": 57,
+        "p2": 56,
+        "rc1": 62
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -676,6 +1087,11 @@
       "name_jp": "植木 美々",
       "name_romaji": "Ueki Mimi",
       "image_id": "012_uekimimi",
+      "rank_history": {
+        "p1": 51,
+        "p2": 57,
+        "rc1": 63
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -685,6 +1101,11 @@
       "name_jp": "田端 那菜",
       "name_romaji": "Tabata Nana",
       "image_id": "073_tabatanana",
+      "rank_history": {
+        "p1": 65,
+        "p2": 62,
+        "rc1": 64
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -694,6 +1115,11 @@
       "name_jp": "細井 彩加",
       "name_romaji": "Hosoi Ayaka",
       "image_id": "087_hosoiayaka",
+      "rank_history": {
+        "p1": 55,
+        "p2": 58,
+        "rc1": 65
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -703,6 +1129,11 @@
       "name_jp": "田邊 果凜",
       "name_romaji": "Tanabe Karin",
       "image_id": "071_tanabekarin",
+      "rank_history": {
+        "p1": 62,
+        "p2": 65,
+        "rc1": 66
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -712,6 +1143,11 @@
       "name_jp": "岡村 菜那",
       "name_romaji": "Okamura Nana",
       "image_id": "019_okamuranana",
+      "rank_history": {
+        "p1": 58,
+        "p2": 61,
+        "rc1": 67
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -721,6 +1157,11 @@
       "name_jp": "城丸 真歩",
       "name_romaji": "Shiromaru Maho",
       "image_id": "056_shiromarumaho",
+      "rank_history": {
+        "p1": 60,
+        "p2": 63,
+        "rc1": 68
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -730,6 +1171,11 @@
       "name_jp": "岡部 望々花",
       "name_romaji": "Okabe Nonoka",
       "image_id": "018_okabenonoka",
+      "rank_history": {
+        "p1": 73,
+        "p2": 81,
+        "rc1": 69
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -739,6 +1185,11 @@
       "name_jp": "田中 花",
       "name_romaji": "Tanaka Hana",
       "image_id": "069_tanakahana",
+      "rank_history": {
+        "p1": 68,
+        "p2": 71,
+        "rc1": 70
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -748,6 +1199,11 @@
       "name_jp": "井餘田 華",
       "name_romaji": "Iyota Hana",
       "image_id": "011_iyotahana",
+      "rank_history": {
+        "p1": 63,
+        "p2": 64,
+        "rc1": 71
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -757,6 +1213,11 @@
       "name_jp": "脇本 美颯",
       "name_romaji": "Wakimoto Mihaya",
       "image_id": "099_wakimotomihaya",
+      "rank_history": {
+        "p1": 69,
+        "p2": 70,
+        "rc1": 72
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -766,6 +1227,11 @@
       "name_jp": "小栁 絵美",
       "name_romaji": "Oyanagi Emi",
       "image_id": "021_oyanagiemi",
+      "rank_history": {
+        "p1": 61,
+        "p2": 66,
+        "rc1": 73
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -775,6 +1241,11 @@
       "name_jp": "茂呂 空音",
       "name_romaji": "Moro Anon",
       "image_id": "093_moroanon",
+      "rank_history": {
+        "p1": 77,
+        "p2": 78,
+        "rc1": 74
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -784,6 +1255,11 @@
       "name_jp": "渋谷 芽衣",
       "name_romaji": "Shibuya Mei",
       "image_id": "053_shibuyamei",
+      "rank_history": {
+        "p1": 71,
+        "p2": 74,
+        "rc1": 75
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -793,6 +1269,11 @@
       "name_jp": "中村 葵",
       "name_romaji": "Nakamura Aoi",
       "image_id": "076_nakamuraaoi",
+      "rank_history": {
+        "p1": 81,
+        "p2": 92,
+        "rc1": 76
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -802,6 +1283,11 @@
       "name_jp": "川岸 瑠那",
       "name_romaji": "Kawagishi Runa",
       "image_id": "030_kawagishiruna",
+      "rank_history": {
+        "p1": 66,
+        "p2": 68,
+        "rc1": 77
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -811,6 +1297,11 @@
       "name_jp": "中山 穗乃楓",
       "name_romaji": "Nakayama Honoka",
       "image_id": "080_nakayamahonoka",
+      "rank_history": {
+        "p1": 84,
+        "p2": 88,
+        "rc1": 78
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -820,6 +1311,11 @@
       "name_jp": "佐藤 あめり",
       "name_romaji": "Sato Ameli",
       "image_id": "050_satoameli",
+      "rank_history": {
+        "p1": 64,
+        "p2": 67,
+        "rc1": 79
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -829,6 +1325,11 @@
       "name_jp": "加藤 好実",
       "name_romaji": "Kato Konomi",
       "image_id": "027_katokonomi",
+      "rank_history": {
+        "p1": 82,
+        "p2": 94,
+        "rc1": 80
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -838,6 +1339,11 @@
       "name_jp": "青木 友香",
       "name_romaji": "Aoki Yuka",
       "image_id": "002_aokiyuka",
+      "rank_history": {
+        "p1": 72,
+        "p2": 75,
+        "rc1": 81
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -847,6 +1353,11 @@
       "name_jp": "片岡 陽音",
       "name_romaji": "Kataoka Rio",
       "image_id": "023_kataokario",
+      "rank_history": {
+        "p1": 70,
+        "p2": 69,
+        "rc1": 82
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -856,6 +1367,11 @@
       "name_jp": "関口 理香子",
       "name_romaji": "Sekiguchi Rikako",
       "image_id": "062_sekiguchirikako",
+      "rank_history": {
+        "p1": 83,
+        "p2": 96,
+        "rc1": 83
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -865,6 +1381,11 @@
       "name_jp": "木野 稟子",
       "name_romaji": "Kino Riko",
       "image_id": "036_kinoriko",
+      "rank_history": {
+        "p1": 76,
+        "p2": 76,
+        "rc1": 84
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -874,6 +1395,11 @@
       "name_jp": "新澤 実華",
       "name_romaji": "Shinzawa Mika",
       "image_id": "057_shinzawamika",
+      "rank_history": {
+        "p1": 86,
+        "p2": 95,
+        "rc1": 85
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -883,6 +1409,11 @@
       "name_jp": "田淵 美優",
       "name_romaji": "Tabuchi Miu",
       "image_id": "074_tabuchimiu",
+      "rank_history": {
+        "p1": 91,
+        "p2": 82,
+        "rc1": 86
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -892,6 +1423,11 @@
       "name_jp": "本橋 明桜",
       "name_romaji": "Motohashi Meika",
       "image_id": "092_motohashimeika",
+      "rank_history": {
+        "p1": 80,
+        "p2": 87,
+        "rc1": 87
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -901,6 +1437,11 @@
       "name_jp": "菅井 夏帆",
       "name_romaji": "Sugai Natsuho",
       "image_id": "058_sugainatsuho",
+      "rank_history": {
+        "p1": 87,
+        "p2": 91,
+        "rc1": 88
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -910,6 +1451,11 @@
       "name_jp": "中村 璃彩",
       "name_romaji": "Nakamura Riro",
       "image_id": "077_nakamurariro",
+      "rank_history": {
+        "p1": 93,
+        "p2": 89,
+        "rc1": 89
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -919,6 +1465,11 @@
       "name_jp": "太田 紗蘭",
       "name_romaji": "Ota Sara",
       "image_id": "016_otasara",
+      "rank_history": {
+        "p1": 94,
+        "p2": 90,
+        "rc1": 90
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -928,6 +1479,11 @@
       "name_jp": "加藤 愛梨",
       "name_romaji": "Kato Airi",
       "image_id": "024_katoairi",
+      "rank_history": {
+        "p1": 88,
+        "p2": 79,
+        "rc1": 91
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -937,6 +1493,11 @@
       "name_jp": "佐野 じゅえり",
       "name_romaji": "Sano Jueri",
       "image_id": "051_sanojueri",
+      "rank_history": {
+        "p1": 92,
+        "p2": 77,
+        "rc1": 92
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -946,6 +1507,11 @@
       "name_jp": "古橋 沙也佳",
       "name_romaji": "Furuhashi Sayaka",
       "image_id": "086_furuhashisayaka",
+      "rank_history": {
+        "p1": 75,
+        "p2": 80,
+        "rc1": 93
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -955,6 +1521,11 @@
       "name_jp": "谷 聖彩",
       "name_romaji": "Tani Seia",
       "image_id": "072_taniseia",
+      "rank_history": {
+        "p1": 85,
+        "p2": 83,
+        "rc1": 94
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -964,6 +1535,11 @@
       "name_jp": "小林 さえ",
       "name_romaji": "Kobayashi Sae",
       "image_id": "041_kobayashisae",
+      "rank_history": {
+        "p1": 79,
+        "p2": 85,
+        "rc1": 95
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -973,6 +1549,11 @@
       "name_jp": "柴垣 有佐",
       "name_romaji": "Shibagaki Arisa",
       "image_id": "052_shibagakiarisa",
+      "rank_history": {
+        "p1": 96,
+        "p2": 86,
+        "rc1": 96
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
