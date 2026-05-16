@@ -39,7 +39,7 @@ open http://localhost:8000/
 
 - 各シーズンの順位データは `data/*.json` に格納。
 - SHINSEKAI は放送中のため毎週の順位発表後に `data/shinsekai.json` を更新する想定。
-- 練習生画像は公式CDN (`web-m.webcdn.stream.ne.jp`) を直リンクしているため、提供元の都合で表示されなくなる場合があります。
+- 練習生画像は各シーズンの公式CDN (Season 1: `web-m.webcdn.stream.ne.jp` / Season 2: `2nd.produce101.jp` / THE GIRLS: `3rd.produce101.jp` / SHINSEKAI: `produce101.jp`) を直リンクしているため、提供元の都合で表示されなくなる場合があります。
 
 ## 免責
 
