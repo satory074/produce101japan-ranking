@@ -242,6 +242,7 @@ function renderTraineePicker(trainees, defaultSet, cfg) {
       </div>
       <div class="flex flex-wrap gap-1 mb-2">
         <button class="chart-preset px-2 py-1 text-[11px] rounded bg-${cfg.color}-50 text-${cfg.color}-700 hover:bg-${cfg.color}-100 font-bold" data-preset="debut">デビュー組</button>
+        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="all">全選択</button>
         <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="none">全解除</button>
       </div>
       <ul class="chart-picker max-h-[480px] overflow-y-auto pr-1 -mr-1">${items}</ul>
@@ -498,6 +499,8 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
       let nextChecked = new Set();
       if (preset === 'debut') {
         trainees.forEach(t => { if (t.debuted === true) nextChecked.add(t.image_id); });
+      } else if (preset === 'all') {
+        trainees.forEach(t => nextChecked.add(t.image_id));
       } else if (preset === 'none') {
         nextChecked = new Set();
       }
