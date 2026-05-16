@@ -679,6 +679,7 @@ function fillSegmentsBetweenAnchors(season, anchorKeys, positions) {
 
 // warping に基づき、各 milestone を warped x × normalized y の点列に変換する。
 // warping に含まれない milestone (アンカー外側) や rank_history が null の milestone はスキップ。
+// 各点は元の rank (r) と milestone (m) も保持する (チャート描画でラベル / ceremony 判定に使う)。
 function buildAlignedTrajectory(trainee, season, warping) {
   if (!season || !Array.isArray(season.ranking_milestones) || !warping) return null;
   const denomY = Math.max(1, (season.total_trainees || 101) - 1);
@@ -688,7 +689,7 @@ function buildAlignedTrajectory(trainee, season, warping) {
     if (x == null) return;
     const r = trainee.rank_history && trainee.rank_history[m.key];
     if (r == null) return;
-    points.push({ x, y: (r - 1) / denomY });
+    points.push({ x, y: (r - 1) / denomY, r, m });
   });
   points.sort((a, b) => a.x - b.x);
   return points.length >= 2 ? points : null;
@@ -867,13 +868,25 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     `;
   }).join('');
 
-  // 線・ポイント
+  // 線・ポイント・各点の順位ラベル
+  // ラベル密度はメインチャート (shouldShowPointLabel) と同方針: 先頭/末尾/順位発表式は常時、それ以外は ≤5 本のとき。
+  const totalLines = entries.length + (baseEntry.traj && baseEntry.traj.length >= 2 ? 1 : 0);
+  const showAllLabels = totalLines <= 5;
   const renderLine = (entry, color, strokeWidth, opacity, isBase) => {
     const traj = entry.traj;
     if (!traj || traj.length < 2) return '';
     const iid = escapeHtml(entry.trainee.image_id);
     const d = traj.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xAt(p.x).toFixed(1)} ${yAt(p.y).toFixed(1)}`).join(' ');
-    const pts = traj.map(p => `<circle cx="${xAt(p.x).toFixed(1)}" cy="${yAt(p.y).toFixed(1)}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />`).join('');
+    const lastIdx = traj.length - 1;
+    const pts = traj.map((p, i) => {
+      const cx = xAt(p.x).toFixed(1), cy = yAt(p.y).toFixed(1);
+      const isCeremony = p.m && p.m.ceremony === true;
+      const showLabel = showAllLabels || i === 0 || i === lastIdx || isCeremony;
+      const labelHtml = showLabel
+        ? `<text x="${cx}" y="${(yAt(p.y) - 7).toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-weight="bold" font-family="Orbitron,sans-serif" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${iid}">${p.r}位</text>`
+        : '';
+      return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />${labelHtml}`;
+    }).join('');
     return `<g data-iid="${iid}" class="sim-line-group">
       <path class="sim-line" d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
             stroke-linecap="round" stroke-linejoin="round" opacity="${opacity}" data-iid="${iid}" />
@@ -908,10 +921,9 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
   const labelsSvg = labels.map(l => {
     const fw = l.isBase ? 'bold' : '600';
     const txt = escapeHtml((l.text || '?').slice(0, 7));
-    const prefix = l.isBase ? '' : `<tspan font-size="8" fill="#9ca3af" font-family="Orbitron,sans-serif">#${l.rank}</tspan> `;
     return `<text x="${(padL + innerW + 5).toFixed(1)}" y="${l.finalY.toFixed(1)}"
               font-size="10" fill="${l.color}" font-weight="${fw}"
-              dominant-baseline="middle" data-iid="${escapeHtml(l.iid)}" class="sim-endlabel">${prefix}${txt}</text>`;
+              dominant-baseline="middle" data-iid="${escapeHtml(l.iid)}" class="sim-endlabel">${txt}</text>`;
   }).join('');
 
   return `<svg class="sim-chart-svg block w-full" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
