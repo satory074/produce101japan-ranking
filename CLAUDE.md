@@ -33,6 +33,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
    - 画像読み込み失敗時は `<img onerror>` で `display:none` にし、親 div が描画する1文字イニシャルが代替表示される (Tailwindユーティリティのみで実装、CSSファイルなし)。
    - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。
    - 順位推移表サブタブは `buildPanel()` 内で `data.ranking_milestones` の有無を見て条件描画。`renderRankingHistoryTable()` がテーブルHTMLを生成し、`bindSubtabs()` / `bindHistorySorting()` でサブタブ切替・列ソートを束ねる。サブタブ切替は `.subpanel.hidden` トグルだけで状態管理なし。
+   - 順位推移グラフサブタブ (`subpanel-chart`) は `renderRankingChart()` がピュア SVG (折れ線 + 順位ラベル) を生成。チェックボックスのトグルで `refreshChart()` が SVG を再描画。デフォルト選択はデビュー組 (`debuted: true` / SHINSEKAI は `rank <= 11`)、色は `CHART_COLORS` 12色循環、ホバーで他の線を半透明化。CDN ライブラリ不使用。
 
 ## データスキーマの注意点
 

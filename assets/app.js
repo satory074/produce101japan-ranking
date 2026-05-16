@@ -194,6 +194,266 @@ function bindHistorySorting(panel, trainees, milestones, urlTemplate) {
   });
 }
 
+// =========================================================================
+// 順位推移グラフ (subpanel-chart)
+// =========================================================================
+
+const CHART_COLORS = [
+  '#ef4444', '#f97316', '#eab308', '#22c55e', '#06b6d4', '#3b82f6',
+  '#8b5cf6', '#ec4899', '#a855f7', '#10b981', '#0ea5e9', '#f43f5e',
+];
+
+function chartLineColor(index) {
+  return CHART_COLORS[index % CHART_COLORS.length];
+}
+
+function defaultChartSelection(trainees, panelId) {
+  const set = new Set();
+  if (panelId === 'shinsekai') {
+    trainees.forEach(t => {
+      if (typeof t.rank === 'number' && t.rank <= 11) set.add(t.image_id);
+    });
+  } else {
+    trainees.forEach(t => {
+      if (t.debuted === true) set.add(t.image_id);
+    });
+  }
+  return set;
+}
+
+function renderTraineePicker(trainees, defaultSet, cfg) {
+  const items = trainees.map((t, i) => {
+    const checked = defaultSet.has(t.image_id);
+    const nameJp = escapeHtml(t.name_jp || t.name_romaji || '?');
+    const nameRomaji = escapeHtml(t.name_romaji || '');
+    const stage = t.stage_name ? `<span class="text-[10px] text-gray-400 ml-1">${escapeHtml(t.stage_name)}</span>` : '';
+    const searchKey = `${nameJp} ${nameRomaji} ${t.stage_name || ''}`.toLowerCase();
+    return `
+      <li class="chart-picker-item" data-search="${escapeHtml(searchKey)}">
+        <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer text-xs">
+          <input type="checkbox" class="chart-checkbox accent-${cfg.color}-500"
+                 data-iid="${escapeHtml(t.image_id)}" ${checked ? 'checked' : ''} />
+          <span class="color-swatch w-3 h-3 rounded-sm border border-gray-200 shrink-0" data-iid-swatch="${escapeHtml(t.image_id)}"></span>
+          <span class="truncate flex-1"><span class="font-bold">${nameJp}</span>${stage}</span>
+        </label>
+      </li>
+    `;
+  }).join('');
+
+  return `
+    <aside class="chart-aside lg:w-64 shrink-0 bg-white border border-gray-200 rounded-lg p-3">
+      <div class="mb-2">
+        <input type="search" class="chart-filter w-full px-3 py-1.5 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-${cfg.color}-500" placeholder="絞り込み..." />
+      </div>
+      <div class="flex flex-wrap gap-1 mb-2">
+        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-${cfg.color}-50 text-${cfg.color}-700 hover:bg-${cfg.color}-100 font-bold" data-preset="debut">デビュー組</button>
+        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="top11">Top11</button>
+        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="none">全解除</button>
+      </div>
+      <ul class="chart-picker max-h-[480px] overflow-y-auto pr-1 -mr-1">${items}</ul>
+      <p class="chart-counter text-[10px] text-gray-500 mt-2">— / ${trainees.length} 名選択中</p>
+    </aside>
+  `;
+}
+
+function buildChartSvg(selected, milestones, maxRank) {
+  const W = 800, H = 420;
+  const padL = 48, padR = 28, padT = 20, padB = 44;
+  const innerW = W - padL - padR;
+  const innerH = H - padT - padB;
+  const N = milestones.length;
+
+  const xAt = (i) => N === 1 ? padL + innerW / 2 : padL + (i / (N - 1)) * innerW;
+  const yAt = (rank) => {
+    const denom = Math.max(1, maxRank - 1);
+    return padT + ((rank - 1) / denom) * innerH;
+  };
+
+  // Y-axis ticks: 1, 10, 20, ..., maxRank
+  const yTicks = [1];
+  for (let r = 10; r < maxRank; r += 10) yTicks.push(r);
+  if (yTicks[yTicks.length - 1] !== maxRank) yTicks.push(maxRank);
+
+  // Grid + axis labels
+  const yGrid = yTicks.map(r => `
+    <line x1="${padL}" y1="${yAt(r).toFixed(1)}" x2="${padL + innerW}" y2="${yAt(r).toFixed(1)}" stroke="#e5e7eb" stroke-width="1" />
+    <text x="${padL - 6}" y="${yAt(r) + 3}" text-anchor="end" font-size="10" fill="#6b7280" font-family="Orbitron,sans-serif">${r}位</text>
+  `).join('');
+
+  const xGrid = milestones.map((m, i) => {
+    const ceremony = m.ceremony;
+    const stroke = ceremony ? '#fbcfe8' : '#f3f4f6';
+    const sw = ceremony ? 2 : 1;
+    return `
+      <line x1="${xAt(i).toFixed(1)}" y1="${padT}" x2="${xAt(i).toFixed(1)}" y2="${padT + innerH}" stroke="${stroke}" stroke-width="${sw}" />
+      <text x="${xAt(i).toFixed(1)}" y="${H - 18}" text-anchor="middle" font-size="11" fill="${ceremony ? '#be185d' : '#374151'}" font-weight="${ceremony ? 'bold' : 'normal'}" font-family="Orbitron,sans-serif">${escapeHtml(m.short || m.label)}</text>
+      ${m.label && m.short && m.label !== m.short ? `<text x="${xAt(i).toFixed(1)}" y="${H - 6}" text-anchor="middle" font-size="9" fill="#9ca3af">${escapeHtml((m.label || '').slice(0, 8))}</text>` : ''}
+    `;
+  }).join('');
+
+  // Lines (one per selected trainee)
+  const lines = selected.map(({ trainee, color }) => {
+    const id = escapeHtml(trainee.image_id);
+    const segments = [];
+    let cur = [];
+    milestones.forEach((m, i) => {
+      const r = trainee.rank_history?.[m.key];
+      if (r == null) {
+        if (cur.length) { segments.push(cur); cur = []; }
+      } else {
+        cur.push(`${xAt(i).toFixed(1)},${yAt(r).toFixed(1)}`);
+      }
+    });
+    if (cur.length) segments.push(cur);
+
+    const polylines = segments.map(seg =>
+      `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chart-line" />`
+    ).join('');
+
+    const points = milestones.map((m, i) => {
+      const r = trainee.rank_history?.[m.key];
+      if (r == null) return '';
+      const cx = xAt(i).toFixed(1), cy = yAt(r).toFixed(1);
+      return `
+        <circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" />
+        <text x="${cx}" y="${(yAt(r) - 8).toFixed(1)}" text-anchor="middle" font-size="10" fill="${color}" font-weight="bold" class="chart-label" font-family="Orbitron,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${r}位</text>
+      `;
+    }).join('');
+
+    return `<g data-iid="${id}" class="chart-trainee-group">${polylines}${points}<title>${escapeHtml(trainee.name_jp || trainee.name_romaji || '')}</title></g>`;
+  }).join('');
+
+  return `
+    <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
+         class="chart-svg w-full h-auto bg-white border border-gray-200 rounded-lg">
+      <g class="chart-grid">${yGrid}${xGrid}</g>
+      <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
+      <line x1="${padL}" y1="${padT + innerH}" x2="${padL + innerW}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
+      <g class="chart-lines">${lines}</g>
+    </svg>
+  `;
+}
+
+function getSelectedTrainees(panel, trainees) {
+  const selectedIds = [];
+  panel.querySelectorAll('.chart-picker .chart-checkbox:checked').forEach(cb => {
+    selectedIds.push(cb.dataset.iid);
+  });
+  const idMap = new Map(trainees.map(t => [t.image_id, t]));
+  return selectedIds
+    .map((iid, idx) => {
+      const t = idMap.get(iid);
+      if (!t) return null;
+      const color = chartLineColor(idx);
+      return { trainee: t, color };
+    })
+    .filter(Boolean);
+}
+
+function refreshChart(panel, trainees, milestones, maxRank) {
+  const selected = getSelectedTrainees(panel, trainees);
+  // Update swatches based on current selection order
+  panel.querySelectorAll('[data-iid-swatch]').forEach(el => {
+    el.style.background = 'transparent';
+    el.style.borderColor = '#e5e7eb';
+  });
+  selected.forEach(({ trainee, color }) => {
+    const sw = panel.querySelector(`[data-iid-swatch="${CSS.escape(trainee.image_id)}"]`);
+    if (sw) {
+      sw.style.background = color;
+      sw.style.borderColor = color;
+    }
+  });
+  const container = panel.querySelector('.chart-svg-container');
+  if (container) container.innerHTML = buildChartSvg(selected, milestones, maxRank);
+  const counter = panel.querySelector('.chart-counter');
+  if (counter) counter.textContent = `${selected.length} / ${trainees.length} 名選択中`;
+}
+
+function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
+  const defaultSet = defaultChartSelection(trainees, panelId);
+  const initialSelected = trainees
+    .filter(t => defaultSet.has(t.image_id))
+    .map((t, idx) => ({ trainee: t, color: chartLineColor(idx) }));
+  return `
+    <div class="flex flex-col lg:flex-row gap-4">
+      ${renderTraineePicker(trainees, defaultSet, cfg)}
+      <div class="flex-1 min-w-0">
+        <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank)}</div>
+        <p class="text-[11px] text-gray-500 mt-2">
+          Y軸=順位 (1位が上)。
+          <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式列はピンク強調。
+        </p>
+      </div>
+    </div>
+  `;
+}
+
+function bindChartControls(panel, trainees, milestones, maxRank) {
+  const picker = panel.querySelector('.chart-picker');
+  if (!picker) return;
+
+  // Initial swatch colors for default-checked trainees
+  refreshChart(panel, trainees, milestones, maxRank);
+
+  // Checkbox toggle
+  picker.addEventListener('change', (e) => {
+    if (e.target.matches('.chart-checkbox')) {
+      refreshChart(panel, trainees, milestones, maxRank);
+    }
+  });
+
+  // Filter input
+  const filter = panel.querySelector('.chart-filter');
+  if (filter) {
+    filter.addEventListener('input', () => {
+      const q = filter.value.trim().toLowerCase();
+      panel.querySelectorAll('.chart-picker-item').forEach(li => {
+        const match = !q || (li.dataset.search || '').includes(q);
+        li.style.display = match ? '' : 'none';
+      });
+    });
+  }
+
+  // Preset buttons
+  panel.querySelectorAll('.chart-preset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const preset = btn.dataset.preset;
+      const cbs = panel.querySelectorAll('.chart-checkbox');
+      let nextChecked = new Set();
+      if (preset === 'debut') {
+        trainees.forEach(t => { if (t.debuted === true) nextChecked.add(t.image_id); });
+      } else if (preset === 'top11') {
+        trainees.forEach(t => { if (typeof t.rank === 'number' && t.rank <= 11) nextChecked.add(t.image_id); });
+      } else if (preset === 'none') {
+        nextChecked = new Set();
+      }
+      cbs.forEach(cb => { cb.checked = nextChecked.has(cb.dataset.iid); });
+      refreshChart(panel, trainees, milestones, maxRank);
+    });
+  });
+
+  // Hover emphasis on picker label → highlight line in chart
+  picker.addEventListener('mouseover', (e) => {
+    const label = e.target.closest('.chart-picker-item');
+    if (!label) return;
+    const cb = label.querySelector('.chart-checkbox');
+    if (!cb) return;
+    panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
+      g.style.opacity = g.dataset.iid === cb.dataset.iid ? '1' : '0.2';
+    });
+  });
+  picker.addEventListener('mouseout', () => {
+    panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
+      g.style.opacity = '';
+    });
+  });
+}
+
+// =========================================================================
+// 練習生カード (subpanel-grid)
+// =========================================================================
+
 function traineeCard(trainee, season, urlTemplate) {
   const img = buildImageUrl(urlTemplate, trainee);
   const debuted = trainee.debuted === true;
@@ -259,8 +519,11 @@ function buildPanel(panelId, data) {
     <nav class="subtab-bar inline-flex bg-gray-100 rounded-lg p-1 mb-4 text-sm" role="tablist">
       <button class="subtab-btn px-4 py-1.5 rounded-md bg-white shadow text-gray-900 font-bold transition-colors" data-subtab="grid" role="tab" aria-selected="true">練習生一覧</button>
       <button class="subtab-btn px-4 py-1.5 rounded-md text-gray-500 hover:text-gray-700 transition-colors" data-subtab="history" role="tab" aria-selected="false">順位推移表</button>
+      <button class="subtab-btn px-4 py-1.5 rounded-md text-gray-500 hover:text-gray-700 transition-colors" data-subtab="chart" role="tab" aria-selected="false">順位推移グラフ</button>
     </nav>
   ` : '';
+
+  const maxRank = data.total_trainees || trainees.length || 101;
 
   panel.innerHTML = `
     <section class="mb-4">
@@ -299,6 +562,10 @@ function buildPanel(panelId, data) {
     ${showHistoryTab ? `<div class="subpanel subpanel-history hidden" data-subpanel="history">
       ${renderRankingHistoryTable(trainees, milestones, urlTemplate)}
     </div>` : ''}
+
+    ${showHistoryTab ? `<div class="subpanel subpanel-chart hidden" data-subpanel="chart">
+      ${renderRankingChart(trainees, milestones, panelId, cfg, maxRank)}
+    </div>` : ''}
   `;
 
   const grid = panel.querySelector('.trainee-grid');
@@ -327,6 +594,7 @@ function buildPanel(panelId, data) {
   if (showHistoryTab) {
     bindSubtabs(panel);
     bindHistorySorting(panel, trainees, milestones, urlTemplate);
+    bindChartControls(panel, trainees, milestones, maxRank);
   }
 }
 
