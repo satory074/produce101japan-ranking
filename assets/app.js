@@ -198,13 +198,16 @@ function bindHistorySorting(panel, trainees, milestones, urlTemplate) {
 // 順位推移グラフ (subpanel-chart)
 // =========================================================================
 
+// Paul Tol "Bright" 6色 (gray 除外) + ダッシュパターンで 12 通り識別
+// https://personal.sron.nl/~pault/ — protanopia/deuteranopia でも区別可能
 const CHART_COLORS = [
-  '#ef4444', '#f97316', '#eab308', '#22c55e', '#06b6d4', '#3b82f6',
-  '#8b5cf6', '#ec4899', '#a855f7', '#10b981', '#0ea5e9', '#f43f5e',
+  '#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377',
 ];
 
-function chartLineColor(index) {
-  return CHART_COLORS[index % CHART_COLORS.length];
+function chartLineStyle(index) {
+  const color = CHART_COLORS[index % CHART_COLORS.length];
+  const dasharray = index >= CHART_COLORS.length ? '6 4' : null;
+  return { color, dasharray };
 }
 
 function defaultChartSelection(trainees, panelId) {
@@ -233,7 +236,7 @@ function renderTraineePicker(trainees, defaultSet, cfg) {
         <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer text-xs">
           <input type="checkbox" class="chart-checkbox accent-${cfg.color}-500"
                  data-iid="${escapeHtml(t.image_id)}" ${checked ? 'checked' : ''} />
-          <span class="color-swatch w-3 h-3 rounded-sm border border-gray-200 shrink-0" data-iid-swatch="${escapeHtml(t.image_id)}"></span>
+          <svg class="color-swatch shrink-0" width="20" height="6" data-iid-swatch="${escapeHtml(t.image_id)}"><line x1="0" y1="3" x2="20" y2="3" stroke="transparent" stroke-width="3" /></svg>
           <span class="truncate flex-1"><span class="font-bold">${nameJp}</span>${stage}</span>
         </label>
       </li>
@@ -256,12 +259,18 @@ function renderTraineePicker(trainees, defaultSet, cfg) {
   `;
 }
 
+function shouldShowPointLabel(i, milestone, total, selectedCount) {
+  if (i === 0 || i === total - 1 || milestone.ceremony) return true;
+  return selectedCount <= 5;
+}
+
 function buildChartSvg(selected, milestones, maxRank) {
-  const W = 800, H = 420;
-  const padL = 48, padR = 28, padT = 20, padB = 44;
+  const W = 880, H = 440;
+  const padL = 48, padR = 96, padT = 20, padB = 48;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
   const N = milestones.length;
+  const selectedCount = selected.length;
 
   const xAt = (i) => N === 1 ? padL + innerW / 2 : padL + (i / (N - 1)) * innerW;
   const yAt = (rank) => {
@@ -269,63 +278,83 @@ function buildChartSvg(selected, milestones, maxRank) {
     return padT + ((rank - 1) / denom) * innerH;
   };
 
-  // Y-axis ticks: 1, 10, 20, ..., maxRank
+  // Top 11 デビュー圏ハイライト帯
+  const top11Cap = Math.min(11, maxRank);
+  const top11Band = `
+    <rect class="chart-top11-band" x="${padL}" y="${yAt(1).toFixed(1)}" width="${innerW}" height="${(yAt(top11Cap) - yAt(1)).toFixed(1)}" fill="#fde047" fill-opacity="0.14" />
+    <text x="${padL + innerW - 4}" y="${(yAt(top11Cap) - 4).toFixed(1)}" text-anchor="end" font-size="9" fill="#a16207" font-weight="bold" font-family="Orbitron,sans-serif">TOP 11 デビュー圏</text>
+  `;
+
+  // Y軸 grid
   const yTicks = [1];
   for (let r = 10; r < maxRank; r += 10) yTicks.push(r);
   if (yTicks[yTicks.length - 1] !== maxRank) yTicks.push(maxRank);
 
-  // Grid + axis labels
   const yGrid = yTicks.map(r => `
     <line x1="${padL}" y1="${yAt(r).toFixed(1)}" x2="${padL + innerW}" y2="${yAt(r).toFixed(1)}" stroke="#e5e7eb" stroke-width="1" />
     <text x="${padL - 6}" y="${yAt(r) + 3}" text-anchor="end" font-size="10" fill="#6b7280" font-family="Orbitron,sans-serif">${r}位</text>
   `).join('');
 
+  // X軸 grid + label
   const xGrid = milestones.map((m, i) => {
     const ceremony = m.ceremony;
     const stroke = ceremony ? '#fbcfe8' : '#f3f4f6';
     const sw = ceremony ? 2 : 1;
     return `
       <line x1="${xAt(i).toFixed(1)}" y1="${padT}" x2="${xAt(i).toFixed(1)}" y2="${padT + innerH}" stroke="${stroke}" stroke-width="${sw}" />
-      <text x="${xAt(i).toFixed(1)}" y="${H - 18}" text-anchor="middle" font-size="11" fill="${ceremony ? '#be185d' : '#374151'}" font-weight="${ceremony ? 'bold' : 'normal'}" font-family="Orbitron,sans-serif">${escapeHtml(m.short || m.label)}</text>
-      ${m.label && m.short && m.label !== m.short ? `<text x="${xAt(i).toFixed(1)}" y="${H - 6}" text-anchor="middle" font-size="9" fill="#9ca3af">${escapeHtml((m.label || '').slice(0, 8))}</text>` : ''}
+      <text x="${xAt(i).toFixed(1)}" y="${H - 22}" text-anchor="middle" font-size="11" fill="${ceremony ? '#be185d' : '#374151'}" font-weight="${ceremony ? 'bold' : 'normal'}" font-family="Orbitron,sans-serif">${escapeHtml(m.short || m.label)}</text>
+      ${m.label && m.short && m.label !== m.short ? `<text x="${xAt(i).toFixed(1)}" y="${H - 10}" text-anchor="middle" font-size="9" fill="#9ca3af">${escapeHtml((m.label || '').slice(0, 8))}</text>` : ''}
     `;
   }).join('');
 
-  // Lines (one per selected trainee)
-  const lines = selected.map(({ trainee, color }) => {
+  // 各 trainee の線
+  const lines = selected.map(({ trainee, color, dasharray }) => {
     const id = escapeHtml(trainee.image_id);
     const segments = [];
     let cur = [];
+    let lastIdx = -1, lastRank = null;
     milestones.forEach((m, i) => {
       const r = trainee.rank_history?.[m.key];
       if (r == null) {
         if (cur.length) { segments.push(cur); cur = []; }
       } else {
         cur.push(`${xAt(i).toFixed(1)},${yAt(r).toFixed(1)}`);
+        lastIdx = i; lastRank = r;
       }
     });
     if (cur.length) segments.push(cur);
 
+    const dashAttr = dasharray ? ` stroke-dasharray="${dasharray}"` : '';
     const polylines = segments.map(seg =>
-      `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chart-line" />`
+      `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"${dashAttr} class="chart-line" />`
     ).join('');
 
+    // 点 + ラベル (密度制御)
     const points = milestones.map((m, i) => {
       const r = trainee.rank_history?.[m.key];
       if (r == null) return '';
       const cx = xAt(i).toFixed(1), cy = yAt(r).toFixed(1);
-      return `
-        <circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" />
-        <text x="${cx}" y="${(yAt(r) - 8).toFixed(1)}" text-anchor="middle" font-size="10" fill="${color}" font-weight="bold" class="chart-label" font-family="Orbitron,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${r}位</text>
-      `;
+      const showLabel = shouldShowPointLabel(i, m, N, selectedCount);
+      const labelHtml = showLabel
+        ? `<text x="${cx}" y="${(yAt(r) - 8).toFixed(1)}" text-anchor="middle" font-size="10" fill="${color}" font-weight="bold" class="chart-label" font-family="Orbitron,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${r}位</text>`
+        : '';
+      return `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" />${labelHtml}`;
     }).join('');
 
-    return `<g data-iid="${id}" class="chart-trainee-group">${polylines}${points}<title>${escapeHtml(trainee.name_jp || trainee.name_romaji || '')}</title></g>`;
+    // エンドポイント直接ラベル (右端に名前)
+    let endpointLabel = '';
+    if (lastIdx !== -1) {
+      const labelText = (trainee.stage_name || trainee.name_jp || '').slice(0, 8);
+      endpointLabel = `<text x="${(xAt(lastIdx) + 8).toFixed(1)}" y="${(yAt(lastRank) + 3).toFixed(1)}" font-size="10" fill="${color}" font-weight="bold" class="chart-endpoint-label" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(labelText)}</text>`;
+    }
+
+    return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;">${polylines}${points}${endpointLabel}</g>`;
   }).join('');
 
   return `
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
          class="chart-svg w-full h-auto bg-white border border-gray-200 rounded-lg">
+      <g class="chart-band">${top11Band}</g>
       <g class="chart-grid">${yGrid}${xGrid}</g>
       <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
       <line x1="${padL}" y1="${padT + innerH}" x2="${padL + innerW}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
@@ -344,24 +373,25 @@ function getSelectedTrainees(panel, trainees) {
     .map((iid, idx) => {
       const t = idMap.get(iid);
       if (!t) return null;
-      const color = chartLineColor(idx);
-      return { trainee: t, color };
+      const { color, dasharray } = chartLineStyle(idx);
+      return { trainee: t, color, dasharray };
     })
     .filter(Boolean);
 }
 
 function refreshChart(panel, trainees, milestones, maxRank) {
   const selected = getSelectedTrainees(panel, trainees);
-  // Update swatches based on current selection order
-  panel.querySelectorAll('[data-iid-swatch]').forEach(el => {
-    el.style.background = 'transparent';
-    el.style.borderColor = '#e5e7eb';
+  // Swatch: reset all to transparent
+  panel.querySelectorAll('[data-iid-swatch] line').forEach(line => {
+    line.setAttribute('stroke', 'transparent');
+    line.removeAttribute('stroke-dasharray');
   });
-  selected.forEach(({ trainee, color }) => {
-    const sw = panel.querySelector(`[data-iid-swatch="${CSS.escape(trainee.image_id)}"]`);
+  // Apply selected colors + dash patterns
+  selected.forEach(({ trainee, color, dasharray }) => {
+    const sw = panel.querySelector(`[data-iid-swatch="${CSS.escape(trainee.image_id)}"] line`);
     if (sw) {
-      sw.style.background = color;
-      sw.style.borderColor = color;
+      sw.setAttribute('stroke', color);
+      if (dasharray) sw.setAttribute('stroke-dasharray', dasharray);
     }
   });
   const container = panel.querySelector('.chart-svg-container');
@@ -374,15 +404,21 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
   const defaultSet = defaultChartSelection(trainees, panelId);
   const initialSelected = trainees
     .filter(t => defaultSet.has(t.image_id))
-    .map((t, idx) => ({ trainee: t, color: chartLineColor(idx) }));
+    .map((t, idx) => {
+      const { color, dasharray } = chartLineStyle(idx);
+      return { trainee: t, color, dasharray };
+    });
   return `
     <div class="flex flex-col lg:flex-row gap-4">
       ${renderTraineePicker(trainees, defaultSet, cfg)}
-      <div class="flex-1 min-w-0">
+      <div class="flex-1 min-w-0 relative">
         <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank)}</div>
+        <div class="chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[200px]"></div>
         <p class="text-[11px] text-gray-500 mt-2">
           Y軸=順位 (1位が上)。
-          <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式列はピンク強調。
+          <span class="inline-block w-3 h-2 bg-yellow-200 align-middle mx-1"></span>Top 11 デビュー圏
+          <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式列
+          ・線にホバーで詳細表示
         </p>
       </div>
     </div>
@@ -439,15 +475,83 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
     if (!label) return;
     const cb = label.querySelector('.chart-checkbox');
     if (!cb) return;
-    panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
-      g.style.opacity = g.dataset.iid === cb.dataset.iid ? '1' : '0.2';
-    });
+    highlightTraineeLine(panel, cb.dataset.iid);
   });
   picker.addEventListener('mouseout', () => {
-    panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
-      g.style.opacity = '';
-    });
+    clearLineHighlight(panel);
   });
+
+  // SVG 内のホバー: 線/点/エンドポイントラベルからグループを特定 → 強調 + ツールチップ
+  const svgContainer = panel.querySelector('.chart-svg-container');
+  const tooltip = panel.querySelector('.chart-tooltip');
+  const idMap = new Map(trainees.map(t => [t.image_id, t]));
+  if (svgContainer && tooltip) {
+    svgContainer.addEventListener('mouseover', (e) => {
+      const group = e.target.closest('.chart-trainee-group');
+      if (!group) return;
+      const iid = group.dataset.iid;
+      highlightTraineeLine(panel, iid);
+      showChartTooltip(panel, tooltip, idMap.get(iid), milestones);
+    });
+    svgContainer.addEventListener('mousemove', (e) => {
+      if (tooltip.classList.contains('hidden')) return;
+      positionChartTooltip(svgContainer, tooltip, e);
+    });
+    svgContainer.addEventListener('mouseleave', () => {
+      clearLineHighlight(panel);
+      tooltip.classList.add('hidden');
+    });
+  }
+}
+
+function highlightTraineeLine(panel, iid) {
+  panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
+    if (g.dataset.iid === iid) {
+      g.style.opacity = '1';
+      g.querySelectorAll('.chart-line').forEach(l => l.setAttribute('stroke-width', '4'));
+    } else {
+      g.style.opacity = '0.15';
+    }
+  });
+}
+
+function clearLineHighlight(panel) {
+  panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
+    g.style.opacity = '';
+    g.querySelectorAll('.chart-line').forEach(l => l.setAttribute('stroke-width', '2'));
+  });
+}
+
+function showChartTooltip(panel, tooltip, trainee, milestones) {
+  if (!trainee) return;
+  const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '');
+  const stage = trainee.stage_name ? ` <span class="text-gray-400">(${escapeHtml(trainee.stage_name)})</span>` : '';
+  const rows = milestones.map(m => {
+    const r = trainee.rank_history?.[m.key];
+    const rankStr = r == null ? '<span class="text-gray-300">—</span>' : `<span class="font-bold ${rankTooltipColor(r)}">${r}位</span>`;
+    const cer = m.ceremony ? 'text-pink-700 font-bold' : 'text-gray-600';
+    return `<div class="flex justify-between gap-3"><span class="${cer}">${escapeHtml(m.short || m.label)}</span>${rankStr}</div>`;
+  }).join('');
+  tooltip.innerHTML = `<div class="font-bold mb-1">${nameJp}${stage}</div>${rows}`;
+  tooltip.classList.remove('hidden');
+}
+
+function rankTooltipColor(r) {
+  if (r === 1) return 'text-yellow-600';
+  if (r <= 3) return 'text-amber-700';
+  if (r <= 11) return 'text-yellow-700';
+  return 'text-gray-700';
+}
+
+function positionChartTooltip(container, tooltip, e) {
+  const rect = container.getBoundingClientRect();
+  const x = e.clientX - rect.left + 12;
+  const y = e.clientY - rect.top + 12;
+  // 右端で見切れる場合は左側に寄せる
+  const tw = tooltip.offsetWidth || 180;
+  const cw = container.clientWidth;
+  tooltip.style.left = (x + tw > cw ? cw - tw - 8 : x) + 'px';
+  tooltip.style.top = y + 'px';
 }
 
 // =========================================================================
