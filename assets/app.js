@@ -264,13 +264,33 @@ function shouldShowPointLabel(i, milestone, total, selectedCount) {
   return selectedCount <= 5;
 }
 
-function buildChartSvg(selected, milestones, maxRank) {
+// 選択中の練習生の最大順位を見て Y 軸の上限を決める (自動ズーム)
+// データが Top 20 に収まっていれば Y 軸を 20+α まで縮めて余白を活かす
+function computeYAxisMax(selected, milestones, dataMax) {
+  if (selected.length === 0) return dataMax;
+  let observed = 0;
+  selected.forEach(({ trainee }) => {
+    milestones.forEach(m => {
+      const r = trainee.rank_history?.[m.key];
+      if (typeof r === 'number' && r > observed) observed = r;
+    });
+  });
+  if (observed === 0) return dataMax;
+  // 余白として 10% + 最低 +3 を足し、10 の倍数に切り上げ
+  const padded = Math.max(observed + 3, Math.ceil(observed * 1.1));
+  const rounded = Math.min(dataMax, Math.ceil(padded / 10) * 10);
+  // 最低 20 までは見せて Top 11 帯がきちんと出るようにする
+  return Math.max(20, rounded);
+}
+
+function buildChartSvg(selected, milestones, dataMax) {
   const W = 880, H = 440;
   const padL = 48, padR = 96, padT = 20, padB = 48;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
   const N = milestones.length;
   const selectedCount = selected.length;
+  const maxRank = computeYAxisMax(selected, milestones, dataMax);
 
   const xAt = (i) => N === 1 ? padL + innerW / 2 : padL + (i / (N - 1)) * innerW;
   const yAt = (rank) => {
@@ -285,9 +305,10 @@ function buildChartSvg(selected, milestones, maxRank) {
     <text x="${padL + innerW - 4}" y="${(yAt(top11Cap) - 4).toFixed(1)}" text-anchor="end" font-size="9" fill="#a16207" font-weight="bold" font-family="Orbitron,sans-serif">TOP 11 デビュー圏</text>
   `;
 
-  // Y軸 grid
+  // Y軸 grid (max に応じて目盛り間隔を変える: ≤20→5刻み、≤50→10刻み、それ以上→10刻み)
+  const tickStep = maxRank <= 20 ? 5 : 10;
   const yTicks = [1];
-  for (let r = 10; r < maxRank; r += 10) yTicks.push(r);
+  for (let r = tickStep; r < maxRank; r += tickStep) yTicks.push(r);
   if (yTicks[yTicks.length - 1] !== maxRank) yTicks.push(maxRank);
 
   const yGrid = yTicks.map(r => `
