@@ -40,6 +40,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
      - **サイズ**: `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
      - **エンドポイントラベル**: `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - **未使用関数**: `deconflictLabels()` はコード上に残るが現在未使用 (将来 collision avoidance を再導入する際の forward/backward pass 実装)。
+     - **類似軌跡検索**: 各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。`buildTrajectory()` で各練習生の `rank_history` を [0,1] × [0,1] (x = milestone index / N-1、y = (rank-1) / (total_trainees-1)) に正規化 → `resampleTrajectory()` で共通 16 点グリッドに線形補間 → `trajectoryDistance()` が重なるグリッド点での平均絶対差を返す。シーズン数/milestone 数が違っても比較可能。「全シーズン / このシーズンのみ」トグル付き。同シーズン結果は「チャートに追加」、別シーズン結果は「シーズンを開く」で再帰的に基準切替。
 
 ## データスキーマの注意点
 

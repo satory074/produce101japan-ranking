@@ -9,10 +9,10 @@ const DEFAULT_IMAGE_TEMPLATE = {
 };
 
 const SEASON_CONFIG = {
-  season1:  { color: 's1', accentClass: 'from-orange-500 to-orange-700', textClass: 'text-s1-700', bgClass: 'bg-s1-50', borderClass: 'border-s1-500' },
-  season2:  { color: 's2', accentClass: 'from-blue-500 to-blue-700',     textClass: 'text-s2-700', bgClass: 'bg-s2-50', borderClass: 'border-s2-500' },
-  thegirls: { color: 's3', accentClass: 'from-pink-500 to-pink-700',     textClass: 'text-s3-700', bgClass: 'bg-s3-50', borderClass: 'border-s3-500' },
-  shinsekai:{ color: 's4', accentClass: 'from-purple-500 to-purple-700', textClass: 'text-s4-700', bgClass: 'bg-s4-50', borderClass: 'border-s4-500' },
+  season1:  { color: 's1', tw: 'orange', label: 'SEASON 1',  short: 'S1',    accentClass: 'from-orange-500 to-orange-700', textClass: 'text-s1-700', bgClass: 'bg-s1-50', borderClass: 'border-s1-500' },
+  season2:  { color: 's2', tw: 'blue',   label: 'SEASON 2',  short: 'S2',    accentClass: 'from-blue-500 to-blue-700',     textClass: 'text-s2-700', bgClass: 'bg-s2-50', borderClass: 'border-s2-500' },
+  thegirls: { color: 's3', tw: 'pink',   label: 'THE GIRLS', short: 'GIRLS', accentClass: 'from-pink-500 to-pink-700',     textClass: 'text-s3-700', bgClass: 'bg-s3-50', borderClass: 'border-s3-500' },
+  shinsekai:{ color: 's4', tw: 'purple', label: 'SHINSEKAI', short: 'NEW',   accentClass: 'from-purple-500 to-purple-700', textClass: 'text-s4-700', bgClass: 'bg-s4-50', borderClass: 'border-s4-500' },
 };
 
 const SEASON_FILES = {
@@ -216,7 +216,7 @@ function defaultChartSelection(trainees, panelId) {
   return set;
 }
 
-function renderTraineePicker(trainees, defaultSet, cfg, milestones) {
+function renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId) {
   const ceremonyButtons = (milestones || [])
     .filter(m => m.ceremony)
     .map(m => {
@@ -234,13 +234,15 @@ function renderTraineePicker(trainees, defaultSet, cfg, milestones) {
     const stage = t.stage_name ? `<span class="text-[10px] text-gray-400 ml-1">${escapeHtml(t.stage_name)}</span>` : '';
     const searchKey = `${nameJp} ${nameRomaji} ${t.stage_name || ''}`.toLowerCase();
     return `
-      <li class="chart-picker-item" data-search="${escapeHtml(searchKey)}">
-        <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer text-xs">
+      <li class="chart-picker-item flex items-center gap-1" data-search="${escapeHtml(searchKey)}">
+        <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer text-xs flex-1 min-w-0">
           <input type="checkbox" class="chart-checkbox accent-${cfg.color}-500"
                  data-iid="${escapeHtml(t.image_id)}" ${checked ? 'checked' : ''} />
           <svg class="color-swatch shrink-0" width="20" height="6" data-iid-swatch="${escapeHtml(t.image_id)}"><line x1="0" y1="3" x2="20" y2="3" stroke="transparent" stroke-width="3" /></svg>
           <span class="truncate flex-1"><span class="font-bold">${nameJp}</span>${stage}</span>
         </label>
+        <button type="button" class="similar-btn shrink-0 text-[10px] px-1.5 py-0.5 rounded text-gray-500 hover:bg-${cfg.tw}-100 hover:text-${cfg.tw}-700 transition-colors"
+                data-iid="${escapeHtml(t.image_id)}" data-season="${escapeHtml(panelId)}" title="この練習生と順位推移が似た練習生を表示">類似</button>
       </li>
     `;
   }).join('');
@@ -461,7 +463,7 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
     });
   return `
     <div class="flex flex-col lg:flex-row gap-4">
-      ${renderTraineePicker(trainees, defaultSet, cfg, milestones)}
+      ${renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId)}
       <div class="flex-1 min-w-0 relative">
         <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank)}</div>
         <div class="chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[200px]"></div>
@@ -524,6 +526,15 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
       cbs.forEach(cb => { cb.checked = nextChecked.has(cb.dataset.iid); });
       refreshChart(panel, trainees, milestones, maxRank);
     });
+  });
+
+  // 「類似」ボタン: 類似軌跡モーダルを開く
+  picker.addEventListener('click', (e) => {
+    const btn = e.target.closest('.similar-btn');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openSimilarityModal(btn.dataset.season, btn.dataset.iid);
   });
 
   // Hover emphasis on picker label → highlight line in chart
@@ -608,6 +619,254 @@ function positionChartTooltip(container, tooltip, e) {
   const cw = container.clientWidth;
   tooltip.style.left = (x + tw > cw ? cw - tw - 8 : x) + 'px';
   tooltip.style.top = y + 'px';
+}
+
+// =========================================================================
+// 類似軌跡検索 (similarity)
+// =========================================================================
+
+// 各 milestone を [0,1] の x 軸, 各順位を [0,1] の y 軸に正規化した点列を返す。
+// rank_history が null の milestone はスキップ (点を打たない)。
+function buildTrajectory(trainee, season) {
+  if (!season || !Array.isArray(season.ranking_milestones)) return null;
+  const milestones = season.ranking_milestones;
+  if (milestones.length < 2) return null;
+  const denomX = milestones.length - 1;
+  const denomY = Math.max(1, (season.total_trainees || 101) - 1);
+  const points = [];
+  milestones.forEach((m, i) => {
+    const r = trainee.rank_history && trainee.rank_history[m.key];
+    if (r == null) return;
+    points.push({ x: i / denomX, y: (r - 1) / denomY });
+  });
+  return points.length >= 2 ? points : null;
+}
+
+// 共通グリッド (N 点等間隔) に線形補間で再サンプリング。
+// 軌跡の最初/最後の外側は extrapolation せず null。
+function resampleTrajectory(points, N) {
+  const result = new Array(N).fill(null);
+  if (!points || points.length < 2) return result;
+  const minX = points[0].x;
+  const maxX = points[points.length - 1].x;
+  let j = 0;
+  for (let i = 0; i < N; i++) {
+    const t = (N === 1) ? 0 : i / (N - 1);
+    if (t < minX || t > maxX) continue;
+    while (j < points.length - 2 && points[j + 1].x < t) j++;
+    const p0 = points[j], p1 = points[j + 1];
+    const span = p1.x - p0.x;
+    result[i] = span === 0 ? p0.y : p0.y + (p1.y - p0.y) * (t - p0.x) / span;
+  }
+  return result;
+}
+
+// 2 軌跡の距離 = 重なるグリッド点での平均絶対差 + 重なり不足ペナルティ。
+// 最低 minRequired 点の重なりが無ければ null (比較不能)。
+function trajectoryDistance(a, b, opts = {}) {
+  const { minOverlap = 8, minRequired = 4, overlapPenalty = 0.05 } = opts;
+  let sum = 0, count = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] == null || b[i] == null) continue;
+    sum += Math.abs(a[i] - b[i]);
+    count++;
+  }
+  if (count < minRequired) return null;
+  return sum / count + Math.max(0, minOverlap - count) * overlapPenalty;
+}
+
+// 全シーズン (または同一シーズン) の練習生から類似トップ N を返す。
+function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
+  const { topN = 10, sameSeasonOnly = false, N = 16 } = opts;
+  const baseSeason = seasonData[baseSeasonId];
+  if (!baseSeason || !baseSeason.trainees) return [];
+  const baseTrainee = baseSeason.trainees.find(t => t.image_id === baseImageId);
+  if (!baseTrainee) return [];
+  const baseTraj = buildTrajectory(baseTrainee, baseSeason);
+  if (!baseTraj) return [];
+  const baseSampled = resampleTrajectory(baseTraj, N);
+
+  const results = [];
+  Object.entries(seasonData).forEach(([sid, s]) => {
+    if (!s || !s.trainees) return;
+    if (sameSeasonOnly && sid !== baseSeasonId) return;
+    s.trainees.forEach(t => {
+      if (sid === baseSeasonId && t.image_id === baseImageId) return;
+      const traj = buildTrajectory(t, s);
+      if (!traj) return;
+      const sampled = resampleTrajectory(traj, N);
+      const d = trajectoryDistance(baseSampled, sampled);
+      if (d == null) return;
+      results.push({ trainee: t, seasonId: sid, distance: d });
+    });
+  });
+  results.sort((a, b) => a.distance - b.distance);
+  return results.slice(0, topN);
+}
+
+function openSimilarityModal(seasonId, imageId) {
+  let root = document.getElementById('similar-modal-root');
+  if (!root) {
+    root = document.createElement('div');
+    root.id = 'similar-modal-root';
+    document.body.appendChild(root);
+  }
+  const filter = root.dataset.filter === 'same' ? 'same' : 'all';
+  renderSimilarityModal(root, seasonId, imageId, filter);
+}
+
+function closeSimilarityModal() {
+  const root = document.getElementById('similar-modal-root');
+  if (root) {
+    root.innerHTML = '';
+    delete root.dataset.filter;
+  }
+}
+
+function renderSimilarityModal(root, seasonId, imageId, filter) {
+  const season = seasonData[seasonId];
+  if (!season || !season.trainees) return;
+  const baseTrainee = season.trainees.find(t => t.image_id === imageId);
+  if (!baseTrainee) return;
+
+  const cfg = SEASON_CONFIG[seasonId];
+  const results = similarTrainees(seasonId, imageId, { topN: 10, sameSeasonOnly: filter === 'same' });
+  const baseTpl = season.image_url_template || DEFAULT_IMAGE_TEMPLATE[seasonId];
+  const baseImg = buildImageUrl(baseTpl, baseTrainee);
+  const baseName = escapeHtml(baseTrainee.name_jp || baseTrainee.name_romaji || '?');
+  const baseStage = baseTrainee.stage_name ? ` <span class="text-[10px] opacity-80">(${escapeHtml(baseTrainee.stage_name)})</span>` : '';
+
+  const resultRows = results.map((r, i) => {
+    const rcfg = SEASON_CONFIG[r.seasonId];
+    const rseason = seasonData[r.seasonId];
+    const rtpl = rseason.image_url_template || DEFAULT_IMAGE_TEMPLATE[r.seasonId];
+    const rimg = buildImageUrl(rtpl, r.trainee);
+    const rname = escapeHtml(r.trainee.name_jp || r.trainee.name_romaji || '?');
+    const rromaji = escapeHtml(r.trainee.name_romaji || '');
+    const rstage = r.trainee.stage_name ? ` <span class="text-[10px] text-gray-400">(${escapeHtml(r.trainee.stage_name)})</span>` : '';
+    const rinitials = (r.trainee.name_romaji || r.trainee.name_jp || '?').slice(0, 1).toUpperCase();
+    const sameSeason = r.seasonId === seasonId;
+    const similarityPct = Math.max(0, (1 - Math.min(1, r.distance)) * 100);
+    const imgHtml = rimg
+      ? `<img src="${escapeHtml(rimg)}" alt="" loading="lazy" referrerpolicy="no-referrer" class="w-10 h-10 rounded-full object-cover bg-gray-200 shrink-0"
+              onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600 shrink-0',textContent:'${escapeHtml(rinitials)}'}))" />`
+      : `<div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600 shrink-0">${escapeHtml(rinitials)}</div>`;
+    const rankBadgeHtml = r.trainee.rank != null
+      ? `<span class="font-display text-[10px] font-black px-1.5 py-0.5 rounded ${rankColorClass(r.trainee.rank)}">${r.trainee.rank}</span>`
+      : '';
+    const action = sameSeason
+      ? `<button class="modal-add-chart shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-iid="${escapeHtml(r.trainee.image_id)}">チャートに追加</button>`
+      : `<button class="modal-goto shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-season="${escapeHtml(r.seasonId)}" data-iid="${escapeHtml(r.trainee.image_id)}">${escapeHtml(rcfg.short)} を開く</button>`;
+    return `
+      <li class="flex items-center gap-3 px-3 py-2 rounded-lg border border-gray-100 bg-white hover:bg-gray-50 transition-colors">
+        <div class="text-xs text-gray-400 font-display w-6 text-right shrink-0">#${i + 1}</div>
+        <div class="relative shrink-0">
+          ${imgHtml}
+          ${rankBadgeHtml ? `<div class="absolute -bottom-1 -right-1">${rankBadgeHtml}</div>` : ''}
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-bold truncate">${rname}${rstage}</div>
+          <div class="text-[10px] text-gray-500 font-display truncate">${rromaji}</div>
+          <div class="flex items-center gap-1.5 mt-0.5 flex-wrap">
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-${rcfg.tw}-100 text-${rcfg.tw}-700 font-bold">${escapeHtml(rcfg.short)}</span>
+            <span class="text-[10px] text-gray-600">類似度 <span class="font-bold text-gray-900">${similarityPct.toFixed(1)}%</span></span>
+            <span class="text-[10px] text-gray-400">d=${r.distance.toFixed(3)}</span>
+          </div>
+        </div>
+        ${action}
+      </li>
+    `;
+  }).join('');
+
+  const emptyMsg = results.length === 0
+    ? `<p class="text-center py-8 text-gray-400 text-sm">類似する練習生が見つかりませんでした</p>`
+    : '';
+
+  root.innerHTML = `
+    <div class="similar-modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+      <div class="similar-modal-panel relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col">
+        <div class="bg-gradient-to-r ${cfg.accentClass} text-white px-4 py-3 flex items-center justify-between">
+          <div class="flex items-center gap-3 min-w-0">
+            ${baseImg ? `<img src="${escapeHtml(baseImg)}" alt="" referrerpolicy="no-referrer" class="w-12 h-12 rounded-full object-cover bg-white/20 shrink-0" />` : ''}
+            <div class="min-w-0">
+              <div class="text-[10px] uppercase tracking-widest opacity-80">${escapeHtml(cfg.label)} ・ 類似軌跡</div>
+              <div class="text-base font-bold truncate">${baseName}${baseStage}</div>
+            </div>
+          </div>
+          <button class="modal-close shrink-0 ml-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xl leading-none" aria-label="閉じる">×</button>
+        </div>
+        <div class="px-4 pt-3 pb-2 border-b border-gray-100 flex items-center gap-3 flex-wrap">
+          <span class="text-xs text-gray-500">対象:</span>
+          <label class="inline-flex items-center gap-1.5 text-xs cursor-pointer">
+            <input type="radio" name="similar-filter" value="all" ${filter !== 'same' ? 'checked' : ''} class="modal-filter accent-gray-700" />
+            <span>全シーズン</span>
+          </label>
+          <label class="inline-flex items-center gap-1.5 text-xs cursor-pointer">
+            <input type="radio" name="similar-filter" value="same" ${filter === 'same' ? 'checked' : ''} class="modal-filter accent-gray-700" />
+            <span>このシーズンのみ</span>
+          </label>
+          <span class="text-[10px] text-gray-400 ml-auto">位置の近さで比較 (距離 d=0 が完全一致)</span>
+        </div>
+        <div class="overflow-y-auto flex-1 p-3 bg-gray-50">
+          <ul class="space-y-1.5">${resultRows}</ul>
+          ${emptyMsg}
+        </div>
+      </div>
+    </div>
+  `;
+
+  bindSimilarityModalEvents(root, seasonId, imageId);
+}
+
+function bindSimilarityModalEvents(root, seasonId, imageId) {
+  root.querySelector('.modal-close')?.addEventListener('click', closeSimilarityModal);
+  root.querySelector('.similar-modal-backdrop')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeSimilarityModal();
+  });
+  root.querySelectorAll('.modal-filter').forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (radio.checked) {
+        root.dataset.filter = radio.value;
+        renderSimilarityModal(root, seasonId, imageId, radio.value);
+      }
+    });
+  });
+  root.querySelectorAll('.modal-add-chart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const iid = btn.dataset.iid;
+      const panel = document.getElementById(seasonId);
+      if (!panel) return;
+      const cb = panel.querySelector(`.chart-picker .chart-checkbox[data-iid="${CSS.escape(iid)}"]`);
+      if (cb && !cb.checked) {
+        cb.checked = true;
+        cb.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      btn.textContent = '✓ 追加済';
+      btn.disabled = true;
+      btn.classList.add('opacity-60', 'cursor-not-allowed');
+    });
+  });
+  root.querySelectorAll('.modal-goto').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetSeason = btn.dataset.season;
+      const targetIid = btn.dataset.iid;
+      activateTab(targetSeason);
+      const targetPanel = document.getElementById(targetSeason);
+      const chartTab = targetPanel?.querySelector('.subtab-btn[data-subtab="chart"]');
+      chartTab?.click();
+      // 同じ root の中身を新しい基準で描き直す (再帰呼び出しと同等)
+      renderSimilarityModal(root, targetSeason, targetIid, root.dataset.filter === 'same' ? 'same' : 'all');
+    });
+  });
+  if (!root._escBound) {
+    const onKey = (e) => {
+      if (e.key === 'Escape' && document.getElementById('similar-modal-root')?.firstChild) {
+        closeSimilarityModal();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    root._escBound = true;
+  }
 }
 
 // =========================================================================
