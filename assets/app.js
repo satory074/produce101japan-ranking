@@ -264,33 +264,45 @@ function shouldShowPointLabel(i, milestone, total, selectedCount) {
   return selectedCount <= 5;
 }
 
-// 選択中の練習生の最大順位を見て Y 軸の上限を決める (自動ズーム)
-// データが Top 20 に収まっていれば Y 軸を 20+α まで縮めて余白を活かす
-function computeYAxisMax(selected, milestones, dataMax) {
-  if (selected.length === 0) return dataMax;
-  let observed = 0;
-  selected.forEach(({ trainee }) => {
-    milestones.forEach(m => {
-      const r = trainee.rank_history?.[m.key];
-      if (typeof r === 'number' && r > observed) observed = r;
-    });
-  });
-  if (observed === 0) return dataMax;
-  // 余白として 10% + 最低 +3 を足し、10 の倍数に切り上げ
-  const padded = Math.max(observed + 3, Math.ceil(observed * 1.1));
-  const rounded = Math.min(dataMax, Math.ceil(padded / 10) * 10);
-  // 最低 20 までは見せて Top 11 帯がきちんと出るようにする
-  return Math.max(20, rounded);
+// エンドポイント名ラベルの縦衝突を回避 (forward + backward pass)
+function deconflictLabels(labels, opts = {}) {
+  const { minGap = 11, top = 20, bottom = 412 } = opts;
+  labels.sort((a, b) => a.idealY - b.idealY);
+  labels.forEach(l => { l.finalY = l.idealY; });
+  // Forward pass: 直前ラベルから minGap 未満なら下にずらす
+  for (let i = 1; i < labels.length; i++) {
+    if (labels[i].finalY - labels[i - 1].finalY < minGap) {
+      labels[i].finalY = labels[i - 1].finalY + minGap;
+    }
+  }
+  // Backward pass: 最下が描画領域を超えたら上方向に詰め直す
+  if (labels.length && labels[labels.length - 1].finalY > bottom) {
+    labels[labels.length - 1].finalY = bottom;
+    for (let i = labels.length - 2; i >= 0; i--) {
+      if (labels[i + 1].finalY - labels[i].finalY < minGap) {
+        labels[i].finalY = labels[i + 1].finalY - minGap;
+      }
+    }
+  }
+  // Top clamp: 先頭が上端超えなら下に押し戻し → 再 forward
+  if (labels.length && labels[0].finalY < top) {
+    labels[0].finalY = top;
+    for (let i = 1; i < labels.length; i++) {
+      if (labels[i].finalY - labels[i - 1].finalY < minGap) {
+        labels[i].finalY = labels[i - 1].finalY + minGap;
+      }
+    }
+  }
+  return labels;
 }
 
-function buildChartSvg(selected, milestones, dataMax) {
+function buildChartSvg(selected, milestones, maxRank) {
   const W = 880, H = 440;
   const padL = 48, padR = 96, padT = 20, padB = 48;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
   const N = milestones.length;
   const selectedCount = selected.length;
-  const maxRank = computeYAxisMax(selected, milestones, dataMax);
 
   const xAt = (i) => N === 1 ? padL + innerW / 2 : padL + (i / (N - 1)) * innerW;
   const yAt = (rank) => {
@@ -305,10 +317,9 @@ function buildChartSvg(selected, milestones, dataMax) {
     <text x="${padL + innerW - 4}" y="${(yAt(top11Cap) - 4).toFixed(1)}" text-anchor="end" font-size="9" fill="#a16207" font-weight="bold" font-family="Orbitron,sans-serif">TOP 11 デビュー圏</text>
   `;
 
-  // Y軸 grid (max に応じて目盛り間隔を変える: ≤20→5刻み、≤50→10刻み、それ以上→10刻み)
-  const tickStep = maxRank <= 20 ? 5 : 10;
+  // Y軸 grid (固定 10 刻み)
   const yTicks = [1];
-  for (let r = tickStep; r < maxRank; r += tickStep) yTicks.push(r);
+  for (let r = 10; r < maxRank; r += 10) yTicks.push(r);
   if (yTicks[yTicks.length - 1] !== maxRank) yTicks.push(maxRank);
 
   const yGrid = yTicks.map(r => `
@@ -328,7 +339,10 @@ function buildChartSvg(selected, milestones, dataMax) {
     `;
   }).join('');
 
-  // 各 trainee の線
+  // エンドポイント情報を後の deconflict pass のために収集
+  const endpointEntries = [];
+
+  // 各 trainee の線 (エンドポイント名は含まない)
   const lines = selected.map(({ trainee, color, dasharray }) => {
     const id = escapeHtml(trainee.image_id);
     const segments = [];
@@ -347,10 +361,10 @@ function buildChartSvg(selected, milestones, dataMax) {
 
     const dashAttr = dasharray ? ` stroke-dasharray="${dasharray}"` : '';
     const polylines = segments.map(seg =>
-      `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"${dashAttr} class="chart-line" />`
+      `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"${dashAttr} class="chart-line" data-iid="${id}" />`
     ).join('');
 
-    // 点 + ラベル (密度制御)
+    // 点 + ○位 ラベル (密度制御)
     const points = milestones.map((m, i) => {
       const r = trainee.rank_history?.[m.key];
       if (r == null) return '';
@@ -359,17 +373,34 @@ function buildChartSvg(selected, milestones, dataMax) {
       const labelHtml = showLabel
         ? `<text x="${cx}" y="${(yAt(r) - 8).toFixed(1)}" text-anchor="middle" font-size="10" fill="${color}" font-weight="bold" class="chart-label" font-family="Orbitron,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${r}位</text>`
         : '';
-      return `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" />${labelHtml}`;
+      return `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" data-iid="${id}" />${labelHtml}`;
     }).join('');
 
-    // エンドポイント直接ラベル (右端に名前)
-    let endpointLabel = '';
+    // エンドポイント情報を蓄積 (描画は後で deconflict 込みで)
     if (lastIdx !== -1) {
-      const labelText = (trainee.stage_name || trainee.name_jp || '').slice(0, 8);
-      endpointLabel = `<text x="${(xAt(lastIdx) + 8).toFixed(1)}" y="${(yAt(lastRank) + 3).toFixed(1)}" font-size="10" fill="${color}" font-weight="bold" class="chart-endpoint-label" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(labelText)}</text>`;
+      endpointEntries.push({
+        iid: trainee.image_id,
+        text: (trainee.stage_name || trainee.name_jp || '').slice(0, 8),
+        color,
+        pointX: xAt(lastIdx),
+        pointY: yAt(lastRank),
+        idealY: yAt(lastRank) + 3,  // ベースライン微調整
+      });
     }
 
-    return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;">${polylines}${points}${endpointLabel}</g>`;
+    return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;">${polylines}${points}</g>`;
+  }).join('');
+
+  // エンドポイント名を deconflict して別グループで描画
+  deconflictLabels(endpointEntries, { top: padT + 6, bottom: padT + innerH - 4 });
+  const endpointHtml = endpointEntries.map(e => {
+    const moved = Math.abs(e.finalY - e.idealY) > 3;
+    const labelX = e.pointX + 8;
+    const leader = moved
+      ? `<line x1="${e.pointX.toFixed(1)}" y1="${e.pointY.toFixed(1)}" x2="${(labelX - 2).toFixed(1)}" y2="${e.finalY.toFixed(1)}" stroke="${e.color}" stroke-width="1" stroke-dasharray="1 2" opacity="0.55" class="chart-endpoint-leader" data-iid="${escapeHtml(e.iid)}" />`
+      : '';
+    const text = `<text x="${labelX.toFixed(1)}" y="${e.finalY.toFixed(1)}" font-size="10" fill="${e.color}" font-weight="bold" class="chart-endpoint-label" data-iid="${escapeHtml(e.iid)}" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(e.text)}</text>`;
+    return leader + text;
   }).join('');
 
   return `
@@ -380,6 +411,7 @@ function buildChartSvg(selected, milestones, dataMax) {
       <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
       <line x1="${padL}" y1="${padT + innerH}" x2="${padL + innerW}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
       <g class="chart-lines">${lines}</g>
+      <g class="chart-endpoints">${endpointHtml}</g>
     </svg>
   `;
 }
@@ -508,9 +540,9 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
   const idMap = new Map(trainees.map(t => [t.image_id, t]));
   if (svgContainer && tooltip) {
     svgContainer.addEventListener('mouseover', (e) => {
-      const group = e.target.closest('.chart-trainee-group');
-      if (!group) return;
-      const iid = group.dataset.iid;
+      const el = e.target.closest('[data-iid]');
+      if (!el) return;
+      const iid = el.dataset.iid;
       highlightTraineeLine(panel, iid);
       showChartTooltip(panel, tooltip, idMap.get(iid), milestones);
     });
@@ -526,20 +558,19 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
 }
 
 function highlightTraineeLine(panel, iid) {
-  panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
-    if (g.dataset.iid === iid) {
-      g.style.opacity = '1';
-      g.querySelectorAll('.chart-line').forEach(l => l.setAttribute('stroke-width', '4'));
-    } else {
-      g.style.opacity = '0.15';
+  panel.querySelectorAll('.chart-svg [data-iid]').forEach(el => {
+    const isTarget = el.dataset.iid === iid;
+    el.style.opacity = isTarget ? '1' : '0.15';
+    if (el.classList.contains('chart-line')) {
+      el.setAttribute('stroke-width', isTarget ? '4' : '2');
     }
   });
 }
 
 function clearLineHighlight(panel) {
-  panel.querySelectorAll('.chart-svg .chart-trainee-group').forEach(g => {
-    g.style.opacity = '';
-    g.querySelectorAll('.chart-line').forEach(l => l.setAttribute('stroke-width', '2'));
+  panel.querySelectorAll('.chart-svg [data-iid]').forEach(el => {
+    el.style.opacity = '';
+    if (el.classList.contains('chart-line')) el.setAttribute('stroke-width', '2');
   });
 }
 
