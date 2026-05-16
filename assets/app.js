@@ -965,11 +965,14 @@ function refreshSimilarityChart(root, baseEntry, decorated, baseMilestones, base
 }
 
 function highlightSimLine(root, iid) {
+  const baseIid = root._simState?.baseEntry?.trainee?.image_id;
   root.querySelectorAll('.sim-chart-svg [data-iid]').forEach(el => {
     const isTarget = el.dataset.iid === iid;
-    el.style.opacity = isTarget ? '1' : '0.15';
+    const isBase = el.dataset.iid === baseIid;
+    // 基準線は hover 対象でなくても常に表示し続ける (比較元として見え続けたい)
+    el.style.opacity = (isTarget || isBase) ? '1' : '0.15';
     if (el.classList.contains('sim-line')) {
-      el.setAttribute('stroke-width', isTarget ? '4.5' : '2');
+      el.setAttribute('stroke-width', isTarget ? '4.5' : (isBase ? '3.5' : '2'));
     }
   });
   root.querySelectorAll('.sim-result').forEach(li => {
@@ -979,9 +982,13 @@ function highlightSimLine(root, iid) {
 }
 
 function clearSimLineHighlight(root) {
+  const baseIid = root._simState?.baseEntry?.trainee?.image_id;
   root.querySelectorAll('.sim-chart-svg [data-iid]').forEach(el => {
     el.style.opacity = '';
-    if (el.classList.contains('sim-line')) el.setAttribute('stroke-width', '2');
+    if (el.classList.contains('sim-line')) {
+      // 基準線の元の太さ (3.5) を保つ
+      el.setAttribute('stroke-width', el.dataset.iid === baseIid ? '3.5' : '2');
+    }
   });
   root.querySelectorAll('.sim-result').forEach(li => {
     li.classList.remove('ring-2', 'ring-gray-400');
