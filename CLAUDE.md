@@ -33,7 +33,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
    - 画像読み込み失敗時は `<img onerror>` で `display:none` にし、親 div が描画する1文字イニシャルが代替表示される (Tailwindユーティリティのみで実装、CSSファイルなし)。
    - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。
    - 順位推移表サブタブは `buildPanel()` 内で `data.ranking_milestones` の有無を見て条件描画。`renderRankingHistoryTable()` がテーブルHTMLを生成し、`bindSubtabs()` / `bindHistorySorting()` でサブタブ切替・列ソートを束ねる。サブタブ切替は `.subpanel.hidden` トグルだけで状態管理なし。
-   - 順位推移グラフサブタブ (`subpanel-chart`) は `renderRankingChart()` がピュア SVG (折れ線 + 順位ラベル) を生成。チェックボックスのトグルで `refreshChart()` が SVG を再描画。デフォルト選択はデビュー組 (`debuted: true` / SHINSEKAI は `rank <= 11`)、色は Paul Tol Bright 6色 + ダッシュパターンで色覚多様性対応、SVG/picker ホバーで他の線を半透明化 + ツールチップ表示、エンドポイント直接ラベル (右端に名前)、Top 11 デビュー圏を背景帯でハイライト、ラベル密度は選択数によって自動制御 (>5本時は ceremony 列と両端のみ)。CDN ライブラリ不使用。
+   - 順位推移グラフサブタブ (`subpanel-chart`) は `renderRankingChart()` がピュア SVG (折れ線 + 順位ラベル) を生成。チェックボックスのトグルで `refreshChart()` が SVG を再描画。デフォルト選択は全員 (preset ボタンは `デビュー組` / `全解除` の 2 つ)、色は Paul Tol Bright 6色 + ダッシュパターンで色覚多様性対応、SVG/picker ホバーで他の線を半透明化 + ツールチップ表示、エンドポイント直接ラベル (右端に名前)、Top 11 デビュー圏を背景帯でハイライト、ラベル密度は選択数によって自動制御 (>5本時は ceremony 列と両端のみ)。CDN ライブラリ不使用。
      - チャートサイズは `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
      - エンドポイント名は `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - `deconflictLabels()` 関数はコード上に残るが現在未使用 (将来 collision avoidance を再導入する際の forward/backward pass 実装)。
