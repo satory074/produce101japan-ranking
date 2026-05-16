@@ -1,0 +1,920 @@
+{
+  "season": "SEASON 1",
+  "year": 2019,
+  "air_dates": "2019-09-25 to 2019-12-11",
+  "debut_group": "JO1",
+  "total_trainees": 101,
+  "ongoing": false,
+  "image_url_template": "https://web-m.webcdn.stream.ne.jp/www09/web-m/produce101.jp/shared/img/profile/{image_id}.jpg",
+  "trainees": [
+    {
+      "rank": 1,
+      "name_jp": "豆原 一成",
+      "name_romaji": "Mamehara Issei",
+      "image_id": "087_mameharaissei",
+      "votes_final": 261583,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 2,
+      "name_jp": "川尻 蓮",
+      "name_romaji": "Kawashiri Ren",
+      "image_id": "028_kawashiriren",
+      "votes_final": 256527,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 3,
+      "name_jp": "川西 拓実",
+      "name_romaji": "Kawanishi Takumi",
+      "image_id": "029_kawanishitakumi",
+      "votes_final": 252885,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 4,
+      "name_jp": "大平 祥生",
+      "name_romaji": "Ohira Shosei",
+      "image_id": "021_ohirashosei",
+      "votes_final": 220594,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 5,
+      "name_jp": "鶴房 汐恩",
+      "name_romaji": "Tsurubo Shion",
+      "image_id": "063_tsuruboshion",
+      "votes_final": 204045,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 6,
+      "name_jp": "白岩 瑠姫",
+      "name_romaji": "Shiroiwa Ruki",
+      "image_id": "054_shiroiwaruki",
+      "votes_final": 194919,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 7,
+      "name_jp": "佐藤 景瑚",
+      "name_romaji": "Sato Keigo",
+      "image_id": "052_satokeigo",
+      "votes_final": 186309,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 8,
+      "name_jp": "木全 翔也",
+      "name_romaji": "Kimata Syoya",
+      "image_id": "035_kimatasyoya",
+      "votes_final": 171205,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 9,
+      "name_jp": "河野 純喜",
+      "name_romaji": "Kono Junki",
+      "image_id": "043_konojunki",
+      "votes_final": 159057,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 10,
+      "name_jp": "金城 碧海",
+      "name_romaji": "Kinjo Sukai",
+      "image_id": "038_kinjosukai",
+      "votes_final": 157373,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 11,
+      "name_jp": "與那城 奨",
+      "name_romaji": "Yonashiro Sho",
+      "image_id": "097_yonashirosho",
+      "votes_final": 140003,
+      "debuted": true,
+      "eliminated_at": null
+    },
+    {
+      "rank": 12,
+      "name_jp": "宮島 優心",
+      "name_romaji": "Miyajima Yugo",
+      "image_id": "091_miyajimayugo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 13,
+      "name_jp": "大澤 駿弥",
+      "name_romaji": "Osawa Shunya",
+      "image_id": "020_osawashunya",
+      "votes_final": 235413,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 14,
+      "name_jp": "安藤 誠明",
+      "name_romaji": "Ando Tomoaki",
+      "image_id": "004_andotomoaki",
+      "votes_final": 355660,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 15,
+      "name_jp": "本田 康祐",
+      "name_romaji": "Honda Kosuke",
+      "image_id": "085_hondakosuke",
+      "votes_final": 229428,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 16,
+      "name_jp": "佐藤 來良",
+      "name_romaji": "Sato Raira",
+      "image_id": "050_satoraira",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 17,
+      "name_jp": "今西 正彦",
+      "name_romaji": "Imanishi Masahiko",
+      "image_id": "014_imanishimasahiko",
+      "votes_final": 217437,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 18,
+      "name_jp": "井上 港人",
+      "name_romaji": "Inoue Minato",
+      "image_id": "013_inoueminato",
+      "votes_final": 287656,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 19,
+      "name_jp": "床波 志音",
+      "name_romaji": "Tokonami Shion",
+      "image_id": "066_tokonamishion",
+      "votes_final": 223259,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 20,
+      "name_jp": "上原 潤",
+      "name_romaji": "Uehara Jun",
+      "image_id": "016_ueharajun",
+      "votes_final": 354058,
+      "debuted": false,
+      "eliminated_at": "ep12"
+    },
+    {
+      "rank": 21,
+      "name_jp": "チョン・ヨンフン",
+      "name_romaji": "Jeong Younghoon",
+      "image_id": "062_jeongyounghoon",
+      "votes_final": 383463,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 22,
+      "name_jp": "キム・ユンドン",
+      "name_romaji": "Kim Yoondong",
+      "image_id": "037_kimyoondong",
+      "votes_final": 347621,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 23,
+      "name_jp": "佐野 文哉",
+      "name_romaji": "Sano Fumiya",
+      "image_id": "053_sanofumiya",
+      "votes_final": 203197,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 24,
+      "name_jp": "小松 倖真",
+      "name_romaji": "Komatsu Koshin",
+      "image_id": "046_komatsukoshin",
+      "votes_final": 185385,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 25,
+      "name_jp": "佐藤 隆士",
+      "name_romaji": "Sato Ryuji",
+      "image_id": "051_satoryuji",
+      "votes_final": 184001,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 26,
+      "name_jp": "北川 玲叶",
+      "name_romaji": "Kitagawa Reito",
+      "image_id": "033_kitagawareito",
+      "votes_final": 148527,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 27,
+      "name_jp": "磨田 寛大",
+      "name_romaji": "Migakida Kanta",
+      "image_id": "088_migakidakanta",
+      "votes_final": 129462,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 28,
+      "name_jp": "宮里 龍斗志",
+      "name_romaji": "Miyazato Tatsutoshi",
+      "image_id": "090_miyazatotatsutoshi",
+      "votes_final": 118118,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 29,
+      "name_jp": "青木 聖波",
+      "name_romaji": "Aoki Masanami",
+      "image_id": "001_aokimasanami",
+      "votes_final": 108388,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 30,
+      "name_jp": "福地 正",
+      "name_romaji": "Fukuchi Sho",
+      "image_id": "083_fukuchisho",
+      "votes_final": 89361,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 31,
+      "name_jp": "男澤 直樹",
+      "name_romaji": "Ozawa Naoki",
+      "image_id": "025_ozawanaoki",
+      "votes_final": 69937,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 32,
+      "name_jp": "中本 大賀",
+      "name_romaji": "Nakamoto Taiga",
+      "image_id": "074_nakamototaiga",
+      "votes_final": 64952,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 33,
+      "name_jp": "岡野 海斗",
+      "name_romaji": "Okano Kaito",
+      "image_id": "024_okanokaito",
+      "votes_final": 54202,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 34,
+      "name_jp": "浦野 秀太",
+      "name_romaji": "Urano Shuta",
+      "image_id": "018_uranoshuta",
+      "votes_final": 38000,
+      "debuted": false,
+      "eliminated_at": "ep11"
+    },
+    {
+      "rank": 35,
+      "name_jp": "キム・ヒチョン",
+      "name_romaji": "Kim Heecheon",
+      "image_id": "036_kimheecheon",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 36,
+      "name_jp": "井汲 大翔",
+      "name_romaji": "Ikumi Hiroto",
+      "image_id": "007_ikumihiroto",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 37,
+      "name_jp": "瀧澤 翼",
+      "name_romaji": "Takizawa Tsubasa",
+      "image_id": "059_takizawatsubasa",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 38,
+      "name_jp": "北川 暉",
+      "name_romaji": "Kitagawa Hikaru",
+      "image_id": "032_kitagawahikaru",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 39,
+      "name_jp": "中里 空",
+      "name_romaji": "Nakazato Sora",
+      "image_id": "069_nakazatosora",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 40,
+      "name_jp": "寺師 敬",
+      "name_romaji": "Terashi Kei",
+      "image_id": "064_terashikei",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 41,
+      "name_jp": "三井 瞭",
+      "name_romaji": "Mitsui Ryo",
+      "image_id": "089_mitsuiryo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 42,
+      "name_jp": "イ・ミンヒョク",
+      "name_romaji": "Lee Minhyuk",
+      "image_id": "006_leeminhyuk",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 43,
+      "name_jp": "林 龍太",
+      "name_romaji": "Hayashi Ryuta",
+      "image_id": "082_hayashiryuta",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 44,
+      "name_jp": "古屋 亮人",
+      "name_romaji": "Furuya Akihito",
+      "image_id": "084_furuyaakihito",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 45,
+      "name_jp": "山田 恭",
+      "name_romaji": "Yamada Kyo",
+      "image_id": "094_yamadakyo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 46,
+      "name_jp": "佐々木 真生",
+      "name_romaji": "Sasaki Mao",
+      "image_id": "048_sasakimao",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 47,
+      "name_jp": "安藤 優",
+      "name_romaji": "Ando Yu",
+      "image_id": "005_andoyu",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 48,
+      "name_jp": "北岡 謙人",
+      "name_romaji": "Kitaoka Kento",
+      "image_id": "031_kitaokakento",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 49,
+      "name_jp": "安慶田 真樹",
+      "name_romaji": "Ageda Masaki",
+      "image_id": "002_agedamasaki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 50,
+      "name_jp": "岩崎 琉斗",
+      "name_romaji": "Iwasaki Ryuto",
+      "image_id": "015_iwasakiryuto",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 51,
+      "name_jp": "草地 稜之",
+      "name_romaji": "Kusachi Ryono",
+      "image_id": "039_kusachiryono",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 52,
+      "name_jp": "中野 龍之介",
+      "name_romaji": "Nakano Ryunosuke",
+      "image_id": "072_nakanoryunosuke",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 53,
+      "name_jp": "西尾 航暉",
+      "name_romaji": "Nishio Koki",
+      "image_id": "076_nishiokoki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 54,
+      "name_jp": "岡田 武大",
+      "name_romaji": "Okada Takehiro",
+      "image_id": "023_okadatakehiro",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 55,
+      "name_jp": "中林 登生",
+      "name_romaji": "Nakabayashi Toi",
+      "image_id": "073_nakabayashitoi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 56,
+      "name_jp": "渡辺 龍星",
+      "name_romaji": "Watanabe Ryusei",
+      "image_id": "101_watanaberyusei",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 57,
+      "name_jp": "中谷 日向",
+      "name_romaji": "Nakatani Hyuga",
+      "image_id": "070_nakatanihyuga",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 58,
+      "name_jp": "内田 脩斗",
+      "name_romaji": "Uchida Shuto",
+      "image_id": "017_uchidashuto",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 59,
+      "name_jp": "鈴木 雅",
+      "name_romaji": "Suzuki Miyabi",
+      "image_id": "056_suzukimiyabi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 60,
+      "name_jp": "片上 勇士",
+      "name_romaji": "Katagami Yushi",
+      "image_id": "026_katagamiyushi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep8"
+    },
+    {
+      "rank": 61,
+      "name_jp": "古賀 一馬",
+      "name_romaji": "Koga Kazuma",
+      "image_id": "044_kogakazuma",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 62,
+      "name_jp": "中川 吟亮",
+      "name_romaji": "Nakagawa Ginsuke",
+      "image_id": "067_nakagawaginsuke",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 63,
+      "name_jp": "中川 勝就",
+      "name_romaji": "Nakagawa Katsunari",
+      "image_id": "068_nakagawakatsunari",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 64,
+      "name_jp": "大水 陸渡",
+      "name_romaji": "Omizu Rikuto",
+      "image_id": "022_omizurikuto",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 65,
+      "name_jp": "田口 馨也",
+      "name_romaji": "Taguchi Keiya",
+      "image_id": "060_taguchikeiya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 66,
+      "name_jp": "西 涼太郎",
+      "name_romaji": "Nishi Ryotaro",
+      "image_id": "075_nishiryotaro",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 67,
+      "name_jp": "髙野 慧",
+      "name_romaji": "Takano Akira",
+      "image_id": "058_takanoakira",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 68,
+      "name_jp": "西野 友也",
+      "name_romaji": "Nishino Tomoya",
+      "image_id": "077_nishinotomoya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 69,
+      "name_jp": "黒川 竜聖",
+      "name_romaji": "Kurokawa Ryusei",
+      "image_id": "042_kurokawaryusei",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 70,
+      "name_jp": "五十畑 颯斗",
+      "name_romaji": "Isohata Hayato",
+      "image_id": "011_isohatahayato",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 71,
+      "name_jp": "グチェレス タケル",
+      "name_romaji": "Gutierrez Takeru",
+      "image_id": "040_gutierreztakeru",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 72,
+      "name_jp": "西山 和貴",
+      "name_romaji": "Nishiyama Kazuki",
+      "image_id": "078_nishiyamakazuki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 73,
+      "name_jp": "石井 祐輝",
+      "name_romaji": "Ishii Yuki",
+      "image_id": "010_ishiiyuki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 74,
+      "name_jp": "稲吉 ひかり",
+      "name_romaji": "Inayoshi Hikari",
+      "image_id": "012_inayoshihikari",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 75,
+      "name_jp": "木原 汰一",
+      "name_romaji": "Kihara Taichi",
+      "image_id": "034_kiharataichi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 76,
+      "name_jp": "田中 雄也",
+      "name_romaji": "Tanaka Yuya",
+      "image_id": "061_tanakayuya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 77,
+      "name_jp": "アルジャマ 勇心",
+      "name_romaji": "Arujama Eujin",
+      "image_id": "003_arujamaeujin",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 78,
+      "name_jp": "大川 澪哉",
+      "name_romaji": "Okawa Reiya",
+      "image_id": "019_okawareiya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 79,
+      "name_jp": "東郷 良樹",
+      "name_romaji": "Togo Yoshiki",
+      "image_id": "065_togoyoshiki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 80,
+      "name_jp": "結城 樹",
+      "name_romaji": "Yuki Tatsuki",
+      "image_id": "096_yukitatsuki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 81,
+      "name_jp": "山本 健太",
+      "name_romaji": "Yamamoto Kenta",
+      "image_id": "095_yamamotokenta",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 82,
+      "name_jp": "鈴木 玄",
+      "name_romaji": "Suzuki Gen",
+      "image_id": "057_suzukigen",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 83,
+      "name_jp": "菅野 雅浩",
+      "name_romaji": "Kanno Masahiro",
+      "image_id": "030_kannomasahiro",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 84,
+      "name_jp": "鈴木 晨順",
+      "name_romaji": "Suzuki Shinjun",
+      "image_id": "055_suzukishinjun",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 85,
+      "name_jp": "山田 聡",
+      "name_romaji": "Yamada Satoshi",
+      "image_id": "093_yamadasatoshi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 86,
+      "name_jp": "秦 健豪",
+      "name_romaji": "Hata Kengo",
+      "image_id": "080_hatakengo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 87,
+      "name_jp": "渡邊 大貴",
+      "name_romaji": "Watanabe Taiki",
+      "image_id": "100_watanabetaiki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 88,
+      "name_jp": "中西 直樹",
+      "name_romaji": "Nakanishi Naoki",
+      "image_id": "071_nakanishinaoki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 89,
+      "name_jp": "長谷川 怜央",
+      "name_romaji": "Hasegawa Reo",
+      "image_id": "079_hasegawareo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 90,
+      "name_jp": "森 慎二郎",
+      "name_romaji": "Mori Shinjiro",
+      "image_id": "092_morishinjiro",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 91,
+      "name_jp": "米原 尚平",
+      "name_romaji": "Yonehara Shohei",
+      "image_id": "098_yoneharashohei",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 92,
+      "name_jp": "池本 正義",
+      "name_romaji": "Ikemoto Masayoshi",
+      "image_id": "008_ikemotomasayoshi",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 93,
+      "name_jp": "駒尺 雄樹",
+      "name_romaji": "Komajaku Yuki",
+      "image_id": "045_komajakuyuki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 94,
+      "name_jp": "渡邊 公貴",
+      "name_romaji": "Watanabe Koki",
+      "image_id": "099_watanabekoki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 95,
+      "name_jp": "松倉 悠",
+      "name_romaji": "Matsukura Haruka",
+      "image_id": "086_matsukuraharuka",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 96,
+      "name_jp": "石井 健太郎",
+      "name_romaji": "Ishii Kentaro",
+      "image_id": "009_ishiikentaro",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 97,
+      "name_jp": "熊澤 歩哉",
+      "name_romaji": "Kumazawa Fumiya",
+      "image_id": "041_kumazawafumiya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "ep5"
+    },
+    {
+      "rank": 98,
+      "name_jp": "小山 省吾",
+      "name_romaji": "Koyama Shogo",
+      "image_id": "047_koyamashogo",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 99,
+      "name_jp": "畑 顕矢",
+      "name_romaji": "Hata Kenya",
+      "image_id": "081_hatakenya",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 100,
+      "name_jp": "佐藤 一翔",
+      "name_romaji": "Sato Kazuto",
+      "image_id": "049_satokazuto",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "left"
+    },
+    {
+      "rank": 101,
+      "name_jp": "片山 湧貴",
+      "name_romaji": "Katayama Yuki",
+      "image_id": "027_katayamayuki",
+      "votes_final": null,
+      "debuted": false,
+      "eliminated_at": "left"
+    }
+  ]
+}

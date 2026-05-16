@@ -1,0 +1,922 @@
+{
+  "season": "SHINSEKAI",
+  "year": 2026,
+  "air_dates": "2026-03-26 to ongoing",
+  "debut_group": null,
+  "total_trainees": 101,
+  "ongoing": true,
+  "last_updated_episode": "Episode 8 (2026-05-08)",
+  "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
+  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks 1-50 reflect the Episode 8 (2nd ranking ceremony) announced positions, where 50 trainees advanced to the next stage. Trainees ranked 51+ (no longer on stage / eliminated by Episode 5 cut) are listed with rank: null. The show is still on air; debut lineup is undetermined.",
+  "trainees": [
+    {
+      "rank": 1,
+      "name_jp": "加藤 大樹",
+      "name_romaji": "Kato Daiki",
+      "stage_name": "K.DAIKI",
+      "image_id": "katodaiki",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 2,
+      "name_jp": "安部 結蘭",
+      "name_romaji": "Abe Yura",
+      "stage_name": "YURA",
+      "image_id": "abeyura",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 3,
+      "name_jp": "照井 康祐",
+      "name_romaji": "Terui Kosuke",
+      "stage_name": "KOSUKE",
+      "image_id": "teruikosuke",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 4,
+      "name_jp": "釼持 吉成",
+      "name_romaji": "Kenmotsu Kinari",
+      "stage_name": "KINARI",
+      "image_id": "kenmotsukinari",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 5,
+      "name_jp": "矢田 佳暉",
+      "name_romaji": "Yada Yoshiki",
+      "stage_name": "YOSHIKI",
+      "image_id": "yadayoshiki",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 6,
+      "name_jp": "パク・シヨン",
+      "name_romaji": "Park Siyoung",
+      "stage_name": "SIYOUNG",
+      "image_id": "parksiyoung",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 7,
+      "name_jp": "オ・シンヘン",
+      "name_romaji": "Oh Shinhaeng",
+      "stage_name": "SHINHAENG",
+      "image_id": "ohshinhaeng",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 8,
+      "name_jp": "飯塚 亮賀",
+      "name_romaji": "Iizuka Ryoga",
+      "stage_name": "RYOGA",
+      "image_id": "iizukaryoga",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 9,
+      "name_jp": "ユ・ヒョンスン",
+      "name_romaji": "Yu Hyeonseung",
+      "stage_name": "HYEONSEUNG",
+      "image_id": "yoohyeonseung",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 10,
+      "name_jp": "杉山 竜司",
+      "name_romaji": "Sugiyama Ryuji",
+      "stage_name": "RYUJI",
+      "image_id": "sugiyamaryuji",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 11,
+      "name_jp": "柳谷 伊冴",
+      "name_romaji": "Yanagiya Issa",
+      "stage_name": "ISSA",
+      "image_id": "yanagiyaissa",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 12,
+      "name_jp": "土田 央修",
+      "name_romaji": "Tsuchida Osuke",
+      "stage_name": "OSUKE",
+      "image_id": "tsuchidaosuke",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 13,
+      "name_jp": "チェン・リッキー",
+      "name_romaji": "Chen Rickey",
+      "stage_name": "RICKEY",
+      "image_id": "chenrickey",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 14,
+      "name_jp": "濱田 永遠",
+      "name_romaji": "Hamada Towa",
+      "stage_name": "TOWA",
+      "image_id": "hamadatowa",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 15,
+      "name_jp": "熊部 拓斗",
+      "name_romaji": "Kumabe Takuto",
+      "stage_name": "K.TAKUTO",
+      "image_id": "kumabetakuto",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 16,
+      "name_jp": "後藤 結",
+      "name_romaji": "Goto Yuki",
+      "stage_name": "YUKI",
+      "image_id": "gotoyuki",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 17,
+      "name_jp": "浅香 孝太郎",
+      "name_romaji": "Asaka Kotaro",
+      "stage_name": "KOTARO",
+      "image_id": "asakakotaro",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 18,
+      "name_jp": "小野 慶人",
+      "name_romaji": "Ono Keito",
+      "stage_name": "KEITO",
+      "image_id": "onokeito",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 19,
+      "name_jp": "青沼 昂史朗",
+      "name_romaji": "Aonuma Koshiro",
+      "stage_name": "KOSHIRO",
+      "image_id": "aonumakoshiro",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 20,
+      "name_jp": "小清水 蓮",
+      "name_romaji": "Koshimizu Ren",
+      "stage_name": "KO.REN",
+      "image_id": "koshimizuren",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 21,
+      "name_jp": "アダム・ナガイ",
+      "name_romaji": "Adam Nagai",
+      "stage_name": "ADAM",
+      "image_id": "adamnagai",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 22,
+      "name_jp": "山下 柊",
+      "name_romaji": "Yamashita Shu",
+      "stage_name": "Y.SHU",
+      "image_id": "yamashitashu",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 23,
+      "name_jp": "横山 奏夢",
+      "name_romaji": "Yokoyama Kaname",
+      "stage_name": "KANAME",
+      "image_id": "yokoyamakaname",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 24,
+      "name_jp": "イ・ヒョンジェ",
+      "name_romaji": "Lee Hyunjae",
+      "stage_name": "HYUNJAE",
+      "image_id": "leehyunjae",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 25,
+      "name_jp": "ユン・ジェヨン",
+      "name_romaji": "Yoon Jaeyong",
+      "stage_name": "JAEYONG",
+      "image_id": "yoonjaeyong",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 26,
+      "name_jp": "小林 千悟",
+      "name_romaji": "Kobayashi Chisato",
+      "stage_name": "CHISATO",
+      "image_id": "kobayashichisato",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 27,
+      "name_jp": "大林 悠成",
+      "name_romaji": "Obayashi Yusei",
+      "stage_name": "O.YUSEI",
+      "image_id": "obayashiyusei",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 28,
+      "name_jp": "倉橋 吾槙",
+      "name_romaji": "Kurahashi Goten",
+      "stage_name": "GOTEN",
+      "image_id": "kurahashigoten",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 29,
+      "name_jp": "小笠原 ジュゼッペ 慧",
+      "name_romaji": "Ogasawara Giuseppe Kei",
+      "stage_name": "GIUSEPPE",
+      "image_id": "ogasawaragiuseppekei",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 30,
+      "name_jp": "石田 亮太",
+      "name_romaji": "Ishida Ryota",
+      "stage_name": "RYOTA",
+      "image_id": "ishidaryota",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 31,
+      "name_jp": "リュウ・カイチ",
+      "name_romaji": "Liu Kaichi",
+      "stage_name": "KAICHI",
+      "image_id": "liukaichi",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 32,
+      "name_jp": "岡田 侑磨",
+      "name_romaji": "Okada Yuma",
+      "stage_name": "YUMA",
+      "image_id": "okadayuma",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 33,
+      "name_jp": "篠ヶ谷 歩夢",
+      "name_romaji": "Shinogaya Ayumu",
+      "stage_name": "S.AYUMU",
+      "image_id": "shinogayaayumu",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 34,
+      "name_jp": "田中 蒔",
+      "name_romaji": "Tanaka Maki",
+      "stage_name": "MAKI",
+      "image_id": "tanakamaki",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 35,
+      "name_jp": "今江 陸斗",
+      "name_romaji": "Imae Rikuto",
+      "stage_name": "I.RIKUTO",
+      "image_id": "imaerikuto",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 36,
+      "name_jp": "アーチャー・ウイ",
+      "name_romaji": "Archer Uy",
+      "stage_name": "ARCHER",
+      "image_id": "archeruy",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 37,
+      "name_jp": "松田 太雅",
+      "name_romaji": "Matsuda Taiga",
+      "stage_name": "M.TAIGA",
+      "image_id": "matsudataiga",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 38,
+      "name_jp": "板倉 悠太",
+      "name_romaji": "Itakura Yuta",
+      "stage_name": "YUTA",
+      "image_id": "itakurayuta",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 39,
+      "name_jp": "カク・ドンミン",
+      "name_romaji": "Kwak Dongmin",
+      "stage_name": "DONGMIN",
+      "image_id": "kwakdongmin",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 40,
+      "name_jp": "リー・ウェイゼ",
+      "name_romaji": "Li Weize",
+      "stage_name": "WEIZE",
+      "image_id": "liweize",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 41,
+      "name_jp": "西﨑 柊",
+      "name_romaji": "Nishizaki Shu",
+      "stage_name": "N.SHU",
+      "image_id": "nishizakishu",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 42,
+      "name_jp": "藤牧 大雅",
+      "name_romaji": "Fujimaki Taiga",
+      "stage_name": "F.TAIGA",
+      "image_id": "fujimakitaiga",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 43,
+      "name_jp": "ジュアン・ジェイ",
+      "name_romaji": "Chuang Jay",
+      "stage_name": "JAY",
+      "image_id": "chuangjay",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 44,
+      "name_jp": "金安 純正",
+      "name_romaji": "Kaneyasu Junsei",
+      "stage_name": "JUNSEI",
+      "image_id": "kaneyasujunsei",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 45,
+      "name_jp": "宇野 海夢",
+      "name_romaji": "Uno Kaimu",
+      "stage_name": "KAIMU",
+      "image_id": "unokaimu",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 46,
+      "name_jp": "大瀬 凜和",
+      "name_romaji": "Ohse Rinto",
+      "stage_name": "RINTO",
+      "image_id": "ohserinto",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 47,
+      "name_jp": "澤井 星名",
+      "name_romaji": "Sawai Sena",
+      "stage_name": "SENA",
+      "image_id": "sawaisena",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 48,
+      "name_jp": "南平 達矢",
+      "name_romaji": "Minamihira Tatsuya",
+      "stage_name": "TATSUYA",
+      "image_id": "minamihiratatsuya",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 49,
+      "name_jp": "髙橋 空良",
+      "name_romaji": "Takahashi Sora",
+      "stage_name": "T.SORA",
+      "image_id": "takahashisora",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": 50,
+      "name_jp": "森 明育",
+      "name_romaji": "Mori Mei",
+      "stage_name": "MEI",
+      "image_id": "morimei",
+      "debuted": false,
+      "ongoing_rank": true
+    },
+    {
+      "rank": null,
+      "name_jp": "中丸 晏寿",
+      "name_romaji": "Nakamaru Aju",
+      "stage_name": "AJU",
+      "image_id": "nakamaruaju",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "本荘 晃",
+      "name_romaji": "Honjo Akira",
+      "stage_name": "AKIRA",
+      "image_id": "honjoakira",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "オム・スアンカワーテン",
+      "name_romaji": "Aom Suungkavathin",
+      "stage_name": "AOM",
+      "image_id": "aomsuungkavathin",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "児島 歩夢",
+      "name_romaji": "Kojima Ayumu",
+      "stage_name": "K.AYUMU",
+      "image_id": "kojimaayumu",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "市川 大輝",
+      "name_romaji": "Ichikawa Daiki",
+      "stage_name": "I.DAIKI",
+      "image_id": "ichikawadaiki",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "末川 瑛太",
+      "name_romaji": "Suekawa Eita",
+      "stage_name": "EITA",
+      "image_id": "suekawaeita",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "金田 栄都",
+      "name_romaji": "Kaneda Eito",
+      "stage_name": "K.EITO",
+      "image_id": "kanedaeito",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "櫻井 楓真",
+      "name_romaji": "Sakurai Fuma",
+      "stage_name": "FUMA",
+      "image_id": "sakuraifuma",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "村松 遼空",
+      "name_romaji": "Muramatsu Haruku",
+      "stage_name": "HARUKU",
+      "image_id": "muramatsuharuku",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "髙城 暖人",
+      "name_romaji": "Takagi Haruto",
+      "stage_name": "HARUTO",
+      "image_id": "takagiharuto",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "堀尾 聖",
+      "name_romaji": "Horio Hijiri",
+      "stage_name": "HIJIRI",
+      "image_id": "horiohijiri",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "平島 輝",
+      "name_romaji": "Hirashima Hikaru",
+      "stage_name": "H.HIKARU",
+      "image_id": "hirashimahikaru",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "瑞慶覧 太都",
+      "name_romaji": "Zukeran Hiroto",
+      "stage_name": "HIROTO",
+      "image_id": "zukeranhiroto",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "岡田 彪吾",
+      "name_romaji": "Okada Hyugo",
+      "stage_name": "HYUGO",
+      "image_id": "okadahyugo",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "丸尾 尋一郎",
+      "name_romaji": "Maruo Jinichiro",
+      "stage_name": "JINICHIRO",
+      "image_id": "maruojinichiro",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "河邊 晟",
+      "name_romaji": "Kawabe Joe",
+      "stage_name": "JOE",
+      "image_id": "kawabejoe",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "シン・ジョンウク",
+      "name_romaji": "Shin Junguk",
+      "stage_name": "JUNGUK",
+      "image_id": "shinjunguk",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "多比 奏聖",
+      "name_romaji": "Tabi Kanade",
+      "stage_name": "KANADE",
+      "image_id": "tabikanade",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "黒﨑 貫汰",
+      "name_romaji": "Kurosaki Kanta",
+      "stage_name": "KANTA",
+      "image_id": "kurosakikanta",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "関 敬次郎",
+      "name_romaji": "Seki Keijiro",
+      "stage_name": "KEIJIRO",
+      "image_id": "sekikeijiro",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "黄 敬眞",
+      "name_romaji": "Ko Keishin",
+      "stage_name": "KEISHIN",
+      "image_id": "kokeishin",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "髙松 敬祐",
+      "name_romaji": "Takamatsu Keisuke",
+      "stage_name": "KEISUKE",
+      "image_id": "takamatsukeisuke",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "西山 賢人",
+      "name_romaji": "Nishiyama Kento",
+      "stage_name": "KENTO",
+      "image_id": "nishiyamakento",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "河合 晃誠",
+      "name_romaji": "Kawai Kosei",
+      "stage_name": "KOSEI",
+      "image_id": "kawaikosei",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "髙谷 京平",
+      "name_romaji": "Takaya Kyohei",
+      "stage_name": "KYOHEI",
+      "image_id": "takayakyohei",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "山根 武蔵",
+      "name_romaji": "Yamane Musashi",
+      "stage_name": "MUSASHI",
+      "image_id": "yamanemusashi",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "堀野 蓮",
+      "name_romaji": "Horino Ren",
+      "stage_name": "H.REN",
+      "image_id": "horinoren",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "小林 蓮翔",
+      "name_romaji": "Kobayashi Rento",
+      "stage_name": "K.RENTO",
+      "image_id": "kobayashirento",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "神元 理丘",
+      "name_romaji": "Kamimoto Riku",
+      "stage_name": "RIKU",
+      "image_id": "kamimotoriku",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "鳩場 陸人",
+      "name_romaji": "Hatoba Rikuto",
+      "stage_name": "H.RIKUTO",
+      "image_id": "hatobarikuto",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "甲斐 陸也",
+      "name_romaji": "Kai Rikuya",
+      "stage_name": "RIKUYA",
+      "image_id": "kairikuya",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "水上 琉偉",
+      "name_romaji": "Mizugami Rui",
+      "stage_name": "M.RUI",
+      "image_id": "mizugamirui",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "上野 琉偉",
+      "name_romaji": "Ueno Rui",
+      "stage_name": "U.RUI",
+      "image_id": "uenorui",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "岡戸 竜芽",
+      "name_romaji": "Okado Ryuga",
+      "stage_name": "RYUGA",
+      "image_id": "okadoryuga",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "香月 誠太",
+      "name_romaji": "Katsuki Seita",
+      "stage_name": "SEITA",
+      "image_id": "katsukiseita",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "岩城 慎二",
+      "name_romaji": "Iwaki Shinji",
+      "stage_name": "SHINJI",
+      "image_id": "iwakishinji",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "宮崎 真佑",
+      "name_romaji": "Miyazaki Shinsuke",
+      "stage_name": "SHINSUKE",
+      "image_id": "miyazakishinsuke",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "松田 颯吾",
+      "name_romaji": "Matsuda Sogo",
+      "stage_name": "SOGO",
+      "image_id": "matsudasogo",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "佐藤 碧空",
+      "name_romaji": "Sato Sora",
+      "stage_name": "S.SORA",
+      "image_id": "satosora",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "西田 颯梓",
+      "name_romaji": "Nishida Soshi",
+      "stage_name": "SOSHI",
+      "image_id": "nishidasoshi",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "東野 蒼汰",
+      "name_romaji": "Tono Sota",
+      "stage_name": "SOTA",
+      "image_id": "tonosota",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "金倉 拓未",
+      "name_romaji": "Kanakura Takumi",
+      "stage_name": "TAKUMI",
+      "image_id": "kanakuratakumi",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "宮里 拓利",
+      "name_romaji": "Miyazato Takuto",
+      "stage_name": "M.TAKUTO",
+      "image_id": "miyazatotakuto",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "岡本 拓士",
+      "name_romaji": "Okamoto Takuto",
+      "stage_name": "O.TAKUTO",
+      "image_id": "okamototakuto",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "森井 輝",
+      "name_romaji": "Morii Teru",
+      "stage_name": "TERU",
+      "image_id": "moriiteru",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "北林 天虎",
+      "name_romaji": "Kitabayashi Tetora",
+      "stage_name": "TETORA",
+      "image_id": "kitabayashitetora",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "藤芳 辰弥",
+      "name_romaji": "Fujiyoshi Tokiya",
+      "stage_name": "TOKIYA",
+      "image_id": "fujiyoshitokiya",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "増田 倫希",
+      "name_romaji": "Masuda Tomoki",
+      "stage_name": "TOMOKI",
+      "image_id": "masudatomoki",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "アギナルド・トリスタン・ジェームス",
+      "name_romaji": "Aguinaldo Tristan James",
+      "stage_name": "TRISTAN",
+      "image_id": "aguinaldotristanjames",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "ヨハン・エマニュエル",
+      "name_romaji": "Yohan Emmanuel",
+      "stage_name": "YOHAN",
+      "image_id": "yohanemmanuel",
+      "debuted": false,
+      "ongoing_rank": false
+    },
+    {
+      "rank": null,
+      "name_jp": "佐野 由征",
+      "name_romaji": "Sano Yusei",
+      "stage_name": "S.YUSEI",
+      "image_id": "sanoyusei",
+      "debuted": false,
+      "ongoing_rank": false
+    }
+  ]
+}
