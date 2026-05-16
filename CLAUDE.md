@@ -32,6 +32,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
    - 画像URLは `buildImageUrl(template, trainee)` が `image_url_template` 優先、未定義なら `DEFAULT_IMAGE_TEMPLATE[panelId]` にフォールバック。
    - 画像読み込み失敗時は `<img onerror>` で `display:none` にし、親 div が描画する1文字イニシャルが代替表示される (Tailwindユーティリティのみで実装、CSSファイルなし)。
    - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。
+   - 順位推移表サブタブは `buildPanel()` 内で `data.ranking_milestones` の有無を見て条件描画。`renderRankingHistoryTable()` がテーブルHTMLを生成し、`bindSubtabs()` / `bindHistorySorting()` でサブタブ切替・列ソートを束ねる。サブタブ切替は `.subpanel.hidden` トグルだけで状態管理なし。
 
 ## データスキーマの注意点
 
@@ -41,6 +42,15 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 - **SHINSEKAI**: `{ rank, name_jp, name_romaji, stage_name, image_id, debuted, ongoing_rank }` — 放送中。`votes_final` / `eliminated_at` なし、代わりに `stage_name` (カード下部に小さく表示) と `ongoing_rank` (Top 50 内かどうか) を持つ。`rank` は `null` を許容 (Top 50 圏外)。
 
 `app.js` の `traineeCard()` はこれらの差分を意識して書かれているので、フィールドの過不足を想定したコードのまま保つこと。
+
+### 順位推移 (`ranking_milestones` + `rank_history`)
+
+任意フィールド。トップレベルの `ranking_milestones` は順序付き配列で、要素は `{ key, label, short, official, ceremony?, episode? }`。各 trainee の `rank_history` は `{ <milestone.key>: number | null }` の辞書 (キー省略 = データなしでダッシュ表示)。
+- 存在すれば「順位推移表」サブタブが自動表示される。無いシーズンは履歴タブ非表示 (後方互換)。
+- 描画順 = 配列順。新 milestone は配列末尾に push する規約 (過去ファイルを汚さない)。
+- key 命名: 週目=`w<n>` (例 `w2`)、順位発表式=`rc<n>` (Final は `rcF`)。
+- 表のデフォルトソート列は `ranking_milestones` の最後の要素 = 最新 milestone。
+- 既存の `trainee.rank` (最新順位) は最新 milestone の値と一致させる規約 (既存コードが `trainee.rank` を多用するため冗長性を許容)。
 
 ## デビュー組の判定
 
@@ -52,6 +62,11 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 - `last_updated_episode` を更新 (例: `"Episode 9 (2026-05-15)"`)
 - `trainees[].rank` を最新の順位発表式の結果で並び替え
 - 圏外になった練習生は `rank: null` / `ongoing_rank: false` に
+
+新しい順位発表回が放送された場合 (順位推移表に列を増やす):
+1. `ranking_milestones` 末尾に新エントリ追加 (例: `{ "key": "rc3", "label": "第3回順位発表式", "short": "RC3", "official": true, "ceremony": true, "episode": 11 }`)
+2. 該当 trainees の `rank_history` に `"rc3": <rank>` を追記。圏外なら省略 (ダッシュ表示)
+3. `trainees[].rank` を最新値に同期
 
 最終回後は `ongoing: false` に変更し、`debuted: true` を Top 11 にセット、`votes_final` を最終票数で埋める想定。
 

@@ -4,6 +4,32 @@
   "air_dates": "2021-04-08 to 2021-06-13",
   "debut_group": "INI",
   "total_trainees": 101,
+  "ranking_milestones": [
+    {
+      "key": "rc1",
+      "label": "第1回順位発表式",
+      "short": "RC1",
+      "official": true,
+      "ceremony": true,
+      "episode": 5
+    },
+    {
+      "key": "rc2",
+      "label": "第2回順位発表式",
+      "short": "RC2",
+      "official": true,
+      "ceremony": true,
+      "episode": 8
+    },
+    {
+      "key": "rcF",
+      "label": "デビュー評価 (最終回)",
+      "short": "FINAL",
+      "official": true,
+      "ceremony": true,
+      "episode": 12
+    }
+  ],
   "ongoing": false,
   "image_url_template": "https://2nd.produce101.jp/shared/p101s2/img/profile/{image_id}.jpg",
   "notes": {
@@ -44,6 +70,11 @@
       "name_jp": "木村 柾哉",
       "name_romaji": "Kimura Masaya",
       "image_id": "027_kimuramasaya",
+      "rank_history": {
+        "rc1": 1,
+        "rc2": 2,
+        "rcF": 1
+      },
       "votes_final": 380796,
       "debuted": true,
       "eliminated_at": null
@@ -53,6 +84,10 @@
       "name_jp": "髙塚 大夢",
       "name_romaji": "Takatsuka Hiromu",
       "image_id": "049_takatsukahiromu",
+      "rank_history": {
+        "rc1": 8,
+        "rcF": 2
+      },
       "votes_final": 316127,
       "debuted": true,
       "eliminated_at": null
@@ -62,6 +97,11 @@
       "name_jp": "田島 将吾",
       "name_romaji": "Tajima Shogo",
       "image_id": "052_tajimashogo",
+      "rank_history": {
+        "rc1": 2,
+        "rc2": 1,
+        "rcF": 3
+      },
       "votes_final": 281323,
       "debuted": true,
       "eliminated_at": null
@@ -71,6 +111,11 @@
       "name_jp": "藤牧 京介",
       "name_romaji": "Fujimaki Kyosuke",
       "image_id": "079_fujimakikyosuke",
+      "rank_history": {
+        "rc1": 3,
+        "rc2": 3,
+        "rcF": 4
+      },
       "votes_final": 276066,
       "debuted": true,
       "eliminated_at": null
@@ -80,6 +125,11 @@
       "name_jp": "尾崎 匠海",
       "name_romaji": "Ozaki Takumi",
       "image_id": "021_ozakitakumi",
+      "rank_history": {
+        "rc1": 5,
+        "rc2": 8,
+        "rcF": 5
+      },
       "votes_final": 264254,
       "debuted": true,
       "eliminated_at": null
@@ -89,6 +139,11 @@
       "name_jp": "西 洸人",
       "name_romaji": "Nishi Hiroto",
       "image_id": "065_nishihiroto",
+      "rank_history": {
+        "rc1": 4,
+        "rc2": 5,
+        "rcF": 6
+      },
       "votes_final": 259628,
       "debuted": true,
       "eliminated_at": null
@@ -98,6 +153,9 @@
       "name_jp": "松田 迅",
       "name_romaji": "Matsuda Jin",
       "image_id": "084_matsudajin",
+      "rank_history": {
+        "rcF": 7
+      },
       "votes_final": 252479,
       "debuted": true,
       "eliminated_at": null
@@ -107,6 +165,9 @@
       "name_jp": "許 豊凡",
       "name_romaji": "Xu Fengfan",
       "image_id": "047_xufengfan",
+      "rank_history": {
+        "rcF": 8
+      },
       "votes_final": 249237,
       "debuted": true,
       "eliminated_at": null
@@ -116,6 +177,9 @@
       "name_jp": "池﨑 理人",
       "name_romaji": "Ikezaki Rihito",
       "image_id": "006_ikezakirihito",
+      "rank_history": {
+        "rcF": 9
+      },
       "votes_final": 249021,
       "debuted": true,
       "eliminated_at": null
@@ -125,6 +189,11 @@
       "name_jp": "佐野 雄大",
       "name_romaji": "Sano Yudai",
       "image_id": "042_sanoyudai",
+      "rank_history": {
+        "rc1": 7,
+        "rc2": 9,
+        "rcF": 10
+      },
       "votes_final": 243006,
       "debuted": true,
       "eliminated_at": null
@@ -134,6 +203,11 @@
       "name_jp": "後藤 威尊",
       "name_romaji": "Goto Takeru",
       "image_id": "034_gototakeru",
+      "rank_history": {
+        "rc1": 9,
+        "rc2": 11,
+        "rcF": 11
+      },
       "votes_final": 239150,
       "debuted": true,
       "eliminated_at": null
@@ -143,6 +217,9 @@
       "name_jp": "大久保 波留",
       "name_romaji": "Okubo Nalu",
       "image_id": "016_okubonalu",
+      "rank_history": {
+        "rc1": 10
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"
@@ -152,6 +229,9 @@
       "name_jp": "小林 大悟",
       "name_romaji": "Kobayashi Daigo",
       "image_id": "035_kobayashidaigo",
+      "rank_history": {
+        "rc2": 7
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"
@@ -161,6 +241,9 @@
       "name_jp": "太田 駿静",
       "name_romaji": "Ota Shunsei",
       "image_id": "017_otashunsei",
+      "rank_history": {
+        "rc2": 10
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"
@@ -170,6 +253,9 @@
       "name_jp": "小池 俊司",
       "name_romaji": "Koike Syunji",
       "image_id": "029_koikesyunji",
+      "rank_history": {
+        "rc2": 6
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"
@@ -179,6 +265,10 @@
       "name_jp": "西島 蓮汰",
       "name_romaji": "Nishijima Renta",
       "image_id": "066_nishijimarenta",
+      "rank_history": {
+        "rc1": 6,
+        "rc2": 4
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"
@@ -197,6 +287,9 @@
       "name_jp": "飯沼 アントニー",
       "name_romaji": "Iinuma Anthonny",
       "image_id": "004_iinumaanthonny",
+      "rank_history": {
+        "rc1": 11
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "final_episode"

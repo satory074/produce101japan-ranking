@@ -4,6 +4,32 @@
   "air_dates": "2019-09-25 to 2019-12-11",
   "debut_group": "JO1",
   "total_trainees": 101,
+  "ranking_milestones": [
+    {
+      "key": "rc1",
+      "label": "第1回順位発表式",
+      "short": "RC1",
+      "official": true,
+      "ceremony": true,
+      "episode": 5
+    },
+    {
+      "key": "rc2",
+      "label": "第2回順位発表式",
+      "short": "RC2",
+      "official": true,
+      "ceremony": true,
+      "episode": 8
+    },
+    {
+      "key": "rcF",
+      "label": "デビュー評価 (最終回)",
+      "short": "FINAL",
+      "official": true,
+      "ceremony": true,
+      "episode": 12
+    }
+  ],
   "ongoing": false,
   "image_url_template": "https://web-m.webcdn.stream.ne.jp/www09/web-m/produce101.jp/shared/img/profile/{image_id}.jpg",
   "trainees": [
@@ -12,6 +38,11 @@
       "name_jp": "豆原 一成",
       "name_romaji": "Mamehara Issei",
       "image_id": "087_mameharaissei",
+      "rank_history": {
+        "rc1": 2,
+        "rc2": 4,
+        "rcF": 1
+      },
       "votes_final": 261583,
       "debuted": true,
       "eliminated_at": null
@@ -21,6 +52,11 @@
       "name_jp": "川尻 蓮",
       "name_romaji": "Kawashiri Ren",
       "image_id": "028_kawashiriren",
+      "rank_history": {
+        "rc1": 1,
+        "rc2": 2,
+        "rcF": 2
+      },
       "votes_final": 256527,
       "debuted": true,
       "eliminated_at": null
@@ -30,6 +66,11 @@
       "name_jp": "川西 拓実",
       "name_romaji": "Kawanishi Takumi",
       "image_id": "029_kawanishitakumi",
+      "rank_history": {
+        "rc1": 3,
+        "rc2": 1,
+        "rcF": 3
+      },
       "votes_final": 252885,
       "debuted": true,
       "eliminated_at": null
@@ -39,6 +80,11 @@
       "name_jp": "大平 祥生",
       "name_romaji": "Ohira Shosei",
       "image_id": "021_ohirashosei",
+      "rank_history": {
+        "rc1": 7,
+        "rc2": 11,
+        "rcF": 4
+      },
       "votes_final": 220594,
       "debuted": true,
       "eliminated_at": null
@@ -48,6 +94,11 @@
       "name_jp": "鶴房 汐恩",
       "name_romaji": "Tsurubo Shion",
       "image_id": "063_tsuruboshion",
+      "rank_history": {
+        "rc1": 5,
+        "rc2": 3,
+        "rcF": 5
+      },
       "votes_final": 204045,
       "debuted": true,
       "eliminated_at": null
@@ -57,6 +108,9 @@
       "name_jp": "白岩 瑠姫",
       "name_romaji": "Shiroiwa Ruki",
       "image_id": "054_shiroiwaruki",
+      "rank_history": {
+        "rcF": 6
+      },
       "votes_final": 194919,
       "debuted": true,
       "eliminated_at": null
@@ -66,6 +120,9 @@
       "name_jp": "佐藤 景瑚",
       "name_romaji": "Sato Keigo",
       "image_id": "052_satokeigo",
+      "rank_history": {
+        "rcF": 7
+      },
       "votes_final": 186309,
       "debuted": true,
       "eliminated_at": null
@@ -75,6 +132,9 @@
       "name_jp": "木全 翔也",
       "name_romaji": "Kimata Syoya",
       "image_id": "035_kimatasyoya",
+      "rank_history": {
+        "rcF": 8
+      },
       "votes_final": 171205,
       "debuted": true,
       "eliminated_at": null
@@ -84,6 +144,10 @@
       "name_jp": "河野 純喜",
       "name_romaji": "Kono Junki",
       "image_id": "043_konojunki",
+      "rank_history": {
+        "rc2": 9,
+        "rcF": 9
+      },
       "votes_final": 159057,
       "debuted": true,
       "eliminated_at": null
@@ -93,6 +157,9 @@
       "name_jp": "金城 碧海",
       "name_romaji": "Kinjo Sukai",
       "image_id": "038_kinjosukai",
+      "rank_history": {
+        "rcF": 10
+      },
       "votes_final": 157373,
       "debuted": true,
       "eliminated_at": null
@@ -102,6 +169,9 @@
       "name_jp": "與那城 奨",
       "name_romaji": "Yonashiro Sho",
       "image_id": "097_yonashirosho",
+      "rank_history": {
+        "rcF": 11
+      },
       "votes_final": 140003,
       "debuted": true,
       "eliminated_at": null
@@ -111,6 +181,9 @@
       "name_jp": "宮島 優心",
       "name_romaji": "Miyajima Yugo",
       "image_id": "091_miyajimayugo",
+      "rank_history": {
+        "rc1": 10
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep12"
@@ -120,6 +193,10 @@
       "name_jp": "大澤 駿弥",
       "name_romaji": "Osawa Shunya",
       "image_id": "020_osawashunya",
+      "rank_history": {
+        "rc1": 9,
+        "rc2": 8
+      },
       "votes_final": 235413,
       "debuted": false,
       "eliminated_at": "ep12"
@@ -129,6 +206,10 @@
       "name_jp": "安藤 誠明",
       "name_romaji": "Ando Tomoaki",
       "image_id": "004_andotomoaki",
+      "rank_history": {
+        "rc1": 11,
+        "rc2": 10
+      },
       "votes_final": 355660,
       "debuted": false,
       "eliminated_at": "ep12"
@@ -192,6 +273,10 @@
       "name_jp": "チョン・ヨンフン",
       "name_romaji": "Jeong Younghoon",
       "image_id": "062_jeongyounghoon",
+      "rank_history": {
+        "rc1": 8,
+        "rc2": 7
+      },
       "votes_final": 383463,
       "debuted": false,
       "eliminated_at": "left"
@@ -201,6 +286,10 @@
       "name_jp": "キム・ユンドン",
       "name_romaji": "Kim Yoondong",
       "image_id": "037_kimyoondong",
+      "rank_history": {
+        "rc1": 6,
+        "rc2": 6
+      },
       "votes_final": 347621,
       "debuted": false,
       "eliminated_at": "left"
@@ -318,6 +407,10 @@
       "name_jp": "キム・ヒチョン",
       "name_romaji": "Kim Heecheon",
       "image_id": "036_kimheecheon",
+      "rank_history": {
+        "rc1": 4,
+        "rc2": 5
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "left"

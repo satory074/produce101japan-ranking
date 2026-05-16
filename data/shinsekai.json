@@ -8,6 +8,24 @@
   "last_updated_episode": "Episode 8 (2026-05-08)",
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
   "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks 1-50 reflect the Episode 8 (2nd ranking ceremony) announced positions, where 50 trainees advanced to the next stage. Trainees ranked 51+ (no longer on stage / eliminated by Episode 5 cut) are listed with rank: null. The show is still on air; debut lineup is undetermined.",
+  "ranking_milestones": [
+    {
+      "key": "rc1",
+      "label": "第1回順位発表式",
+      "short": "RC1",
+      "official": true,
+      "ceremony": true,
+      "episode": 5
+    },
+    {
+      "key": "rc2",
+      "label": "第2回順位発表式",
+      "short": "RC2",
+      "official": true,
+      "ceremony": true,
+      "episode": 8
+    }
+  ],
   "trainees": [
     {
       "rank": 1,
@@ -16,7 +34,11 @@
       "stage_name": "K.DAIKI",
       "image_id": "katodaiki",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 1,
+        "rc2": 1
+      }
     },
     {
       "rank": 2,
@@ -25,7 +47,11 @@
       "stage_name": "YURA",
       "image_id": "abeyura",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 3,
+        "rc2": 2
+      }
     },
     {
       "rank": 3,
@@ -34,7 +60,11 @@
       "stage_name": "KOSUKE",
       "image_id": "teruikosuke",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 7,
+        "rc2": 3
+      }
     },
     {
       "rank": 4,
@@ -43,7 +73,11 @@
       "stage_name": "KINARI",
       "image_id": "kenmotsukinari",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 2,
+        "rc2": 4
+      }
     },
     {
       "rank": 5,
@@ -52,7 +86,11 @@
       "stage_name": "YOSHIKI",
       "image_id": "yadayoshiki",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 4,
+        "rc2": 5
+      }
     },
     {
       "rank": 6,
@@ -61,7 +99,11 @@
       "stage_name": "SIYOUNG",
       "image_id": "parksiyoung",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 6,
+        "rc2": 6
+      }
     },
     {
       "rank": 7,
@@ -70,7 +112,11 @@
       "stage_name": "SHINHAENG",
       "image_id": "ohshinhaeng",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 5,
+        "rc2": 7
+      }
     },
     {
       "rank": 8,
@@ -79,7 +125,11 @@
       "stage_name": "RYOGA",
       "image_id": "iizukaryoga",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 12,
+        "rc2": 8
+      }
     },
     {
       "rank": 9,
@@ -88,7 +138,11 @@
       "stage_name": "HYEONSEUNG",
       "image_id": "yoohyeonseung",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 8,
+        "rc2": 9
+      }
     },
     {
       "rank": 10,
@@ -97,7 +151,11 @@
       "stage_name": "RYUJI",
       "image_id": "sugiyamaryuji",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 23,
+        "rc2": 10
+      }
     },
     {
       "rank": 11,
@@ -106,7 +164,11 @@
       "stage_name": "ISSA",
       "image_id": "yanagiyaissa",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 19,
+        "rc2": 11
+      }
     },
     {
       "rank": 12,
@@ -115,7 +177,11 @@
       "stage_name": "OSUKE",
       "image_id": "tsuchidaosuke",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 13,
+        "rc2": 12
+      }
     },
     {
       "rank": 13,
@@ -124,7 +190,11 @@
       "stage_name": "RICKEY",
       "image_id": "chenrickey",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 25,
+        "rc2": 13
+      }
     },
     {
       "rank": 14,
@@ -133,7 +203,11 @@
       "stage_name": "TOWA",
       "image_id": "hamadatowa",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 15,
+        "rc2": 14
+      }
     },
     {
       "rank": 15,
@@ -142,7 +216,11 @@
       "stage_name": "K.TAKUTO",
       "image_id": "kumabetakuto",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 9,
+        "rc2": 15
+      }
     },
     {
       "rank": 16,
@@ -151,7 +229,11 @@
       "stage_name": "YUKI",
       "image_id": "gotoyuki",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 17,
+        "rc2": 16
+      }
     },
     {
       "rank": 17,
@@ -160,7 +242,11 @@
       "stage_name": "KOTARO",
       "image_id": "asakakotaro",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 18,
+        "rc2": 17
+      }
     },
     {
       "rank": 18,
@@ -169,7 +255,11 @@
       "stage_name": "KEITO",
       "image_id": "onokeito",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 16,
+        "rc2": 18
+      }
     },
     {
       "rank": 19,
@@ -178,7 +268,11 @@
       "stage_name": "KOSHIRO",
       "image_id": "aonumakoshiro",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 26,
+        "rc2": 19
+      }
     },
     {
       "rank": 20,
@@ -187,7 +281,11 @@
       "stage_name": "KO.REN",
       "image_id": "koshimizuren",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 14,
+        "rc2": 20
+      }
     },
     {
       "rank": 21,
@@ -196,7 +294,11 @@
       "stage_name": "ADAM",
       "image_id": "adamnagai",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 10,
+        "rc2": 21
+      }
     },
     {
       "rank": 22,
@@ -205,7 +307,11 @@
       "stage_name": "Y.SHU",
       "image_id": "yamashitashu",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 34,
+        "rc2": 22
+      }
     },
     {
       "rank": 23,
@@ -214,7 +320,11 @@
       "stage_name": "KANAME",
       "image_id": "yokoyamakaname",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 21,
+        "rc2": 23
+      }
     },
     {
       "rank": 24,
@@ -223,7 +333,11 @@
       "stage_name": "HYUNJAE",
       "image_id": "leehyunjae",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 20,
+        "rc2": 24
+      }
     },
     {
       "rank": 25,
@@ -232,7 +346,11 @@
       "stage_name": "JAEYONG",
       "image_id": "yoonjaeyong",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 33,
+        "rc2": 25
+      }
     },
     {
       "rank": 26,
@@ -241,7 +359,11 @@
       "stage_name": "CHISATO",
       "image_id": "kobayashichisato",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 27,
+        "rc2": 26
+      }
     },
     {
       "rank": 27,
@@ -250,7 +372,11 @@
       "stage_name": "O.YUSEI",
       "image_id": "obayashiyusei",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 24,
+        "rc2": 27
+      }
     },
     {
       "rank": 28,
@@ -259,7 +385,11 @@
       "stage_name": "GOTEN",
       "image_id": "kurahashigoten",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 11,
+        "rc2": 28
+      }
     },
     {
       "rank": 29,
@@ -268,7 +398,11 @@
       "stage_name": "GIUSEPPE",
       "image_id": "ogasawaragiuseppekei",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 28,
+        "rc2": 29
+      }
     },
     {
       "rank": 30,
@@ -277,7 +411,11 @@
       "stage_name": "RYOTA",
       "image_id": "ishidaryota",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 38,
+        "rc2": 30
+      }
     },
     {
       "rank": 31,
@@ -286,7 +424,11 @@
       "stage_name": "KAICHI",
       "image_id": "liukaichi",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 43,
+        "rc2": 31
+      }
     },
     {
       "rank": 32,
@@ -295,7 +437,11 @@
       "stage_name": "YUMA",
       "image_id": "okadayuma",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 39,
+        "rc2": 32
+      }
     },
     {
       "rank": 33,
@@ -304,7 +450,11 @@
       "stage_name": "S.AYUMU",
       "image_id": "shinogayaayumu",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 32,
+        "rc2": 33
+      }
     },
     {
       "rank": 34,
@@ -313,7 +463,11 @@
       "stage_name": "MAKI",
       "image_id": "tanakamaki",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 30,
+        "rc2": 34
+      }
     },
     {
       "rank": 35,
@@ -322,7 +476,11 @@
       "stage_name": "I.RIKUTO",
       "image_id": "imaerikuto",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 31,
+        "rc2": 35
+      }
     },
     {
       "rank": 36,
@@ -331,7 +489,10 @@
       "stage_name": "ARCHER",
       "image_id": "archeruy",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 22
+      }
     },
     {
       "rank": 37,
@@ -340,7 +501,10 @@
       "stage_name": "M.TAIGA",
       "image_id": "matsudataiga",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 35
+      }
     },
     {
       "rank": 38,
@@ -349,7 +513,10 @@
       "stage_name": "YUTA",
       "image_id": "itakurayuta",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 29
+      }
     },
     {
       "rank": 39,
@@ -358,7 +525,10 @@
       "stage_name": "DONGMIN",
       "image_id": "kwakdongmin",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 37
+      }
     },
     {
       "rank": 40,
@@ -367,7 +537,10 @@
       "stage_name": "WEIZE",
       "image_id": "liweize",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 44
+      }
     },
     {
       "rank": 41,
@@ -376,7 +549,10 @@
       "stage_name": "N.SHU",
       "image_id": "nishizakishu",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 49
+      }
     },
     {
       "rank": 42,
@@ -385,7 +561,10 @@
       "stage_name": "F.TAIGA",
       "image_id": "fujimakitaiga",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 36
+      }
     },
     {
       "rank": 43,
@@ -394,7 +573,10 @@
       "stage_name": "JAY",
       "image_id": "chuangjay",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 47
+      }
     },
     {
       "rank": 44,
@@ -403,7 +585,10 @@
       "stage_name": "JUNSEI",
       "image_id": "kaneyasujunsei",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 50
+      }
     },
     {
       "rank": 45,
@@ -412,7 +597,10 @@
       "stage_name": "KAIMU",
       "image_id": "unokaimu",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 48
+      }
     },
     {
       "rank": 46,
@@ -421,7 +609,10 @@
       "stage_name": "RINTO",
       "image_id": "ohserinto",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 46
+      }
     },
     {
       "rank": 47,
@@ -430,7 +621,10 @@
       "stage_name": "SENA",
       "image_id": "sawaisena",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 40
+      }
     },
     {
       "rank": 48,
@@ -439,7 +633,10 @@
       "stage_name": "TATSUYA",
       "image_id": "minamihiratatsuya",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 41
+      }
     },
     {
       "rank": 49,
@@ -448,7 +645,10 @@
       "stage_name": "T.SORA",
       "image_id": "takahashisora",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 42
+      }
     },
     {
       "rank": 50,
@@ -457,7 +657,10 @@
       "stage_name": "MEI",
       "image_id": "morimei",
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "rank_history": {
+        "rc1": 45
+      }
     },
     {
       "rank": null,
