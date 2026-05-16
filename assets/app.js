@@ -216,7 +216,17 @@ function defaultChartSelection(trainees, panelId) {
   return set;
 }
 
-function renderTraineePicker(trainees, defaultSet, cfg) {
+function renderTraineePicker(trainees, defaultSet, cfg, milestones) {
+  const ceremonyButtons = (milestones || [])
+    .filter(m => m.ceremony)
+    .map(m => {
+      const label = `${escapeHtml(m.short || m.key)} 生存`;
+      return `<button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="survivors" data-ceremony="${escapeHtml(m.key)}">${label}</button>`;
+    })
+    .join('');
+  const ceremonyRow = ceremonyButtons
+    ? `<div class="flex flex-wrap gap-1 mb-2">${ceremonyButtons}</div>`
+    : '';
   const items = trainees.map((t, i) => {
     const checked = defaultSet.has(t.image_id);
     const nameJp = escapeHtml(t.name_jp || t.name_romaji || '?');
@@ -245,6 +255,7 @@ function renderTraineePicker(trainees, defaultSet, cfg) {
         <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="all">全選択</button>
         <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="none">全解除</button>
       </div>
+      ${ceremonyRow}
       <ul class="chart-picker max-h-[480px] overflow-y-auto pr-1 -mr-1">${items}</ul>
       <p class="chart-counter text-[10px] text-gray-500 mt-2">— / ${trainees.length} 名選択中</p>
     </aside>
@@ -450,7 +461,7 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
     });
   return `
     <div class="flex flex-col lg:flex-row gap-4">
-      ${renderTraineePicker(trainees, defaultSet, cfg)}
+      ${renderTraineePicker(trainees, defaultSet, cfg, milestones)}
       <div class="flex-1 min-w-0 relative">
         <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank)}</div>
         <div class="chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[200px]"></div>
@@ -501,6 +512,12 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
         trainees.forEach(t => { if (t.debuted === true) nextChecked.add(t.image_id); });
       } else if (preset === 'all') {
         trainees.forEach(t => nextChecked.add(t.image_id));
+      } else if (preset === 'survivors') {
+        const key = btn.dataset.ceremony;
+        trainees.forEach(t => {
+          const r = t.rank_history && t.rank_history[key];
+          if (r != null) nextChecked.add(t.image_id);
+        });
       } else if (preset === 'none') {
         nextChecked = new Set();
       }
