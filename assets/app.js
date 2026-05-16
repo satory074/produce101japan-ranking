@@ -731,22 +731,59 @@ function computeWorstMilestone(baseTraj, otherTraj, baseMilestones) {
 // baseEntry / entries はいずれも { trainee, seasonId, traj, rank?, color? } を持つ。
 function buildSimilarityChartSvg(baseEntry, entries, baseMilestones) {
   const W = 600, H = 260;
-  const padL = 40, padR = 96, padT = 14, padB = 28;
+  const padL = 48, padR = 96, padT = 14, padB = 28;
   const innerW = W - padL - padR;
   const innerH = H - padT - padB;
 
-  const xAt = (xn) => padL + xn * innerW;
-  const yAt = (yn) => padT + yn * innerH;
+  // 描画する全軌跡から Y 範囲を計算し、padding を加えて自動ズーム。
+  // これによって全員が Top 30 以内の場合などに上半分だけ詰まる問題を解消する。
+  const allPoints = [];
+  if (baseEntry.traj) allPoints.push(...baseEntry.traj);
+  entries.forEach(e => { if (e.traj) allPoints.push(...e.traj); });
+  let yMin = 0, yMax = 1;
+  if (allPoints.length > 0) {
+    yMin = Math.min(...allPoints.map(p => p.y));
+    yMax = Math.max(...allPoints.map(p => p.y));
+    const span = Math.max(0.0001, yMax - yMin);
+    const padFrac = 0.08;
+    yMin = Math.max(0, yMin - span * padFrac);
+    yMax = Math.min(1, yMax + span * padFrac);
+    // 極端に狭い場合は最低 0.18 を確保 (見やすさ担保)
+    if (yMax - yMin < 0.18) {
+      const mid = (yMin + yMax) / 2;
+      yMin = Math.max(0, mid - 0.09);
+      yMax = Math.min(1, mid + 0.09);
+      if (yMax - yMin < 0.18) {
+        // 上下どちらかが clamp された場合のリカバリ
+        if (yMin === 0) yMax = Math.min(1, yMin + 0.18);
+        else if (yMax === 1) yMin = Math.max(0, yMax - 0.18);
+      }
+    }
+  }
+  const yRange = yMax - yMin;
 
-  // 背景帯: 上位 (青) / 下位 (赤) を薄く
+  const xAt = (xn) => padL + xn * innerW;
+  const yAt = (yn) => padT + ((yn - yMin) / yRange) * innerH;
+
+  // 表示範囲を実順位に逆算 (基準シーズンの total_trainees で換算)
+  const baseSeason = seasonData[baseEntry.seasonId];
+  const baseTotal = (baseSeason && baseSeason.total_trainees) || 101;
+  const denom = Math.max(1, baseTotal - 1);
+  const rankAt = (yn) => Math.max(1, Math.min(baseTotal, Math.round(yn * denom) + 1));
+  const topRank = rankAt(yMin);
+  const bottomRank = rankAt(yMax);
+
+  // 背景帯: 表示範囲の上 1/3 を青 / 下 1/3 を赤で薄く
+  const bandH = innerH / 3;
   const bands = `
-    <rect x="${padL}" y="${yAt(0).toFixed(1)}" width="${innerW}" height="${(innerH / 3).toFixed(1)}" fill="#dbeafe" fill-opacity="0.22" />
-    <rect x="${padL}" y="${yAt(2/3).toFixed(1)}" width="${innerW}" height="${(innerH / 3).toFixed(1)}" fill="#fee2e2" fill-opacity="0.14" />
+    <rect x="${padL}" y="${yAt(yMin).toFixed(1)}" width="${innerW}" height="${bandH.toFixed(1)}" fill="#dbeafe" fill-opacity="0.22" />
+    <rect x="${padL}" y="${(yAt(yMax) - bandH).toFixed(1)}" width="${innerW}" height="${bandH.toFixed(1)}" fill="#fee2e2" fill-opacity="0.14" />
   `;
 
+  // Y軸ラベル (上=topRank位、下=bottomRank位、基準シーズンの順位として表示)
   const yEdge = `
-    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(0) + 9).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">↑1位</text>
-    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(1) - 2).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">最下位↓</text>
+    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(yMin) + 9).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">↑${topRank}位</text>
+    <text x="${(padL - 6).toFixed(1)}" y="${(yAt(yMax) - 2).toFixed(1)}" text-anchor="end" font-size="9" fill="#6b7280" font-family="Orbitron,sans-serif">${bottomRank}位↓</text>
   `;
 
   // X軸 tick (基準シーズンの milestone)
@@ -1030,7 +1067,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
       <div class="sim-chart-container relative">${buildSimilarityChartSvg(baseEntry, initialActive, baseMilestones)}</div>
       <div class="sim-chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[240px]"></div>
       <p class="text-[10px] text-gray-400 mt-1">
-        Y軸=順位 (上=1位 / 下=最下位、シーズン総数で正規化)。X軸 tick は基準練習生のシーズン (${escapeHtml(cfg.short)}) の milestone。
+        Y軸=順位 (表示中の軌跡の範囲に自動ズーム、基準シーズン ${escapeHtml(cfg.short)} の総数で換算)。X軸 tick は基準シーズンの milestone。
         <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式
       </p>
     </div>
