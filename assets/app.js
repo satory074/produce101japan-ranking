@@ -646,7 +646,9 @@ function buildBaseWarping(season) {
 }
 
 // 候補シーズンの warping: 基準シーズンと共通のアンカーが基準と同じ canonical x に来るように配置。
-// 共通アンカーから外れる前後 (例: SHINSEKAI に rcF が無い時の基準側 rcF 以降) の milestone は未割当 → 比較対象外。
+// 最後の共通アンカーより後ろにある候補側アンカー (例: 基準=SHINSEKAI で候補=S1 の rcF) は、
+// 基準軸ピッチ / 候補軸ピッチの比で線形外挿して x > 1 に配置する → 候補シーズン全期間を描画可能にする。
+// 距離計算は resampleTrajectory が [0,1] grid を使うため、外挿部分はチャート描画にのみ寄与する。
 function buildCandidateWarping(candSeason, baseWarping) {
   if (!candSeason || !Array.isArray(candSeason.ranking_milestones) || !baseWarping) return null;
   const candAnchorKeys = seasonAnchors(candSeason);
@@ -654,7 +656,25 @@ function buildCandidateWarping(candSeason, baseWarping) {
   if (sharedAnchors.length < 2) return null;
   const positions = {};
   sharedAnchors.forEach(k => { positions[k] = baseWarping[k]; });
-  return fillSegmentsBetweenAnchors(candSeason, sharedAnchors, positions);
+
+  // 末尾アンカー (最後の共通アンカーより後ろの候補側アンカー) を外挿。
+  const lastSharedKey = sharedAnchors[sharedAnchors.length - 1];
+  const lastSharedIdx = candAnchorKeys.indexOf(lastSharedKey);
+  if (lastSharedIdx >= 0 && lastSharedIdx < candAnchorKeys.length - 1) {
+    // 候補シーズン自身の canonical 位置 (もしこのシーズンが基準だったら、の位置)
+    const candOwn = {};
+    candAnchorKeys.forEach((k, i) => { candOwn[k] = i / (candAnchorKeys.length - 1); });
+    const penultKey = sharedAnchors[sharedAnchors.length - 2];
+    const baseDelta = baseWarping[lastSharedKey] - baseWarping[penultKey];
+    const candDelta = candOwn[lastSharedKey] - candOwn[penultKey];
+    const rate = baseDelta / Math.max(1e-6, candDelta);
+    for (let i = lastSharedIdx + 1; i < candAnchorKeys.length; i++) {
+      const k = candAnchorKeys[i];
+      positions[k] = baseWarping[lastSharedKey] + (candOwn[k] - candOwn[lastSharedKey]) * rate;
+    }
+  }
+  const allAnchors = candAnchorKeys.filter(k => positions[k] != null);
+  return fillSegmentsBetweenAnchors(candSeason, allAnchors, positions);
 }
 
 // `anchorKeys` 間に挟まれる milestone を、区間内のインデックス比で線形補間配置する内部ヘルパー。
@@ -871,7 +891,12 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
   }
   const yRange = yMax - yMin;
 
-  const xAt = (xn) => padL + xn * innerW;
+  // X 軸スケール: 基準シーズンが進行中 (SHINSEKAI) などで候補側の trailing milestone が x>1 に
+  // 外挿配置されているケースでは、候補シーズン全期間を表示できるよう xMax まで自動拡張する。
+  let xMax = 1;
+  if (baseEntry.traj) baseEntry.traj.forEach(p => { if (p.x > xMax) xMax = p.x; });
+  entries.forEach(e => { if (e.traj) e.traj.forEach(p => { if (p.x > xMax) xMax = p.x; }); });
+  const xAt = (xn) => padL + (xn / xMax) * innerW;
   const yAt = (yn) => padT + ((yn - yMin) / yRange) * innerH;
 
   // 表示範囲を実順位に逆算 (基準シーズンの total_trainees で換算)
@@ -934,6 +959,18 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
             fill="${cer ? '#be185d' : '#9ca3af'}" font-family="Orbitron,sans-serif" font-weight="${cer ? 'bold' : 'normal'}">${escapeHtml(m.short || m.key)}</text>
     `;
   }).join('');
+
+  // 基準シーズン終端のデバイダー (進行中シーズン基準で候補が x>1 へ伸びる場合に表示)。
+  // 「ここから先は候補シーズンの未来パート」だと一目で分かるようにするための補助線。
+  let baseEndDivider = '';
+  if (xMax > 1.001) {
+    const dx = xAt(1.0);
+    baseEndDivider = `
+      <line x1="${dx.toFixed(1)}" y1="${padT}" x2="${dx.toFixed(1)}" y2="${(padT + innerH).toFixed(1)}"
+            stroke="#6b7280" stroke-width="1" stroke-dasharray="5 4" opacity="0.6" />
+      <text x="${(dx + 4).toFixed(1)}" y="${(padT + 10).toFixed(1)}" font-size="8.5" fill="#6b7280"
+            font-family="Orbitron,sans-serif">基準終端 →</text>`;
+  }
 
   // 線・ポイント・各点の順位ラベル。
   // observed 区間は実線+塗りつぶし円+順位ラベル、padding 区間 (脱落後) は破線+白抜き円+ラベル省略。
@@ -1017,6 +1054,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
             xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans JP,sans-serif">
     ${bands}
     ${xTicks}
+    ${baseEndDivider}
     ${yGrid}
     ${yEdge}
     <rect x="${padL}" y="${padT}" width="${innerW}" height="${innerH}" fill="none" stroke="#d1d5db" stroke-width="1" />
