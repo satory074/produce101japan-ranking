@@ -1144,7 +1144,6 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
     const rromaji = escapeHtml(r.trainee.name_romaji || '');
     const rstage = r.trainee.stage_name ? ` <span class="text-[10px] text-gray-400">(${escapeHtml(r.trainee.stage_name)})</span>` : '';
     const rinitials = (r.trainee.name_romaji || r.trainee.name_jp || '?').slice(0, 1).toUpperCase();
-    const sameSeason = r.seasonId === seasonId;
     const similarityPct = Math.max(0, (1 - Math.min(1, r.distance)) * 100);
     const imgHtml = rimg
       ? `<img src="${escapeHtml(rimg)}" alt="" loading="lazy" referrerpolicy="no-referrer" class="w-10 h-10 rounded-full object-cover bg-gray-200 shrink-0"
@@ -1153,9 +1152,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
     const rankBadgeHtml = r.trainee.rank != null
       ? `<span class="font-display text-[10px] font-black px-1.5 py-0.5 rounded ${rankColorClass(r.trainee.rank)}">${r.trainee.rank}</span>`
       : '';
-    const action = sameSeason
-      ? `<button class="modal-add-chart shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-iid="${escapeHtml(r.trainee.image_id)}">チャートに追加</button>`
-      : `<button class="modal-goto shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-season="${escapeHtml(r.seasonId)}" data-iid="${escapeHtml(r.trainee.image_id)}">${escapeHtml(rcfg.short)} を開く</button>`;
+    const action = `<button class="modal-goto shrink-0 text-xs px-2.5 py-1 rounded bg-${rcfg.tw}-500 text-white hover:bg-${rcfg.tw}-700 font-bold transition-colors" data-season="${escapeHtml(r.seasonId)}" data-iid="${escapeHtml(r.trainee.image_id)}">${escapeHtml(rcfg.short)} を開く</button>`;
     const dotStyle = r.chartOn
       ? `background:${r.color};border-color:${r.color};`
       : `background:transparent;border-color:#d1d5db;`;
@@ -1262,22 +1259,6 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
         root.dataset.filter = radio.value;
         renderSimilarityModal(root, seasonId, imageId, radio.value);
       }
-    });
-  });
-  root.querySelectorAll('.modal-add-chart').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const iid = btn.dataset.iid;
-      const panel = document.getElementById(seasonId);
-      if (!panel) return;
-      const cb = panel.querySelector(`.chart-picker .chart-checkbox[data-iid="${CSS.escape(iid)}"]`);
-      if (cb && !cb.checked) {
-        cb.checked = true;
-        cb.dispatchEvent(new Event('change', { bubbles: true }));
-      }
-      btn.textContent = '✓ 追加済';
-      btn.disabled = true;
-      btn.classList.add('opacity-60', 'cursor-not-allowed');
     });
   });
   root.querySelectorAll('.modal-goto').forEach(btn => {
