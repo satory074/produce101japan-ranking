@@ -841,6 +841,32 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
   const topRank = rankAt(yMin);
   const bottomRank = rankAt(yMax);
 
+  // Y軸 補助 tick: 表示中の rank 範囲から nice step を選び、3〜7 本程度の補助線を引く。
+  // 自動ズームのため固定 10 刻みは使えない (例: 1〜19 では 10 だけになって粗い)。
+  const rankSpan = Math.max(1, bottomRank - topRank);
+  const stepCandidates = [1, 2, 5, 10, 20, 25, 50];
+  let yStep = stepCandidates[stepCandidates.length - 1];
+  for (const s of stepCandidates) {
+    const n = rankSpan / s;
+    if (n >= 3 && n <= 7) { yStep = s; break; }
+    if (n < 3) { yStep = s; break; }
+  }
+  const yTicks = [];
+  const firstTick = Math.ceil(topRank / yStep) * yStep;
+  for (let r = firstTick; r < bottomRank; r += yStep) {
+    if (r > topRank && r < bottomRank) yTicks.push(r);
+  }
+  const yGrid = yTicks.map(rank => {
+    const yn = (rank - 1) / denom;
+    const y = yAt(yn);
+    return `
+      <line x1="${padL.toFixed(1)}" y1="${y.toFixed(1)}" x2="${(padL + innerW).toFixed(1)}" y2="${y.toFixed(1)}"
+            stroke="#e5e7eb" stroke-width="0.7" stroke-dasharray="2 3" />
+      <text x="${(padL - 6).toFixed(1)}" y="${(y + 3).toFixed(1)}" text-anchor="end"
+            font-size="9" fill="#9ca3af" font-family="Orbitron,sans-serif">${rank}位</text>
+    `;
+  }).join('');
+
   // 背景帯: 表示範囲の上 1/3 を青 / 下 1/3 を赤で薄く
   const bandH = innerH / 3;
   const bands = `
@@ -930,6 +956,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
             xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans JP,sans-serif">
     ${bands}
     ${xTicks}
+    ${yGrid}
     ${yEdge}
     <rect x="${padL}" y="${padT}" width="${innerW}" height="${innerH}" fill="none" stroke="#d1d5db" stroke-width="1" />
     ${entryLines}
