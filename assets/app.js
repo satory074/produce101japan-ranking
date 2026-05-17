@@ -960,6 +960,31 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     `;
   }).join('');
 
+  // 候補シーズン由来の ceremony tick (例: 基準=SHINSEKAI のとき S1/S2/TG の Final、TG の RC3)。
+  // 基準にない ceremony を x.toFixed(3) でグループ化し、同 x に複数キー (例: S1 FINAL と TG RC3
+  // がどちらも x=1.5) が来た場合はラベルを "/" で結合して 1 本の縦線にまとめる (重なり防止)。
+  const baseKeys = new Set(baseMilestones.map(m => m.key));
+  const extraByX = new Map();
+  entries.forEach(e => {
+    if (!e.traj) return;
+    e.traj.forEach(p => {
+      if (!p.m.ceremony) return;
+      if (baseKeys.has(p.m.key)) return;
+      const xKey = p.x.toFixed(3);
+      if (!extraByX.has(xKey)) extraByX.set(xKey, { x: p.x, labels: new Set() });
+      extraByX.get(xKey).labels.add(p.m.short || p.m.key);
+    });
+  });
+  const extraTicks = [...extraByX.values()].map(({ x, labels }) => {
+    const px = xAt(x);
+    const lbl = [...labels].join('/');
+    return `
+      <line x1="${px.toFixed(1)}" y1="${padT}" x2="${px.toFixed(1)}" y2="${(padT + innerH).toFixed(1)}"
+            stroke="#f9a8d4" stroke-width="0.9" stroke-dasharray="3 3" opacity="0.65" />
+      <text x="${px.toFixed(1)}" y="${(H - 10).toFixed(1)}" text-anchor="middle" font-size="9"
+            fill="#be185d" font-family="Orbitron,sans-serif" font-weight="600" opacity="0.85">${escapeHtml(lbl)}</text>`;
+  }).join('');
+
   // 基準シーズン終端のデバイダー (進行中シーズン基準で候補が x>1 へ伸びる場合に表示)。
   // 「ここから先は候補シーズンの未来パート」だと一目で分かるようにするための補助線。
   let baseEndDivider = '';
@@ -1054,6 +1079,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
             xmlns="http://www.w3.org/2000/svg" font-family="Noto Sans JP,sans-serif">
     ${bands}
     ${xTicks}
+    ${extraTicks}
     ${baseEndDivider}
     ${yGrid}
     ${yEdge}
