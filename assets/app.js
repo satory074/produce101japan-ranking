@@ -894,10 +894,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     `;
   }).join('');
 
-  // 線・ポイント・各点の順位ラベル
-  // ラベル密度はメインチャート (shouldShowPointLabel) と同方針: 先頭/末尾/順位発表式は常時、それ以外は ≤5 本のとき。
-  const totalLines = entries.length + (baseEntry.traj && baseEntry.traj.length >= 2 ? 1 : 0);
-  const showAllLabels = totalLines <= 5;
+  // 線・ポイント・各点の順位ラベル。各点に必ず順位を表示 (重なりは許容)。
   const renderLine = (entry, color, strokeWidth, opacity, isBase) => {
     const traj = entry.traj;
     if (!traj || traj.length < 2) return '';
@@ -906,11 +903,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     const lastIdx = traj.length - 1;
     const pts = traj.map((p, i) => {
       const cx = xAt(p.x).toFixed(1), cy = yAt(p.y).toFixed(1);
-      const isCeremony = p.m && p.m.ceremony === true;
-      const showLabel = showAllLabels || i === 0 || i === lastIdx || isCeremony;
-      const labelHtml = showLabel
-        ? `<text x="${cx}" y="${(yAt(p.y) - 7).toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-weight="bold" font-family="Orbitron,sans-serif" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${iid}">${p.r}位</text>`
-        : '';
+      const labelHtml = `<text x="${cx}" y="${(yAt(p.y) - 7).toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-weight="bold" font-family="Orbitron,sans-serif" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${iid}">${p.r}位</text>`;
       return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />${labelHtml}`;
     }).join('');
     return `<g data-iid="${iid}" class="sim-line-group">
@@ -966,7 +959,7 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
 }
 
 // 類似結果に表示色 / 順位 / 表示 ON/OFF を付与。traj は similarTrainees で warp 済みのものをそのまま使う。
-function decorateSimilarityResults(results, defaultOn = 5) {
+function decorateSimilarityResults(results, defaultOn = 10) {
   return results.map((r, i) => {
     const { color } = chartLineStyle(i);
     return { ...r, color, rank: i + 1, chartOn: i < defaultOn };
@@ -1100,7 +1093,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
   const baseMilestones = Array.isArray(season.ranking_milestones) ? season.ranking_milestones : [];
   const baseWarping = buildBaseWarping(season);
   const results = similarTrainees(seasonId, imageId, { topN: 10, sameSeasonOnly: filter === 'same' });
-  const decorated = decorateSimilarityResults(results, 5);
+  const decorated = decorateSimilarityResults(results, 10);
   const baseTraj = baseWarping ? buildAlignedTrajectory(baseTrainee, season, baseWarping) : null;
   const baseEntry = { trainee: baseTrainee, seasonId, traj: baseTraj };
 
