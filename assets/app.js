@@ -733,7 +733,7 @@ function trajectoryDistance(a, b, opts = {}) {
 // それを使って候補シーズンの milestone を基準の canonical x に warp してから距離を取る。
 // 結果には warp 済み軌跡 (`traj`) を含めるので、後段のチャート描画はそのまま使える。
 function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
-  const { topN = 10, sameSeasonOnly = false } = opts;
+  const { topN = 10, excludeSameSeason = false } = opts;
   const baseSeason = seasonData[baseSeasonId];
   if (!baseSeason || !baseSeason.trainees) return [];
   const baseWarping = buildBaseWarping(baseSeason);
@@ -746,7 +746,7 @@ function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
   const results = [];
   Object.entries(seasonData).forEach(([sid, s]) => {
     if (!s || !s.trainees) return;
-    if (sameSeasonOnly && sid !== baseSeasonId) return;
+    if (excludeSameSeason && sid === baseSeasonId) return;
     const candWarping = (sid === baseSeasonId)
       ? baseWarping
       : buildCandidateWarping(s, baseWarping);
@@ -1071,7 +1071,7 @@ function openSimilarityModal(seasonId, imageId) {
     root.id = 'similar-modal-root';
     document.body.appendChild(root);
   }
-  const filter = root.dataset.filter === 'same' ? 'same' : 'all';
+  const filter = root.dataset.filter === 'other' ? 'other' : 'all';
   renderSimilarityModal(root, seasonId, imageId, filter);
 }
 
@@ -1092,7 +1092,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
   const cfg = SEASON_CONFIG[seasonId];
   const baseMilestones = Array.isArray(season.ranking_milestones) ? season.ranking_milestones : [];
   const baseWarping = buildBaseWarping(season);
-  const results = similarTrainees(seasonId, imageId, { topN: 10, sameSeasonOnly: filter === 'same' });
+  const results = similarTrainees(seasonId, imageId, { topN: 10, excludeSameSeason: filter === 'other' });
   const decorated = decorateSimilarityResults(results, 10);
   const baseTraj = baseWarping ? buildAlignedTrajectory(baseTrainee, season, baseWarping) : null;
   const baseEntry = { trainee: baseTrainee, seasonId, traj: baseTraj };
@@ -1227,12 +1227,12 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
         <div class="px-4 pt-3 pb-2 border-b border-gray-100 flex items-center gap-3 flex-wrap">
           <span class="text-xs text-gray-500">対象:</span>
           <label class="inline-flex items-center gap-1.5 text-xs cursor-pointer">
-            <input type="radio" name="similar-filter" value="all" ${filter !== 'same' ? 'checked' : ''} class="modal-filter accent-gray-700" />
+            <input type="radio" name="similar-filter" value="all" ${filter !== 'other' ? 'checked' : ''} class="modal-filter accent-gray-700" />
             <span>全シーズン</span>
           </label>
           <label class="inline-flex items-center gap-1.5 text-xs cursor-pointer">
-            <input type="radio" name="similar-filter" value="same" ${filter === 'same' ? 'checked' : ''} class="modal-filter accent-gray-700" />
-            <span>このシーズンのみ</span>
+            <input type="radio" name="similar-filter" value="other" ${filter === 'other' ? 'checked' : ''} class="modal-filter accent-gray-700" />
+            <span>このシーズン以外</span>
           </label>
           <span class="text-[10px] text-gray-400 ml-auto">位置の近さで比較 (距離 d=0 が完全一致)</span>
         </div>
@@ -1290,7 +1290,7 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
       const chartTab = targetPanel?.querySelector('.subtab-btn[data-subtab="chart"]');
       chartTab?.click();
       // 同じ root の中身を新しい基準で描き直す (再帰呼び出しと同等)
-      renderSimilarityModal(root, targetSeason, targetIid, root.dataset.filter === 'same' ? 'same' : 'all');
+      renderSimilarityModal(root, targetSeason, targetIid, root.dataset.filter === 'other' ? 'other' : 'all');
     });
   });
 
