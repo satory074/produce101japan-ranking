@@ -678,18 +678,44 @@ function fillSegmentsBetweenAnchors(season, anchorKeys, positions) {
 }
 
 // warping に基づき、各 milestone を warped x × normalized y の点列に変換する。
-// warping に含まれない milestone (アンカー外側) や rank_history が null の milestone はスキップ。
-// 各点は元の rank (r) と milestone (m) も保持する (チャート描画でラベル / ceremony 判定に使う)。
+// warping に含まれない milestone (アンカー外側) はスキップ。
+// 最後の observed milestone より後ろで rank_history に key が無い milestone は、
+// その練習生の「最終順位」(trainee.rank → 最後の observed rank → total_trainees の順で fallback)
+// で水平に padding する (= 脱落後を「最終順位で埋める」)。
+// 各点は元の rank (r), milestone (m), 観測種別 (status: 'observed' | 'final_pad') を保持する。
 function buildAlignedTrajectory(trainee, season, warping) {
   if (!season || !Array.isArray(season.ranking_milestones) || !warping) return null;
   const denomY = Math.max(1, (season.total_trainees || 101) - 1);
+  const hist = trainee.rank_history || {};
+  const milestones = season.ranking_milestones;
+
+  // この練習生で最後に観測された milestone の index と順位を特定。
+  let lastObservedIdx = -1;
+  let lastObservedRank = null;
+  milestones.forEach((m, i) => {
+    const r = hist[m.key];
+    if (r != null) { lastObservedIdx = i; lastObservedRank = r; }
+  });
+  if (lastObservedIdx < 0) return null;
+
+  // padding 用の順位: 公式の最終順位 → 最後の観測値 → 最下位 の優先順。
+  // 完結シーズン早期脱落者は trainee.rank が「最終標準位」(例: rcF 圏外の 21 位枠)、
+  // SHINSEKAI Top 50 圏外は rank=null なので最後の observed rank にフォールバック。
+  const padRank = trainee.rank != null ? trainee.rank
+                : lastObservedRank != null ? lastObservedRank
+                : (season.total_trainees || 101);
+
   const points = [];
-  season.ranking_milestones.forEach(m => {
+  milestones.forEach((m, i) => {
     const x = warping[m.key];
     if (x == null) return;
-    const r = trainee.rank_history && trainee.rank_history[m.key];
-    if (r == null) return;
-    points.push({ x, y: (r - 1) / denomY, r, m });
+    const r = hist[m.key];
+    if (r != null) {
+      points.push({ x, y: (r - 1) / denomY, r, m, status: 'observed' });
+    } else if (i > lastObservedIdx) {
+      points.push({ x, y: (padRank - 1) / denomY, r: padRank, m, status: 'final_pad' });
+    }
+    // i <= lastObservedIdx で hist[key] が無い (= 観測前のギャップ): スキップ。
   });
   points.sort((a, b) => a.x - b.x);
   return points.length >= 2 ? points : null;
@@ -714,18 +740,31 @@ function resampleTrajectory(points, N) {
   return result;
 }
 
-// 2 軌跡の距離 = 重なるグリッド点での平均絶対差 + 重なり不足ペナルティ。
+// 2 軌跡の距離 = 位置 MAE と 傾き (隣接点 Δ) MAE をブレンドし、重なり不足ペナルティを加算。
+// 位置 MAE は「いつ・どこにいたか」を、傾き MAE は「上昇/下降/同形」を捉える (上昇 vs 下降を明示的に区別)。
+// slopeAlpha は傾き成分の比率 (0 = 位置のみ, 1 = 傾きのみ)。デフォルト 0.3。
 // 最低 minRequired 点の重なりが無ければ null (比較不能)。
 function trajectoryDistance(a, b, opts = {}) {
-  const { minOverlap = 8, minRequired = 4, overlapPenalty = 0.05 } = opts;
-  let sum = 0, count = 0;
+  const { minOverlap = 6, minRequired = 4, overlapPenalty = 0.02, slopeAlpha = 0.3 } = opts;
+  let sumPos = 0, countPos = 0;
   for (let i = 0; i < a.length; i++) {
     if (a[i] == null || b[i] == null) continue;
-    sum += Math.abs(a[i] - b[i]);
-    count++;
+    sumPos += Math.abs(a[i] - b[i]);
+    countPos++;
   }
-  if (count < minRequired) return null;
-  return sum / count + Math.max(0, minOverlap - count) * overlapPenalty;
+  if (countPos < minRequired) return null;
+  const posMae = sumPos / countPos;
+
+  let sumSlope = 0, countSlope = 0;
+  for (let i = 0; i < a.length - 1; i++) {
+    if (a[i] == null || a[i + 1] == null || b[i] == null || b[i + 1] == null) continue;
+    sumSlope += Math.abs((a[i + 1] - a[i]) - (b[i + 1] - b[i]));
+    countSlope++;
+  }
+  const slopeMae = countSlope > 0 ? sumSlope / countSlope : 0;
+
+  return (1 - slopeAlpha) * posMae + slopeAlpha * slopeMae
+       + Math.max(0, minOverlap - countPos) * overlapPenalty;
 }
 
 // 全シーズン (または同一シーズン) の練習生から類似トップ N を返す。
@@ -761,10 +800,12 @@ function similarTrainees(baseSeasonId, baseImageId, opts = {}) {
       const sampled = resampleTrajectory(traj, N);
       const d = trajectoryDistance(baseSampled, sampled);
       if (d == null) return;
-      results.push({ trainee: t, seasonId: sid, distance: d, traj });
+      const observedCount = traj.reduce((n, p) => n + (p.status === 'observed' ? 1 : 0), 0);
+      results.push({ trainee: t, seasonId: sid, distance: d, traj, observedCount });
     });
   });
-  results.sort((a, b) => a.distance - b.distance);
+  // 距離同値時は observed 点数の多い候補を優先 (= padding 比率の低い、より確かな比較を上に)。
+  results.sort((a, b) => (a.distance - b.distance) || (b.observedCount - a.observedCount));
   return results.slice(0, topN);
 }
 
@@ -894,22 +935,49 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     `;
   }).join('');
 
-  // 線・ポイント・各点の順位ラベル。各点に必ず順位を表示 (重なりは許容)。
+  // 線・ポイント・各点の順位ラベル。
+  // observed 区間は実線+塗りつぶし円+順位ラベル、padding 区間 (脱落後) は破線+白抜き円+ラベル省略。
+  // 区切り点 (最後の observed) は両セグメントの共通端点として両方に含める。
   const renderLine = (entry, color, strokeWidth, opacity, isBase) => {
     const traj = entry.traj;
     if (!traj || traj.length < 2) return '';
     const iid = escapeHtml(entry.trainee.image_id);
-    const d = traj.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xAt(p.x).toFixed(1)} ${yAt(p.y).toFixed(1)}`).join(' ');
-    const lastIdx = traj.length - 1;
-    const pts = traj.map((p, i) => {
+
+    // 最後の observed point の index (padding 区間の開始点を見つけるため)。
+    let lastObsIdx = -1;
+    traj.forEach((p, i) => { if (p.status !== 'final_pad') lastObsIdx = i; });
+    const obsSegment = lastObsIdx >= 0 ? traj.slice(0, lastObsIdx + 1) : [];
+    const padSegment = lastObsIdx >= 0 && lastObsIdx < traj.length - 1
+      ? traj.slice(lastObsIdx)  // 接続のため最後の observed を先頭に含める
+      : [];
+
+    const toPath = (seg) => seg.length >= 2
+      ? seg.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xAt(p.x).toFixed(1)} ${yAt(p.y).toFixed(1)}`).join(' ')
+      : '';
+    const obsPath = toPath(obsSegment);
+    const padPath = toPath(padSegment);
+
+    // observed の円 + ラベル
+    const obsPts = obsSegment.map(p => {
       const cx = xAt(p.x).toFixed(1), cy = yAt(p.y).toFixed(1);
       const labelHtml = `<text x="${cx}" y="${(yAt(p.y) - 7).toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-weight="bold" font-family="Orbitron,sans-serif" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${iid}">${p.r}位</text>`;
       return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />${labelHtml}`;
     }).join('');
+    // padding 点は白抜き円のみ (ラベル非表示)。先頭は obs と重複するのでスキップ。
+    const padPts = padSegment.slice(1).filter(p => p.status === 'final_pad').map(p => {
+      const cx = xAt(p.x).toFixed(1), cy = yAt(p.y).toFixed(1);
+      return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 2.4 : 2.0}" fill="white" stroke="${color}" stroke-width="1" data-iid="${iid}" opacity="0.75" />`;
+    }).join('');
+
+    const obsLine = obsPath ? `<path class="sim-line" d="${obsPath}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
+            stroke-linecap="round" stroke-linejoin="round" opacity="${opacity}" data-iid="${iid}" />` : '';
+    const padLine = padPath ? `<path class="sim-line sim-line-pad" d="${padPath}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
+            stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" opacity="${(opacity * 0.7).toFixed(2)}" data-iid="${iid}" />` : '';
     return `<g data-iid="${iid}" class="sim-line-group">
-      <path class="sim-line" d="${d}" fill="none" stroke="${color}" stroke-width="${strokeWidth}"
-            stroke-linecap="round" stroke-linejoin="round" opacity="${opacity}" data-iid="${iid}" />
-      ${pts}
+      ${obsLine}
+      ${padLine}
+      ${obsPts}
+      ${padPts}
     </g>`;
   };
 
