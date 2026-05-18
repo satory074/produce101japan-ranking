@@ -36,6 +36,8 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 | デビュー人数を 11 以外に (例: SHINSEKAI=12) | `data/<season>.json` | トップレベル `debut_count` を追加 (省略時 11)。`app.js` 全体に `debutCap` として propagate される |
 | 公式プロフィールリンクの URL を変更 | `assets/app.js` | `PROFILE_URL_TEMPLATE` (シーズン別テンプレ、`{image_id}` を差し替え) |
 | `app.js` 更新後にブラウザキャッシュを無効化 | `index.html` | 末尾の `<script src="./assets/app.js?v=...">` の `v=` を新値に更新 |
+| OG 画像 (`assets/og.png` 1200×630) を再生成 | `assets/og.png` | 軽微な書き換えなら直接 PNG を差し替え。レイアウト変更時は `uv run --no-project --with Pillow python3 …` で再描画する (生成スクリプト本体は commit c8a95cd の中身を参照)。`index.html` の `og:image` URL は固定なので画像差し替えだけで OK |
+| favicon を変更 | `assets/favicon.svg` | グラデーション + テキストのインライン SVG。PNG フォールバックは置いていない (モダンブラウザのみ対象) |
 
 ## アーキテクチャ
 
@@ -44,6 +46,8 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 1. **データ層 (`data/*.json`)**: シーズン1本につき1ファイル。`season1.json` / `season2.json` / `thegirls.json` / `shinsekai.json`。トップレベルに `image_url_template` を持ち、これが各シーズンで異なる公式CDNを指す (Season 1 は `web-m.webcdn.stream.ne.jp`、Season 2 は `2nd.produce101.jp`、THE GIRLS は `3rd.produce101.jp`、SHINSEKAI は `produce101.jp` 配下、ランダムトークン入りパスを含む)。**画像URLが切れた場合はこの template を更新するだけで全員分が直る。**
 
 2. **ビュー層 (`index.html`)**: Tailwind CDN + Google Fonts (Noto Sans JP / Orbitron) のみで完結。タブのDOM (`.season-panel`) とヘッダのジャンプボタン (`[data-jump]`) だけ静的に配置し、中身は JS が描画する。Tailwind config は inline `<script>` で `s1`〜`s4` のシーズン別カラーを拡張定義 (SEASON 1=orange / SEASON 2=blue / THE GIRLS=pink / SHINSEKAI=purple)。末尾の `<script src="./assets/app.js?v=...">` の `?v=` はキャッシュバスタ — GitHub Pages の CDN とブラウザキャッシュが古い `app.js` を返すケースがあるため、`app.js` を変更した際はこの値も更新する (date ベース or 短いタグ)。
+   - **アクセシビリティ不変条件** (これらが壊れていれば必ず直す): メインタブは `role="tab"` + `aria-controls` + `aria-selected` を持ち、`activateTab()` が状態を同期 (パネル側も `role="tabpanel"` + `aria-hidden`)。`#tab-list` には ArrowLeft/Right/Home/End キーナビが束ねられる。類似度モーダル (`.similar-modal-panel`) は `role="dialog" aria-modal="true" aria-labelledby="similar-modal-title"`、`openSimilarityModal()` が呼び出し元要素を保存し閉じる際に focus を戻す。`bindSimilarityModalEvents()` で Tab/Shift+Tab を panel 内ループに制約 (focus trap)、open 直後に `.modal-close` へ rAF + setTimeout で二重スケジュールし focus 移動。検索系 input には `aria-label` を必ず付ける。
+   - **SEO/共有メタ**: `<head>` に Open Graph 9 種 + Twitter Card 4 種 + favicon SVG。`og:image` は `assets/og.png` (1200×630)。タイトル/説明はファンサイトの独自機能 (シーズン横断の軌跡比較) を明示する文言にしてあるため、改修時は機能訴求を残す。
 
 3. **コントローラ層 (`assets/app.js`)**:
    - `init()` → 4本のJSONを `Promise.all` で並列fetch → `buildPanel()` で各タブのDOM生成。
@@ -56,6 +60,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
      - **preset ボタン**: `デビュー組` / `全選択` / `全解除` の固定 3 つ + 各順位発表式時点の `RCn 生存` を `ranking_milestones` から動的生成。`RCn 生存` は `rank_history[key] != null` で判定 (= その回までに脱落していない練習生)。
      - **描画**: Paul Tol Bright 6色 + ダッシュパターンで色覚多様性対応、SVG/picker ホバーで他の線を半透明化 + ツールチップ表示、エンドポイント直接ラベル (右端に名前)、Top 11 デビュー圏を背景帯でハイライト、ラベル密度は選択数によって自動制御 (>5本時は ceremony 列と両端のみ)。
      - **サイズ**: `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
+     - **モバイル対応**: SVG 自身に `style="min-width: min(880px, max(720px, 100%))"` を設定し、`<` 720px のときは外側の `.chart-svg-container` (`overflow-x-auto sm:overflow-visible`) で横スクロール。トレードオフとして携帯でも Y 軸ラベルが潰れない代わりに片手スクロールが必要。練習生 picker は `<details class="chart-picker-details">` で包み、`bindChartControls()` が `matchMedia('(min-width: 1024px)')` を見て `details.open` を切り替え (デスクトップ展開 / モバイル折り畳み)。
      - **エンドポイントラベル**: `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - **deconflictLabels()**: メインチャートからは外したが、類似度オーバーレイチャートのエンドポイントラベル衝突回避で再活用中 (forward/backward pass 実装)。
      - **類似軌跡検索**: 各ピッカー行の「類似」ボタン または 練習生一覧カードのクリックでモーダル起動。実装詳細は §類似軌跡検索 参照。
