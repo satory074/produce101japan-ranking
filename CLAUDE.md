@@ -33,6 +33,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 | 練習生 1 名だけ修正 | `data/<season>.json` | `trainees[]` 該当要素の必要フィールドだけ更新 (シーズンによりスキーマ差あり、§データスキーマ参照) |
 | SHINSEKAI 毎週更新 | `data/shinsekai.json` | §SHINSEKAI 更新運用 参照 |
 | 公式プロフィールリンクの URL を変更 | `assets/app.js` | `PROFILE_URL_TEMPLATE` (シーズン別テンプレ、`{image_id}` を差し替え) |
+| `app.js` 更新後にブラウザキャッシュを無効化 | `index.html` | 末尾の `<script src="./assets/app.js?v=...">` の `v=` を新値に更新 |
 
 ## アーキテクチャ
 
