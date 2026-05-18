@@ -15,12 +15,16 @@ const SEASON_CONFIG = {
   shinsekai:{ color: 's4', tw: 'purple', label: 'SHINSEKAI', short: 'NEW',   accentClass: 'from-purple-500 to-purple-700', textClass: 'text-s4-700', bgClass: 'bg-s4-50', borderClass: 'border-s4-500' },
 };
 
-// 公式サイト個別プロフィールページ URL テンプレート (image_id がそのままクエリに乗る)
+// 公式サイト個別プロフィールページ URL テンプレート (シーズン毎にパス構造が異なる)
+// - SEASON 1:  /profile/?id={image_id}        (クエリベース)
+// - SEASON 2:  /profile/{image_id}            (パスベース)
+// - THE GIRLS: /profile/detail/?id={image_id} (新サイト共通の detail SPA ルート)
+// - SHINSEKAI: /profile/detail/?id={image_id} (同上)
 const PROFILE_URL_TEMPLATE = {
   season1:  'https://1st.produce101.jp/profile/?id={image_id}',
-  season2:  'https://2nd.produce101.jp/profile/?id={image_id}',
-  thegirls: 'https://3rd.produce101.jp/profile/?id={image_id}',
-  shinsekai:'https://produce101.jp/profile/?id={image_id}',
+  season2:  'https://2nd.produce101.jp/profile/{image_id}',
+  thegirls: 'https://3rd.produce101.jp/profile/detail/?id={image_id}',
+  shinsekai:'https://produce101.jp/profile/detail/?id={image_id}',
 };
 
 function buildProfileUrl(seasonId, imageId) {
