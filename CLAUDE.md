@@ -19,6 +19,20 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 
 テスト・lint・型チェックなし (静的HTML/JS)。
 
+**実装タスク完了時の wrap-up**: テストや lint が存在しないため、wrap-up は (1) ブラウザでの目視確認 → (2) 必要に応じて CLAUDE.md 更新 → (3) git commit の流れのみ。test runner を探す時間は不要。
+
+## 編集ポイント早見表
+
+| やりたいこと | 編集対象 | 該当箇所 |
+|---|---|---|
+| 画像が大量に切れた | `data/<season>.json` | トップレベル `image_url_template` を新 CDN パスに更新 |
+| 順位発表回を追加 | `data/<season>.json` | `ranking_milestones` 末尾に新エントリ追加 + 各 trainee の `rank_history` に値追記 + `trainees[].rank` を最新値に同期 |
+| 類似度の重みを調整 | `assets/app.js` | `trajectoryDistance` のデフォルト引数 (`slopeAlpha` / `overlapPenalty` / `minOverlap` / `minRequired`) |
+| 折れ線チャートの色を増やす | `assets/app.js` | `CHART_COLORS` 配列 (現状 6 色 × dash 2 = 12 通り) |
+| 新シーズンタブを追加 | 3 ファイル | `data/<new>.json` 新設 + `index.html` の `.season-panel` 追加 + Tailwind config の `s5` カラー定義 + `app.js` の `init()` 内 fetch リスト |
+| 練習生 1 名だけ修正 | `data/<season>.json` | `trainees[]` 該当要素の必要フィールドだけ更新 (シーズンによりスキーマ差あり、§データスキーマ参照) |
+| SHINSEKAI 毎週更新 | `data/shinsekai.json` | §SHINSEKAI 更新運用 参照 |
+
 ## アーキテクチャ
 
 3層構造で、各層が緩く分離されている:
@@ -40,16 +54,40 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
      - **サイズ**: `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
      - **エンドポイントラベル**: `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - **deconflictLabels()**: メインチャートからは外したが、類似度オーバーレイチャートのエンドポイントラベル衝突回避で再活用中 (forward/backward pass 実装)。
-     - **類似軌跡検索**: 各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。**Landmark-based piecewise-linear warping** で時系列をアライメント:
-       - `seasonAnchors(season)` が `p1` + `ceremony: true` の milestone を抽出 (= 全シーズン共通の semantic landmark)。基準シーズンの `buildBaseWarping()` がアンカーを `[0, 1]` に等間隔配置し、間の p-eval は区間内のインデックス比で warped x を割り振る。
-       - 候補シーズンの `buildCandidateWarping(candSeason, baseWarping)` は基準と共通するアンカーが **基準と同じ canonical x** に来るように配置。最後の共通アンカーより後ろの候補側アンカー (例: 基準=SHINSEKAI のとき S1/S2/TG の `rcF` や TG の `rc3`) は、共通範囲の最後 2 アンカーから求めた「基準軸ピッチ ÷ 候補軸ピッチ」比で **x > 1 へ線形外挿** される (例: S1 の rcF → 1.5, TG の rcF → 2.0)。これにより候補シーズンの全期間がチャートに描画可能になる。
-       - `buildAlignedTrajectory(trainee, season, warping)` が warped x × `(rank-1)/(total-1)` の点列を返す。各点は `status: 'observed' | 'final_pad'` を持つ: `rank_history[key] == null` (= 脱落確定) の milestone は **最終順位** (`trainee.rank` → 最後の observed rank → `total_trainees` の優先順) で水平 padding され、`final_pad` 印が付く。`rank_history` に key 自体が無い (進行中シーズンの未放送回など) milestone はスキップ。`resampleTrajectory()` で `N = max(32, 共通アンカー数 * 8)` 点に線形補間 → `trajectoryDistance()` が **位置 MAE (重み 0.5) + 傾き MAE (`|Δa[i] - Δb[i]|` 平均, 重み 0.5)** を返す (`slopeAlpha=0.5`, `overlapPenalty=0`, `minOverlap=4`, `minRequired=4`)。位置と形状を等価ブレンドする方針で、上昇/下降パターンの違いが明確に距離へ反映される。観測点数の少ない候補 (SHINSEKAI など 4 点組・早期脱落者) はペナルティ無しで等価扱い。距離計算は常に [0,1] グリッドで行うので、x>1 への外挿区間はチャート描画にのみ寄与する。`similarTrainees()` の距離同値タイブレークは observed 点数の多い候補を優先 (= padding 比率の低い、より確かな比較を上に)。
-       - 「全シーズン / このシーズン以外」トグル付き。結果行のアクションは常に「`{シーズン短縮名}` を開く」ボタンで、同・別シーズン問わず `renderSimilarityModal` を新基準で再描画 (= モーダル内で基準切替)。
-       - **オーバーレイチャート** (`buildSimilarityChartSvg`): モーダル上部に基準軌跡 (黒太線 stroke=3.5) + 類似 Top N を CHART_COLORS で重ね描画。座標系は canonical 横軸 [0, xMax]、サイズ W=600 / H=260。`xAt(xn) = padL + (xn / xMax) * innerW` でスケール — 通常 xMax=1 だが、基準が SHINSEKAI など短いシーズンで候補が x>1 へ外挿される場合は xMax を自動拡張する。基準終端 (x=1.0) を示すグレー破線縦線 + 「基準終端 →」ラベルが xMax>1 のとき出る。X軸 tick は (a) 基準シーズンの milestone を `baseWarping` 経由の warped x 位置に配置 (実線ピンク、例: Season 1 では `RC1` は x=0.333、`RC2` は x=0.667) + (b) **候補シーズン側の ceremony milestone のうち基準にないもの** をピンク破線 (`stroke-dasharray="3 3"` opacity 0.65) で描画。同じ x に複数キーが来た場合 (例: 基準=SHINSEKAI で S1 FINAL と TG RC3 が両方 x=1.5) はラベルを `/` で結合 (`FINAL/RC3`) して 1 本にまとめる。p-eval は ticks に含めない (混雑回避)。Top 11 帯は省略 (シーズン総数差で誤読リスクのため)。padding 区間 (`status='final_pad'`) は破線セグメント + 白抜き円 + 順位ラベル省略で観測値と視覚的に区別。
-       - **Y軸自動ズーム**: 描画する全軌跡から `yMin`/`yMax` を取り、上下 8% padding + 最低 0.18 の縦範囲を確保した上で、`yAt(yn) = padT + ((yn - yMin) / yRange) * innerH` でマッピング。軸ラベルは基準シーズンの `total_trainees` で実順位に逆変換し `↑10位` / `48位↓` のように表示。これで全員 Top 30 内のような場合でも縦に広がる (固定 [0,1] だと上半分に詰まる問題への対応)。中間 tick は表示順位スパンから nice step (`[1,2,5,10,20,25,50]` のうち分割数 3〜7 を満たす最小値) を選び、dashed gridline + ラベルで描画 (例: 1〜19 → 5/10/15, 1〜50 → 10/20/30/40)。
-       - **表示 ON/OFF トグル**: 結果リスト各行に ● ドット (`sim-toggle-dot`) を付与、デフォルトで Top 5 が `chartOn=true`。クリックで描画 ON/OFF を切替、`refreshSimilarityChart()` が SVG だけ差し替える (`root._simState = { baseEntry, decorated, baseMilestones, baseWarping }` で状態保持)。
-       - **双方向 hover**: チャート線 hover ⇒ 対応するリスト行に ring、リスト行 hover ⇒ 該当線を強調 (`highlightSimLine` / `clearSimLineHighlight`)。ツールチップは `computeWorstMilestone()` が共通グリッド上の最大乖離 x を `baseWarping` で最近接 milestone に逆引きし `最大乖離: ② で 1位 vs 2位` のように両者の実順位を出す。
-       - **エンドポイントラベル**: 右端に名前直書き (`deconflictLabels` を再利用 — メインチャートでは現在未使用だがここで活用)。基準は太字、類似は `#順位` プレフィックス付き。
+     - **類似軌跡検索**: 各ピッカー行の「類似」ボタンでモーダル起動。実装詳細は §類似軌跡検索 参照。
+
+## 類似軌跡検索
+
+各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。**Landmark-based piecewise-linear warping** で異シーズン間の時系列をアライメントしてから距離計算する。
+
+### Warping (時間軸アライメント)
+
+- `seasonAnchors(season)`: `p1` + `ceremony: true` の milestone を抽出 (= 全シーズン共通の semantic landmark)。
+- `buildBaseWarping(baseSeason)`: アンカーを `[0, 1]` に等間隔配置し、間の p-eval は区間内のインデックス比で warped x を割り振る。
+- `buildCandidateWarping(candSeason, baseWarping)`: 基準と共通するアンカーを **基準と同じ canonical x** に配置。最後の共通アンカーより後ろの候補側アンカー (例: 基準=SHINSEKAI のときの S1/S2/TG `rcF` や TG `rc3`) は、共通範囲の最後 2 アンカーから求めた「基準軸ピッチ ÷ 候補軸ピッチ」比で **x > 1 へ線形外挿** (例: S1 `rcF` → 1.5, TG `rcF` → 2.0)。これにより候補シーズンの全期間がチャートに描画可能になる。
+
+### 距離計算
+
+- `buildAlignedTrajectory(trainee, season, warping)`: warped x × `(rank-1)/(total-1)` の点列を返す。各点は `status: 'observed' | 'final_pad'` を持つ:
+  - `rank_history[key] == null` (= 脱落確定) の milestone は **最終順位** (`trainee.rank` → 最後の observed rank → `total_trainees` の優先順) で水平 padding され、`final_pad` 印が付く。
+  - `rank_history` に key 自体が無い (進行中シーズンの未放送回など) milestone はスキップ。
+- `resampleTrajectory()`: `N = max(32, 共通アンカー数 * 8)` 点に線形補間。
+- `trajectoryDistance()`: **位置 MAE (重み 0.5) + 傾き MAE (`|Δa[i] - Δb[i]|` 平均, 重み 0.5)** を返す。デフォルト引数 `slopeAlpha=0.5`, `overlapPenalty=0`, `minOverlap=4`, `minRequired=4`。位置と形状を等価ブレンドする方針で、上昇/下降パターンの違いが明確に距離へ反映される。観測点数の少ない候補 (SHINSEKAI など 4 点組・早期脱落者) はペナルティ無しで等価扱い。距離計算は常に [0,1] グリッドで行うので、x>1 への外挿区間はチャート描画にのみ寄与する。
+- `similarTrainees()` の距離同値タイブレークは observed 点数の多い候補を優先 (= padding 比率の低い、より確かな比較を上に)。
+
+### モーダル UI
+
+- 「全シーズン / このシーズン以外」トグル付き。結果行のアクションは常に「`{シーズン短縮名}` を開く」ボタンで、同・別シーズン問わず `renderSimilarityModal` を新基準で再描画 (= モーダル内で基準切替)。
+- **表示 ON/OFF トグル**: 結果リスト各行に ● ドット (`sim-toggle-dot`)、デフォルトで Top 5 が `chartOn=true`。クリックで描画 ON/OFF を切替、`refreshSimilarityChart()` が SVG だけ差し替える (`root._simState = { baseEntry, decorated, baseMilestones, baseWarping }` で状態保持)。
+- **双方向 hover**: チャート線 hover ⇒ 対応するリスト行に ring、リスト行 hover ⇒ 該当線を強調 (`highlightSimLine` / `clearSimLineHighlight`)。ツールチップは `computeWorstMilestone()` が共通グリッド上の最大乖離 x を `baseWarping` で最近接 milestone に逆引きし `最大乖離: ② で 1位 vs 2位` のように両者の実順位を出す。
+
+### オーバーレイチャート (`buildSimilarityChartSvg`)
+
+- モーダル上部に基準軌跡 (黒太線 stroke=3.5) + 類似 Top N を `CHART_COLORS` で重ね描画。座標系は canonical 横軸 `[0, xMax]`、サイズ W=600 / H=260。
+- `xAt(xn) = padL + (xn / xMax) * innerW` でスケール — 通常 xMax=1 だが、基準が SHINSEKAI など短いシーズンで候補が x>1 へ外挿される場合は xMax を自動拡張。基準終端 (x=1.0) を示すグレー破線縦線 + 「基準終端 →」ラベルが xMax>1 のとき出る。
+- X軸 tick: (a) 基準シーズンの milestone を `baseWarping` 経由の warped x 位置に実線ピンクで配置 (例: Season 1 では RC1 が x=0.333, RC2 が x=0.667) + (b) **候補シーズン側の ceremony milestone のうち基準にないもの** をピンク破線 (`stroke-dasharray="3 3"` opacity 0.65) で描画。同じ x に複数キーが来た場合 (例: 基準=SHINSEKAI で S1 FINAL と TG RC3 が両方 x=1.5) はラベルを `/` で結合 (`FINAL/RC3`) して 1 本にまとめる。p-eval は ticks に含めない (混雑回避)。Top 11 帯は省略 (シーズン総数差で誤読リスクのため)。padding 区間 (`status='final_pad'`) は破線セグメント + 白抜き円 + 順位ラベル省略で観測値と視覚的に区別。
+- **Y軸自動ズーム**: 描画する全軌跡から `yMin`/`yMax` を取り、上下 8% padding + 最低 0.18 の縦範囲を確保した上で、`yAt(yn) = padT + ((yn - yMin) / yRange) * innerH` でマッピング。軸ラベルは基準シーズンの `total_trainees` で実順位に逆変換し `↑10位` / `48位↓` のように表示。中間 tick は表示順位スパンから nice step (`[1,2,5,10,20,25,50]` のうち分割数 3〜7 を満たす最小値) を選び、dashed gridline + ラベルで描画 (例: 1〜19 → 5/10/15, 1〜50 → 10/20/30/40)。
+- **エンドポイントラベル**: 右端に名前直書き (`deconflictLabels` を再利用 — メインチャートでは現在未使用だがここで活用)。基準は太字、類似は `#順位` プレフィックス付き。
 
 ## データスキーマの注意点
 
@@ -76,7 +114,11 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 - THE GIRLS (7 points): `https://3rd.produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / p3 / rc2 / rc3 / rcF`
 - SHINSEKAI (4 points): `https://produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / rc2`
 
-API はプレーンテキストで「1行目に image_id、2行目以降に各ポイントの順位 (圏外は `NULL`)」を返す。各シーズンの `tools/` のスクリプトは作っていないが、`/tmp/fetch_apply_all.py` 系で curl 並列取得 → JSON マージで再現可能。
+API はプレーンテキストで「1行目に image_id、2行目以降に各ポイントの順位 (圏外は `NULL`)」を返す。専用スクリプトは未整備だが、以下の手順で取り込み可能 (アドホック実行):
+1. `data/<season>.json` の `trainees[].image_id` を抽出。
+2. 各 image_id について上記 API URL を `curl -s` で取得 (`xargs -P` 等で並列化可)。
+3. レスポンスの 2 行目以降を `ranking_milestones` の `key` 配列とジップ。`NULL` は JSON `null` に置換。
+4. 各 trainee の `rank_history` 辞書を組み立て、既存 `data/<season>.json` にマージ → 上書き保存。
 
 ## デビュー組の判定
 
