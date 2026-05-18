@@ -32,6 +32,7 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 | 新シーズンタブを追加 | 3 ファイル | `data/<new>.json` 新設 + `index.html` の `.season-panel` 追加 + Tailwind config の `s5` カラー定義 + `app.js` の `init()` 内 fetch リスト |
 | 練習生 1 名だけ修正 | `data/<season>.json` | `trainees[]` 該当要素の必要フィールドだけ更新 (シーズンによりスキーマ差あり、§データスキーマ参照) |
 | SHINSEKAI 毎週更新 | `data/shinsekai.json` | §SHINSEKAI 更新運用 参照 |
+| 公式プロフィールリンクの URL を変更 | `assets/app.js` | `PROFILE_URL_TEMPLATE` (シーズン別テンプレ、`{image_id}` を差し替え) |
 
 ## アーキテクチャ
 

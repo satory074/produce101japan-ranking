@@ -15,6 +15,20 @@ const SEASON_CONFIG = {
   shinsekai:{ color: 's4', tw: 'purple', label: 'SHINSEKAI', short: 'NEW',   accentClass: 'from-purple-500 to-purple-700', textClass: 'text-s4-700', bgClass: 'bg-s4-50', borderClass: 'border-s4-500' },
 };
 
+// 公式サイト個別プロフィールページ URL テンプレート (image_id がそのままクエリに乗る)
+const PROFILE_URL_TEMPLATE = {
+  season1:  'https://1st.produce101.jp/profile/?id={image_id}',
+  season2:  'https://2nd.produce101.jp/profile/?id={image_id}',
+  thegirls: 'https://3rd.produce101.jp/profile/?id={image_id}',
+  shinsekai:'https://produce101.jp/profile/?id={image_id}',
+};
+
+function buildProfileUrl(seasonId, imageId) {
+  const tpl = PROFILE_URL_TEMPLATE[seasonId];
+  if (!tpl || !imageId) return null;
+  return tpl.replace('{image_id}', encodeURIComponent(imageId));
+}
+
 const SEASON_FILES = {
   season1:  './data/season1.json',
   season2:  './data/season2.json',
@@ -71,7 +85,7 @@ function historyHeaderCell(milestone, isActiveSort, dir) {
   </th>`;
 }
 
-function renderRankingHistoryTable(trainees, milestones, urlTemplate) {
+function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId) {
   const latestKey = milestones[milestones.length - 1].key;
   const headerRow = `
     <tr>
@@ -80,7 +94,7 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate) {
       </th>
       ${milestones.map(m => historyHeaderCell(m, m.key === latestKey, 'asc')).join('')}
     </tr>`;
-  const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc');
+  const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc', seasonId);
   return `
     <div class="overflow-x-auto -mx-1 sm:mx-0 rounded-lg ring-1 ring-gray-200 bg-white">
       <table class="min-w-full border-separate border-spacing-0 text-xs">
@@ -95,13 +109,14 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate) {
   `;
 }
 
-function buildHistoryRows(trainees, milestones, urlTemplate, sortKey, dir) {
+function buildHistoryRows(trainees, milestones, urlTemplate, sortKey, dir, seasonId) {
   const sorted = sortTraineesForHistory(trainees, sortKey, dir);
-  return sorted.map(t => historyRowHtml(t, milestones, urlTemplate)).join('');
+  return sorted.map(t => historyRowHtml(t, milestones, urlTemplate, seasonId)).join('');
 }
 
-function historyRowHtml(trainee, milestones, urlTemplate) {
+function historyRowHtml(trainee, milestones, urlTemplate, seasonId) {
   const img = buildImageUrl(urlTemplate, trainee);
+  const cfg = SEASON_CONFIG[seasonId] || {};
   const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '?');
   const nameRomaji = escapeHtml(trainee.name_romaji || '');
   const stage = trainee.stage_name ? `<span class="text-[10px] text-gray-400 ml-1 font-display">(${escapeHtml(trainee.stage_name)})</span>` : '';
@@ -115,13 +130,19 @@ function historyRowHtml(trainee, milestones, urlTemplate) {
     const r = trainee.rank_history ? trainee.rank_history[m.key] : undefined;
     return historyCell(r === undefined ? null : r);
   }).join('');
+  const profileUrl = buildProfileUrl(seasonId, trainee.image_id);
+  const nameHtml = profileUrl
+    ? `<a href="${escapeHtml(profileUrl)}" target="_blank" rel="noopener noreferrer"
+          class="hover:underline hover:text-${cfg.tw || 'gray'}-600 transition-colors"
+          title="公式プロフィール: ${nameJp} (新しいタブで開く)">${nameJp}</a>`
+    : nameJp;
   return `
     <tr class="hover:bg-gray-50">
       <td class="sticky left-0 z-10 bg-white hover:bg-gray-50 px-3 py-1.5 border-b border-r border-gray-100 min-w-[180px]">
         <div class="flex items-center gap-2">
           ${imgHtml}
           <div class="min-w-0">
-            <div class="text-xs font-bold truncate">${nameJp}${stage}</div>
+            <div class="text-xs font-bold truncate">${nameHtml}${stage}</div>
             <div class="text-[10px] text-gray-500 font-display truncate">${nameRomaji}</div>
           </div>
         </div>
@@ -169,7 +190,7 @@ function bindSubtabs(panel) {
   });
 }
 
-function bindHistorySorting(panel, trainees, milestones, urlTemplate) {
+function bindHistorySorting(panel, trainees, milestones, urlTemplate, seasonId) {
   const tbody = panel.querySelector('.history-tbody');
   if (!tbody) return;
   const latestKey = milestones[milestones.length - 1].key;
@@ -180,7 +201,7 @@ function bindHistorySorting(panel, trainees, milestones, urlTemplate) {
       const cur = panel._historySort;
       const dir = (cur.key === key && cur.dir === 'asc') ? 'desc' : 'asc';
       panel._historySort = { key, dir };
-      tbody.innerHTML = buildHistoryRows(trainees, milestones, urlTemplate, key, dir);
+      tbody.innerHTML = buildHistoryRows(trainees, milestones, urlTemplate, key, dir, seasonId);
       panel.querySelectorAll('.subpanel-history thead th[data-mkey]').forEach(h => {
         const isActive = h.dataset.mkey === key;
         const arrow = isActive ? (dir === 'asc' ? '▲' : '▼') : '';
@@ -233,6 +254,13 @@ function renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId) {
     const nameRomaji = escapeHtml(t.name_romaji || '');
     const stage = t.stage_name ? `<span class="text-[10px] text-gray-400 ml-1">${escapeHtml(t.stage_name)}</span>` : '';
     const searchKey = `${nameJp} ${nameRomaji} ${t.stage_name || ''}`.toLowerCase();
+    const profileUrl = buildProfileUrl(panelId, t.image_id);
+    const profileLinkHtml = profileUrl
+      ? `<a href="${escapeHtml(profileUrl)}" target="_blank" rel="noopener noreferrer"
+            class="profile-link shrink-0 text-[10px] px-1.5 py-0.5 rounded text-gray-500 hover:bg-${cfg.tw}-100 hover:text-${cfg.tw}-700 transition-colors leading-none"
+            title="公式プロフィール: ${nameJp} (新しいタブで開く)"
+            aria-label="${nameJp} の公式プロフィールを開く">↗</a>`
+      : '';
     return `
       <li class="chart-picker-item flex items-center gap-1" data-search="${escapeHtml(searchKey)}">
         <label class="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer text-xs flex-1 min-w-0">
@@ -241,6 +269,7 @@ function renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId) {
           <svg class="color-swatch shrink-0" width="20" height="6" data-iid-swatch="${escapeHtml(t.image_id)}"><line x1="0" y1="3" x2="20" y2="3" stroke="transparent" stroke-width="3" /></svg>
           <span class="truncate flex-1"><span class="font-bold">${nameJp}</span>${stage}</span>
         </label>
+        ${profileLinkHtml}
         <button type="button" class="similar-btn shrink-0 text-[10px] px-1.5 py-0.5 rounded text-gray-500 hover:bg-${cfg.tw}-100 hover:text-${cfg.tw}-700 transition-colors"
                 data-iid="${escapeHtml(t.image_id)}" data-season="${escapeHtml(panelId)}" title="この練習生と順位推移が似た練習生を表示">類似</button>
       </li>
@@ -1481,6 +1510,7 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
 
 function traineeCard(trainee, season, urlTemplate) {
   const img = buildImageUrl(urlTemplate, trainee);
+  const cfg = SEASON_CONFIG[season] || {};
   const debuted = trainee.debuted === true;
   const ringCls = debuted ? 'card-debuted' : 'shadow-sm';
   const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '?');
@@ -1495,6 +1525,13 @@ function traineeCard(trainee, season, urlTemplate) {
             onerror="this.style.display='none'; this.parentNode.classList.add('img-fallback');" />`
     : '';
 
+  const profileUrl = buildProfileUrl(season, trainee.image_id);
+  const nameHtml = profileUrl
+    ? `<a href="${escapeHtml(profileUrl)}" target="_blank" rel="noopener noreferrer"
+          class="hover:underline hover:text-${cfg.tw || 'gray'}-600 transition-colors"
+          title="公式プロフィール: ${nameJp} (新しいタブで開く)">${nameJp}</a>`
+    : nameJp;
+
   return `
     <article class="trainee-card group relative bg-white rounded-xl overflow-hidden ${ringCls} hover:shadow-xl transition-all hover:-translate-y-1"
              data-name="${nameJp.toLowerCase()} ${nameRomaji.toLowerCase()}" data-rank="${trainee.rank ?? 999}">
@@ -1507,7 +1544,7 @@ function traineeCard(trainee, season, urlTemplate) {
         ${debuted ? '<div class="absolute top-1.5 right-1.5 bg-yellow-400 text-yellow-900 text-[9px] font-display font-black px-1.5 py-0.5 rounded">DEBUT</div>' : ''}
       </div>
       <div class="p-2 sm:p-2.5">
-        <div class="font-bold text-xs sm:text-sm truncate" title="${nameJp}">${nameJp}</div>
+        <div class="font-bold text-xs sm:text-sm truncate" title="${nameJp}">${nameHtml}</div>
         <div class="text-[10px] sm:text-xs text-gray-500 truncate font-display">${nameRomaji}</div>
         ${stageName}
         ${typeof votes === 'number'
@@ -1585,7 +1622,7 @@ function buildPanel(panelId, data) {
     </div>
 
     ${showHistoryTab ? `<div class="subpanel subpanel-history hidden" data-subpanel="history">
-      ${renderRankingHistoryTable(trainees, milestones, urlTemplate)}
+      ${renderRankingHistoryTable(trainees, milestones, urlTemplate, panelId)}
     </div>` : ''}
 
     ${showHistoryTab ? `<div class="subpanel subpanel-chart hidden" data-subpanel="chart">
@@ -1618,7 +1655,7 @@ function buildPanel(panelId, data) {
 
   if (showHistoryTab) {
     bindSubtabs(panel);
-    bindHistorySorting(panel, trainees, milestones, urlTemplate);
+    bindHistorySorting(panel, trainees, milestones, urlTemplate, panelId);
     bindChartControls(panel, trainees, milestones, maxRank);
   }
 }
