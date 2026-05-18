@@ -48,6 +48,32 @@ function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 }
 
+// ベネフィット票数を表示用に圧縮した文字列にする (例: 100000 → "+10万", 3074 → "+3.1k")。
+// title 属性には正確な値を別途載せるので、ここではセル内でも読める長さを優先する。
+function formatBenefitShort(v) {
+  if (v == null || !isFinite(v)) return '';
+  if (v >= 10000) {
+    const wan = v / 10000;
+    return `+${wan % 1 === 0 ? wan : wan.toFixed(1)}万`;
+  }
+  if (v >= 1000) {
+    const k = v / 1000;
+    return `+${k % 1 === 0 ? k : k.toFixed(1)}k`;
+  }
+  return `+${v}`;
+}
+
+// milestone 列に対し、trainees のうち 1 人でもベネフィットを持っているか判定する。
+// 表ヘッダの ★ バッジ表示と、グラフ凡例の出し分けで共通化するための小さなヘルパー。
+function milestoneHasAnyBenefit(milestone, trainees) {
+  if (!milestone || !Array.isArray(trainees)) return false;
+  for (const t of trainees) {
+    const v = t.benefit_history?.[milestone.key];
+    if (typeof v === 'number' && v > 0) return true;
+  }
+  return false;
+}
+
 function buildImageUrl(template, trainee) {
   if (trainee.image_url) return trainee.image_url;
   if (!template || !trainee.image_id) return null;
@@ -71,34 +97,52 @@ function rankBadge(trainee, debutCap = 11) {
   return `<span class="font-display text-xs font-black px-2 py-0.5 rounded ${rankColorClass(rank, debutCap)}">${label}</span>`;
 }
 
-function historyCell(rank, debutCap = 11) {
+function historyCell(rank, debutCap = 11, benefitVotes = null) {
   if (rank == null) {
     return `<td class="text-center px-1.5 py-1 border-b border-gray-100 text-gray-300">—</td>`;
   }
-  return `<td class="text-center px-1.5 py-1 border-b border-gray-100"><span class="font-display text-[11px] font-black px-1.5 py-0.5 rounded ${rankColorClass(rank, debutCap)} inline-block min-w-[26px]">${rank}</span></td>`;
+  // ベネフィット票数があれば順位バッジの右に小さく ${formatBenefitShort(v)} を併記。
+  // title 属性に正確な票数を入れて、マウスホバーで詳細値を確認できるようにする。
+  let bonusHtml = '';
+  if (typeof benefitVotes === 'number' && benefitVotes > 0) {
+    const short = formatBenefitShort(benefitVotes);
+    const exact = `+${benefitVotes.toLocaleString('ja-JP')}票`;
+    bonusHtml = ` <span class="text-[10px] text-emerald-600 font-bold align-middle" title="${escapeHtml(exact)}">${escapeHtml(short)}</span>`;
+  }
+  return `<td class="text-center px-1.5 py-1 border-b border-gray-100 whitespace-nowrap"><span class="font-display text-[11px] font-black px-1.5 py-0.5 rounded ${rankColorClass(rank, debutCap)} inline-block min-w-[26px]">${rank}</span>${bonusHtml}</td>`;
 }
 
-function historyHeaderCell(milestone, isActiveSort, dir) {
+function historyHeaderCell(milestone, isActiveSort, dir, hasBenefit = false) {
   const arrow = isActiveSort ? (dir === 'asc' ? '▲' : '▼') : '';
   const activeCls = isActiveSort ? 'text-gray-900 font-black' : 'text-gray-600';
   const ceremonyCls = milestone.ceremony ? 'border-b-2 border-pink-300' : 'border-b border-gray-200';
-  return `<th data-mkey="${escapeHtml(milestone.key)}" title="${escapeHtml(milestone.label)}"
+  const benefitTitle = hasBenefit ? '\nこの回でベネフィット (得票加算) あり' : '';
+  const benefitBadge = hasBenefit
+    ? ` <span class="text-emerald-600 text-[10px]" title="ベネフィット獲得者あり" aria-label="ベネフィットあり">★</span>`
+    : '';
+  return `<th data-mkey="${escapeHtml(milestone.key)}" title="${escapeHtml(milestone.label + benefitTitle)}"
     class="cursor-pointer select-none whitespace-nowrap px-2 py-2 text-xs ${activeCls} ${ceremonyCls} bg-gray-50 hover:bg-gray-100 transition-colors">
-    <span class="font-display tracking-wide">${escapeHtml(milestone.short || milestone.label)}</span>
+    <span class="font-display tracking-wide">${escapeHtml(milestone.short || milestone.label)}</span>${benefitBadge}
     <span class="ml-0.5 text-[9px] text-gray-400">${arrow}</span>
   </th>`;
 }
 
 function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId, debutCap = 11) {
   const latestKey = milestones[milestones.length - 1].key;
+  // ヘッダの ★ バッジ判定は trainees 全件に依存するので、行生成と同じスコープで先に計算する。
+  const benefitFlags = milestones.map(m => milestoneHasAnyBenefit(m, trainees));
+  const anyBenefit = benefitFlags.some(Boolean);
   const headerRow = `
     <tr>
       <th class="sticky left-0 z-20 bg-gray-50 text-left px-3 py-2 border-b border-r border-gray-200 min-w-[180px] cursor-pointer hover:bg-gray-100 transition-colors" data-mkey="__name__">
         <span class="text-xs text-gray-700">名前</span>
       </th>
-      ${milestones.map(m => historyHeaderCell(m, m.key === latestKey, 'asc')).join('')}
+      ${milestones.map((m, i) => historyHeaderCell(m, m.key === latestKey, 'asc', benefitFlags[i])).join('')}
     </tr>`;
   const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc', seasonId, debutCap);
+  const benefitLegend = anyBenefit
+    ? ` <span class="text-emerald-600 font-bold">★</span> ベネフィット獲得回 ・セル内の <span class="text-emerald-600 font-bold">+XX</span> は加算票数 (ホバーで正確な値)`
+    : '';
   return `
     <div class="overflow-x-auto -mx-1 sm:mx-0 rounded-lg ring-1 ring-gray-200 bg-white">
       <table class="min-w-full border-separate border-spacing-0 text-xs">
@@ -108,7 +152,7 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId, 
     </div>
     <p class="text-[11px] text-gray-500 mt-2">
       ヘッダをクリックで並び替え。
-      <span class="inline-block w-2 h-2 bg-pink-300 align-middle mr-1"></span>順位発表式列
+      <span class="inline-block w-2 h-2 bg-pink-300 align-middle mr-1"></span>順位発表式列${benefitLegend}
     </p>
   `;
 }
@@ -132,7 +176,8 @@ function historyRowHtml(trainee, milestones, urlTemplate, seasonId, debutCap = 1
     : `<div class="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center text-[10px] font-bold text-gray-600">${escapeHtml(initials)}</div>`;
   const cells = milestones.map(m => {
     const r = trainee.rank_history ? trainee.rank_history[m.key] : undefined;
-    return historyCell(r === undefined ? null : r, debutCap);
+    const b = trainee.benefit_history ? trainee.benefit_history[m.key] : null;
+    return historyCell(r === undefined ? null : r, debutCap, b);
   }).join('');
   const profileUrl = buildProfileUrl(seasonId, trainee.image_id);
   const nameHtml = profileUrl
@@ -403,7 +448,9 @@ function buildChartSvg(selected, milestones, maxRank, debutCap = 11) {
       `<polyline points="${seg.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"${dashAttr} class="chart-line" data-iid="${id}" />`
     ).join('');
 
-    // 点 + ○位 ラベル (密度制御)
+    // 点 + ○位 ラベル + ベネフィット ★ マーカー (密度制御)
+    // ★ は trainee 線色とは独立した金色 (#f59e0b) で、ベネフィット獲得回を一目で識別可能にする。
+    // 配置は順位ラベルと反対側 (点の右下) にして既存のラベル衝突を避ける。
     const points = milestones.map((m, i) => {
       const r = trainee.rank_history?.[m.key];
       if (r == null) return '';
@@ -412,7 +459,11 @@ function buildChartSvg(selected, milestones, maxRank, debutCap = 11) {
       const labelHtml = showLabel
         ? `<text x="${cx}" y="${(yAt(r) - 8).toFixed(1)}" text-anchor="middle" font-size="10" fill="${color}" font-weight="bold" class="chart-label" font-family="Orbitron,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${r}位</text>`
         : '';
-      return `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" data-iid="${id}" />${labelHtml}`;
+      const benefit = trainee.benefit_history?.[m.key];
+      const starHtml = (typeof benefit === 'number' && benefit > 0)
+        ? `<text x="${(xAt(i) + 6).toFixed(1)}" y="${(yAt(r) + 8).toFixed(1)}" font-size="12" fill="#f59e0b" font-weight="bold" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${id}" pointer-events="none">★</text>`
+        : '';
+      return `<circle cx="${cx}" cy="${cy}" r="3.5" fill="${color}" stroke="white" stroke-width="1.5" data-iid="${id}" />${labelHtml}${starHtml}`;
     }).join('');
 
     // エンドポイント情報を蓄積 (描画は後で deconflict 込みで)
@@ -504,6 +555,7 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank, debutCa
           Y軸=順位 (1位が上)。
           <span class="inline-block w-3 h-2 bg-yellow-200 align-middle mx-1"></span>Top ${debutCap} デビュー圏
           <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式列
+          <span class="text-amber-500 font-bold mx-1">★</span>ベネフィット獲得 (得票加算)
           ・線にホバーで詳細表示
         </p>
       </div>
@@ -626,13 +678,23 @@ function showChartTooltip(panel, tooltip, trainee, milestones, debutCap = 11) {
   if (!trainee) return;
   const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '');
   const stage = trainee.stage_name ? ` <span class="text-gray-400">(${escapeHtml(trainee.stage_name)})</span>` : '';
+  let totalBenefit = 0;
   const rows = milestones.map(m => {
     const r = trainee.rank_history?.[m.key];
     const rankStr = r == null ? '<span class="text-gray-300">—</span>' : `<span class="font-bold ${rankTooltipColor(r, debutCap)}">${r}位</span>`;
+    const b = trainee.benefit_history?.[m.key];
+    let bonusStr = '';
+    if (typeof b === 'number' && b > 0) {
+      totalBenefit += b;
+      bonusStr = ` <span class="text-[10px] text-emerald-600 font-bold" title="${escapeHtml('+' + b.toLocaleString('ja-JP') + '票')}">★${escapeHtml(formatBenefitShort(b))}</span>`;
+    }
     const cer = m.ceremony ? 'text-pink-700 font-bold' : 'text-gray-600';
-    return `<div class="flex justify-between gap-3"><span class="${cer}">${escapeHtml(m.short || m.label)}</span>${rankStr}</div>`;
+    return `<div class="flex justify-between gap-3"><span class="${cer}">${escapeHtml(m.short || m.label)}</span><span>${rankStr}${bonusStr}</span></div>`;
   }).join('');
-  tooltip.innerHTML = `<div class="font-bold mb-1">${nameJp}${stage}</div>${rows}`;
+  const totalRow = totalBenefit > 0
+    ? `<div class="flex justify-between gap-3 mt-1 pt-1 border-t border-gray-200 text-emerald-700 font-bold"><span>累計ベネフィット</span><span>+${totalBenefit.toLocaleString('ja-JP')}票</span></div>`
+    : '';
+  tooltip.innerHTML = `<div class="font-bold mb-1">${nameJp}${stage}</div>${rows}${totalRow}`;
   tooltip.classList.remove('hidden');
 }
 
@@ -1053,11 +1115,19 @@ function buildSimilarityChartSvg(baseEntry, entries, baseMilestones, baseWarping
     const obsPath = toPath(obsSegment);
     const padPath = toPath(padSegment);
 
-    // observed の円 + ラベル
+    // observed の円 + ラベル (基準軌跡のみ ★ ベネフィットマーカー付き)
+    // 候補軌跡にも ★ を出すとオーバーレイチャートが混雑するため、基準のみに限定。
     const obsPts = obsSegment.map(p => {
       const cx = xAt(p.x).toFixed(1), cy = yAt(p.y).toFixed(1);
       const labelHtml = `<text x="${cx}" y="${(yAt(p.y) - 7).toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-weight="bold" font-family="Orbitron,sans-serif" stroke="white" stroke-width="2.5" paint-order="stroke" data-iid="${iid}">${p.r}位</text>`;
-      return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />${labelHtml}`;
+      let starHtml = '';
+      if (isBase) {
+        const b = entry.trainee.benefit_history?.[p.m.key];
+        if (typeof b === 'number' && b > 0) {
+          starHtml = `<text x="${(xAt(p.x) + 5).toFixed(1)}" y="${(yAt(p.y) + 7).toFixed(1)}" font-size="11" fill="#f59e0b" font-weight="bold" stroke="white" stroke-width="2" paint-order="stroke" data-iid="${iid}" pointer-events="none">★</text>`;
+        }
+      }
+      return `<circle cx="${cx}" cy="${cy}" r="${isBase ? 3.2 : 2.4}" fill="${color}" data-iid="${iid}" />${labelHtml}${starHtml}`;
     }).join('');
     // padding 点は白抜き円のみ (ラベル非表示)。先頭は obs と重複するのでスキップ。
     const padPts = padSegment.slice(1).filter(p => p.status === 'final_pad').map(p => {
@@ -1370,6 +1440,7 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
       <p class="text-[10px] text-gray-400 mt-1">
         Y軸=順位 (表示中の軌跡の範囲に自動ズーム、基準シーズン ${escapeHtml(cfg.short)} の総数で換算)。X軸 tick は基準シーズンの milestone。
         <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式
+        <span class="text-amber-500 font-bold ml-1">★</span>基準のベネフィット獲得
       </p>
     </div>
   ` : '';

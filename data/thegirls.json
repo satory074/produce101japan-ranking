@@ -75,7 +75,10 @@
       },
       "votes_final": 1116716,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "rc3": 40000
+      }
     },
     {
       "rank": 2,
@@ -129,7 +132,10 @@
       },
       "votes_final": 655210,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "rc3": 50000
+      }
     },
     {
       "rank": 5,
@@ -147,7 +153,10 @@
       },
       "votes_final": 631708,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "rc3": 25000
+      }
     },
     {
       "rank": 6,
@@ -201,7 +210,10 @@
       },
       "votes_final": 591650,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "p3": 110000
+      }
     },
     {
       "rank": 9,
@@ -219,7 +231,10 @@
       },
       "votes_final": 588173,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "p3": 110000
+      }
     },
     {
       "rank": 10,
@@ -237,7 +252,11 @@
       },
       "votes_final": 577903,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "p2": 3000,
+        "rc3": 100000
+      }
     },
     {
       "rank": 11,
@@ -255,7 +274,10 @@
       },
       "votes_final": 552603,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "benefit_history": {
+        "rc3": 25000
+      }
     },
     {
       "rank": 12,
@@ -291,7 +313,10 @@
       },
       "votes_final": 283766,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "benefit_history": {
+        "rc3": 10000
+      }
     },
     {
       "rank": 14,
@@ -417,7 +442,10 @@
       },
       "votes_final": 219063,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "benefit_history": {
+        "p3": 110000
+      }
     },
     {
       "rank": 21,
