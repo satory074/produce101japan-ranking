@@ -36,6 +36,7 @@
   ],
   "ongoing": true,
   "last_updated_episode": "Episode 8 (2026-05-08)",
+  "debut_count": 12,
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
   "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks 1-50 reflect the Episode 8 (2nd ranking ceremony) announced positions, where 50 trainees advanced to the next stage. Trainees ranked 51+ (no longer on stage / eliminated by Episode 5 cut) are listed with rank: null. The show is still on air; debut lineup is undetermined.",
   "trainees": [

@@ -54,28 +54,28 @@ function buildImageUrl(template, trainee) {
   return template.replace('{image_id}', trainee.image_id);
 }
 
-function rankColorClass(rank) {
+function rankColorClass(rank, debutCap = 11) {
   if (rank == null) return 'bg-gray-200 text-gray-500';
   if (rank === 1) return 'rank-1 text-yellow-900';
   if (rank === 2) return 'rank-2 text-gray-800';
   if (rank === 3) return 'rank-3 text-yellow-50';
-  if (rank <= 11) return 'bg-yellow-400 text-yellow-900';
+  if (rank <= debutCap) return 'bg-yellow-400 text-yellow-900';
   if (rank <= 20) return 'bg-gray-300 text-gray-800';
   if (rank <= 50) return 'bg-amber-700 text-amber-50';
   return 'bg-gray-700 text-white';
 }
 
-function rankBadge(trainee) {
+function rankBadge(trainee, debutCap = 11) {
   const rank = trainee.rank;
   const label = rank == null ? '—' : rank;
-  return `<span class="font-display text-xs font-black px-2 py-0.5 rounded ${rankColorClass(rank)}">${label}</span>`;
+  return `<span class="font-display text-xs font-black px-2 py-0.5 rounded ${rankColorClass(rank, debutCap)}">${label}</span>`;
 }
 
-function historyCell(rank) {
+function historyCell(rank, debutCap = 11) {
   if (rank == null) {
     return `<td class="text-center px-1.5 py-1 border-b border-gray-100 text-gray-300">—</td>`;
   }
-  return `<td class="text-center px-1.5 py-1 border-b border-gray-100"><span class="font-display text-[11px] font-black px-1.5 py-0.5 rounded ${rankColorClass(rank)} inline-block min-w-[26px]">${rank}</span></td>`;
+  return `<td class="text-center px-1.5 py-1 border-b border-gray-100"><span class="font-display text-[11px] font-black px-1.5 py-0.5 rounded ${rankColorClass(rank, debutCap)} inline-block min-w-[26px]">${rank}</span></td>`;
 }
 
 function historyHeaderCell(milestone, isActiveSort, dir) {
@@ -89,7 +89,7 @@ function historyHeaderCell(milestone, isActiveSort, dir) {
   </th>`;
 }
 
-function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId) {
+function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId, debutCap = 11) {
   const latestKey = milestones[milestones.length - 1].key;
   const headerRow = `
     <tr>
@@ -98,7 +98,7 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId) 
       </th>
       ${milestones.map(m => historyHeaderCell(m, m.key === latestKey, 'asc')).join('')}
     </tr>`;
-  const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc', seasonId);
+  const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc', seasonId, debutCap);
   return `
     <div class="overflow-x-auto -mx-1 sm:mx-0 rounded-lg ring-1 ring-gray-200 bg-white">
       <table class="min-w-full border-separate border-spacing-0 text-xs">
@@ -113,12 +113,12 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId) 
   `;
 }
 
-function buildHistoryRows(trainees, milestones, urlTemplate, sortKey, dir, seasonId) {
+function buildHistoryRows(trainees, milestones, urlTemplate, sortKey, dir, seasonId, debutCap = 11) {
   const sorted = sortTraineesForHistory(trainees, sortKey, dir);
-  return sorted.map(t => historyRowHtml(t, milestones, urlTemplate, seasonId)).join('');
+  return sorted.map(t => historyRowHtml(t, milestones, urlTemplate, seasonId, debutCap)).join('');
 }
 
-function historyRowHtml(trainee, milestones, urlTemplate, seasonId) {
+function historyRowHtml(trainee, milestones, urlTemplate, seasonId, debutCap = 11) {
   const img = buildImageUrl(urlTemplate, trainee);
   const cfg = SEASON_CONFIG[seasonId] || {};
   const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '?');
@@ -132,7 +132,7 @@ function historyRowHtml(trainee, milestones, urlTemplate, seasonId) {
     : `<div class="w-7 h-7 rounded-full bg-gray-300 flex items-center justify-center text-[10px] font-bold text-gray-600">${escapeHtml(initials)}</div>`;
   const cells = milestones.map(m => {
     const r = trainee.rank_history ? trainee.rank_history[m.key] : undefined;
-    return historyCell(r === undefined ? null : r);
+    return historyCell(r === undefined ? null : r, debutCap);
   }).join('');
   const profileUrl = buildProfileUrl(seasonId, trainee.image_id);
   const nameHtml = profileUrl
@@ -194,7 +194,7 @@ function bindSubtabs(panel) {
   });
 }
 
-function bindHistorySorting(panel, trainees, milestones, urlTemplate, seasonId) {
+function bindHistorySorting(panel, trainees, milestones, urlTemplate, seasonId, debutCap = 11) {
   const tbody = panel.querySelector('.history-tbody');
   if (!tbody) return;
   const latestKey = milestones[milestones.length - 1].key;
@@ -205,7 +205,7 @@ function bindHistorySorting(panel, trainees, milestones, urlTemplate, seasonId) 
       const cur = panel._historySort;
       const dir = (cur.key === key && cur.dir === 'asc') ? 'desc' : 'asc';
       panel._historySort = { key, dir };
-      tbody.innerHTML = buildHistoryRows(trainees, milestones, urlTemplate, key, dir, seasonId);
+      tbody.innerHTML = buildHistoryRows(trainees, milestones, urlTemplate, key, dir, seasonId, debutCap);
       panel.querySelectorAll('.subpanel-history thead th[data-mkey]').forEach(h => {
         const isActive = h.dataset.mkey === key;
         const arrow = isActive ? (dir === 'asc' ? '▲' : '▼') : '';
@@ -334,7 +334,7 @@ function deconflictLabels(labels, opts = {}) {
   return labels;
 }
 
-function buildChartSvg(selected, milestones, maxRank) {
+function buildChartSvg(selected, milestones, maxRank, debutCap = 11) {
   // チャート縦幅: 1170 の 80% で 936 (縦長すぎを緩和、ラベルは多少 deconflict で動く)
   const W = 880, H = 936;
   const padL = 48, padR = 96, padT = 20, padB = 48;
@@ -349,11 +349,11 @@ function buildChartSvg(selected, milestones, maxRank) {
     return padT + ((rank - 1) / denom) * innerH;
   };
 
-  // Top 11 デビュー圏ハイライト帯
-  const top11Cap = Math.min(11, maxRank);
-  const top11Band = `
-    <rect class="chart-top11-band" x="${padL}" y="${yAt(1).toFixed(1)}" width="${innerW}" height="${(yAt(top11Cap) - yAt(1)).toFixed(1)}" fill="#fde047" fill-opacity="0.14" />
-    <text x="${padL + innerW - 4}" y="${(yAt(top11Cap) - 4).toFixed(1)}" text-anchor="end" font-size="9" fill="#a16207" font-weight="bold" font-family="Orbitron,sans-serif">TOP 11 デビュー圏</text>
+  // デビュー圏ハイライト帯 (Top {debutCap})
+  const debutCapClamped = Math.min(debutCap, maxRank);
+  const debutBand = `
+    <rect class="chart-top11-band" x="${padL}" y="${yAt(1).toFixed(1)}" width="${innerW}" height="${(yAt(debutCapClamped) - yAt(1)).toFixed(1)}" fill="#fde047" fill-opacity="0.14" />
+    <text x="${padL + innerW - 4}" y="${(yAt(debutCapClamped) - 4).toFixed(1)}" text-anchor="end" font-size="9" fill="#a16207" font-weight="bold" font-family="Orbitron,sans-serif">TOP ${debutCap} デビュー圏</text>
   `;
 
   // Y軸 grid (固定 10 刻み)
@@ -439,7 +439,7 @@ function buildChartSvg(selected, milestones, maxRank) {
   return `
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
          class="chart-svg w-full h-auto bg-white border border-gray-200 rounded-lg">
-      <g class="chart-band">${top11Band}</g>
+      <g class="chart-band">${debutBand}</g>
       <g class="chart-grid">${yGrid}${xGrid}</g>
       <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
       <line x1="${padL}" y1="${padT + innerH}" x2="${padL + innerW}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
@@ -465,7 +465,7 @@ function getSelectedTrainees(panel, trainees) {
     .filter(Boolean);
 }
 
-function refreshChart(panel, trainees, milestones, maxRank) {
+function refreshChart(panel, trainees, milestones, maxRank, debutCap = 11) {
   const selected = getSelectedTrainees(panel, trainees);
   // Swatch: reset all to transparent
   panel.querySelectorAll('[data-iid-swatch] line').forEach(line => {
@@ -481,12 +481,12 @@ function refreshChart(panel, trainees, milestones, maxRank) {
     }
   });
   const container = panel.querySelector('.chart-svg-container');
-  if (container) container.innerHTML = buildChartSvg(selected, milestones, maxRank);
+  if (container) container.innerHTML = buildChartSvg(selected, milestones, maxRank, debutCap);
   const counter = panel.querySelector('.chart-counter');
   if (counter) counter.textContent = `${selected.length} / ${trainees.length} 名選択中`;
 }
 
-function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
+function renderRankingChart(trainees, milestones, panelId, cfg, maxRank, debutCap = 11) {
   const defaultSet = defaultChartSelection(trainees, panelId);
   const initialSelected = trainees
     .filter(t => defaultSet.has(t.image_id))
@@ -498,11 +498,11 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
     <div class="flex flex-col lg:flex-row gap-4">
       ${renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId)}
       <div class="flex-1 min-w-0 relative">
-        <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank)}</div>
+        <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank, debutCap)}</div>
         <div class="chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[200px]"></div>
         <p class="text-[11px] text-gray-500 mt-2">
           Y軸=順位 (1位が上)。
-          <span class="inline-block w-3 h-2 bg-yellow-200 align-middle mx-1"></span>Top 11 デビュー圏
+          <span class="inline-block w-3 h-2 bg-yellow-200 align-middle mx-1"></span>Top ${debutCap} デビュー圏
           <span class="inline-block w-2 h-2 bg-pink-300 align-middle mx-1"></span>順位発表式列
           ・線にホバーで詳細表示
         </p>
@@ -511,17 +511,17 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank) {
   `;
 }
 
-function bindChartControls(panel, trainees, milestones, maxRank) {
+function bindChartControls(panel, trainees, milestones, maxRank, debutCap = 11) {
   const picker = panel.querySelector('.chart-picker');
   if (!picker) return;
 
   // Initial swatch colors for default-checked trainees
-  refreshChart(panel, trainees, milestones, maxRank);
+  refreshChart(panel, trainees, milestones, maxRank, debutCap);
 
   // Checkbox toggle
   picker.addEventListener('change', (e) => {
     if (e.target.matches('.chart-checkbox')) {
-      refreshChart(panel, trainees, milestones, maxRank);
+      refreshChart(panel, trainees, milestones, maxRank, debutCap);
     }
   });
 
@@ -557,7 +557,7 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
         nextChecked = new Set();
       }
       cbs.forEach(cb => { cb.checked = nextChecked.has(cb.dataset.iid); });
-      refreshChart(panel, trainees, milestones, maxRank);
+      refreshChart(panel, trainees, milestones, maxRank, debutCap);
     });
   });
 
@@ -592,7 +592,7 @@ function bindChartControls(panel, trainees, milestones, maxRank) {
       if (!el) return;
       const iid = el.dataset.iid;
       highlightTraineeLine(panel, iid);
-      showChartTooltip(panel, tooltip, idMap.get(iid), milestones);
+      showChartTooltip(panel, tooltip, idMap.get(iid), milestones, debutCap);
     });
     svgContainer.addEventListener('mousemove', (e) => {
       if (tooltip.classList.contains('hidden')) return;
@@ -622,13 +622,13 @@ function clearLineHighlight(panel) {
   });
 }
 
-function showChartTooltip(panel, tooltip, trainee, milestones) {
+function showChartTooltip(panel, tooltip, trainee, milestones, debutCap = 11) {
   if (!trainee) return;
   const nameJp = escapeHtml(trainee.name_jp || trainee.name_romaji || '');
   const stage = trainee.stage_name ? ` <span class="text-gray-400">(${escapeHtml(trainee.stage_name)})</span>` : '';
   const rows = milestones.map(m => {
     const r = trainee.rank_history?.[m.key];
-    const rankStr = r == null ? '<span class="text-gray-300">—</span>' : `<span class="font-bold ${rankTooltipColor(r)}">${r}位</span>`;
+    const rankStr = r == null ? '<span class="text-gray-300">—</span>' : `<span class="font-bold ${rankTooltipColor(r, debutCap)}">${r}位</span>`;
     const cer = m.ceremony ? 'text-pink-700 font-bold' : 'text-gray-600';
     return `<div class="flex justify-between gap-3"><span class="${cer}">${escapeHtml(m.short || m.label)}</span>${rankStr}</div>`;
   }).join('');
@@ -636,10 +636,10 @@ function showChartTooltip(panel, tooltip, trainee, milestones) {
   tooltip.classList.remove('hidden');
 }
 
-function rankTooltipColor(r) {
+function rankTooltipColor(r, debutCap = 11) {
   if (r === 1) return 'text-yellow-600';
   if (r <= 3) return 'text-amber-700';
-  if (r <= 11) return 'text-yellow-700';
+  if (r <= debutCap) return 'text-yellow-700';
   return 'text-gray-700';
 }
 
@@ -1512,7 +1512,7 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
 // 練習生カード (subpanel-grid)
 // =========================================================================
 
-function traineeCard(trainee, season, urlTemplate) {
+function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
   const img = buildImageUrl(urlTemplate, trainee);
   const cfg = SEASON_CONFIG[season] || {};
   const debuted = trainee.debuted === true;
@@ -1544,7 +1544,7 @@ function traineeCard(trainee, season, urlTemplate) {
           ${escapeHtml(initials)}
         </div>
         ${imgHtml}
-        <div class="absolute top-1.5 left-1.5">${rankBadge(trainee)}</div>
+        <div class="absolute top-1.5 left-1.5">${rankBadge(trainee, debutCap)}</div>
         ${debuted ? '<div class="absolute top-1.5 right-1.5 bg-yellow-400 text-yellow-900 text-[9px] font-display font-black px-1.5 py-0.5 rounded">DEBUT</div>' : ''}
       </div>
       <div class="p-2 sm:p-2.5">
@@ -1572,6 +1572,7 @@ function buildPanel(panelId, data) {
   const trainees = [...data.trainees].sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
   const urlTemplate = data.image_url_template || DEFAULT_IMAGE_TEMPLATE[panelId];
   const debutCount = trainees.filter(t => t.debuted).length;
+  const debutCap = data.debut_count ?? 11;
 
   const onAirBadge = data.ongoing
     ? `<span class="inline-flex items-center gap-1.5 bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded-full"><span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse-slow"></span>放送中</span>`
@@ -1620,17 +1621,17 @@ function buildPanel(panelId, data) {
       </div>
 
       <div class="trainee-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-4">
-        ${trainees.map(t => traineeCard(t, panelId, urlTemplate)).join('')}
+        ${trainees.map(t => traineeCard(t, panelId, urlTemplate, debutCap)).join('')}
       </div>
       <p class="empty-msg hidden text-center py-12 text-gray-400 text-sm">該当する練習生が見つかりません</p>
     </div>
 
     ${showHistoryTab ? `<div class="subpanel subpanel-history hidden" data-subpanel="history">
-      ${renderRankingHistoryTable(trainees, milestones, urlTemplate, panelId)}
+      ${renderRankingHistoryTable(trainees, milestones, urlTemplate, panelId, debutCap)}
     </div>` : ''}
 
     ${showHistoryTab ? `<div class="subpanel subpanel-chart hidden" data-subpanel="chart">
-      ${renderRankingChart(trainees, milestones, panelId, cfg, maxRank)}
+      ${renderRankingChart(trainees, milestones, panelId, cfg, maxRank, debutCap)}
     </div>` : ''}
   `;
 
@@ -1647,7 +1648,7 @@ function buildPanel(panelId, data) {
       const name = card.dataset.name || '';
       const rank = Number(card.dataset.rank);
       const matchName = !q || name.includes(q);
-      const matchDebut = !debutOnly || (rank <= 11);
+      const matchDebut = !debutOnly || (rank <= debutCap);
       const show = matchName && matchDebut;
       card.style.display = show ? '' : 'none';
       if (show) shown++;
@@ -1659,8 +1660,8 @@ function buildPanel(panelId, data) {
 
   if (showHistoryTab) {
     bindSubtabs(panel);
-    bindHistorySorting(panel, trainees, milestones, urlTemplate, panelId);
-    bindChartControls(panel, trainees, milestones, maxRank);
+    bindHistorySorting(panel, trainees, milestones, urlTemplate, panelId, debutCap);
+    bindChartControls(panel, trainees, milestones, maxRank, debutCap);
   }
 }
 

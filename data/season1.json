@@ -491,7 +491,18 @@
       "rank": 22,
       "name_jp": "キム・ユンドン",
       "name_romaji": "Kim Yoondong",
-      "image_id": "037_kimyoondong",
+      "image_id": "037_kimyoundong",
+      "rank_history": {
+        "p1": 13,
+        "p2": 13,
+        "p3": 6,
+        "rc1": 6,
+        "p4": 5,
+        "rc2": 6,
+        "p5": 10,
+        "p6": null,
+        "rcF": null
+      },
       "votes_final": 347621,
       "debuted": false,
       "eliminated_at": "left"
@@ -1321,7 +1332,18 @@
       "rank": 71,
       "name_jp": "グチェレス タケル",
       "name_romaji": "Gutierrez Takeru",
-      "image_id": "040_gutierreztakeru",
+      "image_id": "040_gutiereztakeru",
+      "rank_history": {
+        "p1": 45,
+        "p2": 41,
+        "p3": 49,
+        "rc1": 71,
+        "p4": null,
+        "rc2": null,
+        "p5": null,
+        "p6": null,
+        "rcF": null
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
@@ -1405,7 +1427,18 @@
       "rank": 77,
       "name_jp": "アルジャマ 勇心",
       "name_romaji": "Arujama Eujin",
-      "image_id": "003_arujamaeujin",
+      "image_id": "003_aljamaeujintakizawa",
+      "rank_history": {
+        "p1": 69,
+        "p2": 63,
+        "p3": 69,
+        "rc1": 77,
+        "p4": null,
+        "rc2": null,
+        "p5": null,
+        "p6": null,
+        "rcF": null
+      },
       "votes_final": null,
       "debuted": false,
       "eliminated_at": "ep5"
