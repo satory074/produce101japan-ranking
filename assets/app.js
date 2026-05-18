@@ -56,9 +56,6 @@ function buildImageUrl(template, trainee) {
 
 function rankColorClass(rank, debutCap = 11) {
   if (rank == null) return 'bg-gray-200 text-gray-500';
-  if (rank === 1) return 'rank-1 text-yellow-900';
-  if (rank === 2) return 'rank-2 text-yellow-900';
-  if (rank === 3) return 'rank-3 text-yellow-900';
   if (rank <= debutCap) return 'bg-yellow-400 text-yellow-900';
   if (rank <= 20) return 'bg-gray-300 text-gray-800';
   if (rank <= 50) return 'bg-amber-700 text-amber-50';
