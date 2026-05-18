@@ -49,7 +49,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
    - `init()` → 4本のJSONを `Promise.all` で並列fetch → `buildPanel()` で各タブのDOM生成。
    - 画像URLは `buildImageUrl(template, trainee)` が `image_url_template` 優先、未定義なら `DEFAULT_IMAGE_TEMPLATE[panelId]` にフォールバック。
    - 画像読み込み失敗時は `<img onerror>` で `display:none` にし、親 div が描画する1文字イニシャルが代替表示される (Tailwindユーティリティのみで実装、CSSファイルなし)。
-   - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。
+   - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。カードにはさらに `data-iid` / `data-season` も付与されており、`buildPanel()` 内の grid 委譲クリックハンドラがこれを読んで `openSimilarityModal()` を起動する (= 練習生一覧サブタブのカードクリックで類似度モーダルが開く)。`closest('a')` ガードで名前リンク (公式プロフィール) のクリックは除外。
    - 順位推移表サブタブは `buildPanel()` 内で `data.ranking_milestones` の有無を見て条件描画。`renderRankingHistoryTable()` がテーブルHTMLを生成し、`bindSubtabs()` / `bindHistorySorting()` でサブタブ切替・列ソートを束ねる。サブタブ切替は `.subpanel.hidden` トグルだけで状態管理なし。
    - 順位推移グラフサブタブ (`subpanel-chart`): `renderRankingChart()` がピュア SVG (折れ線 + 順位ラベル) を生成し、チェックボックスのトグルで `refreshChart()` が再描画。CDN ライブラリ不使用。
      - **デフォルト選択**: 全員。
@@ -58,12 +58,12 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
      - **サイズ**: `W=880 / H=936` 固定 (1 順位 ≈ 9.3px の縦比、ユーザー指示で意図的に縦長レイアウト)。安易に縮めると Top 11 ゾーンの線が判別不能になるため注意。
      - **エンドポイントラベル**: `idealY = yAt(lastRank) + 3` の正確な位置 (= 線終点と一致) に描画。重なりは許容済みのトレードオフ。
      - **deconflictLabels()**: メインチャートからは外したが、類似度オーバーレイチャートのエンドポイントラベル衝突回避で再活用中 (forward/backward pass 実装)。
-     - **類似軌跡検索**: 各ピッカー行の「類似」ボタンでモーダル起動。実装詳細は §類似軌跡検索 参照。
+     - **類似軌跡検索**: 各ピッカー行の「類似」ボタン または 練習生一覧カードのクリックでモーダル起動。実装詳細は §類似軌跡検索 参照。
    - **公式プロフィールリンク**: `PROFILE_URL_TEMPLATE` でシーズン別に URL テンプレを保持し、3 ビュー (カード / 順位推移表 / グラフ picker) から `buildProfileUrl(seasonId, imageId)` 経由で新タブリンクを生成。**シーズン毎に URL 構造が違う** (S1: `/profile/?id=…` / S2: `/profile/{image_id}` パスベース / THE GIRLS・SHINSEKAI: `/profile/detail/?id=…` SPA ルート)。新シーズン追加時は必ず公式サイトトップから個別ページに飛んで実際の URL を確認すること。
 
 ## 類似軌跡検索
 
-各ピッカー行の「類似」ボタン → `openSimilarityModal(seasonId, imageId)` がモーダル表示。**Landmark-based piecewise-linear warping** で異シーズン間の時系列をアライメントしてから距離計算する。
+エントリポイントは 2 つ: (a) 順位推移グラフの各ピッカー行「類似」ボタン、(b) 練習生一覧サブタブの各カードクリック (`<a>` 除く)。どちらも `openSimilarityModal(seasonId, imageId)` を呼んでモーダル表示。**Landmark-based piecewise-linear warping** で異シーズン間の時系列をアライメントしてから距離計算する。
 
 ### Warping (時間軸アライメント)
 
