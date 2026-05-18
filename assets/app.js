@@ -44,6 +44,15 @@ const seasonData = {};
 
 const fmt = (n) => (typeof n === 'number' ? n.toLocaleString('ja-JP') : '—');
 
+// Lightweight debounce: trailing-call only (一般的な検索入力用途に十分)
+function debounce(fn, wait = 150) {
+  let t;
+  return function debounced(...args) {
+    clearTimeout(t);
+    t = setTimeout(() => fn.apply(this, args), wait);
+  };
+}
+
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 }
@@ -277,19 +286,25 @@ function renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId) {
     `;
   }).join('');
 
+  // モバイル: details で折りたたみ (デフォルト閉) / デスクトップ: 常時展開 (open + lg:pointer-events)
   return `
     <aside class="chart-aside lg:w-64 shrink-0 bg-white border border-gray-200 rounded-lg p-3">
-      <div class="mb-2">
-        <input type="search" class="chart-filter w-full px-3 py-1.5 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-${cfg.color}-500" placeholder="絞り込み..." />
-      </div>
-      <div class="flex flex-wrap gap-1 mb-2">
-        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-${cfg.color}-50 text-${cfg.color}-700 hover:bg-${cfg.color}-100 font-bold" data-preset="debut">デビュー組</button>
-        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="all">全選択</button>
-        <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="none">全解除</button>
-      </div>
-      ${ceremonyRow}
-      <ul class="chart-picker max-h-[480px] overflow-y-auto pr-1 -mr-1">${items}</ul>
-      <p class="chart-counter text-[10px] text-gray-500 mt-2">— / ${trainees.length} 名選択中</p>
+      <details class="chart-picker-details">
+        <summary class="lg:hidden cursor-pointer text-xs font-bold text-gray-700 py-1 select-none">
+          表示する練習生を選ぶ <span class="text-gray-400 font-normal">(<span class="chart-counter-inline">${trainees.length}</span>/${trainees.length})</span>
+        </summary>
+        <div class="mb-2 mt-2 lg:mt-0">
+          <input type="search" class="chart-filter w-full px-3 py-1.5 text-xs border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-${cfg.color}-500" placeholder="絞り込み..." aria-label="グラフに表示する練習生を名前で絞り込む" />
+        </div>
+        <div class="flex flex-wrap gap-1 mb-2">
+          <button class="chart-preset px-2 py-1 text-[11px] rounded bg-${cfg.color}-50 text-${cfg.color}-700 hover:bg-${cfg.color}-100 font-bold" data-preset="debut">デビュー組</button>
+          <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="all">全選択</button>
+          <button class="chart-preset px-2 py-1 text-[11px] rounded bg-gray-100 text-gray-700 hover:bg-gray-200" data-preset="none">全解除</button>
+        </div>
+        ${ceremonyRow}
+        <ul class="chart-picker max-h-[480px] overflow-y-auto pr-1 -mr-1">${items}</ul>
+        <p class="chart-counter text-[10px] text-gray-500 mt-2">— / ${trainees.length} 名選択中</p>
+      </details>
     </aside>
   `;
 }
@@ -424,7 +439,8 @@ function buildChartSvg(selected, milestones, maxRank, debutCap = 11) {
       });
     }
 
-    return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;">${polylines}${points}</g>`;
+    const titleText = escapeHtml(trainee.name_jp || trainee.name_romaji || trainee.image_id || '');
+    return `<g data-iid="${id}" class="chart-trainee-group" style="cursor:pointer;"><title>${titleText}</title>${polylines}${points}</g>`;
   }).join('');
 
   // エンドポイント名は線終点と完全に同じ y で描画 (重なってもユーザー許諾済み)
@@ -433,9 +449,13 @@ function buildChartSvg(selected, milestones, maxRank, debutCap = 11) {
     return `<text x="${labelX.toFixed(1)}" y="${e.idealY.toFixed(1)}" font-size="10" fill="${e.color}" font-weight="bold" class="chart-endpoint-label" data-iid="${escapeHtml(e.iid)}" font-family="Noto Sans JP,sans-serif" stroke="white" stroke-width="3" paint-order="stroke">${escapeHtml(e.text)}</text>`;
   }).join('');
 
+  // モバイル(< sm=640px)では min-width=720px を保ち、コンテナ側で横スクロールさせる
+  // (Y軸ラベル "100位" が 6px に潰れて読めない問題を回避)
   return `
     <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet"
-         class="chart-svg w-full h-auto bg-white border border-gray-200 rounded-lg">
+         class="chart-svg w-full h-auto bg-white border border-gray-200 rounded-lg"
+         style="min-width: min(${W}px, max(720px, 100%));"
+         role="img" aria-label="練習生 ${selectedCount} 名の順位推移グラフ">
       <g class="chart-band">${debutBand}</g>
       <g class="chart-grid">${yGrid}${xGrid}</g>
       <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${padT + innerH}" stroke="#9ca3af" stroke-width="1" />
@@ -495,7 +515,7 @@ function renderRankingChart(trainees, milestones, panelId, cfg, maxRank, debutCa
     <div class="flex flex-col lg:flex-row gap-4">
       ${renderTraineePicker(trainees, defaultSet, cfg, milestones, panelId)}
       <div class="flex-1 min-w-0 relative">
-        <div class="chart-svg-container">${buildChartSvg(initialSelected, milestones, maxRank, debutCap)}</div>
+        <div class="chart-svg-container overflow-x-auto sm:overflow-visible -mx-2 sm:mx-0 px-2 sm:px-0">${buildChartSvg(initialSelected, milestones, maxRank, debutCap)}</div>
         <div class="chart-tooltip hidden absolute pointer-events-none bg-white border border-gray-300 rounded-lg shadow-lg px-3 py-2 text-xs z-30 max-w-[200px]"></div>
         <p class="text-[11px] text-gray-500 mt-2">
           Y軸=順位 (1位が上)。
@@ -512,6 +532,13 @@ function bindChartControls(panel, trainees, milestones, maxRank, debutCap = 11) 
   const picker = panel.querySelector('.chart-picker');
   if (!picker) return;
 
+  // ピッカー <details> はデスクトップ (lg=1024px+) で展開、モバイルでは折り畳み開始
+  // 101 名のリストがモバイルでファーストビューを埋めないように
+  const details = panel.querySelector('.chart-picker-details');
+  if (details) {
+    details.open = window.matchMedia('(min-width: 1024px)').matches;
+  }
+
   // Initial swatch colors for default-checked trainees
   refreshChart(panel, trainees, milestones, maxRank, debutCap);
 
@@ -522,16 +549,16 @@ function bindChartControls(panel, trainees, milestones, maxRank, debutCap = 11) 
     }
   });
 
-  // Filter input
+  // Filter input (debounced — 101 名分の DOM 走査をキーストロークごとに繰り返さない)
   const filter = panel.querySelector('.chart-filter');
   if (filter) {
-    filter.addEventListener('input', () => {
+    filter.addEventListener('input', debounce(() => {
       const q = filter.value.trim().toLowerCase();
       panel.querySelectorAll('.chart-picker-item').forEach(li => {
         const match = !q || (li.dataset.search || '').includes(q);
         li.style.display = match ? '' : 'none';
       });
-    });
+    }, 150));
   }
 
   // Preset buttons
@@ -1234,6 +1261,8 @@ function openSimilarityModal(seasonId, imageId) {
     root.id = 'similar-modal-root';
     document.body.appendChild(root);
   }
+  // モーダルを閉じた後の焦点復帰先を保存 (デフォルト = 現在の active 要素)
+  root._returnFocus = document.activeElement;
   const filter = root.dataset.filter === 'other' ? 'other' : 'all';
   renderSimilarityModal(root, seasonId, imageId, filter);
 }
@@ -1241,8 +1270,14 @@ function openSimilarityModal(seasonId, imageId) {
 function closeSimilarityModal() {
   const root = document.getElementById('similar-modal-root');
   if (root) {
+    const ret = root._returnFocus;
     root.innerHTML = '';
     delete root.dataset.filter;
+    root._returnFocus = null;
+    // 焦点を元の要素に戻す (a11y: モーダル閉鎖時の WAI-ARIA 規約)
+    if (ret && typeof ret.focus === 'function' && document.contains(ret)) {
+      ret.focus();
+    }
   }
 }
 
@@ -1373,16 +1408,16 @@ function renderSimilarityModal(root, seasonId, imageId, filter) {
 
   root.innerHTML = `
     <div class="similar-modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div class="similar-modal-panel relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-hidden flex flex-col">
+      <div class="similar-modal-panel relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[92vh] overflow-hidden flex flex-col" role="dialog" aria-modal="true" aria-labelledby="similar-modal-title">
         <div class="bg-gradient-to-r ${cfg.accentClass} text-white px-4 py-3 flex items-center justify-between">
           <div class="flex items-center gap-3 min-w-0">
             ${baseImg ? `<img src="${escapeHtml(baseImg)}" alt="" referrerpolicy="no-referrer" class="w-12 h-12 rounded-full object-cover bg-white/20 shrink-0" />` : ''}
             <div class="min-w-0">
               <div class="text-[10px] uppercase tracking-widest opacity-80">${escapeHtml(cfg.label)} ・ 類似軌跡</div>
-              <div class="text-base font-bold truncate">${baseName}${baseStage}</div>
+              <h2 id="similar-modal-title" class="text-base font-bold truncate">${baseName}${baseStage}</h2>
             </div>
           </div>
-          <button class="modal-close shrink-0 ml-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xl leading-none" aria-label="閉じる">×</button>
+          <button class="modal-close shrink-0 ml-3 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-xl leading-none" aria-label="類似軌跡モーダルを閉じる">×</button>
         </div>
         <div class="px-4 pt-3 pb-2 border-b border-gray-100 flex items-center gap-3 flex-wrap">
           <span class="text-xs text-gray-500">対象:</span>
@@ -1503,6 +1538,33 @@ function bindSimilarityModalEvents(root, seasonId, imageId) {
     document.addEventListener('keydown', onKey);
     root._escBound = true;
   }
+
+  // Focus trap: Tab/Shift+Tab がモーダル内をループするように制約
+  const panel = root.querySelector('.similar-modal-panel');
+  if (panel) {
+    panel.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = panel.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    });
+    // open 時に閉じるボタンへ焦点を移す (WAI-ARIA Dialog Pattern)
+    // synthetic click 経路でも確実に焦点が乗るよう rAF + microtask の二段がけ
+    const focusClose = () => {
+      const btn = root.querySelector('.modal-close');
+      if (btn && document.contains(btn)) btn.focus();
+    };
+    requestAnimationFrame(focusClose);
+    setTimeout(focusClose, 50);
+  }
 }
 
 // =========================================================================
@@ -1610,7 +1672,7 @@ function buildPanel(panelId, data) {
     <div class="subpanel subpanel-grid" data-subpanel="grid">
       <div class="mb-4 flex flex-wrap gap-2 items-center">
         <div class="relative flex-1 min-w-[200px] max-w-md">
-          <input type="search" placeholder="名前で検索..." class="search-input w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-${cfg.color}-500" />
+          <input type="search" placeholder="名前で検索..." aria-label="練習生名で検索 (日本語またはローマ字)" class="search-input w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-${cfg.color}-500" />
           <svg class="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
         </div>
         <label class="inline-flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
@@ -1654,7 +1716,7 @@ function buildPanel(panelId, data) {
     });
     emptyMsg.classList.toggle('hidden', shown > 0);
   };
-  searchInput.addEventListener('input', applyFilter);
+  searchInput.addEventListener('input', debounce(applyFilter, 150));
   debutFilter.addEventListener('change', applyFilter);
 
   grid.addEventListener('click', (e) => {
@@ -1677,6 +1739,8 @@ function buildPanel(panelId, data) {
 function activateTab(target) {
   document.querySelectorAll('.tab-btn').forEach(btn => {
     const isActive = btn.dataset.tab === target;
+    btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    btn.tabIndex = isActive ? 0 : -1;
     btn.classList.toggle('text-gray-500', !isActive);
     btn.classList.toggle('border-transparent', !isActive);
     if (isActive) {
@@ -1688,7 +1752,11 @@ function activateTab(target) {
       });
     }
   });
-  document.querySelectorAll('.season-panel').forEach(p => p.classList.toggle('hidden', p.id !== target));
+  document.querySelectorAll('.season-panel').forEach(p => {
+    const isActive = p.id === target;
+    p.classList.toggle('hidden', !isActive);
+    p.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+  });
   history.replaceState(null, '', `#${target}`);
 }
 
@@ -1705,8 +1773,22 @@ async function loadSeason(key) {
 }
 
 async function init() {
-  document.querySelectorAll('.tab-btn').forEach(btn => {
+  const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
+  tabBtns.forEach(btn => {
     btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+  // Tablist の矢印キーナビ (WAI-ARIA Authoring Practices 準拠)
+  document.getElementById('tab-list')?.addEventListener('keydown', (e) => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
+    e.preventDefault();
+    const idx = tabBtns.findIndex(b => b === document.activeElement);
+    let next = idx;
+    if (e.key === 'ArrowLeft')  next = (idx <= 0 ? tabBtns.length - 1 : idx - 1);
+    if (e.key === 'ArrowRight') next = (idx + 1) % tabBtns.length;
+    if (e.key === 'Home')       next = 0;
+    if (e.key === 'End')        next = tabBtns.length - 1;
+    const t = tabBtns[next];
+    if (t) { t.focus(); activateTab(t.dataset.tab); }
   });
   document.querySelectorAll('[data-jump]').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1720,12 +1802,25 @@ async function init() {
 
   await Promise.all(Object.keys(SEASON_FILES).map(loadSeason));
 
-  const latest = Object.values(seasonData)
-    .filter(d => d && d.last_updated)
-    .map(d => d.last_updated)
-    .sort()
-    .pop();
-  if (latest) document.getElementById('last-updated').textContent = latest;
+  // 各 season JSON の更新情報を fallback 含めて拾う:
+  //   - 完結シーズン: `air_dates` 末尾の日付 (例 "2019-09-26 〜 2019-12-11")
+  //   - 放送中シーズン (SHINSEKAI): `last_updated_episode` (例 "Episode 9 (2026-05-15)")
+  //   - 将来 `last_updated` が追加されたらそれを最優先で採用
+  const updates = Object.entries(seasonData)
+    .filter(([, d]) => d)
+    .map(([key, d]) => {
+      if (d.last_updated) return { key, text: d.last_updated, ts: d.last_updated };
+      if (d.last_updated_episode) return { key, text: `${d.season || key}: ${d.last_updated_episode}`, ts: d.last_updated_episode };
+      if (d.air_dates) {
+        const m = d.air_dates.match(/(\d{4}-\d{2}-\d{2})\s*(?:〜|~|-)?\s*(\d{4}-\d{2}-\d{2})?$/);
+        if (m) return { key, text: `${d.season || key}: ${m[2] || m[1]} 放送終了`, ts: m[2] || m[1] };
+      }
+      return null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => (a.ts < b.ts ? 1 : -1));
+  const latest = updates[0];
+  if (latest) document.getElementById('last-updated').textContent = latest.text;
 }
 
 document.addEventListener('DOMContentLoaded', init);

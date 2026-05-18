@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="no-referrer" />
   <title>PRODUCE 101 JAPAN 全シリーズ・ランキング一覧</title>
-  <meta name="description" content="PRODUCE 101 JAPAN シリーズ4作品 (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキングをまとめて横断的に閲覧できるファンサイトです。" />
+  <meta name="description" content="PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキング・順位推移を横断的に可視化。初期評価から最終回までの軌跡グラフと、シーズンを跨いだ軌跡類似度検索が利用できます。" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" />
+  <meta property="og:description" content="JO1 / INI / ME:I / SHINSEKAI の練習生ランキング・順位推移を横断的に可視化。シーズン跨ぎの軌跡類似度検索も。" />
+  <meta property="og:url" content="https://satory074.github.io/produce101japan-ranking/" />
+  <meta property="og:image" content="https://satory074.github.io/produce101japan-ranking/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:site_name" content="PRODUCE 101 JAPAN All Series Ranking" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" />
+  <meta name="twitter:description" content="JO1 / INI / ME:I / SHINSEKAI の練習生ランキング・順位推移を横断的に可視化。" />
+  <meta name="twitter:image" content="https://satory074.github.io/produce101japan-ranking/assets/og.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
@@ -90,16 +109,16 @@
   <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm shadow-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="flex overflow-x-auto scrollbar-hide" role="tablist" id="tab-list">
-        <button data-tab="season1" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s1-700 transition-colors" role="tab">
+        <button id="tab-btn-season1" data-tab="season1" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s1-700 transition-colors" role="tab" aria-selected="false" aria-controls="season1" tabindex="-1">
           <span class="font-display">SEASON 1</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">JO1</span>
         </button>
-        <button data-tab="season2" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s2-700 transition-colors" role="tab">
+        <button id="tab-btn-season2" data-tab="season2" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s2-700 transition-colors" role="tab" aria-selected="false" aria-controls="season2" tabindex="-1">
           <span class="font-display">SEASON 2</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">INI</span>
         </button>
-        <button data-tab="thegirls" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s3-700 transition-colors" role="tab">
+        <button id="tab-btn-thegirls" data-tab="thegirls" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s3-700 transition-colors" role="tab" aria-selected="false" aria-controls="thegirls" tabindex="-1">
           <span class="font-display">THE GIRLS</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">ME:I</span>
         </button>
-        <button data-tab="shinsekai" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s4-700 transition-colors" role="tab">
+        <button id="tab-btn-shinsekai" data-tab="shinsekai" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s4-700 transition-colors" role="tab" aria-selected="false" aria-controls="shinsekai" tabindex="-1">
           <span class="font-display">SHINSEKAI</span><span class="ml-2 inline-flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse-slow"></span></span>
         </button>
       </div>
@@ -108,10 +127,10 @@
 
   <!-- MAIN -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-    <div id="season1" class="season-panel"></div>
-    <div id="season2" class="season-panel hidden"></div>
-    <div id="thegirls" class="season-panel hidden"></div>
-    <div id="shinsekai" class="season-panel hidden"></div>
+    <div id="season1" class="season-panel" role="tabpanel" aria-labelledby="tab-btn-season1"></div>
+    <div id="season2" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-season2"></div>
+    <div id="thegirls" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-thegirls"></div>
+    <div id="shinsekai" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-shinsekai"></div>
   </main>
 
   <!-- FOOTER -->
@@ -133,6 +152,6 @@
     </div>
   </footer>
 
-  <script src="./assets/app.js?v=20260518-rankcolor2"></script>
+  <script src="./assets/app.js?v=20260518-a11y-seo"></script>
 </body>
 </html>
