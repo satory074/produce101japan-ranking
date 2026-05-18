@@ -1537,8 +1537,10 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
     : nameJp;
 
   return `
-    <article class="trainee-card group relative bg-white rounded-xl overflow-hidden ${ringCls} hover:shadow-xl transition-all hover:-translate-y-1"
-             data-name="${nameJp.toLowerCase()} ${nameRomaji.toLowerCase()}" data-rank="${trainee.rank ?? 999}">
+    <article class="trainee-card group relative bg-white rounded-xl overflow-hidden cursor-pointer ${ringCls} hover:shadow-xl transition-all hover:-translate-y-1"
+             data-name="${nameJp.toLowerCase()} ${nameRomaji.toLowerCase()}" data-rank="${trainee.rank ?? 999}"
+             data-iid="${escapeHtml(trainee.image_id || '')}" data-season="${escapeHtml(season)}"
+             title="クリックで類似軌跡を表示">
       <div class="relative aspect-[3/4] bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
         <div class="absolute inset-0 flex items-center justify-center text-gray-400 font-display text-4xl font-black select-none">
           ${escapeHtml(initials)}
@@ -1657,6 +1659,16 @@ function buildPanel(panelId, data) {
   };
   searchInput.addEventListener('input', applyFilter);
   debutFilter.addEventListener('change', applyFilter);
+
+  grid.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return;
+    const card = e.target.closest('.trainee-card');
+    if (!card) return;
+    const iid = card.dataset.iid;
+    const season = card.dataset.season;
+    if (!iid || !season) return;
+    openSimilarityModal(season, iid);
+  });
 
   if (showHistoryTab) {
     bindSubtabs(panel);
