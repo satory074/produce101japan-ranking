@@ -762,10 +762,11 @@ function resampleTrajectory(points, N) {
 
 // 2 軌跡の距離 = 位置 MAE と 傾き (隣接点 Δ) MAE をブレンドし、重なり不足ペナルティを加算。
 // 位置 MAE は「いつ・どこにいたか」を、傾き MAE は「上昇/下降/同形」を捉える (上昇 vs 下降を明示的に区別)。
-// slopeAlpha は傾き成分の比率 (0 = 位置のみ, 1 = 傾きのみ)。デフォルト 0.3。
+// slopeAlpha は傾き成分の比率 (0 = 位置のみ, 1 = 傾きのみ)。デフォルト 0.5 (位置/形状 50:50)。
+// overlapPenalty デフォルト 0: 観測点数の差で候補をペナルティしない (寛容、SHINSEKAI など短観測も等価扱い)。
 // 最低 minRequired 点の重なりが無ければ null (比較不能)。
 function trajectoryDistance(a, b, opts = {}) {
-  const { minOverlap = 6, minRequired = 4, overlapPenalty = 0.02, slopeAlpha = 0.3 } = opts;
+  const { minOverlap = 4, minRequired = 4, overlapPenalty = 0, slopeAlpha = 0.5 } = opts;
   let sumPos = 0, countPos = 0;
   for (let i = 0; i < a.length; i++) {
     if (a[i] == null || b[i] == null) continue;
