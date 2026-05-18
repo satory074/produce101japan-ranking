@@ -112,7 +112,19 @@
       },
       "votes_final": 380796,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "舞い落ちる花びら",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 2,
@@ -131,7 +143,19 @@
       },
       "votes_final": 316127,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "Pretender",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 3,
@@ -150,7 +174,19 @@
       },
       "votes_final": 281323,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "Nobody Else",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 4,
@@ -169,7 +205,19 @@
       },
       "votes_final": 276066,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "花束のかわりにメロディーを",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 5,
@@ -188,7 +236,19 @@
       },
       "votes_final": 264254,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "Dynamite",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 6,
@@ -207,7 +267,19 @@
       },
       "votes_final": 259628,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Nobody Else",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 7,
@@ -226,7 +298,19 @@
       },
       "votes_final": 252479,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 8,
@@ -245,7 +329,19 @@
       },
       "votes_final": 249237,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "舞い落ちる花びら",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 9,
@@ -264,7 +360,19 @@
       },
       "votes_final": 249021,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Nobody Else",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 10,
@@ -283,7 +391,19 @@
       },
       "votes_final": 243006,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 11,
@@ -302,7 +422,19 @@
       },
       "votes_final": 239150,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 12,
@@ -321,7 +453,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 13,
@@ -340,7 +484,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "A",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Dynamite",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 14,
@@ -359,7 +515,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "花束のかわりにメロディーを",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 15,
@@ -378,7 +546,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "舞い落ちる花びら",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 16,
@@ -397,7 +577,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "A",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "舞い落ちる花びら",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 17,
@@ -416,7 +608,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Dynamite",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 18,
@@ -435,7 +639,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "花束のかわりにメロディーを",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 19,
@@ -454,7 +670,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Overall",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 20,
@@ -473,7 +701,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "花束のかわりにメロディーを",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 21,
@@ -492,7 +732,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode"
+      "eliminated_at": "final_episode",
+      "level_test": "D",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "さよなら青春",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 22,
@@ -510,7 +762,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "さよなら青春",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 23,
@@ -528,7 +792,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 24,
@@ -546,7 +822,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "さよなら青春",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 25,
@@ -564,7 +852,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "さよなら青春",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 26,
@@ -582,7 +882,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Overall",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 27,
@@ -600,7 +912,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Na",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 28,
@@ -618,7 +942,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Pretender",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 29,
@@ -636,7 +972,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Dynamite",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 30,
@@ -654,7 +1002,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Na",
+        "team": null,
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 31,
@@ -672,7 +1032,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Overall",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 32,
@@ -690,7 +1062,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "Dynamite",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 33,
@@ -708,7 +1092,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "OH-EH-OH",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 34,
@@ -726,7 +1122,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Na",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 35,
@@ -744,7 +1152,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Pretender",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 36,
@@ -762,7 +1182,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Overall",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "STEP",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 37,
@@ -780,7 +1212,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Na",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Another Day",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 38,
@@ -798,7 +1242,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "さよなら青春",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Goosebumps",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 39,
@@ -816,7 +1272,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "舞い落ちる花びら",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "A.I.M (Alive In My Imagination)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 40,
@@ -834,7 +1302,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony"
+      "eliminated_at": "2nd_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Pretender",
+        "team": null,
+        "result": null
+      },
+      "concept_battle": {
+        "song": "SHADOW (Slip Inside)",
+        "team": null,
+        "result": null
+      }
     },
     {
       "rank": 41,
@@ -849,7 +1329,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "withdrew_during_show"
+      "eliminated_at": "withdrew_during_show",
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 42,
@@ -864,7 +1346,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 43,
@@ -879,7 +1363,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": 44,
@@ -894,7 +1380,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 45,
@@ -909,7 +1397,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 46,
@@ -924,7 +1414,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 47,
@@ -939,7 +1431,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 48,
@@ -954,7 +1448,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 49,
@@ -969,7 +1465,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 50,
@@ -984,7 +1482,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 51,
@@ -999,7 +1499,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 52,
@@ -1014,7 +1516,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 53,
@@ -1029,7 +1533,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 54,
@@ -1044,7 +1550,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 55,
@@ -1059,7 +1567,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 56,
@@ -1074,7 +1584,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 57,
@@ -1089,7 +1601,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 58,
@@ -1104,7 +1618,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": 59,
@@ -1119,7 +1635,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "D",
+      "re_evaluation": "B"
     },
     {
       "rank": 60,
@@ -1134,7 +1652,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony"
+      "eliminated_at": "1st_ranking_ceremony",
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": 61,

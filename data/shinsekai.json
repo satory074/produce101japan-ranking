@@ -53,7 +53,9 @@
         "rc2": 1
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 2,
@@ -68,7 +70,9 @@
         "rc2": 2
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "A"
     },
     {
       "rank": 3,
@@ -83,7 +87,9 @@
         "rc2": 3
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "A"
     },
     {
       "rank": 4,
@@ -98,7 +104,9 @@
         "rc2": 4
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "A"
     },
     {
       "rank": 5,
@@ -113,7 +121,9 @@
         "rc2": 5
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 6,
@@ -128,7 +138,9 @@
         "rc2": 6
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "A"
     },
     {
       "rank": 7,
@@ -143,7 +155,9 @@
         "rc2": 7
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 8,
@@ -158,7 +172,9 @@
         "rc2": 8
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 9,
@@ -173,7 +189,9 @@
         "rc2": 9
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "A"
     },
     {
       "rank": 10,
@@ -188,7 +206,9 @@
         "rc2": 10
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 11,
@@ -203,7 +223,9 @@
         "rc2": 11
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 12,
@@ -218,7 +240,9 @@
         "rc2": 12
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "A"
     },
     {
       "rank": 13,
@@ -233,7 +257,9 @@
         "rc2": 13
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 14,
@@ -248,7 +274,9 @@
         "rc2": 14
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 15,
@@ -263,7 +291,9 @@
         "rc2": 15
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 16,
@@ -278,7 +308,9 @@
         "rc2": 16
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 17,
@@ -293,7 +325,9 @@
         "rc2": 17
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 18,
@@ -308,7 +342,9 @@
         "rc2": 18
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 19,
@@ -323,7 +359,9 @@
         "rc2": 19
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": 20,
@@ -338,7 +376,9 @@
         "rc2": 20
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 21,
@@ -353,7 +393,9 @@
         "rc2": 21
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "A"
     },
     {
       "rank": 22,
@@ -368,7 +410,9 @@
         "rc2": 22
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 23,
@@ -383,7 +427,9 @@
         "rc2": 23
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "C"
     },
     {
       "rank": 24,
@@ -398,7 +444,9 @@
         "rc2": 24
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": 25,
@@ -413,7 +461,9 @@
         "rc2": 25
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "A"
     },
     {
       "rank": 26,
@@ -428,7 +478,9 @@
         "rc2": 26
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 27,
@@ -443,7 +495,9 @@
         "rc2": 27
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 28,
@@ -458,7 +512,9 @@
         "rc2": 28
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "F"
     },
     {
       "rank": 29,
@@ -473,7 +529,9 @@
         "rc2": 29
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 30,
@@ -488,7 +546,9 @@
         "rc2": 30
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 31,
@@ -503,7 +563,9 @@
         "rc2": 31
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 32,
@@ -518,7 +580,9 @@
         "rc2": 32
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 33,
@@ -533,7 +597,9 @@
         "rc2": 33
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 34,
@@ -548,7 +614,9 @@
         "rc2": 34
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 35,
@@ -563,7 +631,9 @@
         "rc2": 35
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": 36,
@@ -578,7 +648,9 @@
         "rc2": 36
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 37,
@@ -593,7 +665,9 @@
         "rc2": 37
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 38,
@@ -608,7 +682,9 @@
         "rc2": 38
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "F"
     },
     {
       "rank": 39,
@@ -623,7 +699,9 @@
         "rc2": 39
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "B"
     },
     {
       "rank": 40,
@@ -638,7 +716,9 @@
         "rc2": 40
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": 41,
@@ -653,7 +733,9 @@
         "rc2": 41
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 42,
@@ -668,7 +750,9 @@
         "rc2": 42
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": 43,
@@ -683,7 +767,9 @@
         "rc2": 43
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 44,
@@ -698,7 +784,9 @@
         "rc2": 44
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 45,
@@ -713,7 +801,9 @@
         "rc2": 45
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 46,
@@ -728,7 +818,9 @@
         "rc2": 46
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "C"
     },
     {
       "rank": 47,
@@ -743,7 +835,9 @@
         "rc2": 47
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 48,
@@ -758,7 +852,9 @@
         "rc2": 48
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 49,
@@ -773,7 +869,9 @@
         "rc2": 49
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 50,
@@ -788,7 +886,9 @@
         "rc2": 50
       },
       "debuted": false,
-      "ongoing_rank": true
+      "ongoing_rank": true,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -802,7 +902,9 @@
         "rc1": 64
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -816,7 +918,9 @@
         "rc1": 56
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -830,7 +934,9 @@
         "rc1": 81
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -844,7 +950,9 @@
         "rc1": 94
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -858,7 +966,9 @@
         "rc1": 66
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -872,7 +982,9 @@
         "rc1": 89
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -886,7 +998,9 @@
         "rc1": 57
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -900,7 +1014,9 @@
         "rc1": 62
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -914,7 +1030,9 @@
         "rc1": 87
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -928,7 +1046,9 @@
         "rc1": 70
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -942,7 +1062,9 @@
         "rc1": 55
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -956,7 +1078,9 @@
         "rc1": 53
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -970,7 +1094,9 @@
         "rc1": 76
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -984,7 +1110,9 @@
         "rc1": 77
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": null,
@@ -998,7 +1126,9 @@
         "rc1": 52
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1012,7 +1142,9 @@
         "rc1": 99
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1026,7 +1158,9 @@
         "rc1": 93
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1040,7 +1174,9 @@
         "rc1": 85
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1054,7 +1190,9 @@
         "rc1": 69
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1068,7 +1206,9 @@
         "rc1": 94
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1082,7 +1222,9 @@
         "rc1": 88
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1096,7 +1238,9 @@
         "rc1": 100
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1110,7 +1254,9 @@
         "rc1": 92
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1124,7 +1270,9 @@
         "rc1": 75
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1138,7 +1286,9 @@
         "rc1": 59
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1152,7 +1302,9 @@
         "rc1": 79
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1166,7 +1318,9 @@
         "rc1": 51
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1180,7 +1334,9 @@
         "rc1": 80
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1194,7 +1350,9 @@
         "rc1": 65
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "A"
     },
     {
       "rank": null,
@@ -1208,7 +1366,9 @@
         "rc1": 97
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1222,7 +1382,9 @@
         "rc1": 98
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1236,7 +1398,9 @@
         "rc1": 72
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1250,7 +1414,9 @@
         "rc1": 101
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1264,7 +1430,9 @@
         "rc1": 91
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1278,7 +1446,9 @@
         "rc1": 71
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1292,7 +1462,9 @@
         "rc1": 60
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "A"
     },
     {
       "rank": null,
@@ -1306,7 +1478,9 @@
         "rc1": 86
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1320,7 +1494,9 @@
         "rc1": 84
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1334,7 +1510,9 @@
         "rc1": 61
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1348,7 +1526,9 @@
         "rc1": 67
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1362,7 +1542,9 @@
         "rc1": 83
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1376,7 +1558,9 @@
         "rc1": 90
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1390,7 +1574,9 @@
         "rc1": 63
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1404,7 +1590,9 @@
         "rc1": 58
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1418,7 +1606,9 @@
         "rc1": 96
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "C"
     },
     {
       "rank": null,
@@ -1432,7 +1622,9 @@
         "rc1": 82
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": null,
@@ -1446,7 +1638,9 @@
         "rc1": 78
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "B"
     },
     {
       "rank": null,
@@ -1460,7 +1654,9 @@
         "rc1": 73
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1474,7 +1670,9 @@
         "rc1": 74
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1488,7 +1686,9 @@
         "rc1": 54
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": null,
@@ -1502,7 +1702,9 @@
         "rc1": 68
       },
       "debuted": false,
-      "ongoing_rank": false
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "C"
     }
   ]
 }

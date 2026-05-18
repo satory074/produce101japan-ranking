@@ -77,6 +77,118 @@ function rankBadge(trainee, debutCap = 11) {
   return `<span class="font-display text-xs font-black px-2 py-0.5 rounded ${rankColorClass(rank, debutCap)}">${label}</span>`;
 }
 
+// =========================================================================
+// 評価 (レベル分けテスト / 再評価 / ポジションバトル / コンセプトバトル)
+// =========================================================================
+
+const LEVEL_TEXT_COLOR = {
+  'A': 'text-yellow-700',
+  'B': 'text-blue-700',
+  'C': 'text-orange-700',
+  'D': 'text-gray-600',
+  'F': 'text-red-700',
+};
+const LEVEL_ORDINAL = { 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'F': 5 };
+
+function levelLetterSpan(letter, opts = {}) {
+  if (!letter) return `<span class="text-gray-300">—</span>`;
+  const cls = LEVEL_TEXT_COLOR[letter] || 'text-gray-700';
+  const weight = opts.bold === false ? '' : 'font-bold';
+  return `<span class="${cls} ${weight}">${escapeHtml(letter)}</span>`;
+}
+
+function formatLevelLine(trainee) {
+  const lt = trainee.level_test;
+  const re = trainee.re_evaluation;
+  if (!lt && !re) return '';
+  return `<span class="text-gray-400">Lv:</span> ${levelLetterSpan(lt)} <span class="text-gray-300">→</span> ${levelLetterSpan(re)}`;
+}
+
+function battleSongShort(battle) {
+  if (!battle || !battle.song) return null;
+  return battle.song;
+}
+
+function battleResultIcon(result) {
+  if (result === 'win') return ' <span class="text-green-600" title="勝利">◎</span>';
+  if (result === 'lose') return ' <span class="text-gray-400" title="敗北">○</span>';
+  return '';
+}
+
+function formatBattleLine(trainee) {
+  const pb = trainee.position_battle;
+  const cb = trainee.concept_battle;
+  if (!pb && !cb) return '';
+  const pos = pb && pb.song
+    ? `${escapeHtml(pb.song)}${battleResultIcon(pb.result)}`
+    : `<span class="text-gray-300">—</span>`;
+  const con = cb && cb.song
+    ? `${escapeHtml(cb.song)}${battleResultIcon(cb.result)}`
+    : `<span class="text-gray-300">—</span>`;
+  return `<span class="text-gray-400">P:</span> ${pos} <span class="text-gray-300">·</span> <span class="text-gray-400">C:</span> ${con}`;
+}
+
+function battleTooltip(trainee) {
+  const parts = [];
+  const pb = trainee.position_battle;
+  if (pb && pb.song) {
+    const team = pb.team ? ` [${pb.team}]` : '';
+    const result = pb.result === 'win' ? ' 勝利' : pb.result === 'lose' ? ' 敗北' : '';
+    parts.push(`ポジ: ${pb.song}${team}${result}`);
+  }
+  const cb = trainee.concept_battle;
+  if (cb && cb.song) {
+    const team = cb.team ? ` [${cb.team}]` : '';
+    const result = cb.result === 'win' ? ' 勝利' : cb.result === 'lose' ? ' 敗北' : '';
+    parts.push(`コンセ: ${cb.song}${team}${result}`);
+  }
+  return parts.join(' / ');
+}
+
+function battleHistoryCell(battle) {
+  if (!battle || !battle.song) {
+    return `<td class="text-center px-2 py-1 border-b border-gray-100 text-gray-300">—</td>`;
+  }
+  const song = escapeHtml(battle.song);
+  const team = battle.team
+    ? `<span class="block text-[9px] text-gray-400 font-display">${escapeHtml(battle.team)}</span>`
+    : '';
+  const icon = battleResultIcon(battle.result);
+  const tooltip = battleTooltip({ position_battle: battle }).replace(/^ポジ: /, '');
+  return `<td class="text-left px-2 py-1 border-b border-gray-100 text-[11px] text-gray-800 whitespace-nowrap max-w-[140px]" title="${escapeHtml(tooltip)}">
+    <span class="truncate inline-block max-w-[120px] align-middle">${song}</span>${icon}${team}
+  </td>`;
+}
+
+function levelHistoryCell(letter) {
+  if (!letter) return `<td class="text-center px-1.5 py-1 border-b border-gray-100 text-gray-300">—</td>`;
+  return `<td class="text-center px-1.5 py-1 border-b border-gray-100 text-xs">${levelLetterSpan(letter)}</td>`;
+}
+
+// 順位推移表の固定列 (名前直後に 4 列追加)
+const FIXED_HISTORY_COLS = [
+  { key: '__level__',  short: 'Lv',    label: 'レベル分けテスト' },
+  { key: '__reeval__', short: '再',    label: '再評価' },
+  { key: '__posb__',   short: 'ポジ',  label: 'ポジションバトル課題曲' },
+  { key: '__conb__',   short: 'コンセ', label: 'コンセプト評価課題曲' },
+];
+
+function fixedHistoryHeaderCells(activeKey, dir) {
+  return FIXED_HISTORY_COLS.map(c => {
+    const arrow = c.key === activeKey ? (dir === 'asc' ? '▲' : '▼') : '';
+    const activeCls = c.key === activeKey ? 'text-gray-900 font-black' : 'text-gray-600';
+    return `<th data-mkey="${c.key}" title="${escapeHtml(c.label)}"
+      class="cursor-pointer select-none whitespace-nowrap px-2 py-2 text-xs ${activeCls} border-b border-r border-gray-200 bg-gray-50 hover:bg-gray-100 transition-colors">
+      <span class="font-display tracking-wide">${escapeHtml(c.short)}</span>
+      <span class="ml-0.5 text-[9px] text-gray-400">${arrow}</span>
+    </th>`;
+  }).join('');
+}
+
+function fixedHistoryRowCells(trainee) {
+  return `${levelHistoryCell(trainee.level_test)}${levelHistoryCell(trainee.re_evaluation)}${battleHistoryCell(trainee.position_battle)}${battleHistoryCell(trainee.concept_battle)}`;
+}
+
 function historyCell(rank, debutCap = 11) {
   if (rank == null) {
     return `<td class="text-center px-1.5 py-1 border-b border-gray-100 text-gray-300">—</td>`;
@@ -102,6 +214,7 @@ function renderRankingHistoryTable(trainees, milestones, urlTemplate, seasonId, 
       <th class="sticky left-0 z-20 bg-gray-50 text-left px-3 py-2 border-b border-r border-gray-200 min-w-[180px] cursor-pointer hover:bg-gray-100 transition-colors" data-mkey="__name__">
         <span class="text-xs text-gray-700">名前</span>
       </th>
+      ${fixedHistoryHeaderCells(latestKey, 'asc')}
       ${milestones.map(m => historyHeaderCell(m, m.key === latestKey, 'asc')).join('')}
     </tr>`;
   const bodyRows = buildHistoryRows(trainees, milestones, urlTemplate, latestKey, 'asc', seasonId, debutCap);
@@ -157,6 +270,7 @@ function historyRowHtml(trainee, milestones, urlTemplate, seasonId, debutCap = 1
           </div>
         </div>
       </td>
+      ${fixedHistoryRowCells(trainee)}
       ${cells}
     </tr>
   `;
@@ -167,6 +281,31 @@ function sortTraineesForHistory(trainees, sortKey, dir) {
   const arr = [...trainees];
   if (sortKey === '__name__') {
     arr.sort((a, b) => mult * (a.name_romaji || '').localeCompare(b.name_romaji || '', 'ja'));
+    return arr;
+  }
+  if (sortKey === '__level__' || sortKey === '__reeval__') {
+    const field = sortKey === '__level__' ? 'level_test' : 're_evaluation';
+    arr.sort((a, b) => {
+      const an = LEVEL_ORDINAL[a[field]] ?? Infinity;
+      const bn = LEVEL_ORDINAL[b[field]] ?? Infinity;
+      if (an === bn) return (a.rank ?? 999) - (b.rank ?? 999);
+      return mult * (an - bn);
+    });
+    return arr;
+  }
+  if (sortKey === '__posb__' || sortKey === '__conb__') {
+    const field = sortKey === '__posb__' ? 'position_battle' : 'concept_battle';
+    arr.sort((a, b) => {
+      const av = (a[field] && a[field].song) || '';
+      const bv = (b[field] && b[field].song) || '';
+      // 未参加 (空文字) は常に末尾
+      if (!av && !bv) return (a.rank ?? 999) - (b.rank ?? 999);
+      if (!av) return 1;
+      if (!bv) return -1;
+      const cmp = av.localeCompare(bv, 'ja');
+      if (cmp === 0) return (a.rank ?? 999) - (b.rank ?? 999);
+      return mult * cmp;
+    });
     return arr;
   }
   arr.sort((a, b) => {
@@ -1614,6 +1753,12 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
         ${stageName}
         ${typeof votes === 'number'
           ? `<div class="text-[10px] sm:text-xs text-gray-600 mt-1 font-display">${fmt(votes)} <span class="text-gray-400">votes</span></div>`
+          : ''}
+        ${(trainee.level_test || trainee.re_evaluation || trainee.position_battle || trainee.concept_battle)
+          ? `<div class="mt-1 pt-1 border-t border-gray-100 text-[10px] sm:text-[11px] text-gray-600 leading-tight space-y-0.5">
+               ${(trainee.level_test || trainee.re_evaluation) ? `<div class="truncate">${formatLevelLine(trainee)}</div>` : ''}
+               ${(trainee.position_battle || trainee.concept_battle) ? `<div class="truncate" title="${escapeHtml(battleTooltip(trainee))}">${formatBattleLine(trainee)}</div>` : ''}
+             </div>`
           : ''}
       </div>
     </article>

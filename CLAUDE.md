@@ -108,6 +108,16 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 
 `app.js` の `traineeCard()` はこれらの差分を意識して書かれているので、フィールドの過不足を想定したコードのまま保つこと。
 
+### 評価アトリビュート (任意フィールド)
+
+`trainees[]` 要素には optional で以下 4 種を追加可能 (キー欠落 = ダッシュ表示・無視):
+- `level_test`: `"A" | "B" | "C" | "D" | "F"` — レベル分けテスト初期評価
+- `re_evaluation`: 同上 — 再評価結果
+- `position_battle`: `{ song, team, result }` — `result` は `"win" | "lose" | null`。`team` はシリーズで意味が違う: S1 は `"1"|"2"` (グループA/B)、S2 は基本 `null` (9 曲単独チーム、9 曲のシングル勝者だけ `result:"win"`)、THE GIRLS / SHINSEKAI は `"Vocal"|"Dance"|"Rap"`
+- `concept_battle`: `{ song, team, result }` — S1 は勝敗あり (`result:"win"|"lose"`)、S2 は全員 `result:null` (脱落なし)、THE GIRLS / SHINSEKAI も基本 `result:null`
+
+`app.js` 側は `LEVEL_TEXT_COLOR` / `formatLevelLine` / `formatBattleLine` / `battleHistoryCell` / `levelHistoryCell` で描画。練習生カード下部に「`Lv: A → A` / `P: 曲名 ◎ · C: 曲名 ○`」の 2 行で、順位推移表は名前列の直後に `Lv / 再 / ポジ / コンセ` の 4 固定列。ソートキーは `__level__` / `__reeval__` / `__posb__` / `__conb__` (`FIXED_HISTORY_COLS` 参照)。
+
 ### 順位推移 (`ranking_milestones` + `rank_history`)
 
 任意フィールド。トップレベルの `ranking_milestones` は順序付き配列で、要素は `{ key, label, short, official, ceremony?, episode? }`。各 trainee の `rank_history` は `{ <milestone.key>: number | null }` の辞書 (キー省略 = データなしでダッシュ表示)。

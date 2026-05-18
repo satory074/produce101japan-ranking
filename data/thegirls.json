@@ -75,7 +75,19 @@
       },
       "votes_final": 1116716,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "position_battle": {
+        "song": "Shut Down",
+        "team": "Rap",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 2,
@@ -93,7 +105,19 @@
       },
       "votes_final": 700305,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "position_battle": {
+        "song": "美人",
+        "team": "Rap",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 3,
@@ -111,7 +135,19 @@
       },
       "votes_final": 686868,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "position_battle": {
+        "song": "First Love",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 4,
@@ -129,7 +165,19 @@
       },
       "votes_final": 655210,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "position_battle": {
+        "song": "Shine A Light",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 5,
@@ -147,7 +195,19 @@
       },
       "votes_final": 631708,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 6,
@@ -165,7 +225,19 @@
       },
       "votes_final": 599913,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "position_battle": {
+        "song": "First Love",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 7,
@@ -183,7 +255,19 @@
       },
       "votes_final": 593457,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "position_battle": {
+        "song": "Hero",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 8,
@@ -201,7 +285,19 @@
       },
       "votes_final": 591650,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "position_battle": {
+        "song": "美人",
+        "team": "Rap",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 9,
@@ -219,7 +315,19 @@
       },
       "votes_final": 588173,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 10,
@@ -237,7 +345,19 @@
       },
       "votes_final": 577903,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "position_battle": {
+        "song": "Hero",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 11,
@@ -255,7 +375,19 @@
       },
       "votes_final": 552603,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "position_battle": {
+        "song": "おもかげ",
+        "team": "Vocal",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 12,
@@ -273,7 +405,19 @@
       },
       "votes_final": 256286,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "position_battle": {
+        "song": "First Love",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 13,
@@ -291,7 +435,19 @@
       },
       "votes_final": 283766,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 14,
@@ -309,7 +465,19 @@
       },
       "votes_final": 164123,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "Shine A Light",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 15,
@@ -327,7 +495,19 @@
       },
       "votes_final": 210065,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 16,
@@ -345,7 +525,19 @@
       },
       "votes_final": 213005,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "ANTIFRAGILE",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 17,
@@ -363,7 +555,19 @@
       },
       "votes_final": 200105,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "C",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "NALALA",
+        "team": null,
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 18,
@@ -381,7 +585,19 @@
       },
       "votes_final": 191943,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 19,
@@ -399,7 +615,19 @@
       },
       "votes_final": 175250,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "おもかげ",
+        "team": "Vocal",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 20,
@@ -417,7 +645,19 @@
       },
       "votes_final": 219063,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "position_battle": {
+        "song": "おもかげ",
+        "team": "Vocal",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 21,
@@ -434,7 +674,19 @@
       },
       "votes_final": 575671,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 22,
@@ -451,7 +703,19 @@
       },
       "votes_final": 709975,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "level_test": "B",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 23,
@@ -468,7 +732,19 @@
       },
       "votes_final": 1021459,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "First Love",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 24,
@@ -485,7 +761,19 @@
       },
       "votes_final": 644575,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Shut Down",
+        "team": "Rap",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 25,
@@ -502,7 +790,19 @@
       },
       "votes_final": 1043200,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Hero",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 26,
@@ -519,7 +819,19 @@
       },
       "votes_final": 1164150,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Shine A Light",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 27,
@@ -536,7 +848,19 @@
       },
       "votes_final": 500734,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "level_test": "A",
+      "position_battle": {
+        "song": "美人",
+        "team": "Rap",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Charm Holic",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 28,
@@ -553,7 +877,19 @@
       },
       "votes_final": 752347,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 29,
@@ -570,7 +906,19 @@
       },
       "votes_final": 565498,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "ANTIFRAGILE",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 30,
@@ -587,7 +935,19 @@
       },
       "votes_final": 434070,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 31,
@@ -604,7 +964,19 @@
       },
       "votes_final": 490688,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "level_test": "B",
+      "position_battle": {
+        "song": "おもかげ",
+        "team": "Vocal",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "トキメッキー",
+        "team": null,
+        "result": "lose"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 32,
@@ -621,7 +993,19 @@
       },
       "votes_final": 438801,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 33,
@@ -638,7 +1022,19 @@
       },
       "votes_final": 579865,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "CLAW-me",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "F"
     },
     {
       "rank": 34,
@@ -655,7 +1051,19 @@
       },
       "votes_final": 469162,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Shine A Light",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 35,
@@ -672,7 +1080,19 @@
       },
       "votes_final": 459303,
       "debuted": false,
-      "eliminated_at": "ep10"
+      "eliminated_at": "ep10",
+      "position_battle": {
+        "song": "Shut Down",
+        "team": "Rap",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "new F7avors",
+        "team": null,
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 36,
@@ -688,7 +1108,14 @@
       },
       "votes_final": 382625,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "Shut Down",
+        "team": "Rap",
+        "result": "lose"
+      },
+      "level_test": "F",
+      "re_evaluation": "B"
     },
     {
       "rank": 37,
@@ -704,7 +1131,14 @@
       },
       "votes_final": 183579,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 38,
@@ -720,7 +1154,14 @@
       },
       "votes_final": 171105,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": 39,
@@ -736,7 +1177,14 @@
       },
       "votes_final": 177499,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 40,
@@ -752,7 +1200,14 @@
       },
       "votes_final": 167937,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 41,
@@ -768,7 +1223,14 @@
       },
       "votes_final": 256294,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "ANTIFRAGILE",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 42,
@@ -784,7 +1246,14 @@
       },
       "votes_final": 361341,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "Hero",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 43,
@@ -800,7 +1269,14 @@
       },
       "votes_final": 275667,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "ANTIFRAGILE",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": 44,
@@ -816,7 +1292,14 @@
       },
       "votes_final": 236395,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "Shine A Light",
+        "team": "Vocal",
+        "result": "lose"
+      },
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 45,
@@ -832,7 +1315,14 @@
       },
       "votes_final": 250666,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "ANTIFRAGILE",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 46,
@@ -848,7 +1338,14 @@
       },
       "votes_final": 227553,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "RUN RUN",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 47,
@@ -864,7 +1361,14 @@
       },
       "votes_final": 171390,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 48,
@@ -880,7 +1384,14 @@
       },
       "votes_final": 236383,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 49,
@@ -896,7 +1407,14 @@
       },
       "votes_final": 380737,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "A",
+      "position_battle": {
+        "song": "Rocketeer",
+        "team": "Dance",
+        "result": "win"
+      },
+      "re_evaluation": "A"
     },
     {
       "rank": 50,
@@ -912,7 +1430,14 @@
       },
       "votes_final": 208178,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "position_battle": {
+        "song": "WADADA",
+        "team": "Dance",
+        "result": "lose"
+      },
+      "level_test": "A",
+      "re_evaluation": "B"
     },
     {
       "rank": 51,
@@ -926,7 +1451,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 52,
@@ -940,7 +1467,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 53,
@@ -954,7 +1483,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "A",
+      "re_evaluation": "D"
     },
     {
       "rank": 54,
@@ -968,7 +1499,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 55,
@@ -982,7 +1515,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 56,
@@ -996,7 +1531,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 57,
@@ -1010,7 +1547,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "D"
     },
     {
       "rank": 58,
@@ -1024,7 +1563,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 59,
@@ -1038,7 +1579,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 60,
@@ -1052,7 +1595,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 61,
@@ -1066,7 +1611,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 62,
@@ -1080,7 +1627,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 63,
@@ -1094,7 +1643,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 64,
@@ -1108,7 +1659,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "B"
     },
     {
       "rank": 65,
@@ -1122,7 +1675,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 66,
@@ -1136,7 +1691,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C"
     },
     {
       "rank": 67,
@@ -1150,7 +1707,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 68,
@@ -1164,7 +1723,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 69,
@@ -1178,7 +1739,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 70,
@@ -1192,7 +1755,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 71,
@@ -1206,7 +1771,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 72,
@@ -1220,7 +1787,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "F"
     },
     {
       "rank": 73,
@@ -1234,7 +1803,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 74,
@@ -1248,7 +1819,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 75,
@@ -1262,7 +1835,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 76,
@@ -1276,7 +1851,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F"
     },
     {
       "rank": 77,
@@ -1290,7 +1867,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "C"
     },
     {
       "rank": 78,
@@ -1304,7 +1883,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 79,
@@ -1318,7 +1899,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 80,
@@ -1332,7 +1915,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 81,
@@ -1346,7 +1931,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 82,
@@ -1360,7 +1947,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "B"
     },
     {
       "rank": 83,
@@ -1374,7 +1963,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 84,
@@ -1388,7 +1979,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "B"
     },
     {
       "rank": 85,
@@ -1402,7 +1995,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 86,
@@ -1416,7 +2011,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 87,
@@ -1430,7 +2027,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F"
     },
     {
       "rank": 88,
@@ -1444,7 +2043,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": 89,
@@ -1458,7 +2059,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "B"
     },
     {
       "rank": 90,
@@ -1472,7 +2075,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": 91,
@@ -1486,7 +2091,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "C"
     },
     {
       "rank": 92,
@@ -1500,7 +2107,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 93,
@@ -1514,7 +2123,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 94,
@@ -1528,7 +2139,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "D"
     },
     {
       "rank": 95,
@@ -1542,7 +2155,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D"
     },
     {
       "rank": 96,
@@ -1556,7 +2171,9 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D"
     },
     {
       "rank": 97,

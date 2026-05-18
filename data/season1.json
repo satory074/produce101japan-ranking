@@ -87,7 +87,19 @@
       },
       "votes_final": 261583,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 2,
@@ -107,7 +119,19 @@
       },
       "votes_final": 256527,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 3,
@@ -127,7 +151,19 @@
       },
       "votes_final": 252885,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 4,
@@ -147,7 +183,19 @@
       },
       "votes_final": 220594,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 5,
@@ -167,7 +215,19 @@
       },
       "votes_final": 204045,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 6,
@@ -187,7 +247,19 @@
       },
       "votes_final": 194919,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 7,
@@ -207,7 +279,19 @@
       },
       "votes_final": 186309,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 8,
@@ -227,7 +311,19 @@
       },
       "votes_final": 171205,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 9,
@@ -247,7 +343,19 @@
       },
       "votes_final": 159057,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 10,
@@ -267,7 +375,19 @@
       },
       "votes_final": 157373,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 11,
@@ -287,7 +407,19 @@
       },
       "votes_final": 140003,
       "debuted": true,
-      "eliminated_at": null
+      "eliminated_at": null,
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 12,
@@ -307,7 +439,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "B",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 13,
@@ -327,7 +471,19 @@
       },
       "votes_final": 235413,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 14,
@@ -347,7 +503,19 @@
       },
       "votes_final": 355660,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 15,
@@ -367,7 +535,19 @@
       },
       "votes_final": 229428,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 16,
@@ -387,7 +567,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "A",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 17,
@@ -407,7 +599,19 @@
       },
       "votes_final": 217437,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "F",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 18,
@@ -427,7 +631,19 @@
       },
       "votes_final": 287656,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 19,
@@ -447,7 +663,19 @@
       },
       "votes_final": 223259,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 20,
@@ -467,7 +695,19 @@
       },
       "votes_final": 354058,
       "debuted": false,
-      "eliminated_at": "ep12"
+      "eliminated_at": "ep12",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 21,
@@ -485,7 +725,19 @@
       },
       "votes_final": 383463,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 22,
@@ -505,7 +757,19 @@
       },
       "votes_final": 347621,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DOMINO",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 23,
@@ -524,7 +788,19 @@
       },
       "votes_final": 203197,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 24,
@@ -543,7 +819,19 @@
       },
       "votes_final": 185385,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 25,
@@ -562,7 +850,19 @@
       },
       "votes_final": 184001,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 26,
@@ -581,7 +881,19 @@
       },
       "votes_final": 148527,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 27,
@@ -600,7 +912,19 @@
       },
       "votes_final": 129462,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 28,
@@ -619,7 +943,19 @@
       },
       "votes_final": 118118,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 29,
@@ -638,7 +974,19 @@
       },
       "votes_final": 108388,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 30,
@@ -657,7 +1005,19 @@
       },
       "votes_final": 89361,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "F",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      },
+      "concept_battle": {
+        "song": "やんちゃBOY やんちゃGIRL",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 31,
@@ -676,7 +1036,19 @@
       },
       "votes_final": 69937,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 32,
@@ -695,7 +1067,19 @@
       },
       "votes_final": 64952,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 33,
@@ -714,7 +1098,19 @@
       },
       "votes_final": 54202,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "クンチキタ",
+        "team": null,
+        "result": "win"
+      }
     },
     {
       "rank": 34,
@@ -733,7 +1129,19 @@
       },
       "votes_final": 38000,
       "debuted": false,
-      "eliminated_at": "ep11"
+      "eliminated_at": "ep11",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Happy Merry Christmas",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 35,
@@ -751,7 +1159,19 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Black Out",
+        "team": null,
+        "result": "lose"
+      }
     },
     {
       "rank": 36,
@@ -768,7 +1188,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 37,
@@ -785,7 +1212,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 38,
@@ -802,7 +1236,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 39,
@@ -819,7 +1260,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 40,
@@ -836,7 +1284,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 41,
@@ -853,7 +1308,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 42,
@@ -870,7 +1332,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 43,
@@ -887,7 +1356,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "A",
+      "re_evaluation": "A",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 44,
@@ -904,7 +1380,13 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 45,
@@ -921,7 +1403,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 46,
@@ -938,7 +1427,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 47,
@@ -955,7 +1451,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "F",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 48,
@@ -972,7 +1475,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 49,
@@ -989,7 +1499,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 50,
@@ -1006,7 +1523,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 51,
@@ -1023,7 +1547,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 52,
@@ -1040,7 +1571,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 53,
@@ -1057,7 +1595,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 54,
@@ -1074,7 +1619,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "C",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 55,
@@ -1091,7 +1643,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 56,
@@ -1108,7 +1667,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 57,
@@ -1125,7 +1691,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "F",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 58,
@@ -1142,7 +1715,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 59,
@@ -1159,7 +1739,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "C",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 60,
@@ -1176,7 +1763,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep8"
+      "eliminated_at": "ep8",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 61,
@@ -1191,7 +1785,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 62,
@@ -1206,7 +1807,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 63,
@@ -1221,7 +1829,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 64,
@@ -1236,7 +1851,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 65,
@@ -1251,7 +1873,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 66,
@@ -1266,7 +1895,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 67,
@@ -1281,7 +1917,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 68,
@@ -1296,7 +1939,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 69,
@@ -1311,7 +1961,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 70,
@@ -1326,7 +1983,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 71,
@@ -1346,7 +2010,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 72,
@@ -1361,7 +2032,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 73,
@@ -1376,7 +2054,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 74,
@@ -1391,7 +2076,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 75,
@@ -1406,7 +2098,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 76,
@@ -1421,7 +2120,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 77,
@@ -1441,7 +2147,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 78,
@@ -1456,7 +2169,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 79,
@@ -1471,7 +2191,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 80,
@@ -1486,7 +2213,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 81,
@@ -1501,7 +2235,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 82,
@@ -1516,7 +2257,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 83,
@@ -1531,7 +2279,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 84,
@@ -1546,7 +2301,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 85,
@@ -1561,7 +2323,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 86,
@@ -1576,7 +2345,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "B",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 87,
@@ -1591,7 +2367,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 88,
@@ -1606,7 +2389,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 89,
@@ -1621,7 +2411,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 90,
@@ -1636,7 +2433,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 91,
@@ -1651,7 +2455,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 92,
@@ -1666,7 +2477,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "C",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      }
     },
     {
       "rank": 93,
@@ -1681,7 +2499,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 94,
@@ -1696,7 +2521,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "D",
+      "re_evaluation": "D",
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 95,
@@ -1711,7 +2543,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 96,
@@ -1726,7 +2565,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "F",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
+      }
     },
     {
       "rank": 97,
@@ -1741,7 +2587,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "ep5"
+      "eliminated_at": "ep5",
+      "level_test": "B",
+      "re_evaluation": "F",
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      }
     },
     {
       "rank": 98,
@@ -1755,7 +2608,14 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "F",
+      "re_evaluation": "C",
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      }
     },
     {
       "rank": 99,
@@ -1764,7 +2624,9 @@
       "image_id": "081_hatakenya",
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "D",
+      "re_evaluation": "C"
     },
     {
       "rank": 100,
@@ -1773,7 +2635,8 @@
       "image_id": "049_satokazuto",
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "left"
+      "eliminated_at": "left",
+      "level_test": "C"
     },
     {
       "rank": 101,
