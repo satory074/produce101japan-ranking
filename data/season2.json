@@ -112,10 +112,7 @@
       },
       "votes_final": 380796,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 2,
@@ -134,10 +131,7 @@
       },
       "votes_final": 316127,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 3,
@@ -156,10 +150,7 @@
       },
       "votes_final": 281323,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p4": 100000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 4,
@@ -178,10 +169,7 @@
       },
       "votes_final": 276066,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 5,
@@ -200,10 +188,7 @@
       },
       "votes_final": 264254,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 6,
@@ -222,11 +207,7 @@
       },
       "votes_final": 259628,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000,
-        "p4": 20000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 7,
@@ -245,10 +226,7 @@
       },
       "votes_final": 252479,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 8,
@@ -267,10 +245,7 @@
       },
       "votes_final": 249237,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 9,
@@ -289,10 +264,7 @@
       },
       "votes_final": 249021,
       "debuted": true,
-      "eliminated_at": null,
-      "benefit_history": {
-        "p4": 20000
-      }
+      "eliminated_at": null
     },
     {
       "rank": 10,
@@ -349,10 +321,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 13,
@@ -390,10 +359,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 15,
@@ -412,10 +378,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p4": 20000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 16,
@@ -434,10 +397,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p4": 20000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 17,
@@ -456,10 +416,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 18,
@@ -478,10 +435,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 19,
@@ -500,11 +454,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000,
-        "p4": 20000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 20,
@@ -523,10 +473,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "final_episode",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "final_episode"
     },
     {
       "rank": 21,
@@ -617,10 +564,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p4": 20000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 26,
@@ -674,10 +618,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 29,
@@ -695,10 +636,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 30,
@@ -716,10 +654,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 31,
@@ -737,10 +672,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 32,
@@ -758,10 +690,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 33,
@@ -797,10 +726,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 35,
@@ -818,10 +744,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 36,
@@ -839,10 +762,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 37,
@@ -878,10 +798,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p4": 20000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 39,
@@ -899,10 +816,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "2nd_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "2nd_ranking_ceremony"
     },
     {
       "rank": 40,
@@ -950,10 +864,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 43,
@@ -1013,10 +924,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 47,
@@ -1106,10 +1014,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 53,
@@ -1154,10 +1059,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 56,
@@ -1172,10 +1074,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 57,
@@ -1190,10 +1089,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 58,
@@ -1208,10 +1104,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 59,
@@ -1241,10 +1134,7 @@
       },
       "votes_final": null,
       "debuted": false,
-      "eliminated_at": "1st_ranking_ceremony",
-      "benefit_history": {
-        "p2": 3000
-      }
+      "eliminated_at": "1st_ranking_ceremony"
     },
     {
       "rank": 61,
