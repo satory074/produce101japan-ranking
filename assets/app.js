@@ -81,11 +81,12 @@ function rankBadge(trainee, debutCap = 11) {
 // 評価 (レベル分けテスト / 再評価 / ポジションバトル / コンセプトバトル)
 // =========================================================================
 
-// 番組準拠カラー (A=ピンク / B=黄 / C=青 / D=緑 / F=灰)
+// 番組準拠カラー (PRODUCE X 101 系統: A=ピンク / B=オレンジ / C=黄 / D=緑 / F=灰)
+// 確認ソース: Amazon「Aクラス ピンク Tシャツ」「Bクラス オレンジ Tシャツ」のグッズ表記
 const LEVEL_BADGE_CLASS = {
   'A': 'bg-pink-400 text-white',
-  'B': 'bg-yellow-400 text-yellow-900',
-  'C': 'bg-sky-500 text-white',
+  'B': 'bg-orange-400 text-white',
+  'C': 'bg-yellow-400 text-yellow-900',
   'D': 'bg-green-500 text-white',
   'F': 'bg-gray-400 text-white',
 };

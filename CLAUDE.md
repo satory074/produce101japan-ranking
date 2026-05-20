@@ -118,7 +118,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 
 `app.js` 側は `LEVEL_BADGE_CLASS` / `formatLevelLine` / `formatPositionLine` / `formatConceptLine` / `battleHistoryCell` / `levelHistoryCell` で描画。練習生カード下部に「`Lv: [A] → [A]` / `ポジ: 曲名 [WIN]` / `コンセ: 曲名 [WIN]`」の 3 行で、順位推移表は名前列の直後に `Lv / 再 / ポジ / コンセ` の 4 固定列。ソートキーは `__level__` / `__reeval__` / `__posb__` / `__conb__` (`FIXED_HISTORY_COLS` 参照)。
 
-- **クラスバッジ色** (番組準拠): A=ピンク / B=黄 / C=青 / D=緑 / F=灰。`LEVEL_BADGE_CLASS` を編集すれば調整可。
+- **クラスバッジ色** (番組準拠): A=ピンク / B=オレンジ / C=黄 / D=緑 / F=灰 (PRODUCE X 101 系統)。`LEVEL_BADGE_CLASS` を編集すれば調整可。確認ソース: Amazon の公式系グッズ「Aクラス ピンク Tシャツ」「Bクラス オレンジ Tシャツ」。
 - **勝敗バッジ**: `WIN` (緑) / `LOSE` (グレー) を `battleResultBadge()` で生成。`result: null` (S2 コンセプトのように勝敗なしのステージ) はバッジ非表示。
 - **コンセプトの team は非表示**: `fixedHistoryRowCells()` 内で `battleHistoryCell(cb, {showTeam:false})` を渡しており、たとえ将来 `concept_battle.team` に値が入っても表示されない (= 「コンセプトは曲名のみで表示」の不変条件)。
 
