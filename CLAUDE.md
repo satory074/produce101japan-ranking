@@ -116,7 +116,11 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 - `position_battle`: `{ song, team, result }` — `result` は `"win" | "lose" | null`。`team` はシリーズで意味が違う: S1 は `"1"|"2"` (グループA/B)、S2 は基本 `null` (9 曲単独チーム、9 曲のシングル勝者だけ `result:"win"`)、THE GIRLS / SHINSEKAI は `"Vocal"|"Dance"|"Rap"`
 - `concept_battle`: `{ song, team, result }` — S1 は勝敗あり (`result:"win"|"lose"`)、S2 は全員 `result:null` (脱落なし)、THE GIRLS / SHINSEKAI も基本 `result:null`
 
-`app.js` 側は `LEVEL_TEXT_COLOR` / `formatLevelLine` / `formatBattleLine` / `battleHistoryCell` / `levelHistoryCell` で描画。練習生カード下部に「`Lv: A → A` / `P: 曲名 ◎ · C: 曲名 ○`」の 2 行で、順位推移表は名前列の直後に `Lv / 再 / ポジ / コンセ` の 4 固定列。ソートキーは `__level__` / `__reeval__` / `__posb__` / `__conb__` (`FIXED_HISTORY_COLS` 参照)。
+`app.js` 側は `LEVEL_BADGE_CLASS` / `formatLevelLine` / `formatPositionLine` / `formatConceptLine` / `battleHistoryCell` / `levelHistoryCell` で描画。練習生カード下部に「`Lv: [A] → [A]` / `ポジ: 曲名 [WIN]` / `コンセ: 曲名 [WIN]`」の 3 行で、順位推移表は名前列の直後に `Lv / 再 / ポジ / コンセ` の 4 固定列。ソートキーは `__level__` / `__reeval__` / `__posb__` / `__conb__` (`FIXED_HISTORY_COLS` 参照)。
+
+- **クラスバッジ色** (番組準拠): A=ピンク / B=黄 / C=青 / D=緑 / F=灰。`LEVEL_BADGE_CLASS` を編集すれば調整可。
+- **勝敗バッジ**: `WIN` (緑) / `LOSE` (グレー) を `battleResultBadge()` で生成。`result: null` (S2 コンセプトのように勝敗なしのステージ) はバッジ非表示。
+- **コンセプトの team は非表示**: `fixedHistoryRowCells()` 内で `battleHistoryCell(cb, {showTeam:false})` を渡しており、たとえ将来 `concept_battle.team` に値が入っても表示されない (= 「コンセプトは曲名のみで表示」の不変条件)。
 
 ### 順位推移 (`ranking_milestones` + `rank_history`)
 
