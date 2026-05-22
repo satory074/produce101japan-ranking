@@ -107,7 +107,6 @@ function formatLevelLine(trainee) {
 
 function battleResultBadge(result) {
   if (result === 'win')  return ' <span class="inline-block bg-green-500 text-white text-[9px] font-bold px-1 py-0.5 rounded leading-none font-display align-middle">WIN</span>';
-  if (result === 'lose') return ' <span class="inline-block bg-gray-300 text-gray-600 text-[9px] font-bold px-1 py-0.5 rounded leading-none font-display align-middle">LOSE</span>';
   return '';
 }
 
