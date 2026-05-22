@@ -1858,10 +1858,6 @@ function buildPanel(panelId, data) {
           <svg class="absolute left-2.5 top-2.5 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/></svg>
         </div>
         <label class="inline-flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
-          <input type="checkbox" class="filter-debuted accent-yellow-500" />
-          <span>デビュー組のみ</span>
-        </label>
-        <label class="inline-flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
           <input type="checkbox" class="filter-detailed accent-${cfg.color}-500" />
           <span>詳細表示</span>
         </label>
@@ -1885,7 +1881,6 @@ function buildPanel(panelId, data) {
   const grid = panel.querySelector('.trainee-grid');
   const emptyMsg = panel.querySelector('.empty-msg');
   const searchInput = panel.querySelector('.search-input');
-  const debutFilter = panel.querySelector('.filter-debuted');
   const detailedToggle = panel.querySelector('.filter-detailed');
 
   // 初期表示モード (localStorage 復元、デフォルトは compact)
@@ -1903,21 +1898,16 @@ function buildPanel(panelId, data) {
 
   const applyFilter = () => {
     const q = searchInput.value.trim().toLowerCase();
-    const debutOnly = debutFilter.checked;
     let shown = 0;
     grid.querySelectorAll('.trainee-card').forEach(card => {
       const name = card.dataset.name || '';
-      const rank = Number(card.dataset.rank);
-      const matchName = !q || name.includes(q);
-      const matchDebut = !debutOnly || (rank <= debutCap);
-      const show = matchName && matchDebut;
+      const show = !q || name.includes(q);
       card.style.display = show ? '' : 'none';
       if (show) shown++;
     });
     emptyMsg.classList.toggle('hidden', shown > 0);
   };
   searchInput.addEventListener('input', debounce(applyFilter, 150));
-  debutFilter.addEventListener('change', applyFilter);
 
   grid.addEventListener('click', (e) => {
     if (e.target.closest('a')) return;
