@@ -102,7 +102,7 @@ function formatLevelLine(trainee) {
   const lt = trainee.level_test;
   const re = trainee.re_evaluation;
   if (!lt && !re) return '';
-  return `<span class="text-gray-400">Lv:</span> ${levelBadgeHtml(lt)} <span class="text-gray-300">→</span> ${levelBadgeHtml(re)}`;
+  return `${levelBadgeHtml(lt)} <span class="text-gray-300">→</span> ${levelBadgeHtml(re)}`;
 }
 
 function battleResultBadge(result) {
@@ -114,25 +114,25 @@ function battleResultBadge(result) {
 function formatLevelTestLine(trainee) {
   const lt = trainee.level_test_team;
   if (!lt || !lt.song) return '';
-  return `<span class="text-gray-400">初:</span> ${escapeHtml(lt.song)}`;
+  return `${escapeHtml(lt.song)}`;
 }
 
 function formatGroupBattleLine(trainee) {
   const gb = trainee.group_battle;
   if (!gb || !gb.song) return '';
-  return `<span class="text-gray-400">グル:</span> ${escapeHtml(gb.song)}${battleResultBadge(gb.result)}`;
+  return `${escapeHtml(gb.song)}${battleResultBadge(gb.result)}`;
 }
 
 function formatPositionLine(trainee) {
   const pb = trainee.position_battle;
   if (!pb || !pb.song) return '';
-  return `<span class="text-gray-400">ポジ:</span> ${escapeHtml(pb.song)}${battleResultBadge(pb.result)}`;
+  return `${escapeHtml(pb.song)}${battleResultBadge(pb.result)}`;
 }
 
 function formatConceptLine(trainee) {
   const cb = trainee.concept_battle;
   if (!cb || !cb.song) return '';
-  return `<span class="text-gray-400">コンセ:</span> ${escapeHtml(cb.song)}${battleResultBadge(cb.result)}`;
+  return `${escapeHtml(cb.song)}${battleResultBadge(cb.result)}`;
 }
 
 function battleTooltipSingle(battle, { showTeam = true } = {}) {
