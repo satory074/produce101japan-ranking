@@ -140,9 +140,16 @@ function formatDebutEvalLine(trainee) {
   return `${escapeHtml(de.song)}`;
 }
 
+function formatTeamLabel(team) {
+  if (!team) return '';
+  const s = String(team);
+  const m = s.match(/(\d+)/);
+  return m ? `${m[1]}組` : s;
+}
+
 function battleTooltipSingle(battle, { showTeam = true } = {}) {
   if (!battle || !battle.song) return '';
-  const team = (showTeam && battle.team) ? ` [${battle.team}]` : '';
+  const team = (showTeam && battle.team) ? ` [${formatTeamLabel(battle.team)}]` : '';
   const result = battle.result === 'win' ? ' 勝利' : battle.result === 'lose' ? ' 敗北' : '';
   return `${battle.song}${team}${result}`;
 }
@@ -153,7 +160,7 @@ function battleHistoryCell(battle, { showTeam = true } = {}) {
   }
   const song = escapeHtml(battle.song);
   const team = (showTeam && battle.team)
-    ? `<span class="block text-[9px] text-gray-400 font-display">${escapeHtml(battle.team)}</span>`
+    ? `<span class="block text-[9px] text-gray-400 font-display">${escapeHtml(formatTeamLabel(battle.team))}</span>`
     : '';
   const badge = battleResultBadge(battle.result);
   const tooltip = battleTooltipSingle(battle, { showTeam });
