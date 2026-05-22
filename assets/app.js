@@ -1766,7 +1766,7 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
           ? `<div class="text-[10px] sm:text-xs text-gray-600 mt-1 font-display">${fmt(votes)} <span class="text-gray-400">votes</span></div>`
           : ''}
         ${(trainee.level_test || trainee.re_evaluation || trainee.level_test_team || trainee.group_battle || trainee.position_battle || trainee.concept_battle || trainee.debut_evaluation)
-          ? `<div class="mt-1 pt-1 border-t border-gray-100 text-[10px] sm:text-[11px] text-gray-600 leading-tight space-y-0.5">
+          ? `<div class="eval-block mt-1 pt-1 border-t border-gray-100 text-[10px] sm:text-[11px] text-gray-600 leading-tight space-y-0.5">
                ${(trainee.level_test || trainee.re_evaluation) ? `<div>${formatLevelLine(trainee)}</div>` : ''}
                ${trainee.level_test_team ? `<div class="truncate" title="レベル分けテスト課題曲: ${escapeHtml(trainee.level_test_team.song || '')}">${formatLevelTestLine(trainee)}</div>` : ''}
                ${trainee.group_battle    ? `<div class="truncate" title="グループバトル: ${escapeHtml(trainee.group_battle.song || '')}">${formatGroupBattleLine(trainee)}</div>` : ''}
@@ -1778,6 +1778,28 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
       </div>
     </article>
   `;
+}
+
+// =========================================================================
+// 表示モード切替 (compact デフォルト / detailed = 評価情報も表示)
+// =========================================================================
+
+const COMPACT_GRID_CLS  = 'trainee-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-4';
+const DETAILED_GRID_CLS = 'trainee-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4';
+
+function applyDisplayModeToPanel(panel, mode) {
+  const grid = panel.querySelector('.trainee-grid');
+  if (grid) grid.className = mode === 'detailed' ? DETAILED_GRID_CLS : COMPACT_GRID_CLS;
+  panel.querySelectorAll('.eval-block').forEach(b => {
+    b.style.display = mode === 'detailed' ? '' : 'none';
+  });
+  // 他パネルのトグルも同期 (チェックボックス状態のみ)
+  const toggle = panel.querySelector('.filter-detailed');
+  if (toggle) toggle.checked = mode === 'detailed';
+}
+
+function applyDisplayMode(mode) {
+  document.querySelectorAll('.season-panel').forEach(p => applyDisplayModeToPanel(p, mode));
 }
 
 function buildPanel(panelId, data) {
@@ -1839,9 +1861,13 @@ function buildPanel(panelId, data) {
           <input type="checkbox" class="filter-debuted accent-yellow-500" />
           <span>デビュー組のみ</span>
         </label>
+        <label class="inline-flex items-center gap-2 text-sm text-gray-600 cursor-pointer">
+          <input type="checkbox" class="filter-detailed accent-${cfg.color}-500" />
+          <span>詳細表示</span>
+        </label>
       </div>
 
-      <div class="trainee-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+      <div class="trainee-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-4">
         ${trainees.map(t => traineeCard(t, panelId, urlTemplate, debutCap)).join('')}
       </div>
       <p class="empty-msg hidden text-center py-12 text-gray-400 text-sm">該当する練習生が見つかりません</p>
@@ -1860,6 +1886,20 @@ function buildPanel(panelId, data) {
   const emptyMsg = panel.querySelector('.empty-msg');
   const searchInput = panel.querySelector('.search-input');
   const debutFilter = panel.querySelector('.filter-debuted');
+  const detailedToggle = panel.querySelector('.filter-detailed');
+
+  // 初期表示モード (localStorage 復元、デフォルトは compact)
+  const initialMode = (typeof localStorage !== 'undefined' && localStorage.getItem('display-mode')) || 'compact';
+  if (detailedToggle) {
+    detailedToggle.checked = initialMode === 'detailed';
+    detailedToggle.addEventListener('change', () => {
+      const mode = detailedToggle.checked ? 'detailed' : 'compact';
+      try { localStorage.setItem('display-mode', mode); } catch (e) {}
+      applyDisplayMode(mode);
+    });
+  }
+  // 初期反映 (panel build 直後)
+  setTimeout(() => applyDisplayModeToPanel(panel, initialMode), 0);
 
   const applyFilter = () => {
     const q = searchInput.value.trim().toLowerCase();
