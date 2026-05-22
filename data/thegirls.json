@@ -83,8 +83,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -112,8 +112,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "B",
@@ -142,8 +142,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "level_test": "A",
@@ -173,8 +173,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -203,8 +203,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -232,8 +232,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "level_test": "B",
@@ -262,8 +262,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "D",
@@ -292,8 +292,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "A",
@@ -323,8 +323,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -353,8 +353,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -383,8 +383,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -413,8 +413,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -442,8 +442,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "level_test": "C",
@@ -472,8 +472,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "F",
@@ -503,8 +503,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -532,8 +532,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "level_test": "B",
@@ -563,8 +563,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "NALALA",
-        "team": null,
+        "song": "&ME",
+        "team": "NALALA",
         "result": "win"
       },
       "re_evaluation": "A"
@@ -592,8 +592,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "C",
@@ -622,8 +622,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "F",
@@ -652,8 +652,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "level_test": "C",
@@ -681,8 +681,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "C",
@@ -711,8 +711,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -739,8 +739,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "C",
@@ -768,8 +768,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "D",
@@ -797,8 +797,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "C",
@@ -826,8 +826,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "C",
@@ -856,8 +856,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "Charm Holic",
-        "team": null,
+        "song": "TOXIC",
+        "team": "Charm Holic",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -884,8 +884,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "B",
@@ -913,8 +913,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "level_test": "B",
@@ -942,8 +942,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "B",
@@ -972,8 +972,8 @@
         "result": "win"
       },
       "concept_battle": {
-        "song": "トキメッキー",
-        "team": null,
+        "song": "AtoZ",
+        "team": "トキメッキー",
         "result": "lose"
       },
       "re_evaluation": "A"
@@ -1000,8 +1000,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "B",
@@ -1029,8 +1029,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "CLAW-me",
-        "team": null,
+        "song": "小悪魔 (Baddie)",
+        "team": "CLAW-me",
         "result": "lose"
       },
       "level_test": "B",
@@ -1058,8 +1058,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "C",
@@ -1087,8 +1087,8 @@
         "result": "lose"
       },
       "concept_battle": {
-        "song": "new F7avors",
-        "team": null,
+        "song": "Popcorn",
+        "team": "new F7avors",
         "result": "lose"
       },
       "level_test": "B",
