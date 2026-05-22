@@ -35,7 +35,7 @@
     }
   ],
   "ongoing": true,
-  "last_updated_episode": "Episode 8 (2026-05-08)",
+  "last_updated_episode": "Episode 9 (2026-05-21)",
   "debut_count": 12,
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
   "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks 1-50 reflect the Episode 8 (2nd ranking ceremony) announced positions, where 50 trainees advanced to the next stage. Trainees ranked 51+ (no longer on stage / eliminated by Episode 5 cut) are listed with rank: null. The show is still on air; debut lineup is undetermined.",
@@ -63,6 +63,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -88,6 +98,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -113,6 +133,16 @@
         "song": "Love Seeker",
         "team": "Heart Shakers",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -138,6 +168,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -163,6 +203,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -185,6 +235,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -207,6 +267,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -232,6 +302,16 @@
         "song": "最高到達点",
         "team": "新世海マリーンズ",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -254,6 +334,16 @@
         "song": "IRIS OUT",
         "team": "CREEEPY DEVILS",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -279,6 +369,16 @@
         "song": "Energetic",
         "team": "TO BE ENERGY",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -304,6 +404,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -329,6 +439,16 @@
         "song": "Energetic",
         "team": "TO BE ENERGY",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -354,6 +474,16 @@
         "song": "唱",
         "team": "GLOBOYS",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -379,6 +509,16 @@
         "song": "CASE143",
         "team": "上等Kids(♡)",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -404,6 +544,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -429,6 +579,16 @@
         "song": "Energetic",
         "team": "TO BE ENERGY",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -449,6 +609,16 @@
       "re_evaluation": "D",
       "level_test_team": {
         "song": "SPECIALZ"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -474,6 +644,16 @@
         "song": "最高到達点",
         "team": "新世海マリーンズ",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -499,6 +679,16 @@
         "song": "最高到達点",
         "team": "新世海マリーンズ",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -524,6 +714,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -549,6 +749,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -574,6 +784,16 @@
         "song": "最高到達点",
         "team": "1peak",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -599,6 +819,16 @@
         "song": "Love Seeker",
         "team": "Full Counter",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -624,6 +854,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -646,6 +886,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -671,6 +921,16 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -696,6 +956,16 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -721,6 +991,16 @@
         "song": "IRIS OUT",
         "team": "喜怒I6",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -746,6 +1026,16 @@
         "song": "Energetic",
         "team": "flow1",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -771,6 +1061,16 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
       }
     },
     {
@@ -796,6 +1096,16 @@
         "song": "Love Seeker",
         "team": "Heart Shakers",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
       }
     },
     {
@@ -821,6 +1131,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -846,6 +1166,16 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
       }
     },
     {
@@ -871,6 +1201,16 @@
         "song": "IRIS OUT",
         "team": "喜怒I6",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -896,6 +1236,16 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
@@ -921,6 +1271,11 @@
         "song": "唱",
         "team": "GLOBOYS",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": null
       }
     },
     {
@@ -946,6 +1301,11 @@
         "song": "Energetic",
         "team": "TO BE ENERGY",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
       }
     },
     {
@@ -971,6 +1331,11 @@
         "song": "最高到達点",
         "team": "新世海マリーンズ",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": null
       }
     },
     {
@@ -996,6 +1361,11 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
       }
     },
     {
@@ -1021,6 +1391,11 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
       }
     },
     {
@@ -1046,6 +1421,11 @@
         "song": "LOUD",
         "team": "BE PLoud",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
       }
     },
     {
@@ -1071,6 +1451,11 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "Kiss Me",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
       }
     },
     {
@@ -1096,6 +1481,11 @@
         "song": "唱",
         "team": "GLOBOYS",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
       }
     },
     {
@@ -1121,6 +1511,11 @@
         "song": "Bite Me -Japanese ver.-",
         "team": "虹色Bites",
         "result": "win"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": null
       }
     },
     {
@@ -1146,6 +1541,11 @@
         "song": "最高到達点",
         "team": "1peak",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": null
       }
     },
     {
@@ -1171,6 +1571,11 @@
         "song": "Love Seeker",
         "team": "Heart Shakers",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
       }
     },
     {
@@ -1191,6 +1596,11 @@
       "re_evaluation": "D",
       "level_test_team": {
         "song": "SHINE (Japanese ver.)"
+      },
+      "position_battle": {
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": null
       }
     },
     {
@@ -1211,6 +1621,11 @@
       "re_evaluation": "C",
       "level_test_team": {
         "song": "Share The World"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": null
       }
     },
     {
@@ -1236,6 +1651,11 @@
         "song": "Love Seeker",
         "team": "Heart Shakers",
         "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
       }
     },
     {
@@ -1256,6 +1676,11 @@
       "re_evaluation": "F",
       "level_test_team": {
         "song": "いいじゃん"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
       }
     },
     {
