@@ -96,13 +96,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "EXCITE",
         "team": "豆原一成"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -132,13 +140,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "MY SWAGGER",
         "team": "UN Backers"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -168,13 +184,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -204,13 +228,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "MY SWAGGER",
         "team": "UN Backers"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -240,13 +272,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Why?",
         "team": "SION"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -276,13 +316,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "反逆のプリンス"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -312,13 +360,21 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "(RE)PLAY",
         "team": "HIGH STEPS"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -348,13 +404,21 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "帆を上げろ!",
         "team": "しゃちほこフレンズ"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -384,13 +448,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "1",
-        "result": "win"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ワタリドリ",
         "team": "シックスパックス"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -420,13 +492,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "GLAMOROUS SKY",
         "team": "Team SKY"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -456,13 +536,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "Lemon",
-        "team": "1",
-        "result": "win"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ワタリドリ",
         "team": "シックスパックス"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -492,13 +580,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "NANIMONO",
         "team": "プチメン"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -528,13 +624,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "MAGIC",
         "team": "Smile MAGIC"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -564,13 +668,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ワタリドリ",
         "team": "シックスパックス"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -600,13 +712,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "反逆のプリンス"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "YOUNG"
       }
     },
     {
@@ -636,13 +756,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "2",
-        "result": "lose"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -672,13 +800,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "レーザービーム",
         "team": "ダンサーhico"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -708,13 +844,21 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "サクラ",
         "team": "black belt"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -744,13 +888,21 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "1",
-        "result": "lose"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Choo Choo TRAIN",
         "team": "九州漢組"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -780,13 +932,21 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "101オリジナル",
-        "team": "1",
-        "result": "win"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "w-inds. - Time Has Gone",
         "team": "上原潤"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
+      },
+      "debut_evaluation": {
+        "song": "Grand Master"
       }
     },
     {
@@ -814,13 +974,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "LIAR",
         "team": "HELLO AGAIN"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -850,13 +1015,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "LIAR",
         "team": "HELLO AGAIN"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -885,13 +1055,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "サクラ",
         "team": "black belt"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -920,13 +1095,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "NANIMONO",
         "team": "プチメン"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -955,13 +1135,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Love so sweet",
         "team": "Team DK"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -990,13 +1175,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Love so sweet",
         "team": "Team DK"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1025,13 +1215,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "2",
-        "result": "win"
+        "song": "FIRE",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1060,13 +1255,18 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Do it! 宙にジャンプ",
         "team": "琉球BOYS"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1095,13 +1295,18 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "FIRE",
         "team": "Team Breakin'"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1130,13 +1335,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Do it! 宙にジャンプ",
         "team": "琉球BOYS"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1165,13 +1375,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "1",
-        "result": "win"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Choo Choo TRAIN",
         "team": "九州漢組"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1200,13 +1415,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "Lemon",
-        "team": "1",
-        "result": "win"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1235,13 +1455,18 @@
         "result": "win"
       },
       "group_battle": {
-        "song": "101オリジナル",
-        "team": "1",
-        "result": "win"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "助演男優賞",
         "team": "トライフォース"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1270,13 +1495,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "2",
-        "result": "win"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "反逆のプリンス"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1304,13 +1534,18 @@
         "result": "lose"
       },
       "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
+        "song": "RAISE THE FLAG",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "LIAR",
         "team": "HELLO AGAIN"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1332,13 +1567,18 @@
       "level_test": "C",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Love so sweet",
         "team": "Team DK"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1360,13 +1600,18 @@
       "level_test": "B",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "REBORNZ"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1388,13 +1633,18 @@
       "level_test": "D",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1416,13 +1666,18 @@
       "level_test": "C",
       "re_evaluation": "C",
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "GLAMOROUS SKY",
         "team": "Team SKY"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1444,13 +1699,18 @@
       "level_test": "B",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "2",
-        "result": "lose"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1472,13 +1732,18 @@
       "level_test": "B",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "101オリジナル",
-        "team": "2",
-        "result": "lose"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "反逆のプリンス"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1500,13 +1765,18 @@
       "level_test": "B",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "1",
-        "result": "win"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Chase the Chance",
         "team": "ビューティー4"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1528,13 +1798,18 @@
       "level_test": "A",
       "re_evaluation": "A",
       "group_battle": {
-        "song": "Wherever you are",
-        "team": "1",
-        "result": "win"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "MAGIC",
         "team": "Smile MAGIC"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1555,13 +1830,18 @@
       "eliminated_at": "ep8",
       "level_test": "D",
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Love so sweet",
         "team": "Team DK"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1583,13 +1863,18 @@
       "level_test": "B",
       "re_evaluation": "C",
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
+        "song": "Happiness",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "シンデレラガール",
         "team": "KILLER-SMILE"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1611,13 +1896,18 @@
       "level_test": "D",
       "re_evaluation": "B",
       "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "SHAKE",
         "team": "DDD"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1639,13 +1929,18 @@
       "level_test": "F",
       "re_evaluation": "C",
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1667,13 +1962,18 @@
       "level_test": "C",
       "re_evaluation": "B",
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "1",
-        "result": "lose"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "My Buddy",
         "team": "ドリームランド"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1695,13 +1995,18 @@
       "level_test": "D",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "2",
-        "result": "win"
+        "song": "(RE)PLAY",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Do it! 宙にジャンプ",
         "team": "琉球BOYS"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1723,13 +2028,18 @@
       "level_test": "D",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "2",
-        "result": "win"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "MAGIC",
         "team": "Smile MAGIC"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1751,13 +2061,18 @@
       "level_test": "B",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "シンデレラガール",
         "team": "KILLER-SMILE"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1779,13 +2094,18 @@
       "level_test": "B",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "(RE)PLAY",
         "team": "HIGH STEPS"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1807,13 +2127,18 @@
       "level_test": "F",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
+        "song": "if…",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "SHAKE",
         "team": "DDD"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -1835,13 +2160,18 @@
       "level_test": "C",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
+        "song": "LOVE ME RIGHT",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "FIRE",
         "team": "Team Breakin'"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1863,13 +2193,18 @@
       "level_test": "D",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "1",
-        "result": "win"
+        "song": "Everybody",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -1891,13 +2226,18 @@
       "level_test": "B",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "Lemon",
-        "team": "2",
-        "result": "lose"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Loveless",
         "team": "18X↑"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1919,13 +2259,18 @@
       "level_test": "F",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
+        "song": "Wake up!",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Chase the Chance",
         "team": "ビューティー4"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -1947,13 +2292,18 @@
       "level_test": "D",
       "re_evaluation": "D",
       "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
+        "song": "Why?",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Loveless",
         "team": "18X↑"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -1975,13 +2325,18 @@
       "level_test": "C",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "101オリジナル",
-        "team": "2",
-        "result": "lose"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "助演男優賞",
         "team": "トライフォース"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2003,13 +2358,18 @@
       "level_test": "F",
       "re_evaluation": "F",
       "group_battle": {
-        "song": "Lemon",
-        "team": "2",
-        "result": "lose"
+        "song": "DDU-DU DDU-DU",
+        "team": null,
+        "result": null
       },
       "level_test_team": {
         "song": "Chase the Chance",
         "team": "ビューティー4"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2028,14 +2388,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "シンデレラガール",
         "team": "KILLER-SMILE"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2054,14 +2414,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "Wherever you are",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "w-inds. - Dirty Talk",
         "team": "Boyz III Men"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2080,14 +2440,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "B",
-      "group_battle": {
-        "song": "101オリジナル",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "Have a nice day!",
         "team": "Team Rapper Crew"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2106,14 +2466,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "Choo Choo TRAIN",
         "team": "九州漢組"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2132,14 +2492,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "Love so sweet",
         "team": "Team DK"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2158,14 +2518,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "帆を上げろ!",
         "team": "しゃちほこフレンズ"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2184,14 +2544,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "助演男優賞",
         "team": "トライフォース"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2210,14 +2570,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "Wherever you are",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2236,14 +2596,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "My Buddy",
         "team": "ドリームランド"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -2262,14 +2622,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "(RE)PLAY",
         "team": "HIGH STEPS"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2293,14 +2653,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "行くぜっ!怪盗少女",
         "team": "純真"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2319,14 +2679,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "2",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "w-inds. - Dirty Talk",
         "team": "Boyz III Men"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -2345,14 +2705,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "シンデレラガール",
         "team": "KILLER-SMILE"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2371,14 +2731,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "101オリジナル",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "Have a nice day!",
         "team": "Team Rapper Crew"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2397,14 +2757,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "HAPPY BIRTHDAY",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "残酷な天使のテーゼ",
         "team": "木原汰一"
+      },
+      "position_battle": {
+        "song": "HAPPY BIRTHDAY",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2423,14 +2783,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "(RE)PLAY",
         "team": "HIGH STEPS"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2454,14 +2814,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "行くぜっ!怪盗少女",
         "team": "純真"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2480,14 +2840,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "B",
-      "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "REBORNZ"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2506,14 +2866,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "夜桜お七",
         "team": "TO-GO"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2532,14 +2892,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2558,14 +2918,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "101オリジナル",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "NANIMONO",
         "team": "プチメン"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2584,14 +2944,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "Da-iCE - FAKESHOW",
         "team": "REBORNZ"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2610,14 +2970,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "B",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "SHAKE",
         "team": "DDD"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2636,14 +2996,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "Wherever you are",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2662,14 +3022,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "MY SWAGGER",
         "team": "UN Backers"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -2688,14 +3048,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "B",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "じょいふる",
         "team": "ペンペン"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2714,14 +3074,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "2",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "m-flo loves BoA - the Love Bug",
         "team": "渡邊兄弟"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -2740,14 +3100,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "Wherever you are",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "Chase the Chance",
         "team": "ビューティー4"
+      },
+      "position_battle": {
+        "song": "Wherever you are",
+        "team": "1",
+        "result": "win"
       }
     },
     {
@@ -2766,14 +3126,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "w-inds. - Dirty Talk",
         "team": "Boyz III Men"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2792,14 +3152,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "101オリジナル",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "BIG CITY RODEO",
         "team": "KSIX"
+      },
+      "position_battle": {
+        "song": "101オリジナル",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2818,14 +3178,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "Lemon",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "Loveless",
         "team": "18X↑"
+      },
+      "position_battle": {
+        "song": "Lemon",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2844,14 +3204,14 @@
       "eliminated_at": "ep5",
       "level_test": "C",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "WILD WILD WILD",
-        "team": "1",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "ダンシング・ヒーロー",
         "team": "アスリートBOYS"
+      },
+      "position_battle": {
+        "song": "WILD WILD WILD",
+        "team": "1",
+        "result": "lose"
       }
     },
     {
@@ -2870,14 +3230,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "HIGHLIGHT",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "STAY TUNE",
         "team": "慶應BOYS"
+      },
+      "position_battle": {
+        "song": "HIGHLIGHT",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2896,14 +3256,14 @@
       "eliminated_at": "ep5",
       "level_test": "D",
       "re_evaluation": "D",
-      "group_battle": {
-        "song": "DNA",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "m-flo loves BoA - the Love Bug",
         "team": "渡邊兄弟"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2922,14 +3282,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "STAY TUNE",
         "team": "慶應BOYS"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2948,14 +3308,14 @@
       "eliminated_at": "ep5",
       "level_test": "F",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "タマシイレボリューション",
-        "team": "2",
-        "result": "lose"
-      },
       "level_test_team": {
         "song": "Loveless",
         "team": "18X↑"
+      },
+      "position_battle": {
+        "song": "タマシイレボリューション",
+        "team": "2",
+        "result": "lose"
       }
     },
     {
@@ -2974,14 +3334,14 @@
       "eliminated_at": "ep5",
       "level_test": "B",
       "re_evaluation": "F",
-      "group_battle": {
-        "song": "OVER THE TOP",
-        "team": "2",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "じょいふる",
         "team": "ペンペン"
+      },
+      "position_battle": {
+        "song": "OVER THE TOP",
+        "team": "2",
+        "result": "win"
       }
     },
     {
@@ -2999,14 +3359,14 @@
       "eliminated_at": "left",
       "level_test": "F",
       "re_evaluation": "C",
-      "group_battle": {
-        "song": "DNA",
-        "team": "1",
-        "result": "win"
-      },
       "level_test_team": {
         "song": "サクラ",
         "team": "black belt"
+      },
+      "position_battle": {
+        "song": "DNA",
+        "team": "1",
+        "result": "win"
       }
     },
     {

@@ -134,6 +134,12 @@ function formatConceptLine(trainee) {
   return `${escapeHtml(cb.song)}${battleResultBadge(cb.result)}`;
 }
 
+function formatDebutEvalLine(trainee) {
+  const de = trainee.debut_evaluation;
+  if (!de || !de.song) return '';
+  return `${escapeHtml(de.song)}`;
+}
+
 function battleTooltipSingle(battle, { showTeam = true } = {}) {
   if (!battle || !battle.song) return '';
   const team = (showTeam && battle.team) ? ` [${battle.team}]` : '';
@@ -161,7 +167,7 @@ function levelHistoryCell(letter) {
   return `<td class="text-center px-1.5 py-1 border-b border-gray-100">${levelBadgeHtml(letter)}</td>`;
 }
 
-// 順位推移表の固定列 (名前直後に 6 列追加)
+// 順位推移表の固定列 (名前直後に 7 列追加)
 const FIXED_HISTORY_COLS = [
   { key: '__level__',   short: 'Lv',    label: 'レベル分けテスト (クラス)' },
   { key: '__reeval__',  short: '再',    label: '再評価 (クラス)' },
@@ -169,6 +175,7 @@ const FIXED_HISTORY_COLS = [
   { key: '__grpb__',    short: 'グル',  label: 'グループバトル課題曲' },
   { key: '__posb__',    short: 'ポジ',  label: 'ポジションバトル課題曲' },
   { key: '__conb__',    short: 'コンセ', label: 'コンセプト評価課題曲' },
+  { key: '__debut__',   short: 'FINAL', label: 'デビュー評価課題曲' },
 ];
 
 function fixedHistoryHeaderCells(activeKey, dir) {
@@ -184,7 +191,7 @@ function fixedHistoryHeaderCells(activeKey, dir) {
 }
 
 function fixedHistoryRowCells(trainee) {
-  return `${levelHistoryCell(trainee.level_test)}${levelHistoryCell(trainee.re_evaluation)}${battleHistoryCell(trainee.level_test_team, { showTeam: false })}${battleHistoryCell(trainee.group_battle)}${battleHistoryCell(trainee.position_battle)}${battleHistoryCell(trainee.concept_battle, { showTeam: false })}`;
+  return `${levelHistoryCell(trainee.level_test)}${levelHistoryCell(trainee.re_evaluation)}${battleHistoryCell(trainee.level_test_team, { showTeam: false })}${battleHistoryCell(trainee.group_battle)}${battleHistoryCell(trainee.position_battle)}${battleHistoryCell(trainee.concept_battle, { showTeam: false })}${battleHistoryCell(trainee.debut_evaluation, { showTeam: false })}`;
 }
 
 function historyCell(rank, debutCap = 11) {
@@ -291,12 +298,13 @@ function sortTraineesForHistory(trainees, sortKey, dir) {
     });
     return arr;
   }
-  if (sortKey === '__lvtest__' || sortKey === '__grpb__' || sortKey === '__posb__' || sortKey === '__conb__') {
+  if (sortKey === '__lvtest__' || sortKey === '__grpb__' || sortKey === '__posb__' || sortKey === '__conb__' || sortKey === '__debut__') {
     const field = {
       __lvtest__: 'level_test_team',
       __grpb__:   'group_battle',
       __posb__:   'position_battle',
       __conb__:   'concept_battle',
+      __debut__:  'debut_evaluation',
     }[sortKey];
     arr.sort((a, b) => {
       const av = (a[field] && a[field].song) || '';
@@ -1757,13 +1765,14 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
         ${typeof votes === 'number'
           ? `<div class="text-[10px] sm:text-xs text-gray-600 mt-1 font-display">${fmt(votes)} <span class="text-gray-400">votes</span></div>`
           : ''}
-        ${(trainee.level_test || trainee.re_evaluation || trainee.level_test_team || trainee.group_battle || trainee.position_battle || trainee.concept_battle)
+        ${(trainee.level_test || trainee.re_evaluation || trainee.level_test_team || trainee.group_battle || trainee.position_battle || trainee.concept_battle || trainee.debut_evaluation)
           ? `<div class="mt-1 pt-1 border-t border-gray-100 text-[10px] sm:text-[11px] text-gray-600 leading-tight space-y-0.5">
                ${(trainee.level_test || trainee.re_evaluation) ? `<div class="truncate">${formatLevelLine(trainee)}</div>` : ''}
                ${trainee.level_test_team ? `<div class="truncate" title="レベル分けテスト課題曲: ${escapeHtml(trainee.level_test_team.song || '')}">${formatLevelTestLine(trainee)}</div>` : ''}
                ${trainee.group_battle    ? `<div class="truncate" title="グループバトル: ${escapeHtml(trainee.group_battle.song || '')}">${formatGroupBattleLine(trainee)}</div>` : ''}
                ${trainee.position_battle ? `<div class="truncate" title="ポジションバトル: ${escapeHtml(trainee.position_battle.song || '')}">${formatPositionLine(trainee)}</div>` : ''}
                ${trainee.concept_battle  ? `<div class="truncate" title="コンセプト評価: ${escapeHtml(trainee.concept_battle.song || '')}">${formatConceptLine(trainee)}</div>`  : ''}
+               ${trainee.debut_evaluation? `<div class="truncate" title="デビュー評価: ${escapeHtml(trainee.debut_evaluation.song || '')}">${formatDebutEvalLine(trainee)}</div>` : ''}
              </div>`
           : ''}
       </div>
