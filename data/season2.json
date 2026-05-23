@@ -117,7 +117,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "舞い落ちる花びら",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -159,7 +159,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "Pretender",
-        "team": null,
+        "team": "Vocal",
         "result": "win"
       },
       "concept_battle": {
@@ -201,7 +201,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "Nobody Else",
-        "team": null,
+        "team": "Rap",
         "result": "win"
       },
       "concept_battle": {
@@ -243,7 +243,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "花束のかわりにメロディーを",
-        "team": null,
+        "team": "Vocal",
         "result": "win"
       },
       "concept_battle": {
@@ -285,7 +285,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "Dynamite",
-        "team": null,
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -327,7 +327,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "Nobody Else",
-        "team": null,
+        "team": "Rap",
         "result": null
       },
       "concept_battle": {
@@ -369,7 +369,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -411,7 +411,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "舞い落ちる花びら",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -453,7 +453,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Nobody Else",
-        "team": null,
+        "team": "Rap",
         "result": null
       },
       "concept_battle": {
@@ -495,7 +495,7 @@
       "re_evaluation": "F",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -537,7 +537,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -579,7 +579,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -621,7 +621,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "Dynamite",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -663,7 +663,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "花束のかわりにメロディーを",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -705,7 +705,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "舞い落ちる花びら",
-        "team": null,
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -747,7 +747,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "舞い落ちる花びら",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -789,7 +789,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "Dynamite",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -831,7 +831,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "花束のかわりにメロディーを",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -873,7 +873,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Overall",
-        "team": null,
+        "team": "Rap",
         "result": "win"
       },
       "concept_battle": {
@@ -915,7 +915,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "花束のかわりにメロディーを",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -957,7 +957,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "さよなら青春",
-        "team": null,
+        "team": "Vocal",
         "result": "win"
       },
       "concept_battle": {
@@ -998,7 +998,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "さよなら青春",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1036,7 +1036,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1074,7 +1074,7 @@
       "re_evaluation": "F",
       "position_battle": {
         "song": "さよなら青春",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1112,7 +1112,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "さよなら青春",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1150,7 +1150,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "Overall",
-        "team": null,
+        "team": "Rap",
         "result": null
       },
       "concept_battle": {
@@ -1188,7 +1188,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "Na",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1226,7 +1226,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "Pretender",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1264,7 +1264,7 @@
       "re_evaluation": "F",
       "position_battle": {
         "song": "Dynamite",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1302,7 +1302,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "Na",
-        "team": null,
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -1340,7 +1340,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Overall",
-        "team": null,
+        "team": "Rap",
         "result": null
       },
       "concept_battle": {
@@ -1378,7 +1378,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "Dynamite",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1416,7 +1416,7 @@
       "re_evaluation": "C",
       "position_battle": {
         "song": "OH-EH-OH",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1454,7 +1454,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Na",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1492,7 +1492,7 @@
       "re_evaluation": "F",
       "position_battle": {
         "song": "Pretender",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1530,7 +1530,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Overall",
-        "team": null,
+        "team": "Rap",
         "result": null
       },
       "concept_battle": {
@@ -1568,7 +1568,7 @@
       "re_evaluation": "B",
       "position_battle": {
         "song": "Na",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1606,7 +1606,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "さよなら青春",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1644,7 +1644,7 @@
       "re_evaluation": "A",
       "position_battle": {
         "song": "舞い落ちる花びら",
-        "team": null,
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1682,7 +1682,7 @@
       "re_evaluation": "D",
       "position_battle": {
         "song": "Pretender",
-        "team": null,
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {

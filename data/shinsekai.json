@@ -66,7 +66,7 @@
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
+        "team": "Vocal/Rap/Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -101,7 +101,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -136,7 +136,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -171,7 +171,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -206,7 +206,7 @@
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
+        "team": "Vocal/Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -238,7 +238,7 @@
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
+        "team": "Vocal/Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -270,7 +270,7 @@
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
+        "team": "Vocal/Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -305,7 +305,7 @@
       },
       "position_battle": {
         "song": "宿命",
-        "team": "チアトレーニーズ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -337,7 +337,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -372,7 +372,7 @@
       },
       "position_battle": {
         "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "team": "Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -407,7 +407,7 @@
       },
       "position_battle": {
         "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -442,7 +442,7 @@
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
+        "team": "Vocal/Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -477,7 +477,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -512,7 +512,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -547,7 +547,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -582,7 +582,7 @@
       },
       "position_battle": {
         "song": "宿命",
-        "team": "チアトレーニーズ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -612,7 +612,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -647,7 +647,7 @@
       },
       "position_battle": {
         "song": "宿命",
-        "team": "チアトレーニーズ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -682,7 +682,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -717,7 +717,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -752,7 +752,7 @@
       },
       "position_battle": {
         "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "team": "Self Produce",
         "result": "win"
       },
       "concept_battle": {
@@ -787,7 +787,7 @@
       },
       "position_battle": {
         "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "team": "Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -822,7 +822,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -857,7 +857,7 @@
       },
       "position_battle": {
         "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
+        "team": "Vocal",
         "result": "win"
       },
       "concept_battle": {
@@ -889,7 +889,7 @@
       },
       "position_battle": {
         "song": "宿命",
-        "team": "チアトレーニーズ",
+        "team": "Vocal",
         "result": "win"
       },
       "concept_battle": {
@@ -924,7 +924,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -959,7 +959,7 @@
       },
       "position_battle": {
         "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "team": "Rap/Dance",
         "result": "win"
       },
       "concept_battle": {
@@ -994,7 +994,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1029,7 +1029,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": null
       },
       "concept_battle": {
@@ -1064,7 +1064,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1099,7 +1099,7 @@
       },
       "position_battle": {
         "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1134,7 +1134,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1169,7 +1169,7 @@
       },
       "position_battle": {
         "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
+        "team": "Vocal",
         "result": null
       },
       "concept_battle": {
@@ -1204,7 +1204,7 @@
       },
       "position_battle": {
         "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "team": "Self Produce",
         "result": null
       },
       "concept_battle": {
@@ -1239,7 +1239,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       },
       "concept_battle": {
@@ -1274,7 +1274,7 @@
       },
       "position_battle": {
         "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "team": "Self Produce",
         "result": null
       }
     },
@@ -1304,7 +1304,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1334,7 +1334,7 @@
       },
       "position_battle": {
         "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "team": "Self Produce",
         "result": null
       }
     },
@@ -1364,7 +1364,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1394,7 +1394,7 @@
       },
       "position_battle": {
         "song": "Natural",
-        "team": "Nature Self",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1424,7 +1424,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": null
       }
     },
@@ -1454,7 +1454,7 @@
       },
       "position_battle": {
         "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "team": "Rap/Dance",
         "result": null
       }
     },
@@ -1484,7 +1484,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1514,7 +1514,7 @@
       },
       "position_battle": {
         "song": "BE CLASSIC",
-        "team": "101交響楽団",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1544,7 +1544,7 @@
       },
       "position_battle": {
         "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "team": "Self Produce",
         "result": null
       }
     },
@@ -1574,7 +1574,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1599,7 +1599,7 @@
       },
       "position_battle": {
         "song": "손오공 Super",
-        "team": "SEVENKING",
+        "team": "Dance",
         "result": null
       }
     },
@@ -1624,7 +1624,7 @@
       },
       "position_battle": {
         "song": "宿命",
-        "team": "チアトレーニーズ",
+        "team": "Vocal",
         "result": null
       }
     },
@@ -1654,7 +1654,7 @@
       },
       "position_battle": {
         "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "team": "Rap/Dance",
         "result": null
       }
     },
@@ -1679,7 +1679,7 @@
       },
       "position_battle": {
         "song": "WORK HARD",
-        "team": "MVR",
+        "team": "Rap/Dance",
         "result": null
       }
     },
