@@ -79,7 +79,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Rap",
+        "team": "Track Beats (Rap)",
         "result": "lose"
       },
       "concept_battle": {
@@ -160,7 +160,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "First Love",
-        "team": "Vocal",
+        "team": "Final LOVE (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -202,7 +202,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Shine A Light",
-        "team": "Vocal",
+        "team": "Shines (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -243,7 +243,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "concept_battle": {
@@ -283,7 +283,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "First Love",
-        "team": "Vocal",
+        "team": "Final LOVE (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -324,7 +324,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "Hero",
-        "team": "Vocal",
+        "team": "ヒーローズ (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -407,7 +407,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "concept_battle": {
@@ -448,7 +448,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Hero",
-        "team": "Vocal",
+        "team": "ヒーローズ (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -489,7 +489,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "おもかげ",
-        "team": "Vocal",
+        "team": "realize (Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -530,7 +530,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "First Love",
-        "team": "Vocal",
+        "team": "Final LOVE (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -570,7 +570,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "concept_battle": {
@@ -611,7 +611,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "Shine A Light",
-        "team": "Vocal",
+        "team": "Shines (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -653,7 +653,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -693,7 +693,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "ANTIFRAGILE",
-        "team": "Dance",
+        "team": "peony (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -735,7 +735,7 @@
       "level_test": "C",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -775,7 +775,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "concept_battle": {
@@ -816,7 +816,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "おもかげ",
-        "team": "Vocal",
+        "team": "realize (Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -857,7 +857,7 @@
       "eliminated_at": "ep11",
       "position_battle": {
         "song": "おもかげ",
-        "team": "Vocal",
+        "team": "realize (Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -897,7 +897,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -935,7 +935,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -971,7 +971,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "First Love",
-        "team": "Vocal",
+        "team": "Final LOVE (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1008,7 +1008,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Rap",
+        "team": "Track Beats (Rap)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1045,7 +1045,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Hero",
-        "team": "Vocal",
+        "team": "ヒーローズ (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1082,7 +1082,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shine A Light",
-        "team": "Vocal",
+        "team": "Shines (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1156,7 +1156,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1193,7 +1193,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "ANTIFRAGILE",
-        "team": "Dance",
+        "team": "peony (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1230,7 +1230,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "concept_battle": {
@@ -1268,7 +1268,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "おもかげ",
-        "team": "Vocal",
+        "team": "realize (Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -1304,7 +1304,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1341,7 +1341,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1378,7 +1378,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shine A Light",
-        "team": "Vocal",
+        "team": "Shines (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1415,7 +1415,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Rap",
+        "team": "Track Beats (Rap)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1451,7 +1451,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Rap",
+        "team": "Track Beats (Rap)",
         "result": "lose"
       },
       "level_test": "F",
@@ -1482,7 +1482,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "B",
@@ -1513,7 +1513,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "F",
@@ -1544,7 +1544,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "C",
@@ -1575,7 +1575,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "B",
@@ -1606,7 +1606,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "ANTIFRAGILE",
-        "team": "Dance",
+        "team": "peony (Dance)",
         "result": "lose"
       },
       "level_test": "C",
@@ -1637,7 +1637,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "Hero",
-        "team": "Vocal",
+        "team": "ヒーローズ (Vocal)",
         "result": "lose"
       },
       "level_test": "D",
@@ -1668,7 +1668,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "ANTIFRAGILE",
-        "team": "Dance",
+        "team": "peony (Dance)",
         "result": "lose"
       },
       "level_test": "B",
@@ -1699,7 +1699,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "Shine A Light",
-        "team": "Vocal",
+        "team": "Shines (Vocal)",
         "result": "lose"
       },
       "level_test": "D",
@@ -1730,7 +1730,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "ANTIFRAGILE",
-        "team": "Dance",
+        "team": "peony (Dance)",
         "result": "lose"
       },
       "level_test": "C",
@@ -1761,7 +1761,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "RUN RUN",
-        "team": "Dance",
+        "team": "W Fighters (Dance)",
         "result": "lose"
       },
       "level_test": "D",
@@ -1792,7 +1792,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "C",
@@ -1823,7 +1823,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "level_test": "A",
@@ -1855,7 +1855,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Rocketeer",
-        "team": "Dance",
+        "team": "Space7 (Dance)",
         "result": "win"
       },
       "re_evaluation": "A",
@@ -1885,7 +1885,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "WADADA",
-        "team": "Dance",
+        "team": "MADADA (Dance)",
         "result": "lose"
       },
       "level_test": "A",
