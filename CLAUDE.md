@@ -137,8 +137,8 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 
 - **クラスバッジ色** (番組準拠): A=ピンク / B=オレンジ / C=黄 / D=緑 / F=灰 (PRODUCE X 101 系統)。`LEVEL_BADGE_CLASS` を編集すれば調整可。確認ソース: Amazon の公式系グッズ「Aクラス ピンク Tシャツ」「Bクラス オレンジ Tシャツ」。
 - **勝敗バッジ**: `WIN` (緑) のみを `battleResultBadge()` で生成。`result: "lose"` や `null` はバッジ非表示 (LOSE バッジは敗北を強調しすぎるためユーザー指示で削除済み)。
-- **コンセプト / FINAL / level_test_team は team を非表示**: `fixedHistoryRowCells()` 内で `battleHistoryCell(cb, {showTeam:false})` を渡しており、たとえ将来 team に値が入っても表示されない (= 「曲名のみで表示」の不変条件)。
-- **グル / ポジ の team 表示フォーマット**: `formatTeamLabel(team)` (app.js) が変換ヘルパー。**純粋な数字文字列のみ** (`/^\d+$/`) を `"N組"` に変換 (例: `"1"` → `"1組"`, `"2"` → `"2組"`)。それ以外 (`"Vocal"`, `"Rap/Dance"`, `"Self Produce"` 等) はそのまま表示。**注意**: 数字混在文字列 (例: `"101交響楽団"`) は変換されない (旧実装の `(\d+)` 部分マッチを `^\d+$` に厳格化済み、commit `7543da1`)。`battleHistoryCell()` と `battleTooltipSingle()` の両方が同じヘルパーを使うので、セル表示とツールチップは常に整合する。
+- **全 7 固定列で team を非表示**: `fixedHistoryRowCells()` 内で `battleHistoryCell(*, {showTeam:false})` を全列で渡しており、`group_battle.team` (1組/2組) も `position_battle.team` (Vocal/Dance/Rap/concept name 等) も曲名の下に表示されない。データは保持されているが UI 上は曲名 + WIN バッジのみ (= 「曲名のみで表示」の不変条件、全列共通)。
+- **`formatTeamLabel()` は dead code 化**: 純粋数字 (`/^\d+$/`) を `"N組"` に変換するヘルパー (app.js) は現在 `showTeam:false` のため呼ばれない。将来 team subtitle を復活させる場合の保険として残存。
 - **`concept_battle.song` は曲名、`team` はチーム名** を厳守 (例: THE GIRLS は `&ME` 曲を `NALALA` チームが担当 = `{"song": "&ME", "team": "NALALA"}`)。team 名を song に入れないこと。データ取り込み時は cakcp.com の歌詞 URL 等が `<曲名>（<チーム名>）` の形式で publish しているため照合可能。
 - **`level_test_team.song` の表記**: アーティスト名プレフィックス (`Artist - Title` / `Artist「Title」` / `Artist：Title`) はすべて剥がして曲名のみ保存する不変条件。データ取り込みスクリプトを書く際は `Da-iCE`/`w-inds.`/`m-flo` のように artist 名に `-` を含むケースに注意 (正規表現で素朴に剥がせない)。
 

@@ -197,7 +197,7 @@ function fixedHistoryHeaderCells(activeKey, dir) {
 }
 
 function fixedHistoryRowCells(trainee) {
-  return `${levelHistoryCell(trainee.level_test)}${levelHistoryCell(trainee.re_evaluation)}${battleHistoryCell(trainee.level_test_team, { showTeam: false })}${battleHistoryCell(trainee.group_battle)}${battleHistoryCell(trainee.position_battle)}${battleHistoryCell(trainee.concept_battle, { showTeam: false })}${battleHistoryCell(trainee.debut_evaluation, { showTeam: false })}`;
+  return `${levelHistoryCell(trainee.level_test)}${levelHistoryCell(trainee.re_evaluation)}${battleHistoryCell(trainee.level_test_team, { showTeam: false })}${battleHistoryCell(trainee.group_battle, { showTeam: false })}${battleHistoryCell(trainee.position_battle, { showTeam: false })}${battleHistoryCell(trainee.concept_battle, { showTeam: false })}${battleHistoryCell(trainee.debut_evaluation, { showTeam: false })}`;
 }
 
 function historyCell(rank, debutCap = 11) {
