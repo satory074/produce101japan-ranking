@@ -118,8 +118,14 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 1. `level_test`: `"A" | "B" | "C" | "D" | "F"` — レベル分けテスト初期評価 (クラス)
 2. `re_evaluation`: 同上 — 再評価結果 (クラス)
 3. `level_test_team`: `{ song, team? }` — レベル分けテストで歌った課題曲。`team` はチーム名 (例: `"アオハル"`) で表示には使わない
-4. `group_battle`: `{ song, team?, result? }` — グループバトル (Episode 3-4)。`result: "win"|"lose"|null`。S1 は単一チーム制で `team: null`、**S2 / THE GIRLS / SHINSEKAI は 2 チーム制で `"1"|"2"`** (= 全シーズン共通フォーマット)。SHINSEKAI は番組放送では「1組/2組」と コンセプト名 (`TO BE ENERGY`, `Heart Shakers`, `CREEEPY DEVILS` 等) の二重ラベルだったが、データ層では `"1"`/`"2"` のみ保持 — コンセプト名は完全削除した (commit `7543da1`、根拠: kpop-oyaji.com の番組まとめ)。
-5. `position_battle`: `{ song, team, result }` — ポジションバトル (Episode 6-7 前後)。**全シーズンで `team` は Vocal/Dance/Rap のいずれか** (SHINSEKAI のみハイブリッド可: `"Vocal/Rap/Dance"`, `"Rap/Dance"`, `"Self Produce"`)。S1 は Vocal/Dance/Rap カテゴリのカバー曲で 2 チーム制 (旧データは `team: "1"|"2"` だったが commit `c5615e4` で曲ごとの正規カテゴリに置換、`result: "win"|"lose"` で 1vs2 の勝者を識別可能)。S2 は 9 曲単独チーム (旧 `team: null` → 同コミットで V/D/R 付与、`result: "win"` のみ勝者)。THE GIRLS は元から V/D/R。SHINSEKAI は OPEN ROUND 形式で V/D/R 撤廃のため一部曲はハイブリッドラベル (例: Doctor! Doctor!=`Vocal/Rap/Dance`, DOMINANCE/WORK HARD=`Rap/Dance`, My Grandfather's Clock=`Self Produce`)。根拠: S1/S2 は imokorori.com、SHINSEKAI は kpop-oyaji.com。
+4. `group_battle`: `{ song, team?, result? }` — グループバトル。**S2 / THE GIRLS / SHINSEKAI は Ep 3-4、S1 のみ Ep 6-7 (= position_battle の後)** に放送。`result: "win"|"lose"|null`。
+   - **S2 / THE GIRLS / SHINSEKAI**: 2 チーム頭出し対戦形式、`team: "1"|"2"`。SHINSEKAI の旧コンセプト名 (`TO BE ENERGY`, `Heart Shakers`, `CREEEPY DEVILS` 等) は二重ラベルだったが commit `7543da1` で `"1"`/`"2"` のみに正規化 (根拠: kpop-oyaji.com)
+   - **S1**: 10 曲 × 1 チーム 6 名のショーケース形式 (頭出し対戦ではなく得票順 1〜10 位を競う)、`team: "{曲名}組"` (例: `FIRE組`, `RAISE THE FLAG組`)。`result` は `null` (勝敗バッジなし)
+5. `position_battle`: `{ song, team, result }` — ポジションバトル。**S1 のみ Ep 3-4 (= group_battle の前)、S2 / TG / SHINSEKAI は Ep 6-7 前後** に放送。
+   - **S1**: 9 曲 × 2 チーム (1組 vs 2組) × V/D/R カテゴリ。team は `"Vocal N組"|"Dance N組"|"Rap N組"` の併記形式 (commit に追加、根拠: imokorori.com)。`result: "win"|"lose"` で勝者判定
+   - **S2**: 9 曲単独チーム (`result: "win"` のみ勝者)。team は `Vocal|Dance|Rap` のいずれか (commit `c5615e4`、根拠: imokorori.com)
+   - **THE GIRLS**: 元から `Vocal|Dance|Rap`、`result: "win"` のみ勝者
+   - **SHINSEKAI**: OPEN ROUND 形式で V/D/R 撤廃のため一部曲はハイブリッドラベル (例: `Doctor! Doctor!`=`Vocal/Rap/Dance`, `DOMINANCE`/`WORK HARD`=`Rap/Dance`, `My Grandfather's Clock`=`Self Produce`)。根拠: kpop-oyaji.com
 6. `concept_battle`: `{ song, team, result }` — コンセプト評価。S1 は勝敗あり (`result:"win"|"lose"`)、S2 は全員 `result:null` (脱落なし)、THE GIRLS / SHINSEKAI は 1 位チームのみ `result:"win"`、それ以外 `null`
 7. `debut_evaluation`: `{ song, team?, result? }` — デビュー評価 (FINAL) 課題曲 (Episode 11-12)。Top 20-21 圏内のみ。`result` は通常 `null` (全員ファイナリスト)、team も使わないが、スキーマ統一のため battle 系と同じ object 形式
 
@@ -127,7 +133,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 
 **カード下部**: レベル行 (`[A] → [A]`) + 評価系最大 5 行 (初/グル/ポジ/コンセ/FINAL)、合計最大 6 行。ラベル (`Lv:` / `初:` 等) は付けない (ユーザー指示で削除済み — バッジの色とコンテキストで判別)。各行は `truncate` で 1 行固定、`title` 属性に full text。
 
-**順位推移表**: 名前列直後に **7 固定列**: `Lv / 再 / 初曲 / グル / ポジ / コンセ / FINAL`。ソートキーは `__level__` / `__reeval__` / `__lvtest__` / `__grpb__` / `__posb__` / `__conb__` / `__debut__` (`FIXED_HISTORY_COLS` 参照)。
+**順位推移表**: 名前列直後に **7 固定列**: `Lv / 再 / 初曲 / グル / ポジ / コンセ / FINAL`。ソートキーは `__level__` / `__reeval__` / `__lvtest__` / `__grpb__` / `__posb__` / `__conb__` / `__debut__` (`FIXED_HISTORY_COLS` 参照)。**列順は S2/TG/SHINSEKAI のデフォルト時系列 (グループ→ポジション) に固定**。S1 のみ実放送順 (ポジション → グループ) と表示順が逆になるが、列順自体は不変としユーザーは内容で判別する方針 (= スキーマと UI の単純さを優先)。
 
 - **クラスバッジ色** (番組準拠): A=ピンク / B=オレンジ / C=黄 / D=緑 / F=灰 (PRODUCE X 101 系統)。`LEVEL_BADGE_CLASS` を編集すれば調整可。確認ソース: Amazon の公式系グッズ「Aクラス ピンク Tシャツ」「Bクラス オレンジ Tシャツ」。
 - **勝敗バッジ**: `WIN` (緑) のみを `battleResultBadge()` で生成。`result: "lose"` や `null` はバッジ非表示 (LOSE バッジは敗北を強調しすぎるためユーザー指示で削除済み)。
