@@ -124,7 +124,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 5. `position_battle`: `{ song, team, result }` — ポジションバトル。**S1 のみ Ep 3-4 (= group_battle の前)、S2 / TG / SHINSEKAI は Ep 6-7 前後** に放送。
    - **S1**: 9 曲 × 2 チーム (1組 vs 2組) × V/D/R カテゴリ (V=4/R=1/D=4)。team は `"Vocal N組"|"Dance N組"|"Rap N組"` の併記形式 (commit `cccf455`、根拠: Wikipedia + imokorori.com)。`result: "win"|"lose"` で勝者判定
    - **S2**: 9 曲単独チーム (V=3/R=2/D=3/**HIDDEN=1**)。team は `Vocal|Dance|Rap|Hidden` のいずれか。Dynamite が HIDDEN 曲 (= 当初 Dance 扱いだったが Wikipedia 確認後修正)。`result: "win"` のみ勝者
-   - **THE GIRLS**: 10 曲単独チーム (V=4/D=5/R+V=2)。番組はテーマ別チーム名 (ヒーローズ / Shines / peony / 等) と V/D/R 併記が標準。team は `"{theme} ({V/D/R})"` 形式 (例: `"ヒーローズ (Vocal)"`, `"peony (Dance)"`)。チーム名不明の曲は team が `"Vocal"|"Dance"|"Rap"` のみ (例: 美人 = `"Rap"`)。`result: "win"` のみ勝者
+   - **THE GIRLS**: 10 曲単独チーム (V=4/D=4/**Rap&Vocal=2**)。番組はテーマ別チーム名 (ヒーローズ / Shines / peony / Track Beat / ウチら 等) と V/D/R/Rap&Vocal の併記が標準。team は `"{theme} ({V/D/R | Rap&Vocal})"` 形式 (例: `"ヒーローズ (Vocal)"`, `"peony (Dance)"`, `"ウチら (Rap&Vocal)"`, `"Track Beat (Rap&Vocal)"`)。`result: "win"` のみ勝者。出典: Wikipedia
    - **SHINSEKAI**: OPEN ROUND 形式 (V/D/R 撤廃)。team は番組内のコンセプト名 (`"LOVE MANUAL"`, `"SEVENKING"`, `"101交響楽団"`, `"PUNCH LINERS"`, `"Nature Self"`, `"MVR"`, `"TEAMきらふわ"`, `"FOR:ever"`, `"チアトレーニーズ"`)。`result: "win"` で 9 曲の各チーム勝者を識別 (= 番組内ランキング)。根拠: kpop-oyaji.com + chomoand-1.com
 6. `concept_battle`: `{ song, team, result }` — コンセプト評価。S1 は勝敗あり (`result:"win"|"lose"`)、S2 は全員 `result:null` (脱落なし)、THE GIRLS / SHINSEKAI は 1 位チームのみ `result:"win"`、それ以外 `null`
 7. `debut_evaluation`: `{ song, team?, result? }` — デビュー評価 (FINAL) 課題曲 (Episode 11-12)。Top 20-21 圏内のみ。`result` は通常 `null` (全員ファイナリスト)、team も使わないが、スキーマ統一のため battle 系と同じ object 形式

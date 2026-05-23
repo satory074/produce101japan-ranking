@@ -79,7 +79,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Track Beats (Rap)",
+        "team": "Track Beat (Rap&Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -119,7 +119,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "美人",
-        "team": "Rap",
+        "team": "ウチら (Rap&Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -160,7 +160,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "First Love",
-        "team": "Final LOVE (Vocal)",
+        "team": "Final Love (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -283,7 +283,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "First Love",
-        "team": "Final LOVE (Vocal)",
+        "team": "Final Love (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -365,7 +365,7 @@
       "eliminated_at": null,
       "position_battle": {
         "song": "美人",
-        "team": "Rap",
+        "team": "ウチら (Rap&Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -530,7 +530,7 @@
       "level_test": "B",
       "position_battle": {
         "song": "First Love",
-        "team": "Final LOVE (Vocal)",
+        "team": "Final Love (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -971,7 +971,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "First Love",
-        "team": "Final LOVE (Vocal)",
+        "team": "Final Love (Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1008,7 +1008,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Track Beats (Rap)",
+        "team": "Track Beat (Rap&Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1120,7 +1120,7 @@
       "level_test": "A",
       "position_battle": {
         "song": "美人",
-        "team": "Rap",
+        "team": "ウチら (Rap&Vocal)",
         "result": "win"
       },
       "concept_battle": {
@@ -1415,7 +1415,7 @@
       "eliminated_at": "ep10",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Track Beats (Rap)",
+        "team": "Track Beat (Rap&Vocal)",
         "result": "lose"
       },
       "concept_battle": {
@@ -1451,7 +1451,7 @@
       "eliminated_at": "ep8",
       "position_battle": {
         "song": "Shut Down",
-        "team": "Track Beats (Rap)",
+        "team": "Track Beat (Rap&Vocal)",
         "result": "lose"
       },
       "level_test": "F",
