@@ -143,8 +143,7 @@ function formatDebutEvalLine(trainee) {
 function formatTeamLabel(team) {
   if (!team) return '';
   const s = String(team);
-  const m = s.match(/(\d+)/);
-  return m ? `${m[1]}組` : s;
+  return /^\d+$/.test(s) ? `${s}組` : s;
 }
 
 function battleTooltipSingle(battle, { showTeam = true } = {}) {
