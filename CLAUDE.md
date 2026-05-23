@@ -36,6 +36,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 | デビュー人数を 11 以外に (例: SHINSEKAI=12) | `data/<season>.json` | トップレベル `debut_count` を追加 (省略時 11)。`app.js` 全体に `debutCap` として propagate される |
 | 公式プロフィールリンクの URL を変更 | `assets/app.js` | `PROFILE_URL_TEMPLATE` (シーズン別テンプレ、`{image_id}` を差し替え) |
 | 新しい評価ステージを追加 (例: 新世界の position battle) | 2 ファイル | `data/<season>.json` の trainees[] に optional フィールド追加 + `app.js` で `formatXxxLine()` + `FIXED_HISTORY_COLS` + `fixedHistoryRowCells()` 拡張 |
+| グル / ポジ の team 表示ルールを変える | `assets/app.js` | `formatTeamLabel(team)` を編集 (現在: `^\d+$` のみ「N組」変換、他はパススルー) |
 | カードのコンパクト/詳細グリッド列数を調整 | `assets/app.js` | `COMPACT_GRID_CLS` / `DETAILED_GRID_CLS` 定数 (それぞれ Tailwind grid-cols-* 文字列) |
 | `app.js` 更新後にブラウザキャッシュを無効化 | `index.html` | 末尾の `<script src="./assets/app.js?v=...">` の `v=` を新値に更新 |
 | OG 画像 (`assets/og.png` 1200×630) を再生成 | `assets/og.png` | 軽微な書き換えなら直接 PNG を差し替え。レイアウト変更時は `uv run --no-project --with Pillow python3 …` で再描画する (生成スクリプト本体は commit c8a95cd の中身を参照)。`index.html` の `og:image` URL は固定なので画像差し替えだけで OK |
@@ -117,8 +118,8 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 1. `level_test`: `"A" | "B" | "C" | "D" | "F"` — レベル分けテスト初期評価 (クラス)
 2. `re_evaluation`: 同上 — 再評価結果 (クラス)
 3. `level_test_team`: `{ song, team? }` — レベル分けテストで歌った課題曲。`team` はチーム名 (例: `"アオハル"`) で表示には使わない
-4. `group_battle`: `{ song, team?, result? }` — グループバトル (Episode 3-4)。`result: "win"|"lose"|null`。S1 は単一チーム制で `team: null`、S2 は 2 チーム制で `"1"|"2"`、THE GIRLS は 2 チーム制で `"1"|"2"`、SHINSEKAI も 2 チーム制
-5. `position_battle`: `{ song, team, result }` — ポジションバトル (Episode 6-7 前後)。S1 は Vocal/Dance/Rap カテゴリのカバー曲で 2 チーム制 (`team: "1"|"2"`、`result: "win"|"lose"`)。S2 は 9 曲単独チームで `team: null`、9 曲のシングル勝者のみ `result: "win"`。THE GIRLS / SHINSEKAI は `team: "Vocal"|"Dance"|"Rap"` でポジション分割
+4. `group_battle`: `{ song, team?, result? }` — グループバトル (Episode 3-4)。`result: "win"|"lose"|null`。S1 は単一チーム制で `team: null`、**S2 / THE GIRLS / SHINSEKAI は 2 チーム制で `"1"|"2"`** (= 全シーズン共通フォーマット)。SHINSEKAI は番組放送では「1組/2組」と コンセプト名 (`TO BE ENERGY`, `Heart Shakers`, `CREEEPY DEVILS` 等) の二重ラベルだったが、データ層では `"1"`/`"2"` のみ保持 — コンセプト名は完全削除した (commit `7543da1`、根拠: kpop-oyaji.com の番組まとめ)。
+5. `position_battle`: `{ song, team, result }` — ポジションバトル (Episode 6-7 前後)。**全シーズンで `team` は Vocal/Dance/Rap のいずれか** (SHINSEKAI のみハイブリッド可: `"Vocal/Rap/Dance"`, `"Rap/Dance"`, `"Self Produce"`)。S1 は Vocal/Dance/Rap カテゴリのカバー曲で 2 チーム制 (旧データは `team: "1"|"2"` だったが commit `c5615e4` で曲ごとの正規カテゴリに置換、`result: "win"|"lose"` で 1vs2 の勝者を識別可能)。S2 は 9 曲単独チーム (旧 `team: null` → 同コミットで V/D/R 付与、`result: "win"` のみ勝者)。THE GIRLS は元から V/D/R。SHINSEKAI は OPEN ROUND 形式で V/D/R 撤廃のため一部曲はハイブリッドラベル (例: Doctor! Doctor!=`Vocal/Rap/Dance`, DOMINANCE/WORK HARD=`Rap/Dance`, My Grandfather's Clock=`Self Produce`)。根拠: S1/S2 は imokorori.com、SHINSEKAI は kpop-oyaji.com。
 6. `concept_battle`: `{ song, team, result }` — コンセプト評価。S1 は勝敗あり (`result:"win"|"lose"`)、S2 は全員 `result:null` (脱落なし)、THE GIRLS / SHINSEKAI は 1 位チームのみ `result:"win"`、それ以外 `null`
 7. `debut_evaluation`: `{ song, team?, result? }` — デビュー評価 (FINAL) 課題曲 (Episode 11-12)。Top 20-21 圏内のみ。`result` は通常 `null` (全員ファイナリスト)、team も使わないが、スキーマ統一のため battle 系と同じ object 形式
 
@@ -131,6 +132,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 - **クラスバッジ色** (番組準拠): A=ピンク / B=オレンジ / C=黄 / D=緑 / F=灰 (PRODUCE X 101 系統)。`LEVEL_BADGE_CLASS` を編集すれば調整可。確認ソース: Amazon の公式系グッズ「Aクラス ピンク Tシャツ」「Bクラス オレンジ Tシャツ」。
 - **勝敗バッジ**: `WIN` (緑) のみを `battleResultBadge()` で生成。`result: "lose"` や `null` はバッジ非表示 (LOSE バッジは敗北を強調しすぎるためユーザー指示で削除済み)。
 - **コンセプト / FINAL / level_test_team は team を非表示**: `fixedHistoryRowCells()` 内で `battleHistoryCell(cb, {showTeam:false})` を渡しており、たとえ将来 team に値が入っても表示されない (= 「曲名のみで表示」の不変条件)。
+- **グル / ポジ の team 表示フォーマット**: `formatTeamLabel(team)` (app.js) が変換ヘルパー。**純粋な数字文字列のみ** (`/^\d+$/`) を `"N組"` に変換 (例: `"1"` → `"1組"`, `"2"` → `"2組"`)。それ以外 (`"Vocal"`, `"Rap/Dance"`, `"Self Produce"` 等) はそのまま表示。**注意**: 数字混在文字列 (例: `"101交響楽団"`) は変換されない (旧実装の `(\d+)` 部分マッチを `^\d+$` に厳格化済み、commit `7543da1`)。`battleHistoryCell()` と `battleTooltipSingle()` の両方が同じヘルパーを使うので、セル表示とツールチップは常に整合する。
 - **`concept_battle.song` は曲名、`team` はチーム名** を厳守 (例: THE GIRLS は `&ME` 曲を `NALALA` チームが担当 = `{"song": "&ME", "team": "NALALA"}`)。team 名を song に入れないこと。データ取り込み時は cakcp.com の歌詞 URL 等が `<曲名>（<チーム名>）` の形式で publish しているため照合可能。
 - **`level_test_team.song` の表記**: アーティスト名プレフィックス (`Artist - Title` / `Artist「Title」` / `Artist：Title`) はすべて剥がして曲名のみ保存する不変条件。データ取り込みスクリプトを書く際は `Da-iCE`/`w-inds.`/`m-flo` のように artist 名に `-` を含むケースに注意 (正規表現で素朴に剥がせない)。
 
