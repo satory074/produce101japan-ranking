@@ -120,7 +120,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 3. `level_test_team`: `{ song, team? }` — レベル分けテストで歌った課題曲。`team` はチーム名 (例: `"アオハル"`) で表示には使わない
 4. `group_battle`: `{ song, team?, result? }` — グループバトル。**S2 / THE GIRLS / SHINSEKAI は Ep 3-4、S1 のみ Ep 6-7 (= position_battle の後)** に放送。`result: "win"|"lose"|null`。
    - **S2 / THE GIRLS / SHINSEKAI**: 2 チーム頭出し対戦形式、`team: "1"|"2"`。SHINSEKAI の旧コンセプト名 (`TO BE ENERGY`, `Heart Shakers`, `CREEEPY DEVILS` 等) は二重ラベルだったが commit `7543da1` で `"1"`/`"2"` のみに正規化 (根拠: kpop-oyaji.com)
-   - **S1**: 10 曲 × 1 チーム 6 名のショーケース形式 (頭出し対戦ではなく得票順 1〜10 位を競う)、`team: "{曲名}組"` (例: `FIRE組`, `RAISE THE FLAG組`)。`result` は `null` (勝敗バッジなし)
+   - **S1**: 10 曲 × 1 チーム 6 名のショーケース形式 (上位指名で 6 名チームを編成、得票順 1〜10 位を競う)。**番組内で「1組/2組」表記なし** (Wikipedia 確認済み)。`team: null` (曲名 = チーム識別子と見なし、順位推移表でも subtitle 表示しない)。`result: null`
 5. `position_battle`: `{ song, team, result }` — ポジションバトル。**S1 のみ Ep 3-4 (= group_battle の前)、S2 / TG / SHINSEKAI は Ep 6-7 前後** に放送。
    - **S1**: 9 曲 × 2 チーム (1組 vs 2組) × V/D/R カテゴリ。team は `"Vocal N組"|"Dance N組"|"Rap N組"` の併記形式 (commit に追加、根拠: imokorori.com)。`result: "win"|"lose"` で勝者判定
    - **S2**: 9 曲単独チーム (`result: "win"` のみ勝者)。team は `Vocal|Dance|Rap` のいずれか (commit `c5615e4`、根拠: imokorori.com)

@@ -97,7 +97,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -141,7 +141,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -185,7 +185,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -229,7 +229,7 @@
       },
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -273,7 +273,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -317,7 +317,7 @@
       },
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -361,7 +361,7 @@
       },
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -405,7 +405,7 @@
       },
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -449,7 +449,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -493,7 +493,7 @@
       },
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -537,7 +537,7 @@
       },
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -581,7 +581,7 @@
       },
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -625,7 +625,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -669,7 +669,7 @@
       },
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -713,7 +713,7 @@
       },
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -757,7 +757,7 @@
       },
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -801,7 +801,7 @@
       },
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -845,7 +845,7 @@
       },
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -889,7 +889,7 @@
       },
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -933,7 +933,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -975,7 +975,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1016,7 +1016,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1056,7 +1056,7 @@
       },
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1096,7 +1096,7 @@
       },
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1136,7 +1136,7 @@
       },
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1176,7 +1176,7 @@
       },
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1216,7 +1216,7 @@
       },
       "group_battle": {
         "song": "FIRE",
-        "team": "FIRE組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1256,7 +1256,7 @@
       },
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1296,7 +1296,7 @@
       },
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1336,7 +1336,7 @@
       },
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1376,7 +1376,7 @@
       },
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1416,7 +1416,7 @@
       },
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1456,7 +1456,7 @@
       },
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1496,7 +1496,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1535,7 +1535,7 @@
       },
       "group_battle": {
         "song": "RAISE THE FLAG",
-        "team": "RAISE THE FLAG組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1568,7 +1568,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1601,7 +1601,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1634,7 +1634,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1667,7 +1667,7 @@
       "re_evaluation": "C",
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1700,7 +1700,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1733,7 +1733,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1766,7 +1766,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1799,7 +1799,7 @@
       "re_evaluation": "A",
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1831,7 +1831,7 @@
       "level_test": "D",
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1864,7 +1864,7 @@
       "re_evaluation": "C",
       "group_battle": {
         "song": "Happiness",
-        "team": "Happiness組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1897,7 +1897,7 @@
       "re_evaluation": "B",
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1930,7 +1930,7 @@
       "re_evaluation": "C",
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1963,7 +1963,7 @@
       "re_evaluation": "B",
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -1996,7 +1996,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "(RE)PLAY",
-        "team": "(RE)PLAY組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2029,7 +2029,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2062,7 +2062,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2095,7 +2095,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2128,7 +2128,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "if…",
-        "team": "if…組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2161,7 +2161,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "LOVE ME RIGHT",
-        "team": "LOVE ME RIGHT組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2194,7 +2194,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Everybody",
-        "team": "Everybody組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2227,7 +2227,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2260,7 +2260,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Wake up!",
-        "team": "Wake up!組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2293,7 +2293,7 @@
       "re_evaluation": "D",
       "group_battle": {
         "song": "Why?",
-        "team": "Why?組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2326,7 +2326,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
@@ -2359,7 +2359,7 @@
       "re_evaluation": "F",
       "group_battle": {
         "song": "DDU-DU DDU-DU",
-        "team": "DDU-DU DDU-DU組",
+        "team": null,
         "result": null
       },
       "level_test_team": {
