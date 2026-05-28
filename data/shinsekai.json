@@ -46,7 +46,7 @@
   "last_updated_episode": "Episode 10 (2026-05-28)",
   "debut_count": 12,
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
-  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks reflect the Episode 10 (3rd ranking ceremony, RC3) results: top 20 main trainees plus 2 Global Rankers (HYEONSEUNG rank 21, KO.REN rank 23) advance to the finals. KINARI (kenmotsukinari) withdrew after concept evaluation, announced 2026-05-25. Trainees with rank: null are either eliminated (RC1/RC3) or withdrew. The show is still on air; debut lineup is undetermined.",
+  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks reflect the Episode 10 (3rd ranking ceremony, RC3) results: top 20 main trainees plus 2 Global Rankers (HYEONSEUNG rank 21, KO.REN rank 23) advance to the finals. KINARI (kenmotsukinari) withdrew after concept evaluation, announced 2026-05-25; he is the only trainee with rank: null (intentional, to avoid misleading display of his pre-withdrawal rc2=4). Eliminated trainees keep their last observed rank: rc3 for 12 trainees cut at RC3, rc2 for 16 cut at RC2, and rc1 for 51 cut at RC1. The show is still on air; debut lineup is undetermined.",
   "trainees": [
     {
       "rank": 1,
@@ -1728,7 +1728,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 64,
       "name_jp": "中丸 晏寿",
       "name_romaji": "Nakamaru Aju",
       "stage_name": "AJU",
@@ -1752,7 +1752,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 56,
       "name_jp": "本荘 晃",
       "name_romaji": "Honjo Akira",
       "stage_name": "AKIRA",
@@ -1776,7 +1776,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 81,
       "name_jp": "オム・スアンカワーテン",
       "name_romaji": "Aom Suungkavathin",
       "stage_name": "AOM",
@@ -1800,7 +1800,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 94,
       "name_jp": "児島 歩夢",
       "name_romaji": "Kojima Ayumu",
       "stage_name": "K.AYUMU",
@@ -1824,7 +1824,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 66,
       "name_jp": "市川 大輝",
       "name_romaji": "Ichikawa Daiki",
       "stage_name": "I.DAIKI",
@@ -1848,7 +1848,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 89,
       "name_jp": "末川 瑛太",
       "name_romaji": "Suekawa Eita",
       "stage_name": "EITA",
@@ -1872,7 +1872,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 57,
       "name_jp": "金田 栄都",
       "name_romaji": "Kaneda Eito",
       "stage_name": "K.EITO",
@@ -1896,7 +1896,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 62,
       "name_jp": "櫻井 楓真",
       "name_romaji": "Sakurai Fuma",
       "stage_name": "FUMA",
@@ -1920,7 +1920,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 87,
       "name_jp": "村松 遼空",
       "name_romaji": "Muramatsu Haruku",
       "stage_name": "HARUKU",
@@ -1944,7 +1944,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 70,
       "name_jp": "髙城 暖人",
       "name_romaji": "Takagi Haruto",
       "stage_name": "HARUTO",
@@ -1963,7 +1963,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 55,
       "name_jp": "堀尾 聖",
       "name_romaji": "Horio Hijiri",
       "stage_name": "HIJIRI",
@@ -1987,7 +1987,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 53,
       "name_jp": "平島 輝",
       "name_romaji": "Hirashima Hikaru",
       "stage_name": "H.HIKARU",
@@ -2011,7 +2011,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 76,
       "name_jp": "瑞慶覧 太都",
       "name_romaji": "Zukeran Hiroto",
       "stage_name": "HIROTO",
@@ -2035,7 +2035,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 77,
       "name_jp": "岡田 彪吾",
       "name_romaji": "Okada Hyugo",
       "stage_name": "HYUGO",
@@ -2059,7 +2059,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 52,
       "name_jp": "丸尾 尋一郎",
       "name_romaji": "Maruo Jinichiro",
       "stage_name": "JINICHIRO",
@@ -2083,7 +2083,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 99,
       "name_jp": "河邊 晟",
       "name_romaji": "Kawabe Joe",
       "stage_name": "JOE",
@@ -2107,7 +2107,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 93,
       "name_jp": "シン・ジョンウク",
       "name_romaji": "Shin Junguk",
       "stage_name": "JUNGUK",
@@ -2131,7 +2131,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 85,
       "name_jp": "多比 奏聖",
       "name_romaji": "Tabi Kanade",
       "stage_name": "KANADE",
@@ -2155,7 +2155,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 69,
       "name_jp": "黒﨑 貫汰",
       "name_romaji": "Kurosaki Kanta",
       "stage_name": "KANTA",
@@ -2179,7 +2179,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 94,
       "name_jp": "関 敬次郎",
       "name_romaji": "Seki Keijiro",
       "stage_name": "KEIJIRO",
@@ -2203,7 +2203,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 88,
       "name_jp": "黄 敬眞",
       "name_romaji": "Ko Keishin",
       "stage_name": "KEISHIN",
@@ -2227,7 +2227,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 100,
       "name_jp": "髙松 敬祐",
       "name_romaji": "Takamatsu Keisuke",
       "stage_name": "KEISUKE",
@@ -2251,7 +2251,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 92,
       "name_jp": "西山 賢人",
       "name_romaji": "Nishiyama Kento",
       "stage_name": "KENTO",
@@ -2275,7 +2275,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 75,
       "name_jp": "河合 晃誠",
       "name_romaji": "Kawai Kosei",
       "stage_name": "KOSEI",
@@ -2299,7 +2299,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 59,
       "name_jp": "髙谷 京平",
       "name_romaji": "Takaya Kyohei",
       "stage_name": "KYOHEI",
@@ -2323,7 +2323,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 79,
       "name_jp": "山根 武蔵",
       "name_romaji": "Yamane Musashi",
       "stage_name": "MUSASHI",
@@ -2347,7 +2347,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 51,
       "name_jp": "堀野 蓮",
       "name_romaji": "Horino Ren",
       "stage_name": "H.REN",
@@ -2371,7 +2371,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 80,
       "name_jp": "小林 蓮翔",
       "name_romaji": "Kobayashi Rento",
       "stage_name": "K.RENTO",
@@ -2395,7 +2395,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 65,
       "name_jp": "神元 理丘",
       "name_romaji": "Kamimoto Riku",
       "stage_name": "RIKU",
@@ -2419,7 +2419,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 97,
       "name_jp": "鳩場 陸人",
       "name_romaji": "Hatoba Rikuto",
       "stage_name": "H.RIKUTO",
@@ -2443,7 +2443,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 98,
       "name_jp": "甲斐 陸也",
       "name_romaji": "Kai Rikuya",
       "stage_name": "RIKUYA",
@@ -2467,7 +2467,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 72,
       "name_jp": "水上 琉偉",
       "name_romaji": "Mizugami Rui",
       "stage_name": "M.RUI",
@@ -2491,7 +2491,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 101,
       "name_jp": "上野 琉偉",
       "name_romaji": "Ueno Rui",
       "stage_name": "U.RUI",
@@ -2515,7 +2515,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 91,
       "name_jp": "岡戸 竜芽",
       "name_romaji": "Okado Ryuga",
       "stage_name": "RYUGA",
@@ -2539,7 +2539,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 71,
       "name_jp": "香月 誠太",
       "name_romaji": "Katsuki Seita",
       "stage_name": "SEITA",
@@ -2563,7 +2563,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 60,
       "name_jp": "岩城 慎二",
       "name_romaji": "Iwaki Shinji",
       "stage_name": "SHINJI",
@@ -2587,7 +2587,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 86,
       "name_jp": "宮崎 真佑",
       "name_romaji": "Miyazaki Shinsuke",
       "stage_name": "SHINSUKE",
@@ -2611,7 +2611,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 84,
       "name_jp": "松田 颯吾",
       "name_romaji": "Matsuda Sogo",
       "stage_name": "SOGO",
@@ -2635,7 +2635,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 61,
       "name_jp": "佐藤 碧空",
       "name_romaji": "Sato Sora",
       "stage_name": "S.SORA",
@@ -2659,7 +2659,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 67,
       "name_jp": "西田 颯梓",
       "name_romaji": "Nishida Soshi",
       "stage_name": "SOSHI",
@@ -2683,7 +2683,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 83,
       "name_jp": "東野 蒼汰",
       "name_romaji": "Tono Sota",
       "stage_name": "SOTA",
@@ -2707,7 +2707,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 90,
       "name_jp": "金倉 拓未",
       "name_romaji": "Kanakura Takumi",
       "stage_name": "TAKUMI",
@@ -2731,7 +2731,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 63,
       "name_jp": "宮里 拓利",
       "name_romaji": "Miyazato Takuto",
       "stage_name": "M.TAKUTO",
@@ -2755,7 +2755,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 58,
       "name_jp": "岡本 拓士",
       "name_romaji": "Okamoto Takuto",
       "stage_name": "O.TAKUTO",
@@ -2779,7 +2779,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 96,
       "name_jp": "森井 輝",
       "name_romaji": "Morii Teru",
       "stage_name": "TERU",
@@ -2803,7 +2803,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 82,
       "name_jp": "北林 天虎",
       "name_romaji": "Kitabayashi Tetora",
       "stage_name": "TETORA",
@@ -2822,7 +2822,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 78,
       "name_jp": "藤芳 辰弥",
       "name_romaji": "Fujiyoshi Tokiya",
       "stage_name": "TOKIYA",
@@ -2846,7 +2846,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 73,
       "name_jp": "増田 倫希",
       "name_romaji": "Masuda Tomoki",
       "stage_name": "TOMOKI",
@@ -2870,7 +2870,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 74,
       "name_jp": "アギナルド・トリスタン・ジェームス",
       "name_romaji": "Aguinaldo Tristan James",
       "stage_name": "TRISTAN",
@@ -2894,7 +2894,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 54,
       "name_jp": "ヨハン・エマニュエル",
       "name_romaji": "Yohan Emmanuel",
       "stage_name": "YOHAN",
@@ -2918,7 +2918,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 68,
       "name_jp": "佐野 由征",
       "name_romaji": "Sano Yusei",
       "stage_name": "S.YUSEI",
