@@ -797,6 +797,42 @@
       "global_ranker": true
     },
     {
+      "rank": 22,
+      "name_jp": "田中 蒔",
+      "name_romaji": "Tanaka Maki",
+      "stage_name": "MAKI",
+      "image_id": "tanakamaki",
+      "rank_history": {
+        "p1": 25,
+        "p2": 29,
+        "rc1": 30,
+        "rc2": 34,
+        "rc3": 22
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "F",
+      "level_test_team": {
+        "song": "踊り子"
+      },
+      "group_battle": {
+        "song": "IRIS OUT",
+        "team": "1",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
+      }
+    },
+    {
       "rank": 23,
       "name_jp": "小清水 蓮",
       "name_romaji": "Koshimizu Ren",
@@ -834,78 +870,7 @@
       "global_ranker": true
     },
     {
-      "rank": null,
-      "name_jp": "釼持 吉成",
-      "name_romaji": "Kenmotsu Kinari",
-      "stage_name": "KINARI",
-      "image_id": "kenmotsukinari",
-      "rank_history": {
-        "p1": 2,
-        "p2": 1,
-        "rc1": 2,
-        "rc2": 4
-      },
-      "debuted": false,
-      "ongoing_rank": false,
-      "level_test": "F",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "HOWL"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "BE CLASSIC",
-        "team": "101交響楽団",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "BLACK ANGEL",
-        "team": "BLACK ANGEL",
-        "result": "win"
-      }
-    },
-    {
-      "rank": null,
-      "name_jp": "田中 蒔",
-      "name_romaji": "Tanaka Maki",
-      "stage_name": "MAKI",
-      "image_id": "tanakamaki",
-      "rank_history": {
-        "p1": 25,
-        "p2": 29,
-        "rc1": 30,
-        "rc2": 34,
-        "rc3": 22
-      },
-      "debuted": false,
-      "ongoing_rank": false,
-      "level_test": "D",
-      "re_evaluation": "F",
-      "level_test_team": {
-        "song": "踊り子"
-      },
-      "group_battle": {
-        "song": "IRIS OUT",
-        "team": "1",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "Fuego",
-        "team": "Fuego",
-        "result": null
-      }
-    },
-    {
-      "rank": null,
+      "rank": 24,
       "name_jp": "今江 陸斗",
       "name_romaji": "Imae Rikuto",
       "stage_name": "I.RIKUTO",
@@ -941,7 +906,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 25,
       "name_jp": "横山 奏夢",
       "name_romaji": "Yokoyama Kaname",
       "stage_name": "KANAME",
@@ -977,7 +942,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 26,
       "name_jp": "浅香 孝太郎",
       "name_romaji": "Asaka Kotaro",
       "stage_name": "KOTARO",
@@ -1008,7 +973,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 27,
       "name_jp": "山下 柊",
       "name_romaji": "Yamashita Shu",
       "stage_name": "Y.SHU",
@@ -1044,7 +1009,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 28,
       "name_jp": "ユン・ジェヨン",
       "name_romaji": "Yoon Jaeyong",
       "stage_name": "JAEYONG",
@@ -1077,7 +1042,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 29,
       "name_jp": "石田 亮太",
       "name_romaji": "Ishida Ryota",
       "stage_name": "RYOTA",
@@ -1113,7 +1078,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 30,
       "name_jp": "イ・ヒョンジェ",
       "name_romaji": "Lee Hyunjae",
       "stage_name": "HYUNJAE",
@@ -1149,7 +1114,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 31,
       "name_jp": "小笠原 ジュゼッペ 慧",
       "name_romaji": "Ogasawara Giuseppe Kei",
       "stage_name": "GIUSEPPE",
@@ -1185,7 +1150,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 32,
       "name_jp": "大林 悠成",
       "name_romaji": "Obayashi Yusei",
       "stage_name": "O.YUSEI",
@@ -1221,7 +1186,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 33,
       "name_jp": "篠ヶ谷 歩夢",
       "name_romaji": "Shinogaya Ayumu",
       "stage_name": "S.AYUMU",
@@ -1257,7 +1222,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 34,
       "name_jp": "リュウ・カイチ",
       "name_romaji": "Liu Kaichi",
       "stage_name": "KAICHI",
@@ -1293,7 +1258,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 36,
       "name_jp": "アーチャー・ウイ",
       "name_romaji": "Archer Uy",
       "stage_name": "ARCHER",
@@ -1323,7 +1288,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 37,
       "name_jp": "松田 太雅",
       "name_romaji": "Matsuda Taiga",
       "stage_name": "M.TAIGA",
@@ -1353,7 +1318,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 38,
       "name_jp": "板倉 悠太",
       "name_romaji": "Itakura Yuta",
       "stage_name": "YUTA",
@@ -1383,7 +1348,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 39,
       "name_jp": "カク・ドンミン",
       "name_romaji": "Kwak Dongmin",
       "stage_name": "DONGMIN",
@@ -1413,7 +1378,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 40,
       "name_jp": "リー・ウェイゼ",
       "name_romaji": "Li Weize",
       "stage_name": "WEIZE",
@@ -1443,7 +1408,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 41,
       "name_jp": "西﨑 柊",
       "name_romaji": "Nishizaki Shu",
       "stage_name": "N.SHU",
@@ -1473,7 +1438,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 42,
       "name_jp": "藤牧 大雅",
       "name_romaji": "Fujimaki Taiga",
       "stage_name": "F.TAIGA",
@@ -1503,7 +1468,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 43,
       "name_jp": "ジュアン・ジェイ",
       "name_romaji": "Chuang Jay",
       "stage_name": "JAY",
@@ -1533,7 +1498,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 44,
       "name_jp": "金安 純正",
       "name_romaji": "Kaneyasu Junsei",
       "stage_name": "JUNSEI",
@@ -1563,7 +1528,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 45,
       "name_jp": "宇野 海夢",
       "name_romaji": "Uno Kaimu",
       "stage_name": "KAIMU",
@@ -1593,7 +1558,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 46,
       "name_jp": "大瀬 凜和",
       "name_romaji": "Ohse Rinto",
       "stage_name": "RINTO",
@@ -1623,7 +1588,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 47,
       "name_jp": "澤井 星名",
       "name_romaji": "Sawai Sena",
       "stage_name": "SENA",
@@ -1648,7 +1613,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 48,
       "name_jp": "南平 達矢",
       "name_romaji": "Minamihira Tatsuya",
       "stage_name": "TATSUYA",
@@ -1673,7 +1638,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 49,
       "name_jp": "髙橋 空良",
       "name_romaji": "Takahashi Sora",
       "stage_name": "T.SORA",
@@ -1703,7 +1668,7 @@
       }
     },
     {
-      "rank": null,
+      "rank": 50,
       "name_jp": "森 明育",
       "name_romaji": "Mori Mei",
       "stage_name": "MEI",
@@ -1725,6 +1690,41 @@
         "song": "WORK HARD",
         "team": "MVR",
         "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "釼持 吉成",
+      "name_romaji": "Kenmotsu Kinari",
+      "stage_name": "KINARI",
+      "image_id": "kenmotsukinari",
+      "rank_history": {
+        "p1": 2,
+        "p2": 1,
+        "rc1": 2,
+        "rc2": 4
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "A",
+      "level_test_team": {
+        "song": "HOWL"
+      },
+      "group_battle": {
+        "song": "Bite Me -Japanese ver.-",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
