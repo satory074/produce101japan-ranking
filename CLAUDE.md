@@ -107,7 +107,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 `data/*.json` は同じトップレベル構造だが、`trainees[]` 要素の形が **シーズンによって微妙に違う**:
 
 - **Season 1 / 2 / THE GIRLS**: `{ rank, name_jp, name_romaji, image_id, votes_final, debuted, eliminated_at }` — 完結済みシーズン。`debuted: true` が Top 11 と一致。`image_id` は公式 CDN のファイル名 (拡張子無し) なので、新規追加時は curl で 200 を返すか必ず検証 (タイポは画像 404 と rank-graph API 空応答の両方を招く)。
-- **SHINSEKAI**: `{ rank, name_jp, name_romaji, stage_name, image_id, debuted, ongoing_rank }` — 放送中。`votes_final` / `eliminated_at` なし、代わりに `stage_name` (カード下部に小さく表示) と `ongoing_rank` (Top 50 内かどうか) を持つ。`rank` は `null` を許容 (Top 50 圏外)。
+- **SHINSEKAI**: `{ rank, name_jp, name_romaji, stage_name, image_id, debuted, ongoing_rank, global_ranker? }` — 放送中。`votes_final` / `eliminated_at` なし、代わりに `stage_name` (カード下部に小さく表示) と `ongoing_rank` (ファイナル進出かどうか) を持つ。`rank` は `null` を許容 (脱落 or 辞退)。RC3 以降、Top 20 main + Global Ranker でファイナル進出が決まるため、main top 20 圏外でも `global_ranker: true` の trainee は `ongoing_rank: true`, `rank` は実順位 (>20)。辞退者 (例: kenmotsukinari) は脱落者と同じく `rank: null`, `ongoing_rank: false` で扱い、トップレベル `notes` に辞退の事実を追記する規約 (専用フィールドなし)。
 
 `app.js` の `traineeCard()` はこれらの差分を意識して書かれているので、フィールドの過不足を想定したコードのまま保つこと。
 
@@ -165,7 +165,7 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 - SEASON 1 (9 points): `https://1st.produce101.jp/profile/data.php?id={image_id}` → `p1 / p2 / p3 / rc1 / p4 / rc2 / p5 / p6 / rcF`
 - SEASON 2 (8 points): `https://2nd.produce101.jp/profile/data2021.php?id={image_id}` → `p1 / p2 / rc1 / p3 / p4 / rc2 / p5 / rcF`
 - THE GIRLS (7 points): `https://3rd.produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / p3 / rc2 / rc3 / rcF`
-- SHINSEKAI (4 points): `https://produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / rc2`
+- SHINSEKAI (5 points, 放送進行中): `https://produce101.jp/profile/data/?id={image_id}` → `p1 / p2 / rc1 / rc2 / rc3` (RC3 は Episode 10 で追加)
 
 API はプレーンテキストで「1行目に image_id、2行目以降に各ポイントの順位 (圏外は `NULL`)」を返す。専用スクリプトは未整備だが、以下の手順で取り込み可能 (アドホック実行):
 1. `data/<season>.json` の `trainees[].image_id` を抽出。
