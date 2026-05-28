@@ -1419,7 +1419,7 @@ function openSimilarityModal(seasonId, imageId) {
   }
   // モーダルを閉じた後の焦点復帰先を保存 (デフォルト = 現在の active 要素)
   root._returnFocus = document.activeElement;
-  const filter = root.dataset.filter === 'other' ? 'other' : 'all';
+  const filter = root.dataset.filter === 'all' ? 'all' : 'other';
   renderSimilarityModal(root, seasonId, imageId, filter);
 }
 
