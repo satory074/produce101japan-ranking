@@ -40,6 +40,14 @@ const SEASON_FILES = {
   shinsekai:'./data/shinsekai.json',
 };
 
+const BASE_TITLE = 'PRODUCE 101 JAPAN 全シリーズ・ランキング一覧';
+const SEASON_TITLE = {
+  season1:  'SEASON 1 (JO1) 順位一覧',
+  season2:  'SEASON 2 (INI) 順位一覧',
+  thegirls: 'THE GIRLS (ME:I) 順位一覧',
+  shinsekai:'SHINSEKAI 順位一覧',
+};
+
 const seasonData = {};
 
 const fmt = (n) => (typeof n === 'number' ? n.toLocaleString('ja-JP') : '—');
@@ -1953,6 +1961,8 @@ function activateTab(target) {
     p.classList.toggle('hidden', !isActive);
     p.setAttribute('aria-hidden', isActive ? 'false' : 'true');
   });
+  const seoLabel = SEASON_TITLE[target];
+  document.title = seoLabel ? `${seoLabel} - ${BASE_TITLE}` : BASE_TITLE;
   history.replaceState(null, '', `#${target}`);
 }
 
