@@ -32,47 +32,53 @@
       "official": true,
       "ceremony": true,
       "episode": 8
+    },
+    {
+      "key": "rc3",
+      "label": "第3回順位発表式",
+      "short": "RC3",
+      "official": true,
+      "ceremony": true,
+      "episode": 10
     }
   ],
   "ongoing": true,
-  "last_updated_episode": "Episode 9 (2026-05-21)",
+  "last_updated_episode": "Episode 10 (2026-05-28)",
   "debut_count": 12,
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
-  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks 1-50 reflect the Episode 8 (2nd ranking ceremony) announced positions, where 50 trainees advanced to the next stage. Trainees ranked 51+ (no longer on stage / eliminated by Episode 5 cut) are listed with rank: null. The show is still on air; debut lineup is undetermined.",
+  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks reflect the Episode 10 (3rd ranking ceremony, RC3) results: top 20 main trainees plus 2 Global Rankers (HYEONSEUNG rank 21, KO.REN rank 23) advance to the finals. KINARI (kenmotsukinari) withdrew after concept evaluation, announced 2026-05-25. Trainees with rank: null are either eliminated (RC1/RC3) or withdrew. The show is still on air; debut lineup is undetermined.",
   "trainees": [
     {
       "rank": 1,
-      "name_jp": "加藤 大樹",
-      "name_romaji": "Kato Daiki",
-      "stage_name": "K.DAIKI",
-      "image_id": "katodaiki",
+      "name_jp": "オ・シンヘン",
+      "name_romaji": "Oh Shinhaeng",
+      "stage_name": "SHINHAENG",
+      "image_id": "ohshinhaeng",
       "rank_history": {
-        "p1": 3,
-        "p2": 2,
-        "rc1": 1,
-        "rc2": 1
+        "p1": 6,
+        "p2": 6,
+        "rc1": 5,
+        "rc2": 7,
+        "rc3": 1
       },
       "debuted": false,
       "ongoing_rank": true,
       "level_test": "B",
       "re_evaluation": "A",
-      "level_test_team": {
-        "song": "SHINE (Japanese ver.)"
-      },
       "group_battle": {
-        "song": "Energetic",
-        "team": "1",
+        "song": "Bite Me -Japanese ver.-",
+        "team": "2",
         "result": "lose"
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
         "team": "LOVE MANUAL",
-        "result": "win"
+        "result": null
       },
       "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
@@ -85,7 +91,8 @@
         "p1": 4,
         "p2": 4,
         "rc1": 3,
-        "rc2": 2
+        "rc2": 2,
+        "rc3": 2
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -112,76 +119,6 @@
     },
     {
       "rank": 3,
-      "name_jp": "照井 康祐",
-      "name_romaji": "Terui Kosuke",
-      "stage_name": "KOSUKE",
-      "image_id": "teruikosuke",
-      "rank_history": {
-        "p1": 9,
-        "p2": 8,
-        "rc1": 7,
-        "rc2": 3
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "C",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "はじめまして"
-      },
-      "group_battle": {
-        "song": "Love Seeker",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "손오공 Super",
-        "team": "SEVENKING",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "Fuego",
-        "team": "Fuego",
-        "result": null
-      }
-    },
-    {
-      "rank": 4,
-      "name_jp": "釼持 吉成",
-      "name_romaji": "Kenmotsu Kinari",
-      "stage_name": "KINARI",
-      "image_id": "kenmotsukinari",
-      "rank_history": {
-        "p1": 2,
-        "p2": 1,
-        "rc1": 2,
-        "rc2": 4
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "F",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "HOWL"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "BE CLASSIC",
-        "team": "101交響楽団",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "BLACK ANGEL",
-        "team": "BLACK ANGEL",
-        "result": "win"
-      }
-    },
-    {
-      "rank": 5,
       "name_jp": "矢田 佳暉",
       "name_romaji": "Yada Yoshiki",
       "stage_name": "YOSHIKI",
@@ -190,7 +127,8 @@
         "p1": 1,
         "p2": 3,
         "rc1": 4,
-        "rc2": 5
+        "rc2": 5,
+        "rc3": 3
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -216,71 +154,43 @@
       }
     },
     {
-      "rank": 6,
-      "name_jp": "パク・シヨン",
-      "name_romaji": "Park Siyoung",
-      "stage_name": "SIYOUNG",
-      "image_id": "parksiyoung",
+      "rank": 4,
+      "name_jp": "照井 康祐",
+      "name_romaji": "Terui Kosuke",
+      "stage_name": "KOSUKE",
+      "image_id": "teruikosuke",
       "rank_history": {
-        "p1": 5,
-        "p2": 5,
-        "rc1": 6,
-        "rc2": 6
+        "p1": 9,
+        "p2": 8,
+        "rc1": 7,
+        "rc2": 3,
+        "rc3": 4
       },
       "debuted": false,
       "ongoing_rank": true,
-      "level_test": "A",
+      "level_test": "C",
       "re_evaluation": "A",
+      "level_test_team": {
+        "song": "はじめまして"
+      },
       "group_battle": {
-        "song": "Energetic",
-        "team": "1",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "BLACK ANGEL",
-        "team": "BLACK ANGEL",
-        "result": "win"
-      }
-    },
-    {
-      "rank": 7,
-      "name_jp": "オ・シンヘン",
-      "name_romaji": "Oh Shinhaeng",
-      "stage_name": "SHINHAENG",
-      "image_id": "ohshinhaeng",
-      "rank_history": {
-        "p1": 6,
-        "p2": 6,
-        "rc1": 5,
-        "rc2": 7
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "B",
-      "re_evaluation": "A",
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
+        "song": "Love Seeker",
         "team": "2",
         "result": "lose"
       },
       "position_battle": {
-        "song": "Doctor! Doctor!",
-        "team": "LOVE MANUAL",
-        "result": null
+        "song": "손오공 Super",
+        "team": "SEVENKING",
+        "result": "win"
       },
       "concept_battle": {
-        "song": "BLACK ANGEL",
-        "team": "BLACK ANGEL",
-        "result": "win"
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
       }
     },
     {
-      "rank": 8,
+      "rank": 5,
       "name_jp": "飯塚 亮賀",
       "name_romaji": "Iizuka Ryoga",
       "stage_name": "RYOGA",
@@ -289,7 +199,8 @@
         "p1": 10,
         "p2": 11,
         "rc1": 12,
-        "rc2": 8
+        "rc2": 8,
+        "rc3": 5
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -315,130 +226,26 @@
       }
     },
     {
-      "rank": 9,
-      "name_jp": "ユ・ヒョンスン",
-      "name_romaji": "Yu Hyeonseung",
-      "stage_name": "HYEONSEUNG",
-      "image_id": "yoohyeonseung",
+      "rank": 6,
+      "name_jp": "パク・シヨン",
+      "name_romaji": "Park Siyoung",
+      "stage_name": "SIYOUNG",
+      "image_id": "parksiyoung",
       "rank_history": {
-        "p1": 15,
-        "p2": 10,
-        "rc1": 8,
-        "rc2": 9
+        "p1": 5,
+        "p2": 5,
+        "rc1": 6,
+        "rc2": 6,
+        "rc3": 6
       },
       "debuted": false,
       "ongoing_rank": true,
       "level_test": "A",
       "re_evaluation": "A",
       "group_battle": {
-        "song": "IRIS OUT",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "손오공 Super",
-        "team": "SEVENKING",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "Fuego",
-        "team": "Fuego",
-        "result": null
-      }
-    },
-    {
-      "rank": 10,
-      "name_jp": "杉山 竜司",
-      "name_romaji": "Sugiyama Ryuji",
-      "stage_name": "RYUJI",
-      "image_id": "sugiyamaryuji",
-      "rank_history": {
-        "p1": 22,
-        "p2": 25,
-        "rc1": 23,
-        "rc2": 10
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "A",
-      "re_evaluation": "B",
-      "level_test_team": {
-        "song": "WOKE UP"
-      },
-      "group_battle": {
         "song": "Energetic",
-        "team": "2",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "KICK",
-        "team": "KICK",
-        "result": null
-      }
-    },
-    {
-      "rank": 11,
-      "name_jp": "柳谷 伊冴",
-      "name_romaji": "Yanagiya Issa",
-      "stage_name": "ISSA",
-      "image_id": "yanagiyaissa",
-      "rank_history": {
-        "p1": 48,
-        "p2": 37,
-        "rc1": 19,
-        "rc2": 11
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "C",
-      "re_evaluation": "C",
-      "level_test_team": {
-        "song": "SEVENTEEN"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
         "team": "1",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "DREAMER",
-        "team": "DREAMER",
-        "result": null
-      }
-    },
-    {
-      "rank": 12,
-      "name_jp": "土田 央修",
-      "name_romaji": "Tsuchida Osuke",
-      "stage_name": "OSUKE",
-      "image_id": "tsuchidaosuke",
-      "rank_history": {
-        "p1": 14,
-        "p2": 14,
-        "rc1": 13,
-        "rc2": 12
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "A",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "Butter-Fly"
-      },
-      "group_battle": {
-        "song": "Energetic",
-        "team": "2",
-        "result": "win"
+        "result": "lose"
       },
       "position_battle": {
         "song": "Doctor! Doctor!",
@@ -446,13 +253,13 @@
         "result": null
       },
       "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
       }
     },
     {
-      "rank": 13,
+      "rank": 7,
       "name_jp": "チェン・リッキー",
       "name_romaji": "Chen Rickey",
       "stage_name": "RICKEY",
@@ -461,7 +268,8 @@
         "p1": 38,
         "p2": 28,
         "rc1": 25,
-        "rc2": 13
+        "rc2": 13,
+        "rc3": 7
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -487,6 +295,222 @@
       }
     },
     {
+      "rank": 8,
+      "name_jp": "柳谷 伊冴",
+      "name_romaji": "Yanagiya Issa",
+      "stage_name": "ISSA",
+      "image_id": "yanagiyaissa",
+      "rank_history": {
+        "p1": 48,
+        "p2": 37,
+        "rc1": 19,
+        "rc2": 11,
+        "rc3": 8
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "C",
+      "re_evaluation": "C",
+      "level_test_team": {
+        "song": "SEVENTEEN"
+      },
+      "group_battle": {
+        "song": "Bite Me -Japanese ver.-",
+        "team": "1",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
+      }
+    },
+    {
+      "rank": 9,
+      "name_jp": "後藤 結",
+      "name_romaji": "Goto Yuki",
+      "stage_name": "YUKI",
+      "image_id": "gotoyuki",
+      "rank_history": {
+        "p1": 17,
+        "p2": 17,
+        "rc1": 17,
+        "rc2": 16,
+        "rc3": 9
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "C",
+      "level_test_team": {
+        "song": "いいじゃん"
+      },
+      "group_battle": {
+        "song": "Energetic",
+        "team": "2",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
+        "result": "win"
+      }
+    },
+    {
+      "rank": 10,
+      "name_jp": "加藤 大樹",
+      "name_romaji": "Kato Daiki",
+      "stage_name": "K.DAIKI",
+      "image_id": "katodaiki",
+      "rank_history": {
+        "p1": 3,
+        "p2": 2,
+        "rc1": 1,
+        "rc2": 1,
+        "rc3": 10
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "level_test_team": {
+        "song": "SHINE (Japanese ver.)"
+      },
+      "group_battle": {
+        "song": "Energetic",
+        "team": "1",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
+      }
+    },
+    {
+      "rank": 11,
+      "name_jp": "熊部 拓斗",
+      "name_romaji": "Kumabe Takuto",
+      "stage_name": "K.TAKUTO",
+      "image_id": "kumabetakuto",
+      "rank_history": {
+        "p1": 12,
+        "p2": 9,
+        "rc1": 9,
+        "rc2": 15,
+        "rc3": 11
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "D",
+      "re_evaluation": "D",
+      "level_test_team": {
+        "song": "HOWL"
+      },
+      "group_battle": {
+        "song": "Bite Me -Japanese ver.-",
+        "team": "1",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
+      }
+    },
+    {
+      "rank": 12,
+      "name_jp": "杉山 竜司",
+      "name_romaji": "Sugiyama Ryuji",
+      "stage_name": "RYUJI",
+      "image_id": "sugiyamaryuji",
+      "rank_history": {
+        "p1": 22,
+        "p2": 25,
+        "rc1": 23,
+        "rc2": 10,
+        "rc3": 12
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "B",
+      "level_test_team": {
+        "song": "WOKE UP"
+      },
+      "group_battle": {
+        "song": "Energetic",
+        "team": "2",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
+      }
+    },
+    {
+      "rank": 13,
+      "name_jp": "土田 央修",
+      "name_romaji": "Tsuchida Osuke",
+      "stage_name": "OSUKE",
+      "image_id": "tsuchidaosuke",
+      "rank_history": {
+        "p1": 14,
+        "p2": 14,
+        "rc1": 13,
+        "rc2": 12,
+        "rc3": 13
+      },
+      "debuted": false,
+      "ongoing_rank": true,
+      "level_test": "A",
+      "re_evaluation": "A",
+      "level_test_team": {
+        "song": "Butter-Fly"
+      },
+      "group_battle": {
+        "song": "Energetic",
+        "team": "2",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "Doctor! Doctor!",
+        "team": "LOVE MANUAL",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
+      }
+    },
+    {
       "rank": 14,
       "name_jp": "濱田 永遠",
       "name_romaji": "Hamada Towa",
@@ -496,7 +520,8 @@
         "p1": 16,
         "p2": 16,
         "rc1": 15,
-        "rc2": 14
+        "rc2": 14,
+        "rc3": 14
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -523,106 +548,6 @@
     },
     {
       "rank": 15,
-      "name_jp": "熊部 拓斗",
-      "name_romaji": "Kumabe Takuto",
-      "stage_name": "K.TAKUTO",
-      "image_id": "kumabetakuto",
-      "rank_history": {
-        "p1": 12,
-        "p2": 9,
-        "rc1": 9,
-        "rc2": 15
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "D",
-      "re_evaluation": "D",
-      "level_test_team": {
-        "song": "HOWL"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
-        "team": "1",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "WORK HARD",
-        "team": "MVR",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "DREAMER",
-        "team": "DREAMER",
-        "result": null
-      }
-    },
-    {
-      "rank": 16,
-      "name_jp": "後藤 結",
-      "name_romaji": "Goto Yuki",
-      "stage_name": "YUKI",
-      "image_id": "gotoyuki",
-      "rank_history": {
-        "p1": 17,
-        "p2": 17,
-        "rc1": 17,
-        "rc2": 16
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "D",
-      "re_evaluation": "C",
-      "level_test_team": {
-        "song": "いいじゃん"
-      },
-      "group_battle": {
-        "song": "Energetic",
-        "team": "2",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "宿命",
-        "team": "チアトレーニーズ",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "BLACK ANGEL",
-        "team": "BLACK ANGEL",
-        "result": "win"
-      }
-    },
-    {
-      "rank": 17,
-      "name_jp": "浅香 孝太郎",
-      "name_romaji": "Asaka Kotaro",
-      "stage_name": "KOTARO",
-      "image_id": "asakakotaro",
-      "rank_history": {
-        "p1": 26,
-        "p2": 24,
-        "rc1": 18,
-        "rc2": 17
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "D",
-      "re_evaluation": "D",
-      "level_test_team": {
-        "song": "SPECIALZ"
-      },
-      "position_battle": {
-        "song": "Natural",
-        "team": "Nature Self",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "KICK",
-        "team": "KICK",
-        "result": null
-      }
-    },
-    {
-      "rank": 18,
       "name_jp": "小野 慶人",
       "name_romaji": "Ono Keito",
       "stage_name": "KEITO",
@@ -631,7 +556,8 @@
         "p1": 13,
         "p2": 15,
         "rc1": 16,
-        "rc2": 18
+        "rc2": 18,
+        "rc3": 15
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -657,7 +583,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 16,
       "name_jp": "青沼 昂史朗",
       "name_romaji": "Aonuma Koshiro",
       "stage_name": "KOSHIRO",
@@ -666,7 +592,8 @@
         "p1": 31,
         "p2": 27,
         "rc1": 26,
-        "rc2": 19
+        "rc2": 19,
+        "rc3": 16
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -692,28 +619,29 @@
       }
     },
     {
-      "rank": 20,
-      "name_jp": "小清水 蓮",
-      "name_romaji": "Koshimizu Ren",
-      "stage_name": "KO.REN",
-      "image_id": "koshimizuren",
+      "rank": 17,
+      "name_jp": "岡田 侑磨",
+      "name_romaji": "Okada Yuma",
+      "stage_name": "YUMA",
+      "image_id": "okadayuma",
       "rank_history": {
-        "p1": 8,
-        "p2": 12,
-        "rc1": 14,
-        "rc2": 20
+        "p1": 47,
+        "p2": 48,
+        "rc1": 39,
+        "rc2": 32,
+        "rc3": 17
       },
       "debuted": false,
       "ongoing_rank": true,
-      "level_test": "C",
-      "re_evaluation": "F",
+      "level_test": "D",
+      "re_evaluation": "D",
       "level_test_team": {
-        "song": "Supercali"
+        "song": "はじめまして"
       },
       "group_battle": {
         "song": "Bite Me -Japanese ver.-",
-        "team": "1",
-        "result": "win"
+        "team": "2",
+        "result": "lose"
       },
       "position_battle": {
         "song": "BE CLASSIC",
@@ -721,185 +649,13 @@
         "result": null
       },
       "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
-      }
-    },
-    {
-      "rank": 21,
-      "name_jp": "アダム・ナガイ",
-      "name_romaji": "Adam Nagai",
-      "stage_name": "ADAM",
-      "image_id": "adamnagai",
-      "rank_history": {
-        "p1": 7,
-        "p2": 7,
-        "rc1": 10,
-        "rc2": 21
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "A",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "Stand Out Fit In"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "My Grandfather's Clock",
-        "team": "FOR:ever",
+        "song": "BLACK ANGEL",
+        "team": "BLACK ANGEL",
         "result": "win"
-      },
-      "concept_battle": {
-        "song": "DREAMER",
-        "team": "DREAMER",
-        "result": null
       }
     },
     {
-      "rank": 22,
-      "name_jp": "山下 柊",
-      "name_romaji": "Yamashita Shu",
-      "stage_name": "Y.SHU",
-      "image_id": "yamashitashu",
-      "rank_history": {
-        "p1": 28,
-        "p2": 31,
-        "rc1": 34,
-        "rc2": 22
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "C",
-      "re_evaluation": "C",
-      "level_test_team": {
-        "song": "はじめまして"
-      },
-      "group_battle": {
-        "song": "最高到達点",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
-      }
-    },
-    {
-      "rank": 23,
-      "name_jp": "横山 奏夢",
-      "name_romaji": "Yokoyama Kaname",
-      "stage_name": "KANAME",
-      "image_id": "yokoyamakaname",
-      "rank_history": {
-        "p1": 27,
-        "p2": 26,
-        "rc1": 21,
-        "rc2": 23
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "A",
-      "re_evaluation": "C",
-      "level_test_team": {
-        "song": "Bling-Bang-Bang-Born"
-      },
-      "group_battle": {
-        "song": "Love Seeker",
-        "team": "1",
-        "result": "win"
-      },
-      "position_battle": {
-        "song": "WORK HARD",
-        "team": "MVR",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "KICK",
-        "team": "KICK",
-        "result": null
-      }
-    },
-    {
-      "rank": 24,
-      "name_jp": "イ・ヒョンジェ",
-      "name_romaji": "Lee Hyunjae",
-      "stage_name": "HYUNJAE",
-      "image_id": "leehyunjae",
-      "rank_history": {
-        "p1": 21,
-        "p2": 21,
-        "rc1": 20,
-        "rc2": 24
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "F",
-      "re_evaluation": "C",
-      "level_test_team": {
-        "song": "きらり"
-      },
-      "group_battle": {
-        "song": "Bite Me -Japanese ver.-",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
-      }
-    },
-    {
-      "rank": 25,
-      "name_jp": "ユン・ジェヨン",
-      "name_romaji": "Yoon Jaeyong",
-      "stage_name": "JAEYONG",
-      "image_id": "yoonjaeyong",
-      "rank_history": {
-        "p1": 32,
-        "p2": 33,
-        "rc1": 33,
-        "rc2": 25
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "D",
-      "re_evaluation": "A",
-      "group_battle": {
-        "song": "Energetic",
-        "team": "1",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "宿命",
-        "team": "チアトレーニーズ",
-        "result": "win"
-      },
-      "concept_battle": {
-        "song": "DREAMER",
-        "team": "DREAMER",
-        "result": null
-      }
-    },
-    {
-      "rank": 26,
+      "rank": 18,
       "name_jp": "小林 千悟",
       "name_romaji": "Kobayashi Chisato",
       "stage_name": "CHISATO",
@@ -908,7 +664,8 @@
         "p1": 23,
         "p2": 23,
         "rc1": 27,
-        "rc2": 26
+        "rc2": 26,
+        "rc3": 18
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -934,42 +691,43 @@
       }
     },
     {
-      "rank": 27,
-      "name_jp": "大林 悠成",
-      "name_romaji": "Obayashi Yusei",
-      "stage_name": "O.YUSEI",
-      "image_id": "obayashiyusei",
+      "rank": 19,
+      "name_jp": "アダム・ナガイ",
+      "name_romaji": "Adam Nagai",
+      "stage_name": "ADAM",
+      "image_id": "adamnagai",
       "rank_history": {
-        "p1": 24,
-        "p2": 22,
-        "rc1": 24,
-        "rc2": 27
+        "p1": 7,
+        "p2": 7,
+        "rc1": 10,
+        "rc2": 21,
+        "rc3": 19
       },
       "debuted": false,
       "ongoing_rank": true,
-      "level_test": "B",
+      "level_test": "A",
       "re_evaluation": "A",
       "level_test_team": {
-        "song": "第ゼロ感"
+        "song": "Stand Out Fit In"
       },
       "group_battle": {
-        "song": "LOUD",
+        "song": "Bite Me -Japanese ver.-",
         "team": "2",
         "result": "lose"
       },
       "position_battle": {
-        "song": "DOMINANCE",
-        "team": "PUNCH LINERS",
+        "song": "My Grandfather's Clock",
+        "team": "FOR:ever",
         "result": "win"
       },
       "concept_battle": {
-        "song": "KICK",
-        "team": "KICK",
+        "song": "DREAMER",
+        "team": "DREAMER",
         "result": null
       }
     },
     {
-      "rank": 28,
+      "rank": 20,
       "name_jp": "倉橋 吾槙",
       "name_romaji": "Kurahashi Goten",
       "stage_name": "GOTEN",
@@ -978,7 +736,8 @@
         "p1": 11,
         "p2": 13,
         "rc1": 11,
-        "rc2": 28
+        "rc2": 28,
+        "rc3": 20
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -1004,128 +763,94 @@
       }
     },
     {
-      "rank": 29,
-      "name_jp": "小笠原 ジュゼッペ 慧",
-      "name_romaji": "Ogasawara Giuseppe Kei",
-      "stage_name": "GIUSEPPE",
-      "image_id": "ogasawaragiuseppekei",
+      "rank": 21,
+      "name_jp": "ユ・ヒョンスン",
+      "name_romaji": "Yu Hyeonseung",
+      "stage_name": "HYEONSEUNG",
+      "image_id": "yoohyeonseung",
       "rank_history": {
-        "p1": 18,
-        "p2": 20,
-        "rc1": 28,
-        "rc2": 29
+        "p1": 15,
+        "p2": 10,
+        "rc1": 8,
+        "rc2": 9,
+        "rc3": 21
       },
       "debuted": false,
       "ongoing_rank": true,
       "level_test": "A",
-      "re_evaluation": "B",
-      "level_test_team": {
-        "song": "WOKE UP"
-      },
+      "re_evaluation": "A",
       "group_battle": {
-        "song": "Energetic",
-        "team": "1",
+        "song": "IRIS OUT",
+        "team": "2",
         "result": "lose"
       },
       "position_battle": {
-        "song": "WORK HARD",
-        "team": "MVR",
+        "song": "손오공 Super",
+        "team": "SEVENKING",
         "result": null
       },
       "concept_battle": {
         "song": "Fuego",
         "team": "Fuego",
         "result": null
-      }
+      },
+      "global_ranker": true
     },
     {
-      "rank": 30,
-      "name_jp": "石田 亮太",
-      "name_romaji": "Ishida Ryota",
-      "stage_name": "RYOTA",
-      "image_id": "ishidaryota",
+      "rank": 23,
+      "name_jp": "小清水 蓮",
+      "name_romaji": "Koshimizu Ren",
+      "stage_name": "KO.REN",
+      "image_id": "koshimizuren",
       "rank_history": {
-        "p1": 41,
-        "p2": 38,
-        "rc1": 38,
-        "rc2": 30
+        "p1": 8,
+        "p2": 12,
+        "rc1": 14,
+        "rc2": 20,
+        "rc3": 23
       },
       "debuted": false,
       "ongoing_rank": true,
-      "level_test": "B",
-      "re_evaluation": "A",
-      "level_test_team": {
-        "song": "Cry Baby"
-      },
-      "group_battle": {
-        "song": "LOUD",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "Natural",
-        "team": "Nature Self",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "KICK",
-        "team": "KICK",
-        "result": null
-      }
-    },
-    {
-      "rank": 31,
-      "name_jp": "リュウ・カイチ",
-      "name_romaji": "Liu Kaichi",
-      "stage_name": "KAICHI",
-      "image_id": "liukaichi",
-      "rank_history": {
-        "p1": 68,
-        "p2": 73,
-        "rc1": 43,
-        "rc2": 31
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "F",
+      "level_test": "C",
       "re_evaluation": "F",
       "level_test_team": {
-        "song": "Paradise"
+        "song": "Supercali"
       },
       "group_battle": {
-        "song": "Love Seeker",
-        "team": "2",
-        "result": "lose"
+        "song": "Bite Me -Japanese ver.-",
+        "team": "1",
+        "result": "win"
       },
       "position_battle": {
-        "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
+        "song": "BE CLASSIC",
+        "team": "101交響楽団",
         "result": null
       },
       "concept_battle": {
-        "song": "DREAMER",
-        "team": "DREAMER",
+        "song": "ねこ",
+        "team": "ねこ",
         "result": null
-      }
+      },
+      "global_ranker": true
     },
     {
-      "rank": 32,
-      "name_jp": "岡田 侑磨",
-      "name_romaji": "Okada Yuma",
-      "stage_name": "YUMA",
-      "image_id": "okadayuma",
+      "rank": null,
+      "name_jp": "釼持 吉成",
+      "name_romaji": "Kenmotsu Kinari",
+      "stage_name": "KINARI",
+      "image_id": "kenmotsukinari",
       "rank_history": {
-        "p1": 47,
-        "p2": 48,
-        "rc1": 39,
-        "rc2": 32
+        "p1": 2,
+        "p2": 1,
+        "rc1": 2,
+        "rc2": 4
       },
       "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "D",
-      "re_evaluation": "D",
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "A",
       "level_test_team": {
-        "song": "はじめまして"
+        "song": "HOWL"
       },
       "group_battle": {
         "song": "Bite Me -Japanese ver.-",
@@ -1135,7 +860,7 @@
       "position_battle": {
         "song": "BE CLASSIC",
         "team": "101交響楽団",
-        "result": null
+        "result": "win"
       },
       "concept_battle": {
         "song": "BLACK ANGEL",
@@ -1144,42 +869,7 @@
       }
     },
     {
-      "rank": 33,
-      "name_jp": "篠ヶ谷 歩夢",
-      "name_romaji": "Shinogaya Ayumu",
-      "stage_name": "S.AYUMU",
-      "image_id": "shinogayaayumu",
-      "rank_history": {
-        "p1": 29,
-        "p2": 30,
-        "rc1": 32,
-        "rc2": 33
-      },
-      "debuted": false,
-      "ongoing_rank": true,
-      "level_test": "C",
-      "re_evaluation": "B",
-      "level_test_team": {
-        "song": "Rocketeer"
-      },
-      "group_battle": {
-        "song": "LOUD",
-        "team": "2",
-        "result": "lose"
-      },
-      "position_battle": {
-        "song": "ペテルギウス",
-        "team": "TEAMきらふわ",
-        "result": null
-      },
-      "concept_battle": {
-        "song": "ねこ",
-        "team": "ねこ",
-        "result": null
-      }
-    },
-    {
-      "rank": 34,
+      "rank": null,
       "name_jp": "田中 蒔",
       "name_romaji": "Tanaka Maki",
       "stage_name": "MAKI",
@@ -1188,10 +878,11 @@
         "p1": 25,
         "p2": 29,
         "rc1": 30,
-        "rc2": 34
+        "rc2": 34,
+        "rc3": 22
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "D",
       "re_evaluation": "F",
       "level_test_team": {
@@ -1214,7 +905,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": null,
       "name_jp": "今江 陸斗",
       "name_romaji": "Imae Rikuto",
       "stage_name": "I.RIKUTO",
@@ -1223,10 +914,11 @@
         "p1": 35,
         "p2": 36,
         "rc1": 31,
-        "rc2": 35
+        "rc2": 35,
+        "rc3": 24
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "B",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1249,7 +941,359 @@
       }
     },
     {
-      "rank": 36,
+      "rank": null,
+      "name_jp": "横山 奏夢",
+      "name_romaji": "Yokoyama Kaname",
+      "stage_name": "KANAME",
+      "image_id": "yokoyamakaname",
+      "rank_history": {
+        "p1": 27,
+        "p2": 26,
+        "rc1": 21,
+        "rc2": 23,
+        "rc3": 25
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "C",
+      "level_test_team": {
+        "song": "Bling-Bang-Bang-Born"
+      },
+      "group_battle": {
+        "song": "Love Seeker",
+        "team": "1",
+        "result": "win"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "浅香 孝太郎",
+      "name_romaji": "Asaka Kotaro",
+      "stage_name": "KOTARO",
+      "image_id": "asakakotaro",
+      "rank_history": {
+        "p1": 26,
+        "p2": 24,
+        "rc1": 18,
+        "rc2": 17,
+        "rc3": 26
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "D",
+      "level_test_team": {
+        "song": "SPECIALZ"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "山下 柊",
+      "name_romaji": "Yamashita Shu",
+      "stage_name": "Y.SHU",
+      "image_id": "yamashitashu",
+      "rank_history": {
+        "p1": 28,
+        "p2": 31,
+        "rc1": 34,
+        "rc2": 22,
+        "rc3": 27
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "C",
+      "level_test_team": {
+        "song": "はじめまして"
+      },
+      "group_battle": {
+        "song": "最高到達点",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "ユン・ジェヨン",
+      "name_romaji": "Yoon Jaeyong",
+      "stage_name": "JAEYONG",
+      "image_id": "yoonjaeyong",
+      "rank_history": {
+        "p1": 32,
+        "p2": 33,
+        "rc1": 33,
+        "rc2": 25,
+        "rc3": 28
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "D",
+      "re_evaluation": "A",
+      "group_battle": {
+        "song": "Energetic",
+        "team": "1",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "宿命",
+        "team": "チアトレーニーズ",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "石田 亮太",
+      "name_romaji": "Ishida Ryota",
+      "stage_name": "RYOTA",
+      "image_id": "ishidaryota",
+      "rank_history": {
+        "p1": 41,
+        "p2": 38,
+        "rc1": 38,
+        "rc2": 30,
+        "rc3": 29
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "level_test_team": {
+        "song": "Cry Baby"
+      },
+      "group_battle": {
+        "song": "LOUD",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "Natural",
+        "team": "Nature Self",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "イ・ヒョンジェ",
+      "name_romaji": "Lee Hyunjae",
+      "stage_name": "HYUNJAE",
+      "image_id": "leehyunjae",
+      "rank_history": {
+        "p1": 21,
+        "p2": 21,
+        "rc1": 20,
+        "rc2": 24,
+        "rc3": 30
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "C",
+      "level_test_team": {
+        "song": "きらり"
+      },
+      "group_battle": {
+        "song": "Bite Me -Japanese ver.-",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "小笠原 ジュゼッペ 慧",
+      "name_romaji": "Ogasawara Giuseppe Kei",
+      "stage_name": "GIUSEPPE",
+      "image_id": "ogasawaragiuseppekei",
+      "rank_history": {
+        "p1": 18,
+        "p2": 20,
+        "rc1": 28,
+        "rc2": 29,
+        "rc3": 31
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "A",
+      "re_evaluation": "B",
+      "level_test_team": {
+        "song": "WOKE UP"
+      },
+      "group_battle": {
+        "song": "Energetic",
+        "team": "1",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "WORK HARD",
+        "team": "MVR",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "Fuego",
+        "team": "Fuego",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "大林 悠成",
+      "name_romaji": "Obayashi Yusei",
+      "stage_name": "O.YUSEI",
+      "image_id": "obayashiyusei",
+      "rank_history": {
+        "p1": 24,
+        "p2": 22,
+        "rc1": 24,
+        "rc2": 27,
+        "rc3": 32
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "B",
+      "re_evaluation": "A",
+      "level_test_team": {
+        "song": "第ゼロ感"
+      },
+      "group_battle": {
+        "song": "LOUD",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "DOMINANCE",
+        "team": "PUNCH LINERS",
+        "result": "win"
+      },
+      "concept_battle": {
+        "song": "KICK",
+        "team": "KICK",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "篠ヶ谷 歩夢",
+      "name_romaji": "Shinogaya Ayumu",
+      "stage_name": "S.AYUMU",
+      "image_id": "shinogayaayumu",
+      "rank_history": {
+        "p1": 29,
+        "p2": 30,
+        "rc1": 32,
+        "rc2": 33,
+        "rc3": 33
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "C",
+      "re_evaluation": "B",
+      "level_test_team": {
+        "song": "Rocketeer"
+      },
+      "group_battle": {
+        "song": "LOUD",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "ねこ",
+        "team": "ねこ",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
+      "name_jp": "リュウ・カイチ",
+      "name_romaji": "Liu Kaichi",
+      "stage_name": "KAICHI",
+      "image_id": "liukaichi",
+      "rank_history": {
+        "p1": 68,
+        "p2": 73,
+        "rc1": 43,
+        "rc2": 31,
+        "rc3": 34
+      },
+      "debuted": false,
+      "ongoing_rank": false,
+      "level_test": "F",
+      "re_evaluation": "F",
+      "level_test_team": {
+        "song": "Paradise"
+      },
+      "group_battle": {
+        "song": "Love Seeker",
+        "team": "2",
+        "result": "lose"
+      },
+      "position_battle": {
+        "song": "ペテルギウス",
+        "team": "TEAMきらふわ",
+        "result": null
+      },
+      "concept_battle": {
+        "song": "DREAMER",
+        "team": "DREAMER",
+        "result": null
+      }
+    },
+    {
+      "rank": null,
       "name_jp": "アーチャー・ウイ",
       "name_romaji": "Archer Uy",
       "stage_name": "ARCHER",
@@ -1261,7 +1305,7 @@
         "rc2": 36
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "B",
       "re_evaluation": "B",
       "level_test_team": {
@@ -1279,7 +1323,7 @@
       }
     },
     {
-      "rank": 37,
+      "rank": null,
       "name_jp": "松田 太雅",
       "name_romaji": "Matsuda Taiga",
       "stage_name": "M.TAIGA",
@@ -1291,7 +1335,7 @@
         "rc2": 37
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "C",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1309,7 +1353,7 @@
       }
     },
     {
-      "rank": 38,
+      "rank": null,
       "name_jp": "板倉 悠太",
       "name_romaji": "Itakura Yuta",
       "stage_name": "YUTA",
@@ -1321,7 +1365,7 @@
         "rc2": 38
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "B",
       "re_evaluation": "F",
       "level_test_team": {
@@ -1339,7 +1383,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": null,
       "name_jp": "カク・ドンミン",
       "name_romaji": "Kwak Dongmin",
       "stage_name": "DONGMIN",
@@ -1351,7 +1395,7 @@
         "rc2": 39
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "D",
       "re_evaluation": "B",
       "level_test_team": {
@@ -1369,7 +1413,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": null,
       "name_jp": "リー・ウェイゼ",
       "name_romaji": "Li Weize",
       "stage_name": "WEIZE",
@@ -1381,7 +1425,7 @@
         "rc2": 40
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "B",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1399,7 +1443,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": null,
       "name_jp": "西﨑 柊",
       "name_romaji": "Nishizaki Shu",
       "stage_name": "N.SHU",
@@ -1411,7 +1455,7 @@
         "rc2": 41
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "D",
       "re_evaluation": "F",
       "level_test_team": {
@@ -1429,7 +1473,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": null,
       "name_jp": "藤牧 大雅",
       "name_romaji": "Fujimaki Taiga",
       "stage_name": "F.TAIGA",
@@ -1441,7 +1485,7 @@
         "rc2": 42
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "B",
       "re_evaluation": "A",
       "level_test_team": {
@@ -1459,7 +1503,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": null,
       "name_jp": "ジュアン・ジェイ",
       "name_romaji": "Chuang Jay",
       "stage_name": "JAY",
@@ -1471,7 +1515,7 @@
         "rc2": 43
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "C",
       "re_evaluation": "B",
       "level_test_team": {
@@ -1489,7 +1533,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": null,
       "name_jp": "金安 純正",
       "name_romaji": "Kaneyasu Junsei",
       "stage_name": "JUNSEI",
@@ -1501,7 +1545,7 @@
         "rc2": 44
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "C",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1519,7 +1563,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": null,
       "name_jp": "宇野 海夢",
       "name_romaji": "Uno Kaimu",
       "stage_name": "KAIMU",
@@ -1531,7 +1575,7 @@
         "rc2": 45
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "C",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1549,7 +1593,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": null,
       "name_jp": "大瀬 凜和",
       "name_romaji": "Ohse Rinto",
       "stage_name": "RINTO",
@@ -1561,7 +1605,7 @@
         "rc2": 46
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "A",
       "re_evaluation": "C",
       "level_test_team": {
@@ -1579,7 +1623,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": null,
       "name_jp": "澤井 星名",
       "name_romaji": "Sawai Sena",
       "stage_name": "SENA",
@@ -1591,7 +1635,7 @@
         "rc2": 47
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "D",
       "re_evaluation": "D",
       "level_test_team": {
@@ -1604,7 +1648,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": null,
       "name_jp": "南平 達矢",
       "name_romaji": "Minamihira Tatsuya",
       "stage_name": "TATSUYA",
@@ -1616,7 +1660,7 @@
         "rc2": 48
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "C",
       "re_evaluation": "C",
       "level_test_team": {
@@ -1629,7 +1673,7 @@
       }
     },
     {
-      "rank": 49,
+      "rank": null,
       "name_jp": "髙橋 空良",
       "name_romaji": "Takahashi Sora",
       "stage_name": "T.SORA",
@@ -1641,7 +1685,7 @@
         "rc2": 49
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "F",
       "re_evaluation": "F",
       "level_test_team": {
@@ -1659,7 +1703,7 @@
       }
     },
     {
-      "rank": 50,
+      "rank": null,
       "name_jp": "森 明育",
       "name_romaji": "Mori Mei",
       "stage_name": "MEI",
@@ -1671,7 +1715,7 @@
         "rc2": 50
       },
       "debuted": false,
-      "ongoing_rank": true,
+      "ongoing_rank": false,
       "level_test": "F",
       "re_evaluation": "F",
       "level_test_team": {
