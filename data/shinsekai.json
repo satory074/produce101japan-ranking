@@ -2,7 +2,7 @@
   "season": "SHINSEKAI",
   "year": 2026,
   "air_dates": "2026-03-26 to ongoing",
-  "debut_group": null,
+  "debut_group": "KO1KEYZ",
   "total_trainees": 101,
   "ranking_milestones": [
     {
@@ -40,16 +40,24 @@
       "official": true,
       "ceremony": true,
       "episode": 10
+    },
+    {
+      "key": "rcF",
+      "label": "デビュー評価 (最終回)",
+      "short": "FINAL",
+      "official": true,
+      "ceremony": true,
+      "episode": 11
     }
   ],
-  "ongoing": true,
-  "last_updated_episode": "Episode 10 (2026-05-28)",
+  "ongoing": false,
+  "last_updated_episode": "FINAL (2026-06-06)",
   "debut_count": 12,
   "image_url_template": "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/{image_id}.jpg",
-  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%). A separate 'Global Ranker' track exists with inverted weights (30%/70%). Ranks reflect the Episode 10 (3rd ranking ceremony, RC3) results: top 20 main trainees plus 2 Global Rankers (HYEONSEUNG rank 21, KO.REN rank 23) advance to the finals. KINARI (kenmotsukinari) withdrew after concept evaluation, announced 2026-05-25; he is the only trainee with rank: null (intentional, to avoid misleading display of his pre-withdrawal rc2=4). Eliminated trainees keep their last observed rank: rc3 for 12 trainees cut at RC3, rc2 for 16 cut at RC2, and rc1 for 51 cut at RC1. The show is still on air; debut lineup is undetermined.",
+  "notes": "Voting system: National Producer votes (70%) + SEKAI Producer votes (30%); the Global Ranker track used inverted weights (30%/70%). FINAL (2026-06-06, live broadcast at Tokyo Metropolitan Gymnasium) decided the 12-member debut group KO1KEYZ (コイキーズ). rank and rank_history.rcF reflect the final ranking 1-22 of the 22 finalists. Debut (top 12, debuted:true): katodaiki, yadayoshiki, parksiyoung, ohshinhaeng, gotoyuki, yanagiyaissa, onokeito, abeyura, iizukaryoga, sugiyamaryuji, teruikosuke, hamadatowa. tanakamaki was bumped from rank 22 to 23: he was eliminated at RC3 (rc3=22), but the 22 finalists now occupy ranks 1-22 and koshimizuren (Global Ranker, rc3=23) advanced to finish 20th, vacating rank 23 — this keeps ranks unique (the completed-season invariant). KINARI (kenmotsukinari) withdrew after concept evaluation (2026-05-25) and remains the only trainee with rank:null. Other eliminated trainees keep their last observed rank (rc3 / rc2 / rc1).",
   "trainees": [
     {
-      "rank": 1,
+      "rank": 4,
       "name_jp": "オ・シンヘン",
       "name_romaji": "Oh Shinhaeng",
       "stage_name": "SHINHAENG",
@@ -59,9 +67,10 @@
         "p2": 6,
         "rc1": 5,
         "rc2": 7,
-        "rc3": 1
+        "rc3": 1,
+        "rcF": 4
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "B",
       "re_evaluation": "A",
@@ -82,7 +91,7 @@
       }
     },
     {
-      "rank": 2,
+      "rank": 8,
       "name_jp": "安部 結蘭",
       "name_romaji": "Abe Yura",
       "stage_name": "YURA",
@@ -92,9 +101,10 @@
         "p2": 4,
         "rc1": 3,
         "rc2": 2,
-        "rc3": 2
+        "rc3": 2,
+        "rcF": 8
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "C",
       "re_evaluation": "A",
@@ -118,7 +128,7 @@
       }
     },
     {
-      "rank": 3,
+      "rank": 2,
       "name_jp": "矢田 佳暉",
       "name_romaji": "Yada Yoshiki",
       "stage_name": "YOSHIKI",
@@ -128,9 +138,10 @@
         "p2": 3,
         "rc1": 4,
         "rc2": 5,
-        "rc3": 3
+        "rc3": 3,
+        "rcF": 2
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "A",
       "re_evaluation": "B",
@@ -154,7 +165,7 @@
       }
     },
     {
-      "rank": 4,
+      "rank": 11,
       "name_jp": "照井 康祐",
       "name_romaji": "Terui Kosuke",
       "stage_name": "KOSUKE",
@@ -164,9 +175,10 @@
         "p2": 8,
         "rc1": 7,
         "rc2": 3,
-        "rc3": 4
+        "rc3": 4,
+        "rcF": 11
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "C",
       "re_evaluation": "A",
@@ -190,7 +202,7 @@
       }
     },
     {
-      "rank": 5,
+      "rank": 9,
       "name_jp": "飯塚 亮賀",
       "name_romaji": "Iizuka Ryoga",
       "stage_name": "RYOGA",
@@ -200,9 +212,10 @@
         "p2": 11,
         "rc1": 12,
         "rc2": 8,
-        "rc3": 5
+        "rc3": 5,
+        "rcF": 9
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "C",
       "re_evaluation": "F",
@@ -226,7 +239,7 @@
       }
     },
     {
-      "rank": 6,
+      "rank": 3,
       "name_jp": "パク・シヨン",
       "name_romaji": "Park Siyoung",
       "stage_name": "SIYOUNG",
@@ -236,9 +249,10 @@
         "p2": 5,
         "rc1": 6,
         "rc2": 6,
-        "rc3": 6
+        "rc3": 6,
+        "rcF": 3
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "A",
       "re_evaluation": "A",
@@ -259,7 +273,7 @@
       }
     },
     {
-      "rank": 7,
+      "rank": 13,
       "name_jp": "チェン・リッキー",
       "name_romaji": "Chen Rickey",
       "stage_name": "RICKEY",
@@ -269,7 +283,8 @@
         "p2": 28,
         "rc1": 25,
         "rc2": 13,
-        "rc3": 7
+        "rc3": 7,
+        "rcF": 13
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -295,7 +310,7 @@
       }
     },
     {
-      "rank": 8,
+      "rank": 6,
       "name_jp": "柳谷 伊冴",
       "name_romaji": "Yanagiya Issa",
       "stage_name": "ISSA",
@@ -305,9 +320,10 @@
         "p2": 37,
         "rc1": 19,
         "rc2": 11,
-        "rc3": 8
+        "rc3": 8,
+        "rcF": 6
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "C",
       "re_evaluation": "C",
@@ -331,7 +347,7 @@
       }
     },
     {
-      "rank": 9,
+      "rank": 5,
       "name_jp": "後藤 結",
       "name_romaji": "Goto Yuki",
       "stage_name": "YUKI",
@@ -341,9 +357,10 @@
         "p2": 17,
         "rc1": 17,
         "rc2": 16,
-        "rc3": 9
+        "rc3": 9,
+        "rcF": 5
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "D",
       "re_evaluation": "C",
@@ -367,7 +384,7 @@
       }
     },
     {
-      "rank": 10,
+      "rank": 1,
       "name_jp": "加藤 大樹",
       "name_romaji": "Kato Daiki",
       "stage_name": "K.DAIKI",
@@ -377,9 +394,10 @@
         "p2": 2,
         "rc1": 1,
         "rc2": 1,
-        "rc3": 10
+        "rc3": 10,
+        "rcF": 1
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "B",
       "re_evaluation": "A",
@@ -403,7 +421,7 @@
       }
     },
     {
-      "rank": 11,
+      "rank": 15,
       "name_jp": "熊部 拓斗",
       "name_romaji": "Kumabe Takuto",
       "stage_name": "K.TAKUTO",
@@ -413,7 +431,8 @@
         "p2": 9,
         "rc1": 9,
         "rc2": 15,
-        "rc3": 11
+        "rc3": 11,
+        "rcF": 15
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -439,7 +458,7 @@
       }
     },
     {
-      "rank": 12,
+      "rank": 10,
       "name_jp": "杉山 竜司",
       "name_romaji": "Sugiyama Ryuji",
       "stage_name": "RYUJI",
@@ -449,9 +468,10 @@
         "p2": 25,
         "rc1": 23,
         "rc2": 10,
-        "rc3": 12
+        "rc3": 12,
+        "rcF": 10
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "A",
       "re_evaluation": "B",
@@ -475,7 +495,7 @@
       }
     },
     {
-      "rank": 13,
+      "rank": 14,
       "name_jp": "土田 央修",
       "name_romaji": "Tsuchida Osuke",
       "stage_name": "OSUKE",
@@ -485,7 +505,8 @@
         "p2": 14,
         "rc1": 13,
         "rc2": 12,
-        "rc3": 13
+        "rc3": 13,
+        "rcF": 14
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -511,7 +532,7 @@
       }
     },
     {
-      "rank": 14,
+      "rank": 12,
       "name_jp": "濱田 永遠",
       "name_romaji": "Hamada Towa",
       "stage_name": "TOWA",
@@ -521,9 +542,10 @@
         "p2": 16,
         "rc1": 15,
         "rc2": 14,
-        "rc3": 14
+        "rc3": 14,
+        "rcF": 12
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "B",
       "re_evaluation": "B",
@@ -547,7 +569,7 @@
       }
     },
     {
-      "rank": 15,
+      "rank": 7,
       "name_jp": "小野 慶人",
       "name_romaji": "Ono Keito",
       "stage_name": "KEITO",
@@ -557,9 +579,10 @@
         "p2": 15,
         "rc1": 16,
         "rc2": 18,
-        "rc3": 15
+        "rc3": 15,
+        "rcF": 7
       },
-      "debuted": false,
+      "debuted": true,
       "ongoing_rank": true,
       "level_test": "D",
       "re_evaluation": "C",
@@ -583,7 +606,7 @@
       }
     },
     {
-      "rank": 16,
+      "rank": 21,
       "name_jp": "青沼 昂史朗",
       "name_romaji": "Aonuma Koshiro",
       "stage_name": "KOSHIRO",
@@ -593,7 +616,8 @@
         "p2": 27,
         "rc1": 26,
         "rc2": 19,
-        "rc3": 16
+        "rc3": 16,
+        "rcF": 21
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -619,7 +643,7 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 18,
       "name_jp": "岡田 侑磨",
       "name_romaji": "Okada Yuma",
       "stage_name": "YUMA",
@@ -629,7 +653,8 @@
         "p2": 48,
         "rc1": 39,
         "rc2": 32,
-        "rc3": 17
+        "rc3": 17,
+        "rcF": 18
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -655,7 +680,7 @@
       }
     },
     {
-      "rank": 18,
+      "rank": 22,
       "name_jp": "小林 千悟",
       "name_romaji": "Kobayashi Chisato",
       "stage_name": "CHISATO",
@@ -665,7 +690,8 @@
         "p2": 23,
         "rc1": 27,
         "rc2": 26,
-        "rc3": 18
+        "rc3": 18,
+        "rcF": 22
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -701,7 +727,8 @@
         "p2": 7,
         "rc1": 10,
         "rc2": 21,
-        "rc3": 19
+        "rc3": 19,
+        "rcF": 19
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -727,7 +754,7 @@
       }
     },
     {
-      "rank": 20,
+      "rank": 16,
       "name_jp": "倉橋 吾槙",
       "name_romaji": "Kurahashi Goten",
       "stage_name": "GOTEN",
@@ -737,7 +764,8 @@
         "p2": 13,
         "rc1": 11,
         "rc2": 28,
-        "rc3": 20
+        "rc3": 20,
+        "rcF": 16
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -763,7 +791,7 @@
       }
     },
     {
-      "rank": 21,
+      "rank": 17,
       "name_jp": "ユ・ヒョンスン",
       "name_romaji": "Yu Hyeonseung",
       "stage_name": "HYEONSEUNG",
@@ -773,7 +801,8 @@
         "p2": 10,
         "rc1": 8,
         "rc2": 9,
-        "rc3": 21
+        "rc3": 21,
+        "rcF": 17
       },
       "debuted": false,
       "ongoing_rank": true,
@@ -797,7 +826,7 @@
       "global_ranker": true
     },
     {
-      "rank": 22,
+      "rank": 23,
       "name_jp": "田中 蒔",
       "name_romaji": "Tanaka Maki",
       "stage_name": "MAKI",
@@ -833,7 +862,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 20,
       "name_jp": "小清水 蓮",
       "name_romaji": "Koshimizu Ren",
       "stage_name": "KO.REN",
@@ -843,7 +872,8 @@
         "p2": 12,
         "rc1": 14,
         "rc2": 20,
-        "rc3": 23
+        "rc3": 23,
+        "rcF": 20
       },
       "debuted": false,
       "ongoing_rank": true,
