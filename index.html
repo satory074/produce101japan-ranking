@@ -76,7 +76,7 @@
     .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); background-size: 200% 100%; animation: shimmer 2s linear infinite; }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 min-h-screen pb-14">
 
   <!-- HERO -->
   <header class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white">
@@ -166,10 +166,19 @@
       </div>
       <div class="border-t border-gray-700 pt-4 text-xs text-gray-500">
         <p>このサイトはファンが制作した非公式のリファレンスサイトです。番組・出演者・楽曲等の権利は LAPONE Entertainment / CJ ENM / 吉本興業 等の権利者に帰属します。画像は公式CDNを参照しているため、表示できない場合や提供元の都合で停止する場合があります。</p>
-        <p class="mt-2"><a class="hover:underline" href="https://github.com/satory074/produce101japan-ranking" target="_blank" rel="noopener">GitHub Repository</a> · <a class="hover:underline" href="https://satory074.com/apps/" target="_blank" rel="noopener">アプリ一覧へ</a> · Last data update: <span id="last-updated">—</span></p>
+        <p class="mt-2"><a class="hover:underline" href="https://github.com/satory074/produce101japan-ranking" target="_blank" rel="noopener">GitHub Repository</a> · Last data update: <span id="last-updated">—</span></p>
       </div>
     </div>
   </footer>
+
+  <!-- サイト間ナビ: 画面下端に常駐する控えめな逆リンクバー（→ satory074.com/apps） -->
+  <nav aria-label="サイト間ナビゲーション" class="fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/85 backdrop-blur" style="padding-bottom: env(safe-area-inset-bottom)">
+    <div class="max-w-7xl mx-auto px-4 h-9 flex items-center justify-center">
+      <a href="https://satory074.com/apps/" target="_blank" rel="noopener" aria-label="satory074 のほかのアプリ一覧を新しいタブで開く" class="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900 transition-colors">
+        satory074 のほかのアプリ <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </nav>
 
   <script src="./assets/app.js?v=20260529-seo"></script>
 </body>
