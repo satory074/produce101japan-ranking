@@ -74,6 +74,8 @@
     .card-debuted { box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.5), 0 10px 25px -10px rgba(250, 204, 21, 0.6); }
     @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
     .shimmer { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); background-size: 200% 100%; animation: shimmer 2s linear infinite; }
+    /* 固定バックリンクバーがページ内アンカーの飛び先を隠さないように */
+    html { scroll-padding-bottom: calc(48px + env(safe-area-inset-bottom)); }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 min-h-screen pb-[calc(48px+env(safe-area-inset-bottom))]">
@@ -174,7 +176,7 @@
   <!-- サイト間ナビ: 画面下端に常駐する控えめな逆リンクバー（→ satory074.com/apps） -->
   <nav aria-label="サイト間ナビゲーション" class="app-backlink-bar fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/90 backdrop-blur" style="padding-bottom: env(safe-area-inset-bottom)">
     <div class="mx-auto px-4 h-9 flex items-center justify-center">
-      <a href="https://satory074.com/apps/" target="_blank" rel="noopener" aria-label="satory074 のほかのアプリ一覧を新しいタブで開く" class="inline-flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900 transition-colors">
+      <a href="https://satory074.com/apps/" target="_blank" rel="noopener" aria-label="satory074 のほかのアプリ一覧を新しいタブで開く" class="inline-flex h-full items-center gap-1 px-3 text-xs text-gray-600 hover:text-gray-900 transition-colors">
         satory074 のほかのアプリ <span aria-hidden="true">↗</span>
       </a>
     </div>
