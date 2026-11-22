@@ -4,23 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="no-referrer" />
-  <title>PRODUCE 101 JAPAN 全シリーズ・ランキング一覧</title>
-  <meta name="description" content="PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキング・順位推移を横断的に可視化。初期評価から最終回までの軌跡グラフと、シーズンを跨いだ軌跡類似度検索が利用できます。" />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
-  <link rel="canonical" href="https://satory074.github.io/produce101japan-ranking/" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#ec4899" />
 
-  <!-- JSON-LD: WebSite -->
+  <!-- build:meta — title / description / canonical / JSON-LD / OG / Twitter は scripts/build-pages.mjs が書く。手で直さない -->
+  <title>PRODUCE 101 JAPAN 全シリーズ・ランキング一覧</title>
+  <meta name="description" content="PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキング・順位推移を横断的に可視化。初期評価から最終回までの軌跡グラフと、シーズンを跨いだ軌跡類似度検索が利用できます。" />
+  <link rel="canonical" href="https://satory074.github.io/produce101japan-ranking/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://satory074.github.io/produce101japan-ranking/#website",
     "name": "PRODUCE 101 JAPAN 全シリーズ・ランキング一覧",
     "alternateName": "PRODUCE 101 JAPAN All Series Ranking",
     "url": "https://satory074.github.io/produce101japan-ranking/",
     "inLanguage": "ja",
-    "description": "PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキング・順位推移を横断的に可視化。シーズン跨ぎの軌跡類似度検索も提供。"
+    "description": "PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) の練習生ランキング・順位推移を横断的に可視化。シーズン跨ぎの軌跡類似度検索も提供。",
+    "author": {
+      "@type": "Person",
+      "@id": "https://satory074.com/#person",
+      "name": "satory074",
+      "url": "https://satory074.com/"
+    }
   }
   </script>
 
@@ -40,6 +49,7 @@
   <meta name="twitter:title" content="PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" />
   <meta name="twitter:description" content="JO1 / INI / ME:I / SHINSEKAI の練習生ランキング・順位推移を横断的に可視化。" />
   <meta name="twitter:image" content="https://satory074.github.io/produce101japan-ranking/assets/og.png" />
+  <!-- /build:meta -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,7 +88,7 @@
     html { scroll-padding-bottom: calc(48px + env(safe-area-inset-bottom)); }
   </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 min-h-screen pb-[calc(48px+env(safe-area-inset-bottom))]">
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900 min-h-screen pb-[calc(48px+env(safe-area-inset-bottom))]" data-base="./">
 
   <!-- HERO -->
   <header class="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white">
@@ -115,12 +125,11 @@
           <div class="text-xs sm:text-sm mt-2 font-bold">ME:I</div>
           <div class="text-[10px] sm:text-xs opacity-80 mt-1">11 members debut</div>
         </button>
-        <button data-jump="shinsekai" class="group bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-left transition-all hover:-translate-y-1 ring-1 ring-white/20 relative overflow-hidden">
-          <div class="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-bl-lg animate-pulse-slow">ON AIR</div>
+        <button data-jump="shinsekai" class="group bg-white/15 hover:bg-white/25 backdrop-blur-sm rounded-xl p-4 sm:p-5 text-left transition-all hover:-translate-y-1 ring-1 ring-white/20">
           <div class="font-display text-xs opacity-80">2026</div>
           <div class="font-display text-lg sm:text-xl font-black mt-1">SHINSEKAI</div>
-          <div class="text-xs sm:text-sm mt-2 font-bold">新世界</div>
-          <div class="text-[10px] sm:text-xs opacity-80 mt-1">放送中</div>
+          <div class="text-xs sm:text-sm mt-2 font-bold">KO1KEYZ</div>
+          <div class="text-[10px] sm:text-xs opacity-80 mt-1">12 members debut</div>
         </button>
       </div>
     </div>
@@ -130,28 +139,55 @@
   <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur-sm shadow-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="flex overflow-x-auto scrollbar-hide" role="tablist" id="tab-list">
-        <button id="tab-btn-season1" data-tab="season1" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s1-700 transition-colors" role="tab" aria-selected="false" aria-controls="season1" tabindex="-1">
+        <a href="./season1/" id="tab-btn-season1" data-tab="season1" data-title="SEASON 1 (JO1) 順位一覧 - PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s1-700 transition-colors" role="tab" aria-selected="true" aria-controls="season1" tabindex="0">
           <span class="font-display">SEASON 1</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">JO1</span>
-        </button>
-        <button id="tab-btn-season2" data-tab="season2" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s2-700 transition-colors" role="tab" aria-selected="false" aria-controls="season2" tabindex="-1">
+        </a>
+        <a href="./season2/" id="tab-btn-season2" data-tab="season2" data-title="SEASON 2 (INI) 順位一覧 - PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s2-700 transition-colors" role="tab" aria-selected="false" aria-controls="season2" tabindex="-1">
           <span class="font-display">SEASON 2</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">INI</span>
-        </button>
-        <button id="tab-btn-thegirls" data-tab="thegirls" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s3-700 transition-colors" role="tab" aria-selected="false" aria-controls="thegirls" tabindex="-1">
+        </a>
+        <a href="./thegirls/" id="tab-btn-thegirls" data-tab="thegirls" data-title="THE GIRLS (ME:I) 順位一覧 - PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s3-700 transition-colors" role="tab" aria-selected="false" aria-controls="thegirls" tabindex="-1">
           <span class="font-display">THE GIRLS</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">ME:I</span>
-        </button>
-        <button id="tab-btn-shinsekai" data-tab="shinsekai" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s4-700 transition-colors" role="tab" aria-selected="false" aria-controls="shinsekai" tabindex="-1">
-          <span class="font-display">SHINSEKAI</span><span class="ml-2 inline-flex items-center"><span class="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse-slow"></span></span>
-        </button>
+        </a>
+        <a href="./shinsekai/" id="tab-btn-shinsekai" data-tab="shinsekai" data-title="SHINSEKAI (KO1KEYZ) 順位一覧 - PRODUCE 101 JAPAN 全シリーズ・ランキング一覧" class="tab-btn flex-shrink-0 px-4 sm:px-6 py-4 text-sm sm:text-base font-bold border-b-4 border-transparent text-gray-500 hover:text-s4-700 transition-colors" role="tab" aria-selected="false" aria-controls="shinsekai" tabindex="-1">
+          <span class="font-display">SHINSEKAI</span><span class="hidden sm:inline ml-2 text-xs text-gray-400">KO1KEYZ</span>
+        </a>
       </div>
     </div>
   </nav>
 
   <!-- MAIN -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-    <div id="season1" class="season-panel" role="tabpanel" aria-labelledby="tab-btn-season1"></div>
-    <div id="season2" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-season2"></div>
-    <div id="thegirls" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-thegirls"></div>
-    <div id="shinsekai" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-shinsekai"></div>
+    <!-- build:summary -->
+    <section id="series-summary" data-static-summary class="mb-8" aria-labelledby="series-summary-title">
+      <h2 id="series-summary-title" class="text-xl font-black mb-4">シリーズ一覧</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <article class="rounded-xl bg-white ring-1 ring-gray-200 p-4">
+          <h3 class="font-bold"><a class="text-s1-700 hover:underline" href="./season1/">SEASON 1 (JO1) 順位一覧</a></h3>
+          <p class="text-sm text-gray-600 mt-1">2019年放送 / 練習生 101 名 / デビュー組 JO1 (11 名)</p>
+          <p class="text-sm text-gray-700 mt-2">デビューメンバー (最終順位): 1位 豆原 一成、2位 川尻 蓮、3位 川西 拓実、4位 大平 祥生、5位 鶴房 汐恩、6位 白岩 瑠姫、7位 佐藤 景瑚、8位 木全 翔也、9位 河野 純喜、10位 金城 碧海、11位 與那城 奨</p>
+        </article>
+        <article class="rounded-xl bg-white ring-1 ring-gray-200 p-4">
+          <h3 class="font-bold"><a class="text-s2-700 hover:underline" href="./season2/">SEASON 2 (INI) 順位一覧</a></h3>
+          <p class="text-sm text-gray-600 mt-1">2021年放送 / 練習生 101 名 / デビュー組 INI (11 名)</p>
+          <p class="text-sm text-gray-700 mt-2">デビューメンバー (最終順位): 1位 木村 柾哉、2位 髙塚 大夢、3位 田島 将吾、4位 藤牧 京介、5位 尾崎 匠海、6位 西 洸人、7位 松田 迅、8位 許 豊凡、9位 池﨑 理人、10位 佐野 雄大、11位 後藤 威尊</p>
+        </article>
+        <article class="rounded-xl bg-white ring-1 ring-gray-200 p-4">
+          <h3 class="font-bold"><a class="text-s3-700 hover:underline" href="./thegirls/">THE GIRLS (ME:I) 順位一覧</a></h3>
+          <p class="text-sm text-gray-600 mt-1">2023年放送 / 練習生 99 名 / デビュー組 ME:I (11 名)</p>
+          <p class="text-sm text-gray-700 mt-2">デビューメンバー (最終順位): 1位 笠原 桃奈、2位 村上 璃杏、3位 高見 文寧、4位 櫻井 美羽、5位 山本 すず、6位 佐々木 心菜、7位 飯田 栞月、8位 清水 恵子、9位 石井 蘭、10位 海老原 鼓、11位 加藤 心</p>
+        </article>
+        <article class="rounded-xl bg-white ring-1 ring-gray-200 p-4">
+          <h3 class="font-bold"><a class="text-s4-700 hover:underline" href="./shinsekai/">SHINSEKAI (KO1KEYZ) 順位一覧</a></h3>
+          <p class="text-sm text-gray-600 mt-1">2026年放送 / 練習生 101 名 / デビュー組 KO1KEYZ (12 名)</p>
+          <p class="text-sm text-gray-700 mt-2">デビューメンバー (最終順位): 1位 加藤 大樹、2位 矢田 佳暉、3位 パク・シヨン、4位 オ・シンヘン、5位 後藤 結、6位 柳谷 伊冴、7位 小野 慶人、8位 安部 結蘭、9位 飯塚 亮賀、10位 杉山 竜司、11位 照井 康祐、12位 濱田 永遠</p>
+        </article>
+      </div>
+    </section>
+    <!-- /build:summary -->
+    <div id="season1" class="season-panel" role="tabpanel" aria-labelledby="tab-btn-season1"><!-- build:panel:season1 --><!-- /build:panel:season1 --></div>
+    <div id="season2" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-season2"><!-- build:panel:season2 --><!-- /build:panel:season2 --></div>
+    <div id="thegirls" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-thegirls"><!-- build:panel:thegirls --><!-- /build:panel:thegirls --></div>
+    <div id="shinsekai" class="season-panel hidden" role="tabpanel" aria-labelledby="tab-btn-shinsekai"><!-- build:panel:shinsekai --><!-- /build:panel:shinsekai --></div>
   </main>
 
   <!-- FOOTER -->
@@ -182,6 +218,6 @@
     </div>
   </nav>
 
-  <script src="./assets/app.js?v=20260529-seo"></script>
+  <script src="./assets/app.js?v=20261122-pages"></script>
 </body>
 </html>

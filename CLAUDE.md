@@ -4,13 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository purpose
 
-非公式の PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) ランキング横断閲覧サイト。GitHub Pages から `main` ブランチ直下を配信。**ビルド工程なし**。
+非公式の PRODUCE 101 JAPAN 全シリーズ (JO1 / INI / ME:I / SHINSEKAI) ランキング横断閲覧サイト。GitHub Pages から `main` ブランチ直下を配信 (legacy の branch 配信、`build_type: legacy`、source `main` `/`)。**Pages 側のビルド工程なし** — ただしシーズン別ページ・トップのメタ・サイトマップは `scripts/build-pages.mjs` が書き出して **commit する** (§ページ生成)。
+
+公開 URL は 5 つ: トップ `/produce101japan-ranking/` と、シーズン別 `/season1/` `/season2/` `/thegirls/` `/shinsekai/` (どれも末尾 `/`)。
 
 ## Dev / deploy commands
 
 ```bash
+# data/*.json か index.html (全ページの型) を直したら必ず流す → 出力も commit
+node scripts/build-pages.mjs            # index.html の build 区間 + season*/ thegirls/ shinsekai/ + sitemap.xml
+node scripts/seo-check.mjs . https://satory074.github.io/produce101japan-ranking/ --require-backlink
+
 # ローカル起動 (静的ファイル配信のみ)
-python3 -m http.server -d . 8000        # → http://localhost:8000/
+python3 -m http.server -d . 8000        # → http://localhost:8000/ (相対パスなので / 直下でも動く)
 
 # GitHub Pages へのデプロイ
 git push origin main                     # main 直下が即 https://satory074.github.io/produce101japan-ranking/
@@ -18,19 +24,24 @@ gh api /repos/satory074/produce101japan-ranking/pages   # ビルド状態確認 
 gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{status,commit}'  # 期待 commit が反映されたか確認
 ```
 
-テスト・lint・型チェックなし (静的HTML/JS)。
+テスト・lint・型チェックなし (静的HTML/JS)。不変条件の検査は 2 つだけで、`.github/workflows/check-pages.yml` が PR と main への push で走る:
+1. `node scripts/build-pages.mjs` を流し直して `git status` に差分が出ない (= ページが data/*.json とずれていない)
+2. `scripts/seo-check.mjs` (原本は `satory074/basecamp/scripts/seo-check.mjs`、**中身は変えずにコピー**。直すなら原本を直してコピーし直す): title / description の重複なし、canonical = og:url = 自分の URL、サイトマップとページの一致、JSON-LD の作者 `https://satory074.com/#person`、サイト内リンク切れなし、戻りバー `app-backlink-bar` が静的 HTML にある
 
-**実装タスク完了時の wrap-up**: テストや lint が存在しないため、wrap-up は (1) ブラウザでの目視確認 → (2) 必要に応じて CLAUDE.md 更新 → (3) git commit の流れのみ。test runner を探す時間は不要。
+⚠️ **この workflow は deploy を止められない**。Pages は main への push でそのまま配信される (deploy workflow が無い) ので、赤い PR をマージすると壊れたまま公開される。止めたいなら Pages の source を GitHub Actions に切り替えて deploy job をこの検査の後ろに置く (未実施)。
+
+**実装タスク完了時の wrap-up**: (1) `node scripts/build-pages.mjs` → seo-check → (2) ブラウザでの目視確認 (トップ・シーズン別ページ・タブ切替) → (3) 必要に応じて CLAUDE.md 更新 → (4) git commit。test runner を探す時間は不要。
 
 ## 編集ポイント早見表
 
 | やりたいこと | 編集対象 | 該当箇所 |
 |---|---|---|
+| **data/*.json を何か直した** | `node scripts/build-pages.mjs` | シーズン別ページの順位表とトップの「シリーズ一覧」が JSON から書き直される。出力も commit (忘れると CI が落ちる) |
 | 画像が大量に切れた | `data/<season>.json` | トップレベル `image_url_template` を新 CDN パスに更新 |
 | 順位発表回を追加 | `data/<season>.json` | `ranking_milestones` 末尾に新エントリ追加 + 各 trainee の `rank_history` に値追記 + `trainees[].rank` を最新値に同期 |
 | 類似度の重みを調整 | `assets/app.js` | `trajectoryDistance` のデフォルト引数 (`slopeAlpha` / `overlapPenalty` / `minOverlap` / `minRequired`) |
 | 折れ線チャートの色を増やす | `assets/app.js` | `CHART_COLORS` 配列 (現状 6 色 × dash 2 = 12 通り) |
-| 新シーズンタブを追加 | 3 ファイル | `data/<new>.json` 新設 + `index.html` の `.season-panel` 追加 + Tailwind config の `s5` カラー定義 + `app.js` の `init()` 内 fetch リスト |
+| 新シーズンタブを追加 | 4 ファイル | `data/<new>.json` 新設 + `index.html` のタブ (`<a href="./<new>/" id="tab-btn-<new>" data-tab="<new>" data-title="" …>`) と `.season-panel` (`<!-- build:panel:<new> --><!-- /build:panel:<new> -->` を中に置く) 追加 + Tailwind config の `s5` カラー定義 + `app.js` の `SEASON_FILES` / `SEASON_CONFIG` / `PROFILE_URL_TEMPLATE` + `scripts/build-pages.mjs` の `SEASONS` / `PROFILE_URL_TEMPLATE`。最後に `node scripts/build-pages.mjs` (`<new>/index.html` とサイトマップが増える) |
 | 練習生 1 名だけ修正 | `data/<season>.json` | `trainees[]` 該当要素の必要フィールドだけ更新 (シーズンによりスキーマ差あり、§データスキーマ参照) |
 | SHINSEKAI 毎週更新 | `data/shinsekai.json` | §SHINSEKAI 更新運用 参照 |
 | デビュー人数を 11 以外に (例: SHINSEKAI=12) | `data/<season>.json` | トップレベル `debut_count` を追加 (省略時 11)。`app.js` 全体に `debutCap` として propagate される |
@@ -38,7 +49,8 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 | 新しい評価ステージを追加 (例: 新世界の position battle) | 2 ファイル | `data/<season>.json` の trainees[] に optional フィールド追加 + `app.js` で `formatXxxLine()` + `FIXED_HISTORY_COLS` + `fixedHistoryRowCells()` 拡張 |
 | グル / ポジ の team 表示ルールを変える | `assets/app.js` | `formatTeamLabel(team)` を編集 (現在: `^\d+$` のみ「N組」変換、他はパススルー) |
 | カードのコンパクト/詳細グリッド列数を調整 | `assets/app.js` | `COMPACT_GRID_CLS` / `DETAILED_GRID_CLS` 定数 (それぞれ Tailwind grid-cols-* 文字列) |
-| `app.js` 更新後にブラウザキャッシュを無効化 | `index.html` | 末尾の `<script src="./assets/app.js?v=...">` の `v=` を新値に更新 |
+| `app.js` 更新後にブラウザキャッシュを無効化 | `index.html` | 末尾の `<script src="./assets/app.js?v=...">` の `v=` を新値に更新 → `node scripts/build-pages.mjs` (シーズン別ページにも同じ値が入る) |
+| ページの title / description / JSON-LD を変える | `scripts/build-pages.mjs` | トップは `ROOT_META`、シーズン別は `seasonTitle()` / `description()` / `seasonMeta()`。`index.html` の `<!-- build:meta -->` 区間は上書きされるので手で直さない |
 | OG 画像 (`assets/og.png` 1200×630) を再生成 | `assets/og.png` | 軽微な書き換えなら直接 PNG を差し替え。レイアウト変更時は `uv run --no-project --with Pillow python3 …` で再描画する (生成スクリプト本体は commit c8a95cd の中身を参照)。`index.html` の `og:image` URL は固定なので画像差し替えだけで OK |
 | favicon を変更 | `assets/favicon.svg` | グラデーション + テキストのインライン SVG。PNG フォールバックは置いていない (モダンブラウザのみ対象) |
 
@@ -48,12 +60,17 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
 
 1. **データ層 (`data/*.json`)**: シーズン1本につき1ファイル。`season1.json` / `season2.json` / `thegirls.json` / `shinsekai.json`。トップレベルに `image_url_template` を持ち、これが各シーズンで異なる公式CDNを指す (Season 1 は `web-m.webcdn.stream.ne.jp`、Season 2 は `2nd.produce101.jp`、THE GIRLS は `3rd.produce101.jp`、SHINSEKAI は `produce101.jp` 配下、ランダムトークン入りパスを含む)。**画像URLが切れた場合はこの template を更新するだけで全員分が直る。**
 
-2. **ビュー層 (`index.html`)**: Tailwind CDN + Google Fonts (Noto Sans JP / Orbitron) のみで完結。タブのDOM (`.season-panel`) とヘッダのジャンプボタン (`[data-jump]`) だけ静的に配置し、中身は JS が描画する。Tailwind config は inline `<script>` で `s1`〜`s4` のシーズン別カラーを拡張定義 (SEASON 1=orange / SEASON 2=blue / THE GIRLS=pink / SHINSEKAI=purple)。末尾の `<script src="./assets/app.js?v=...">` の `?v=` はキャッシュバスタ — GitHub Pages の CDN とブラウザキャッシュが古い `app.js` を返すケースがあるため、`app.js` を変更した際はこの値も更新する (date ベース or 短いタグ)。
+2. **ビュー層 (`index.html` = 全 5 ページの型)**: Tailwind CDN + Google Fonts (Noto Sans JP / Orbitron) のみで完結。タブ (`<a role="tab">`、各シーズンページへの本物のリンク) とパネル (`.season-panel`)、ヘッダのジャンプボタン (`[data-jump]`) を静的に配置し、中身は JS が描画し直す (§ページ生成)。Tailwind config は inline `<script>` で `s1`〜`s4` のシーズン別カラーを拡張定義 (SEASON 1=orange / SEASON 2=blue / THE GIRLS=pink / SHINSEKAI=purple)。末尾の `<script src="./assets/app.js?v=...">` の `?v=` はキャッシュバスタ — GitHub Pages の CDN とブラウザキャッシュが古い `app.js` を返すケースがあるため、`app.js` を変更した際はこの値も更新する (date ベース or 短いタグ)。
    - **アクセシビリティ不変条件** (これらが壊れていれば必ず直す): メインタブは `role="tab"` + `aria-controls` + `aria-selected` を持ち、`activateTab()` が状態を同期 (パネル側も `role="tabpanel"` + `aria-hidden`)。`#tab-list` には ArrowLeft/Right/Home/End キーナビが束ねられる。類似度モーダル (`.similar-modal-panel`) は `role="dialog" aria-modal="true" aria-labelledby="similar-modal-title"`、`openSimilarityModal()` が呼び出し元要素を保存し閉じる際に focus を戻す。`bindSimilarityModalEvents()` で Tab/Shift+Tab を panel 内ループに制約 (focus trap)、open 直後に `.modal-close` へ rAF + setTimeout で二重スケジュールし focus 移動。検索系 input には `aria-label` を必ず付ける。
-   - **SEO/共有メタ**: `<head>` に Open Graph 9 種 + Twitter Card 4 種 + favicon SVG。`og:image` は `assets/og.png` (1200×630)。タイトル/説明はファンサイトの独自機能 (シーズン横断の軌跡比較) を明示する文言にしてあるため、改修時は機能訴求を残す。
+   - **SEO/共有メタ**: `<head>` の `<!-- build:meta -->` 区間 (title・description・canonical・robots・JSON-LD・Open Graph 9 種・Twitter Card 4 種) は `scripts/build-pages.mjs` がページごとに書く。canonical = og:url = そのページの絶対 URL。`og:image` は全ページ共通の `assets/og.png` (1200×630)。JSON-LD はトップが `WebSite` (`@id …/#website`)、シーズン別が `WebPage` (`isPartOf` → `#website`)、どちらも `author` = `{"@type":"Person","@id":"https://satory074.com/#person",…}` (satory074.com 側で定義している Person)。トップのタイトル/説明はファンサイトの独自機能 (シーズン横断の軌跡比較) を明示する文言にしてあるため、改修時は機能訴求を残す。
+   - `sitemap.xml` (5 URL、名前空間 `http://www.sitemaps.org/schemas/sitemap/0.9`) も `build-pages.mjs` が書く。以前は `sitemap.org` (s 抜け) で無効だった。`robots.txt` は手書きのまま (全許可 + Sitemap 行)。
 
 3. **コントローラ層 (`assets/app.js`)**:
-   - `init()` → 4本のJSONを `Promise.all` で並列fetch → `buildPanel()` で各タブのDOM生成。
+   - `init()` → 4本のJSONを `Promise.all` で並列fetch → `buildPanel()` で各タブのDOM生成。シーズン別ページでも 4 本とも読む (類似軌跡検索がシーズンを跨ぐため)。
+   - **パスの起点**: `<body data-base="./">` (トップ) / `data-base="../"` (シーズン別) を `SITE_ROOT` (絶対 URL) にして、`SEASON_FILES` (data/*.json) とタブの href をそこから作る。`<base>` は `#` アンカーを壊すので使わない。タブ切替で URL を書き換えると相対パスの起点が変わるので、読み込み時点で絶対 URL にしている。
+   - **表示するシーズン**: `<body data-season>` (シーズン別ページ) → トップなら旧形式の `#season2` などのハッシュ → どちらも無ければ `season1`。旧ハッシュで開かれたときは、そのシーズンに切り替えて URL を `/season2/` に書き換える (以前共有されたリンクを生かす)。
+   - **タブ切替** (`activateTab()`): ページ遷移はせずパネルを切り替え、`history.replaceState` で URL を `/<season>/` に、`document.title` をタブの `data-title` (= そのシーズンページの `<title>`、build-pages.mjs が書く) にする。履歴は積まない (以前の `#season1` 書き換えと同じ)。Cmd/Ctrl/中クリックはブラウザに任せる (新しいタブでシーズンページが開く)。タブが `<a>` なので Space での選択は `#tab-list` の keydown で受ける。初期表示では URL も title も変えない。
+   - トップの「シリーズ一覧」(`[data-static-summary]`) は `init()` が消す (JS が動く画面は以前と同じタブ表示)。
    - 画像URLは `buildImageUrl(template, trainee)` が `image_url_template` 優先、未定義なら `DEFAULT_IMAGE_TEMPLATE[panelId]` にフォールバック。
    - 画像読み込み失敗時は `<img onerror>` で `display:none` にし、親 div が描画する1文字イニシャルが代替表示される (Tailwindユーティリティのみで実装、CSSファイルなし)。
    - 検索・絞り込みは各カードの `data-name` / `data-rank` 属性を見て `style.display` を切り替えるだけのDOM操作。カードにはさらに `data-iid` / `data-season` も付与されており、`buildPanel()` 内の grid 委譲クリックハンドラがこれを読んで `openSimilarityModal()` を起動する (= 練習生一覧サブタブのカードクリックで類似度モーダルが開く)。`closest('a')` ガードで名前リンク (公式プロフィール) のクリックは除外。
@@ -68,6 +85,18 @@ gh api /repos/satory074/produce101japan-ranking/pages/builds/latest --jq '{statu
      - **deconflictLabels()**: メインチャートからは外したが、類似度オーバーレイチャートのエンドポイントラベル衝突回避で再活用中 (forward/backward pass 実装)。
      - **類似軌跡検索**: 各ピッカー行の「類似」ボタン または 練習生一覧カードのクリックでモーダル起動。実装詳細は §類似軌跡検索 参照。
    - **公式プロフィールリンク**: `PROFILE_URL_TEMPLATE` でシーズン別に URL テンプレを保持し、3 ビュー (カード / 順位推移表 / グラフ picker) から `buildProfileUrl(seasonId, imageId)` 経由で新タブリンクを生成。**シーズン毎に URL 構造が違う** (S1: `/profile/?id=…` / S2: `/profile/{image_id}` パスベース / THE GIRLS・SHINSEKAI: `/profile/detail/?id=…` SPA ルート)。新シーズン追加時は必ず公式サイトトップから個別ページに飛んで実際の URL を確認すること。
+
+## ページ生成 (`scripts/build-pages.mjs`)
+
+JavaScript を実行しないクローラー (GPTBot / ClaudeBot / PerplexityBot 等) にも順位表が読めるよう、シーズン別ページを静的 HTML で持つ。依存なしの Node スクリプトで、**index.html を型にして** 書き出す:
+
+- `index.html` 自身の `<!-- build:meta -->` / `<!-- build:summary -->` 区間とタブの `data-title` / `aria-selected` を書き直す (区間の外は手書きのまま。区間の印が 1 組でなければ止まる)
+- `season1/index.html` など 4 ページ: 型の `href="./` `src="./` を `../` にし、`<body data-base="../" data-season="…">`、そのシーズンのパネルだけ表示して中に **見出し + 全練習生の順位表** (`<!-- build:panel:<season> -->` 区間) を入れる。表の中身は JS の画面に出ている情報だけ (順位・名前・ローマ字・芸名・デビュー・最終得票数・クラス・課題曲 (勝ったときだけ WIN)・各評価/順位発表式の順位)。JS が動くとこの表はいつものカード一覧に置き換わる (`buildPanel()` がパネルを上書き)。JSON の読み込みに失敗したときは `[data-static-panel]` があれば表を残す
+- 表の各行は `id="t-{image_id}"` (image_id の無い THE GIRLS の 3 名は id なし)。JS の画面ではそのシーズンページのカードに同じ id が付き、`#t-…` で開くとカードまでスクロールし直す。**練習生ごとのページは作らない** (中身が薄く公式プロフィールと重なる = 量産ページになるため)
+- トップの「シリーズ一覧」: シーズンごとに放送年・人数・デビュー組とデビューメンバー (最終順位)、シーズンページへのリンク
+- `sitemap.xml`: トップ + 4 シーズン
+
+出力は決定的 (同じ入力なら同じバイト列) なので、CI は流し直して `git status` が空かで判定している。
 
 ## 類似軌跡検索
 
@@ -208,3 +237,5 @@ API はプレーンテキストで「1行目に image_id、2行目以降に各�
 - **チャート色のサイクリング**: 折れ線色は `CHART_COLORS` 6 色 × dash パターン 2 = 12 通りでサイクル。デフォルトが全員選択になったため、13 名以上で色 + ダッシュが重複する。これは仕様上のトレードオフ (絞り込み前提)。
 - **公式プロフィールページの URL 構造変更**: `PROFILE_URL_TEMPLATE` の 4 シーズン分の URL は公式サイト改修で個別に壊れる可能性がある (実例: `3rd.produce101.jp` と `produce101.jp` は `/profile/?id=…` を 403 で拒否し、`/profile/detail/?id=…` のみ受ける)。**検証は必ず Chrome 等のブラウザで実機 navigate すること** — 新サイト (3rd / produce101.jp) は curl / Python の HTTP クライアントには一律 403 を返す SPA で、サーバーサイドレンダリングしないため、HTTP ステータスだけでは有効性を判定できない。実機検証では SPA レンダリング完了まで数秒待ち、`document.body.innerText` に練習生名が含まれているかで確認する。
 - **評価アトリビュートは AI 自動取り込み**: `level_test_team` / `group_battle` / `position_battle` / `concept_battle` / `debut_evaluation` は番組放送と fan blog (shironana.com, imokorori.com, ameblo, oshi-2.com, starworldtrend, ainomura, globalpop-trend, cakcp.com 等) から AI 並列ジョブで取り込んだ。**チーム名 ↔ 曲名の取り違えが過去に発生した実例あり** (e.g., 当初 THE GIRLS のコンセプト評価で `song` フィールドにチーム名 `NALALA` が入っていた)。新規取り込み時は cakcp.com 等の歌詞 URL の `<曲名>（<チーム名>）` 表記で照合するのが最も確実。各シーズンの正本ソース URL は `git log -- data/<season>.json` で当時のコミットメッセージから辿れる。
+
+- **SHINSEKAI の 94 位は 2 人 (児島歩夢・関敬次郎) で正しい**: 第 1 回順位発表 (2026-04-23) の公式発表が同率 94 位で、95 位は欠番 (モデルプレスの全順位で確認、2026-11-22)。重複に見えても直さない。表の行 id は `image_id` なので同率でも重複しない

@@ -33,20 +33,23 @@ function buildProfileUrl(seasonId, imageId) {
   return tpl.replace('{image_id}', encodeURIComponent(imageId));
 }
 
+// ページの置き場所: トップ (/) とシーズン別ページ (/season1/ など) で data/ や assets/ への相対パスが違うので、
+// scripts/build-pages.mjs が <body data-base="./" | "../"> にサイトの根元を書く。<base> は # アンカーを壊すので使わない。
+// タブ切替で URL を書き換える (history.replaceState) と相対パスの起点も変わるため、読み込み時点で絶対 URL にしておく。
+const SITE_ROOT = new URL(document.body?.dataset.base || './', location.href);
+// シーズン別ページなら <body data-season="season1"> (トップには無い)
+const PAGE_SEASON = document.body?.dataset.season || null;
+const seasonUrl = (key) => new URL(`${key}/`, SITE_ROOT).href;
+
 const SEASON_FILES = {
-  season1:  './data/season1.json',
-  season2:  './data/season2.json',
-  thegirls: './data/thegirls.json',
-  shinsekai:'./data/shinsekai.json',
+  season1:  new URL('data/season1.json', SITE_ROOT).href,
+  season2:  new URL('data/season2.json', SITE_ROOT).href,
+  thegirls: new URL('data/thegirls.json', SITE_ROOT).href,
+  shinsekai:new URL('data/shinsekai.json', SITE_ROOT).href,
 };
 
-const BASE_TITLE = 'PRODUCE 101 JAPAN 全シリーズ・ランキング一覧';
-const SEASON_TITLE = {
-  season1:  'SEASON 1 (JO1) 順位一覧',
-  season2:  'SEASON 2 (INI) 順位一覧',
-  thegirls: 'THE GIRLS (ME:I) 順位一覧',
-  shinsekai:'SHINSEKAI 順位一覧',
-};
+// タブ切替時の document.title は、タブの data-title (= そのシーズンページの <title>。build-pages.mjs が書く) を使う
+const seasonTitle = (key) => document.getElementById(`tab-btn-${key}`)?.dataset.title || '';
 
 const seasonData = {};
 
@@ -1759,8 +1762,11 @@ function traineeCard(trainee, season, urlTemplate, debutCap = 11) {
           title="公式プロフィール: ${nameJp} (新しいタブで開く)">${nameJp}</a>`
     : nameJp;
 
+  // シーズン別ページでは、静的な表の行と同じ id="t-{image_id}" をカードにも付ける (#t-… のリンクが JS の後も効くように)
+  const anchorId = season === PAGE_SEASON && trainee.image_id ? ` id="t-${escapeHtml(trainee.image_id)}"` : '';
+
   return `
-    <article class="trainee-card group relative bg-white rounded-xl overflow-hidden cursor-pointer ${ringCls} hover:shadow-xl transition-all hover:-translate-y-1"
+    <article${anchorId} class="trainee-card group relative bg-white rounded-xl overflow-hidden cursor-pointer ${ringCls} hover:shadow-xl transition-all hover:-translate-y-1"
              data-name="${nameJp.toLowerCase()} ${nameRomaji.toLowerCase()}" data-rank="${trainee.rank ?? 999}"
              data-iid="${escapeHtml(trainee.image_id || '')}" data-season="${escapeHtml(season)}"
              title="クリックで類似軌跡を表示">
@@ -1822,7 +1828,10 @@ function buildPanel(panelId, data) {
   if (!panel) return;
 
   if (!data || !data.trainees) {
-    panel.innerHTML = `<div class="text-center py-20 text-gray-400">データ読み込み失敗</div>`;
+    // シーズン別ページは HTML に順位表が入っているので、読み込みに失敗してもそれを残す
+    if (!panel.querySelector('[data-static-panel]')) {
+      panel.innerHTML = `<div class="text-center py-20 text-gray-400">データ読み込み失敗</div>`;
+    }
     return;
   }
 
@@ -1940,7 +1949,7 @@ function buildPanel(panelId, data) {
   }
 }
 
-function activateTab(target) {
+function activateTab(target, { updateUrl = true } = {}) {
   document.querySelectorAll('.tab-btn').forEach(btn => {
     const isActive = btn.dataset.tab === target;
     btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
@@ -1961,9 +1970,13 @@ function activateTab(target) {
     p.classList.toggle('hidden', !isActive);
     p.setAttribute('aria-hidden', isActive ? 'false' : 'true');
   });
-  const seoLabel = SEASON_TITLE[target];
-  document.title = seoLabel ? `${seoLabel} - ${BASE_TITLE}` : BASE_TITLE;
-  history.replaceState(null, '', `#${target}`);
+  // 切替先のシーズンページの URL と <title> にそろえる (再読み込み・共有で同じシーズンが開く)。
+  // 初期表示 (updateUrl: false) では、開いたページの URL と #t-… アンカーをそのまま残す
+  if (updateUrl) {
+    const title = seasonTitle(target);
+    if (title) document.title = title;
+    history.replaceState(null, '', seasonUrl(target));
+  }
 }
 
 async function loadSeason(key) {
@@ -1976,15 +1989,34 @@ async function loadSeason(key) {
     seasonData[key] = null;
   }
   buildPanel(key, seasonData[key]);
+  // シーズン別ページの #t-{image_id}: 静的な表がカード一覧に置き換わったので、カードへスクロールし直す
+  // (buildPanel が setTimeout で表示モードを当ててグリッドの列数が変わるので、その後に回す)
+  if (key === PAGE_SEASON && location.hash.startsWith('#t-')) {
+    const id = decodeURIComponent(location.hash.slice(1));
+    setTimeout(() => document.getElementById(id)?.scrollIntoView({ block: 'center' }), 0);
+  }
 }
 
 async function init() {
   const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
   tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+    // タブは各シーズンページへの本物のリンク。href は URL 書き換え後も壊れないよう絶対 URL にしておく
+    btn.href = seasonUrl(btn.dataset.tab);
+    btn.addEventListener('click', (e) => {
+      // Cmd/Ctrl/Shift+クリック・中クリックはブラウザに任せる (新しいタブでそのシーズンページを開く)
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      activateTab(btn.dataset.tab);
+    });
   });
   // Tablist の矢印キーナビ (WAI-ARIA Authoring Practices 準拠)
   document.getElementById('tab-list')?.addEventListener('keydown', (e) => {
+    // タブが <a> になったので、Space での選択はここで受ける (Enter はリンクの click として届く)
+    if (e.key === ' ' && e.target.classList?.contains('tab-btn')) {
+      e.preventDefault();
+      activateTab(e.target.dataset.tab);
+      return;
+    }
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) return;
     e.preventDefault();
     const idx = tabBtns.findIndex(b => b === document.activeElement);
@@ -2003,8 +2035,15 @@ async function init() {
     });
   });
 
-  const initial = (location.hash || '#season1').slice(1);
-  activateTab(SEASON_FILES[initial] ? initial : 'season1');
+  // 表示するシーズン: シーズン別ページならそのシーズン。トップでは旧形式の #season2 などを受けて、
+  // そのシーズンに切り替えたうえで URL を /season2/ に書き換える (以前共有されたリンクを生かす)
+  const fromHash = location.hash.slice(1);
+  if (PAGE_SEASON && SEASON_FILES[PAGE_SEASON]) activateTab(PAGE_SEASON, { updateUrl: false });
+  else if (SEASON_FILES[fromHash]) activateTab(fromHash);
+  else activateTab('season1', { updateUrl: false });
+
+  // トップの「シリーズ一覧」は JS なしで読んだとき用の要約 (タブ表示と同じ事実)。JS が動く画面ではいつものタブ表示にする
+  document.querySelector('[data-static-summary]')?.remove();
 
   await Promise.all(Object.keys(SEASON_FILES).map(loadSeason));
 
