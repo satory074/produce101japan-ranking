@@ -11,7 +11,7 @@ PRODUCE 101 JAPAN シリーズ4作品の練習生ランキングをまとめて�
 | SEASON 1 | 2019 | JO1 | https://1st.produce101.jp/rank/ |
 | SEASON 2 | 2021 | INI | https://2nd.produce101.jp/rank/ |
 | THE GIRLS | 2023 | ME:I | https://3rd.produce101.jp/rank/ |
-| SHINSEKAI | 2026 (放送中) | — | https://produce101.jp/rank/index.php |
+| SHINSEKAI | 2026 | KO1KEYZ | https://produce101.jp/rank/index.php |
 
 ## 構成
 
@@ -44,7 +44,7 @@ open http://localhost:8000/
 ## データ更新
 
 - 各シーズンの順位データは `data/*.json` に格納。
-- SHINSEKAI は放送中のため毎週の順位発表後に `data/shinsekai.json` を更新する想定。
+- SHINSEKAI は 2026-06-06 の決勝で終了（デビュー組 KO1KEYZ、12 人）。
 - 練習生画像は各シーズンの公式CDN (Season 1: `web-m.webcdn.stream.ne.jp` / Season 2: `2nd.produce101.jp` / THE GIRLS: `3rd.produce101.jp` / SHINSEKAI: `produce101.jp`) を直リンクしているため、提供元の都合で表示されなくなる場合があります。
 
 ## 免責
