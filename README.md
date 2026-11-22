@@ -17,8 +17,14 @@ PRODUCE 101 JAPAN シリーズ4作品の練習生ランキングをまとめて�
 
 ```
 .
-├── index.html        # 単一ページ (Tailwind CDN)
+├── index.html        # トップ + 全ページの型 (Tailwind CDN)
+├── season1/ season2/ thegirls/ shinsekai/
+│   └── index.html    # シーズン別ページ (scripts/build-pages.mjs が書き出して commit)
+├── sitemap.xml       # 同上
 ├── assets/app.js     # データ読み込み + タブ切替 + 検索フィルタ
+├── scripts/
+│   ├── build-pages.mjs   # data/*.json → シーズン別ページ・トップのメタ・サイトマップ
+│   └── seo-check.mjs     # 検索・AI クローラー向けの不変条件の検査 (satory074/basecamp からのコピー)
 └── data/
     ├── season1.json
     ├── season2.json
@@ -26,7 +32,7 @@ PRODUCE 101 JAPAN シリーズ4作品の練習生ランキングをまとめて�
     └── shinsekai.json
 ```
 
-ビルド工程はありません。`index.html` をそのまま GitHub Pages から配信しています。
+GitHub Pages 側のビルド工程はありません。リポジトリの中身をそのまま配信しています。`data/*.json` や `index.html` を直したら `node scripts/build-pages.mjs` を実行し、出力も commit してください (CI が差分を検出します)。
 
 ## ローカル動作確認
 
